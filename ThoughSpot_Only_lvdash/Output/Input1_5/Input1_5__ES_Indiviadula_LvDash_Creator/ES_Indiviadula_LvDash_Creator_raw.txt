@@ -1,7 +1,1 @@
-The `.lvdash.json` files for the first five visualizations have been successfully generated and uploaded to the GitHub repository in the folder `IndividualJson`. Each file is structured according to the Lakeview schema and aligned with the metric views. The files are named as follows:
-
-1. `vis_1.lvdash.json`
-2. `vis_2.lvdash.json`
-3. `vis_3.lvdash.json`
-4. `vis_4.lvdash.json`
-5. `vis_5.lvdash.json`
+The `.lvdash.json` files for the first five visualizations have been successfully generated and uploaded to the GitHub repository in the folder `IndividualJson`. The files are named `vis_1.lvdash.json`, `vis_2.lvdash.json`, `vis_3.lvdash.json`, `vis_4.lvdash.json`, and `vis_5.lvdash.json`.
