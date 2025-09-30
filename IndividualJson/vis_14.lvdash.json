@@ -1,101 +1,87 @@
 {
-  "datasets": [
-    {
-      "name": "dataset_14",
-      "displayName": "Home Tile Interactions Dataset",
-      "asset_name": "workspace.default.mv_hpx_homepage_summary"
-    }
-  ],
-  "pages": [
-    {
-      "name": "page_14",
-      "displayName": "Home Tile Interactions",
-      "layout": [
-        {
-          "widget": {
-            "name": "widget_14",
-            "queries": [
-              {
-                "name": "main_query",
-                "query": {
-                  "datasetName": "dataset_14",
-                  "fields": [
-                    {
-                      "name": "home_tile",
-                      "expression": "home_tile"
-                    },
-                    {
-                      "name": "unique_tile_views",
-                      "expression": "SUM(unique_tile_views)"
-                    },
-                    {
-                      "name": "unique_tile_clicks",
-                      "expression": "SUM(unique_tile_clicks)"
-                    },
-                    {
-                      "name": "unique_interstitial_views",
-                      "expression": "SUM(unique_interstitial_views)"
-                    },
-                    {
-                      "name": "unique_interstitial_primary_button_clicks",
-                      "expression": "SUM(unique_interstitial_primary_button_clicks)"
-                    },
-                    {
-                      "name": "unique_interstitial_secondary_button_clicks",
-                      "expression": "SUM(unique_interstitial_secondary_button_clicks)"
-                    }
-                  ],
-                  "disaggregated": false
+    "datasets": [
+      {
+        "name": "dataset_14",
+        "displayName": "Home Tile Interactions Dataset",
+        "asset_name": "workspace.default.hpx_events_model_homepage_summary"
+      }
+    ],
+    "pages": [
+      {
+        "name": "page_14",
+        "displayName": "Home Tile Interactions Overview",
+        "layout": [
+          {
+            "widget": {
+              "name": "column_chart_widget",
+              "queries": [
+                {
+                  "name": "main_query",
+                  "query": {
+                    "datasetName": "dataset_14",
+                    "fields": [
+                      { "name": "Home Tile", "expression": "`Home Tile`" },
+                      { "name": "Unique Tile Views", "expression": "MEASURE(`Total Unique Tile Views`)" },
+                      { "name": "Unique Tile Clicks", "expression": "MEASURE(`Total Unique Tile Clicks`)" },
+                      { "name": "Unique Interstitial Views", "expression": "MEASURE(`Total Unique Interstitial Views`)" },
+                      { "name": "Unique Interstitial Primary Button Clicks", "expression": "MEASURE(`Total Unique Interstitial Primary Button Clicks`)" },
+                      { "name": "Unique Interstitial Secondary Button Clicks", "expression": "MEASURE(`Total Unique Interstitial Secondary Button Clicks`)" }
+                    ],
+                    "disaggregated": false
+                  }
+                }
+              ],
+              "spec": {
+                "version": 3,
+                "widgetType": "bar",
+                "encodings": {
+                  "x": {
+                    "fieldName": "Home Tile",
+                    "displayName": "Home Tile",
+                    "scale": { "type": "categorical" }
+                  },
+                  "y": {
+                    "fields": [
+                      {
+                        "fieldName": "Unique Tile Views",
+                        "displayName": "Unique Tile Views"
+                      },
+                      {
+                        "fieldName": "Unique Tile Clicks",
+                        "displayName": "Unique Tile Clicks"
+                      },
+                      {
+                        "fieldName": "Unique Interstitial Views",
+                        "displayName": "Unique Interstitial Views"
+                      },
+                      {
+                        "fieldName": "Unique Interstitial Primary Button Clicks",
+                        "displayName": "Unique Interstitial Primary Button Clicks"
+                      },
+                      {
+                        "fieldName": "Unique Interstitial Secondary Button Clicks",
+                        "displayName": "Unique Interstitial Secondary Button Clicks"
+                      }
+                    ],
+                    "scale": { "type": "quantitative" }
+                  }
+                },
+                "frame": {
+                  "title": "Home Tile Interactions",
+                  "showTitle": true
                 }
               }
-            ],
-            "spec": {
-              "version": 3,
-              "widgetType": "table",
-              "encodings": {
-                "columns": [
-                  {
-                    "fieldName": "home_tile",
-                    "displayName": "Home Tile"
-                  },
-                  {
-                    "fieldName": "unique_tile_views",
-                    "displayName": "Unique Tile Views"
-                  },
-                  {
-                    "fieldName": "unique_tile_clicks",
-                    "displayName": "Unique Tile Clicks"
-                  },
-                  {
-                    "fieldName": "unique_interstitial_views",
-                    "displayName": "Unique Interstitial Views"
-                  },
-                  {
-                    "fieldName": "unique_interstitial_primary_button_clicks",
-                    "displayName": "Unique Interstitial Primary Button Clicks"
-                  },
-                  {
-                    "fieldName": "unique_interstitial_secondary_button_clicks",
-                    "displayName": "Unique Interstitial Secondary Button Clicks"
-                  }
-                ]
-              },
-              "frame": {
-                "title": "Home Tile Interactions",
-                "showTitle": true
-              }
-            }
-          },
-          "position": { "x": 0, "y": 0, "width": 12, "height": 8 }
-        }
-      ],
-      "pageType": "PAGE_TYPE_CANVAS",
-      "filters": []
-    }
-  ],
-  "uiSettings": {
-    "theme": {
-      "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+            },
+            "position": { "x": 0, "y": 0, "width": 12, "height": 8 }
+          }
+        ],
+        "pageType": "PAGE_TYPE_CANVAS",
+        "filters": []
+      }
+    ],
+    "uiSettings": {
+      "theme": {
+        "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+      }
     }
   }
-}
