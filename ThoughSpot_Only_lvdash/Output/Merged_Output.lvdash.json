@@ -1438,12 +1438,12 @@
       "filters": []
     },
     {
-      "name": "page_viz_4",
+      "name": "page_4",
       "displayName": "Top On Press Events",
       "layout": [
         {
           "widget": {
-            "name": "widget_viz_4",
+            "name": "widget_4",
             "queries": [
               {
                 "name": "main_query",
@@ -1492,7 +1492,7 @@
               },
               "frame": {
                 "showTitle": true,
-                "title": "Top On Press Events by Control"
+                "title": "Top On Press Events Over Time"
               }
             }
           },
