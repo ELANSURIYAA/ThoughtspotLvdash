@@ -1,101 +1,61 @@
 {
-  "datasets": [
-    {
-      "name": "dataset_15",
-      "displayName": "Home Tile Views Dataset",
-      "asset_name": "workspace.default.mv_hpx_homepage_summary"
-    }
-  ],
-  "pages": [
-    {
-      "name": "page_15",
-      "displayName": "Home Tile Views",
-      "layout": [
-        {
-          "widget": {
-            "name": "widget_15",
-            "queries": [
-              {
-                "name": "main_query",
-                "query": {
-                  "datasetName": "dataset_15",
-                  "fields": [
-                    {
-                      "name": "home_tile",
-                      "expression": "home_tile"
-                    },
-                    {
-                      "name": "unique_tile_views",
-                      "expression": "SUM(unique_tile_views)"
-                    },
-                    {
-                      "name": "unique_tile_clicks",
-                      "expression": "SUM(unique_tile_clicks)"
-                    },
-                    {
-                      "name": "unique_interstitial_views",
-                      "expression": "SUM(unique_interstitial_views)"
-                    },
-                    {
-                      "name": "unique_interstitial_primary_button_clicks",
-                      "expression": "SUM(unique_interstitial_primary_button_clicks)"
-                    },
-                    {
-                      "name": "unique_interstitial_secondary_button_clicks",
-                      "expression": "SUM(unique_interstitial_secondary_button_clicks)"
-                    }
-                  ],
-                  "disaggregated": false
+    "datasets": [
+      {
+        "name": "dataset_15",
+        "displayName": "Home Tile Views Dataset",
+        "asset_name": "workspace.default.hpx_events_model_homepage_summary"
+      }
+    ],
+    "pages": [
+      {
+        "name": "page_15",
+        "displayName": "Home Tile Views Overview",
+        "layout": [
+          {
+            "widget": {
+              "name": "kpi_widget",
+              "queries": [
+                {
+                  "name": "main_query",
+                  "query": {
+                    "datasetName": "dataset_15",
+                    "fields": [
+                      { "name": "Home Tile", "expression": "`Home Tile`" },
+                      { "name": "% Home Tile Clicked Vs Homepage Displayed", "expression": "MEASURE(`Total Home Tile Clicked Vs Homepage Displayed`)" },
+                      { "name": "% Primary Button Clicked Vs Interstitial Displayed", "expression": "MEASURE(`Total Primary Button Clicked Vs Interstitial Displayed`)" },
+                      { "name": "% Primary Button Clicked Vs Tile Displayed", "expression": "MEASURE(`Total Primary Button Clicked Vs Tile Displayed`)" },
+                      { "name": "% Secondary Button Clicked Vs Interstitial Displayed", "expression": "MEASURE(`Total Secondary Button Clicked Vs Interstitial Displayed`)" },
+                      { "name": "% Secondary Button Clicked Vs Tile Displayed", "expression": "MEASURE(`Total Secondary Button Clicked Vs Tile Displayed`)" }
+                    ],
+                    "disaggregated": false
+                  }
+                }
+              ],
+              "spec": {
+                "version": 3,
+                "widgetType": "counter",
+                "encodings": {
+                  "value": {
+                    "fieldName": "% Home Tile Clicked Vs Homepage Displayed",
+                    "displayName": "% Home Tile Clicked Vs Homepage Displayed"
+                  }
+                },
+                "frame": {
+                  "title": "Home Tile Views",
+                  "showTitle": true
                 }
               }
-            ],
-            "spec": {
-              "version": 3,
-              "widgetType": "table",
-              "encodings": {
-                "columns": [
-                  {
-                    "fieldName": "home_tile",
-                    "displayName": "Home Tile"
-                  },
-                  {
-                    "fieldName": "unique_tile_views",
-                    "displayName": "Unique Tile Views"
-                  },
-                  {
-                    "fieldName": "unique_tile_clicks",
-                    "displayName": "Unique Tile Clicks"
-                  },
-                  {
-                    "fieldName": "unique_interstitial_views",
-                    "displayName": "Unique Interstitial Views"
-                  },
-                  {
-                    "fieldName": "unique_interstitial_primary_button_clicks",
-                    "displayName": "Unique Interstitial Primary Button Clicks"
-                  },
-                  {
-                    "fieldName": "unique_interstitial_secondary_button_clicks",
-                    "displayName": "Unique Interstitial Secondary Button Clicks"
-                  }
-                ]
-              },
-              "frame": {
-                "title": "Home Tile Views",
-                "showTitle": true
-              }
-            }
-          },
-          "position": { "x": 0, "y": 0, "width": 12, "height": 8 }
-        }
-      ],
-      "pageType": "PAGE_TYPE_CANVAS",
-      "filters": []
-    }
-  ],
-  "uiSettings": {
-    "theme": {
-      "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+            },
+            "position": { "x": 0, "y": 0, "width": 12, "height": 8 }
+          }
+        ],
+        "pageType": "PAGE_TYPE_CANVAS",
+        "filters": []
+      }
+    ],
+    "uiSettings": {
+      "theme": {
+        "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+      }
     }
   }
-}
