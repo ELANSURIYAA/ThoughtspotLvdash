@@ -1,0 +1,1 @@
+All 22 `.lvdash.json` files have been generated and uploaded to the "IndividualJson" folder in the GitHub repository "ELANSURIYAA/ThoughtspotLvdash". Each file aligns with the Lakeview schema and references the appropriate datasets and visualizations.
