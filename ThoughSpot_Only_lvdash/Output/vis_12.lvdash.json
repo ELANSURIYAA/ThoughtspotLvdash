@@ -3,7 +3,7 @@
       {
         "name": "dataset_12",
         "displayName": "HPX CURR Data Table Dataset",
-        "asset_name": "workspace.default.HPX_CURR"
+        "asset_name": "workspace.HPX_CURR.metricview"
       }
     ],
     "pages": [
@@ -13,7 +13,7 @@
         "layout": [
           {
             "widget": {
-              "name": "table_widget",
+              "name": "widget_12",
               "queries": [
                 {
                   "name": "main_query",
@@ -21,10 +21,10 @@
                     "datasetName": "dataset_12",
                     "fields": [
                       { "name": "Week", "expression": "DATE_TRUNC('WEEK', `Week Active`)" },
-                      { "name": "Last Week Users T7t13", "expression": "MEASURE(`Total Last Week Users T7t13`)" },
-                      { "name": "Previous Week Users T14t20", "expression": "MEASURE(`Total Previous Week Users T14t20`)" },
-                      { "name": "This Week Users T0t6", "expression": "MEASURE(`Total This Week Users T0t6`)" },
-                      { "name": "CURR", "expression": "MEASURE(`f_CURR`)" }
+                      { "name": "CURR", "expression": "MEASURE(`f_CURR`)" },
+                      { "name": "Last_Week_Users_T7t13", "expression": "MEASURE(`Total Last Week Users T7t13`)" },
+                      { "name": "This_Week_Users_T0t6", "expression": "MEASURE(`Total This Week Users T0t6`)" },
+                      { "name": "Previous_Week_Users_T14t20", "expression": "MEASURE(`Total Previous Week Users T14t20`)" }
                     ],
                     "disaggregated": false
                   }
@@ -35,26 +35,11 @@
                 "widgetType": "table",
                 "encodings": {
                   "columns": [
-                    {
-                      "fieldName": "Week",
-                      "displayName": "Week"
-                    },
-                    {
-                      "fieldName": "Last Week Users T7t13",
-                      "displayName": "Last Week Users T7t13"
-                    },
-                    {
-                      "fieldName": "Previous Week Users T14t20",
-                      "displayName": "Previous Week Users T14t20"
-                    },
-                    {
-                      "fieldName": "This Week Users T0t6",
-                      "displayName": "This Week Users T0t6"
-                    },
-                    {
-                      "fieldName": "CURR",
-                      "displayName": "CURR"
-                    }
+                    { "fieldName": "Week", "displayName": "Week" },
+                    { "fieldName": "CURR", "displayName": "CURR" },
+                    { "fieldName": "Last_Week_Users_T7t13", "displayName": "Last Week Users T7t13" },
+                    { "fieldName": "This_Week_Users_T0t6", "displayName": "This Week Users T0t6" },
+                    { "fieldName": "Previous_Week_Users_T14t20", "displayName": "Previous Week Users T14t20" }
                   ]
                 },
                 "frame": {
