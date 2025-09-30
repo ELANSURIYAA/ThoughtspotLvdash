@@ -1,31 +1,28 @@
 {
     "datasets": [
       {
-        "name": "dataset_5",
-        "displayName": "Top Unique Screen Views Dataset",
-        "asset_name": "workspace.default.mv_hpx_events_model",
-        "queryLines": [
-          "SELECT DATE_TRUNC('MONTH', Event_Date_Time) AS Monthly_Event_Date, Screen, SUM(Unique_Screen_Views) AS Total_Unique_Screen_Views FROM hpx_events_model WHERE Event_Date_Time >= '2023-05-01' AND Screen NOT IN ('home', 'welcome', 'welcomecontainer', 'welcome-core', 'support') AND Ui_Action = 'screendisplayed' GROUP BY DATE_TRUNC('MONTH', Event_Date_Time), Screen ORDER BY Total_Unique_Screen_Views DESC LIMIT 10"
-        ]
+        "name": "dataset_hpx_events_model",
+        "displayName": "HPX Events Model Dataset",
+        "asset_name": "workspace.default.mv_hpx_events_model"
       }
     ],
     "pages": [
       {
         "name": "page_5",
-        "displayName": "Top Unique Screen Views Visualization",
+        "displayName": "Top Unique Screen Views (excl. Home/Welcome) Visualization",
         "layout": [
           {
             "widget": {
-              "name": "widget_5",
+              "name": "stacked_bar_chart_widget",
               "queries": [
                 {
                   "name": "main_query",
                   "query": {
-                    "datasetName": "dataset_5",
+                    "datasetName": "dataset_hpx_events_model",
                     "fields": [
-                      { "name": "Monthly_Event_Date", "expression": "`Monthly_Event_Date`" },
-                      { "name": "Screen", "expression": "`Screen`" },
-                      { "name": "Total_Unique_Screen_Views", "expression": "`Total_Unique_Screen_Views`" }
+                      { "name": "Monthly Event Date", "expression": "DATE_TRUNC('MONTH', event_date_time)" },
+                      { "name": "Screen", "expression": "screen" },
+                      { "name": "Unique Screen Views", "expression": "SUM(MEASURE(Unique Screen Views))" }
                     ],
                     "disaggregated": false
                   }
@@ -36,13 +33,13 @@
                 "widgetType": "bar",
                 "encodings": {
                   "x": {
-                    "fieldName": "Monthly_Event_Date",
+                    "fieldName": "Monthly Event Date",
                     "displayName": "Monthly Event Date",
                     "scale": { "type": "temporal" }
                   },
                   "y": {
-                    "fieldName": "Total_Unique_Screen_Views",
-                    "displayName": "Total Unique Screen Views",
+                    "fieldName": "Unique Screen Views",
+                    "displayName": "Unique Screen Views",
                     "scale": { "type": "quantitative" }
                   },
                   "color": {
