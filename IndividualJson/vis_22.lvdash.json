@@ -1,1 +1,86 @@
-{"datasets": [{"name": "dataset_22","displayName": "HPX New Version Adoption Dataset","asset_name": "workspace.default.mv_hpx_events_model","queryLines": ["SELECT DATE_TRUNC('DAY', Event_Date_Time) AS Daily_Event_Date, App_Version AS App_Version, MEASURE(Active_Devices) AS Active_Devices, MEASURE(Active_Devices) / SUM(MEASURE(Active_Devices)) OVER (PARTITION BY Event_Date_Time) AS Percent_Active_Devices FROM hpx_events_model WHERE Event_Date_Time >= '2023-05-01' GROUP BY DATE_TRUNC('DAY', Event_Date_Time), App_Version ORDER BY Daily_Event_Date"]}],"pages": [{"name": "page_22","displayName": "HPX New Version Adoption","layout": [{"widget": {"name": "widget_22","queries": [{"name": "main_query","query": {"datasetName": "dataset_22","fields": [{"name": "Daily_Event_Date","expression": "`Daily_Event_Date`"},{"name": "App_Version","expression": "`App_Version`"},{"name": "Active_Devices","expression": "MEASURE(`Active_Devices`)"},{"name": "Percent_Active_Devices","expression": "MEASURE(`Percent_Active_Devices`)"}],"disaggregated": false}}],"spec": {"version": 3,"widgetType": "line","encodings": {"x": {"fieldName": "Daily_Event_Date","displayName": "Daily Event Date","scale": {"type": "temporal"}},"y": {"fieldName": "Percent_Active_Devices","displayName": "% Active Devices","scale": {"type": "quantitative"}},"color": {"fieldName": "App_Version","displayName": "App Version","scale": {"type": "categorical"}}},"frame": {"title": "HPX New Version Adoption","showTitle": true}}}},"position": {"x": 0,"y": 0,"width": 12,"height": 8}}],"pageType": "PAGE_TYPE_CANVAS","filters": []}],"uiSettings": {"theme": {"widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"}}}
+{
+  "datasets": [
+    {
+      "name": "dataset_22",
+      "displayName": "HPX Events Model",
+      "asset_name": "workspace.default.mv_hpx_events_model"
+    }
+  ],
+  "pages": [
+    {
+      "name": "page_22",
+      "displayName": "HPX New Version Adoption",
+      "layout": [
+        {
+          "widget": {
+            "name": "widget_22",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "dataset_22",
+                  "fields": [
+                    {
+                      "name": "Daily Event Date",
+                      "expression": "DATE_TRUNC('DAY', event_date_time)"
+                    },
+                    {
+                      "name": "App Version",
+                      "expression": "App Version"
+                    },
+                    {
+                      "name": "% Active Devices",
+                      "expression": "MEASURE(% Active Devices)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "line",
+              "encodings": {
+                "x": {
+                  "fieldName": "Daily Event Date",
+                  "scale": {
+                    "type": "temporal"
+                  },
+                  "displayName": "Daily Event Date"
+                },
+                "y": {
+                  "fieldName": "% Active Devices",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "% Active Devices"
+                },
+                "color": {
+                  "fieldName": "App Version",
+                  "displayName": "App Version"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "HPX New Version Adoption"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 12,
+            "height": 8
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS",
+      "filters": []
+    }
+  ],
+  "uiSettings": {
+    "theme": {
+      "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+    }
+  }
+}
