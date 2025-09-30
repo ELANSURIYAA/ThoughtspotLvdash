@@ -20,9 +20,18 @@
                 "query": {
                   "datasetName": "dataset_2",
                   "fields": [
-                    { "name": "Daily Event Date", "expression": "DATE_TRUNC('DAY', event_date_time)" },
-                    { "name": "New Devices", "expression": "MEASURE(New Devices)" },
-                    { "name": "Cumulative New Devices", "expression": "SUM(MEASURE(New Devices)) OVER (ORDER BY DATE_TRUNC('DAY', event_date_time) ROWS UNBOUNDED PRECEDING)" }
+                    {
+                      "name": "Daily Event Date",
+                      "expression": "DATE_TRUNC('DAY', event_date_time)"
+                    },
+                    {
+                      "name": "New Devices",
+                      "expression": "MEASURE("New Devices")"
+                    },
+                    {
+                      "name": "Cumulative New Devices",
+                      "expression": "SUM(MEASURE("New Devices")) OVER (ORDER BY DATE_TRUNC('DAY', event_date_time) ROWS UNBOUNDED PRECEDING)"
+                    }
                   ],
                   "disaggregated": false
                 }
@@ -52,7 +61,7 @@
                 }
               },
               "frame": {
-                "title": "New and Cumulative Devices Over Time",
+                "title": "New Devices and Cumulative New Devices Over Time",
                 "showTitle": true
               }
             }
