@@ -1,1 +1,59 @@
-{"datasets": [{"name": "dataset_10","displayName": "Total Consented Devices Dataset","asset_name": "workspace.default.mv_hpx_events_model","queryLines": ["SELECT SUM(Active_Devices) AS Total_Active_Devices FROM hpx_events_model WHERE Event_Date_Time >= '2023-05-01' AND App_Version NOT IN ('not a store release', NULL) AND Geo_Country_Code IS NOT NULL"]}],"pages": [{"name": "page_10","displayName": "Total Consented Devices Visualization","layout": [{"widget": {"name": "widget_10","queries": [{"name": "main_query","query": {"datasetName": "dataset_10","fields": [{"name": "Total_Active_Devices","expression": "SUM(Active_Devices)"}],"disaggregated": false}}],"spec": {"version": 3,"widgetType": "counter","encodings": {"value": {"fieldName": "Total_Active_Devices","displayName": "Total Active Devices"}},"frame": {"title": "Total Consented Devices","showTitle": true}}}},"position": {"x": 0,"y": 0,"width": 12,"height": 8}}],"pageType": "PAGE_TYPE_CANVAS","filters": []}],"uiSettings": {"theme": {"widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"}}}
+{
+  "datasets": [
+    {
+      "name": "dataset_10",
+      "displayName": "Total Consented Devices Dataset",
+      "asset_name": "workspace.default.mv_hpx_events_model"
+    }
+  ],
+  "pages": [
+    {
+      "name": "page_10",
+      "displayName": "Total Consented Devices",
+      "layout": [
+        {
+          "widget": {
+            "name": "widget_10",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "dataset_10",
+                  "fields": [
+                    {
+                      "name": "active_devices",
+                      "expression": "COUNT(DISTINCT sys_sn_hash)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "active_devices",
+                  "displayName": "Active Devices"
+                }
+              },
+              "frame": {
+                "title": "Total Consented Devices",
+                "showTitle": true
+              }
+            }
+          },
+          "position": { "x": 0, "y": 0, "width": 12, "height": 8 }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS",
+      "filters": []
+    }
+  ],
+  "uiSettings": {
+    "theme": {
+      "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+    }
+  }
+}
