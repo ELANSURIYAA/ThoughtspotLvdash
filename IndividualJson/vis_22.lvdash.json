@@ -2,14 +2,14 @@
     "datasets": [
       {
         "name": "dataset_22",
-        "displayName": "HPX Events Model",
+        "displayName": "HPX Events Model Dataset",
         "asset_name": "workspace.default.mv_hpx_events_model"
       }
     ],
     "pages": [
       {
         "name": "page_22",
-        "displayName": "HPX New Version Adoption",
+        "displayName": "HPX New Version Adoption Visualization",
         "layout": [
           {
             "widget": {
@@ -22,8 +22,8 @@
                     "fields": [
                       { "name": "Daily Event Date", "expression": "DATE_TRUNC('DAY', event_date_time)" },
                       { "name": "App Version", "expression": "app_version" },
-                      { "name": "% Active Devices", "expression": "MEASURE(% Active Devices)" },
-                      { "name": "Active Devices", "expression": "MEASURE(Active Devices)" }
+                      { "name": "Active Devices", "expression": "MEASURE("Active Devices")" },
+                      { "name": "% Active Devices", "expression": "MEASURE("% Active Devices")" }
                     ],
                     "disaggregated": false
                   }
