@@ -2,14 +2,14 @@
     "datasets": [
       {
         "name": "dataset_5",
-        "displayName": "HPX Events Model",
+        "displayName": "HPX Events Model Dataset",
         "asset_name": "workspace.default.mv_hpx_events_model"
       }
     ],
     "pages": [
       {
         "name": "page_5",
-        "displayName": "Top Unique Screen Views (excl. Home/Welcome)",
+        "displayName": "Top Unique Screen Views (excl. Home/Welcome) Visualization",
         "layout": [
           {
             "widget": {
@@ -20,9 +20,9 @@
                   "query": {
                     "datasetName": "dataset_5",
                     "fields": [
-                      { "name": "Monthly Event Date", "expression": "DATE_TRUNC('MONTH', event_date_time)" },
+                      { "name": "Monthly Event Date", "expression": "DATE_TRUNC('DAY', event_date_time)" },
                       { "name": "Screen", "expression": "screen" },
-                      { "name": "Unique Screen Views", "expression": "SUM(MEASURE(Unique Screen Views))" }
+                      { "name": "Unique Screen Views", "expression": "SUM(MEASURE("Unique Screen Views"))" }
                     ],
                     "disaggregated": false
                   }
