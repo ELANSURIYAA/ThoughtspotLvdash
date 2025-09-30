@@ -9,11 +9,11 @@
     "pages": [
       {
         "name": "page_13",
-        "displayName": "HPX First Use Behavior Flow Visualization",
+        "displayName": "HPX First Use Behavior Flow",
         "layout": [
           {
             "widget": {
-              "name": "widget_13",
+              "name": "sankey_widget_13",
               "queries": [
                 {
                   "name": "main_query",
@@ -25,7 +25,7 @@
                       { "name": "Screen 3", "expression": "screen_3" },
                       { "name": "Screen 4", "expression": "screen_4" },
                       { "name": "Screen 5", "expression": "screen_5" },
-                      { "name": "Total Devices", "expression": "MEASURE("Total Devices")" }
+                      { "name": "Total Devices", "expression": "SUM(MEASURE("Total Devices"))" }
                     ],
                     "disaggregated": false
                   }
