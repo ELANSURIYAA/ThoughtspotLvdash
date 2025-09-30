@@ -2,14 +2,14 @@
     "datasets": [
       {
         "name": "dataset_3",
-        "displayName": "HPX Events Model",
+        "displayName": "HPX Events Model Dataset",
         "asset_name": "workspace.default.mv_hpx_events_model"
       }
     ],
     "pages": [
       {
         "name": "page_3",
-        "displayName": "New Devices by Top 10 Countries",
+        "displayName": "New Devices by Top 10 Countries Visualization",
         "layout": [
           {
             "widget": {
@@ -21,7 +21,7 @@
                     "datasetName": "dataset_3",
                     "fields": [
                       { "name": "Geo Country Code", "expression": "geo_country_code" },
-                      { "name": "New Devices", "expression": "SUM(MEASURE(New Devices))" }
+                      { "name": "New Devices", "expression": "SUM(MEASURE("New Devices"))" }
                     ],
                     "disaggregated": false
                   }
