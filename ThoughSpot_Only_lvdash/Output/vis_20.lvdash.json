@@ -3,7 +3,7 @@
       {
         "name": "dataset_20",
         "displayName": "% Active Devices by Country Dataset",
-        "asset_name": "workspace.default.hpx_events_model"
+        "asset_name": "workspace.hpx_events_model.metricview"
       }
     ],
     "pages": [
@@ -13,7 +13,7 @@
         "layout": [
           {
             "widget": {
-              "name": "bar_chart_widget",
+              "name": "widget_20",
               "queries": [
                 {
                   "name": "main_query",
@@ -21,7 +21,9 @@
                     "datasetName": "dataset_20",
                     "fields": [
                       { "name": "Country", "expression": "`Geo Country Code`" },
-                      { "name": "% Active Devices by Country", "expression": "MEASURE(`% Active Devices by Country`)" }
+                      { "name": "Active_Devices_Percentage", "expression": "MEASURE(`% Active Devices by Country`)" },
+                      { "name": "MAU", "expression": "MEASURE(`MAU`)" },
+                      { "name": "Rank", "expression": "MEASURE(`f_active_devices_rank`)" }
                     ],
                     "disaggregated": false
                   }
@@ -37,7 +39,7 @@
                     "scale": { "type": "categorical" }
                   },
                   "y": {
-                    "fieldName": "% Active Devices by Country",
+                    "fieldName": "Active_Devices_Percentage",
                     "displayName": "% Active Devices by Country",
                     "scale": { "type": "quantitative" }
                   }
