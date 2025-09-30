@@ -2,7 +2,7 @@
   "datasets": [
     {
       "name": "dataset_3",
-      "displayName": "Top 10 Countries Dataset",
+      "displayName": "HPX Events Model",
       "asset_name": "workspace.default.mv_hpx_events_model"
     }
   ],
@@ -21,12 +21,12 @@
                   "datasetName": "dataset_3",
                   "fields": [
                     {
-                      "name": "geo_country_code",
+                      "name": "Geo Country Code",
                       "expression": "geo_country_code"
                     },
                     {
-                      "name": "new_devices",
-                      "expression": "SUM(new_devices)"
+                      "name": "New Devices",
+                      "expression": "SUM(MEASURE("New Devices"))"
                     }
                   ],
                   "disaggregated": false
@@ -34,16 +34,16 @@
               }
             ],
             "spec": {
-              "version": 1,
+              "version": 3,
               "widgetType": "pie",
               "encodings": {
                 "angle": {
-                  "fieldName": "new_devices",
+                  "fieldName": "New Devices",
                   "displayName": "New Devices"
                 },
                 "color": {
-                  "fieldName": "geo_country_code",
-                  "displayName": "Country"
+                  "fieldName": "Geo Country Code",
+                  "displayName": "Geo Country Code"
                 }
               },
               "frame": {
