@@ -1,12 +1,9 @@
 {
     "datasets": [
       {
-        "name": "dataset_22",
-        "displayName": "HPX New Version Adoption Dataset",
-        "asset_name": "workspace.default.mv_hpx_events_model",
-        "queryLines": [
-          "SELECT DATE_TRUNC('DAY', Event_Date_Time) AS Daily_Event_Date, App_Version, SUM(Active_Devices) AS Active_Devices, SUM(Active_Devices) / SUM(SUM(Active_Devices)) OVER (PARTITION BY App_Version ORDER BY DATE_TRUNC('DAY', Event_Date_Time)) AS Percentage_Active_Devices FROM hpx_events_model WHERE Event_Date_Time >= '2023-05-01' GROUP BY DATE_TRUNC('DAY', Event_Date_Time), App_Version ORDER BY Daily_Event_Date"
-        ]
+        "name": "dataset_hpx_events_model",
+        "displayName": "HPX Events Model Dataset",
+        "asset_name": "workspace.default.mv_hpx_events_model"
       }
     ],
     "pages": [
@@ -16,17 +13,17 @@
         "layout": [
           {
             "widget": {
-              "name": "widget_22",
+              "name": "line_chart_widget",
               "queries": [
                 {
                   "name": "main_query",
                   "query": {
-                    "datasetName": "dataset_22",
+                    "datasetName": "dataset_hpx_events_model",
                     "fields": [
-                      { "name": "Daily_Event_Date", "expression": "`Daily_Event_Date`" },
-                      { "name": "App_Version", "expression": "`App_Version`" },
-                      { "name": "Active_Devices", "expression": "`Active_Devices`" },
-                      { "name": "Percentage_Active_Devices", "expression": "`Percentage_Active_Devices`" }
+                      { "name": "Daily Event Date", "expression": "DATE_TRUNC('DAY', event_date_time)" },
+                      { "name": "App Version", "expression": "app_version" },
+                      { "name": "% Active Devices", "expression": "MEASURE(% Active Devices)" },
+                      { "name": "Active Devices", "expression": "MEASURE(Active Devices)" }
                     ],
                     "disaggregated": false
                   }
@@ -37,17 +34,17 @@
                 "widgetType": "line",
                 "encodings": {
                   "x": {
-                    "fieldName": "Daily_Event_Date",
+                    "fieldName": "Daily Event Date",
                     "displayName": "Daily Event Date",
                     "scale": { "type": "temporal" }
                   },
                   "y": {
-                    "fieldName": "Percentage_Active_Devices",
+                    "fieldName": "% Active Devices",
                     "displayName": "% Active Devices",
                     "scale": { "type": "quantitative" }
                   },
                   "color": {
-                    "fieldName": "App_Version",
+                    "fieldName": "App Version",
                     "displayName": "App Version",
                     "scale": { "type": "categorical" }
                   }
