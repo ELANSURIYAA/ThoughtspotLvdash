@@ -2,8 +2,8 @@
     "datasets": [
       {
         "name": "dataset_22",
-        "displayName": "HPX Events Model Dataset",
-        "asset_name": "workspace.default.mv_hpx_events_model"
+        "displayName": "HPX New Version Adoption Dataset",
+        "asset_name": "workspace.default.hpx_events_model"
       }
     ],
     "pages": [
@@ -20,9 +20,10 @@
                   "query": {
                     "datasetName": "dataset_22",
                     "fields": [
-                      { "name": "Daily Event Date", "expression": "DATE_TRUNC('DAY', event_date_time)" },
-                      { "name": "App Version", "expression": "`app_version`" },
-                      { "name": "% Active Devices", "expression": "MEASURE(`% Active Devices`)" }
+                      { "name": "Daily Event Date", "expression": "DATE_TRUNC('DAY', `Event Date Time`)" },
+                      { "name": "% Active Devices", "expression": "MEASURE(`% Active Devices`)" },
+                      { "name": "Active Devices", "expression": "MEASURE(`Active Devices`)" },
+                      { "name": "App Version", "expression": "`App Version`" }
                     ],
                     "disaggregated": false
                   }
