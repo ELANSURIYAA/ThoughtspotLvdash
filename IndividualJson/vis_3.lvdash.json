@@ -1,24 +1,24 @@
 {
     "datasets": [
       {
-        "name": "dataset_3",
-        "displayName": "HPX Events Model",
+        "name": "dataset_viz_3",
+        "displayName": "New Devices by Country Dataset",
         "asset_name": "workspace.default.mv_hpx_events_model"
       }
     ],
     "pages": [
       {
-        "name": "page_3",
+        "name": "page_viz_3",
         "displayName": "New Devices by Top 10 Countries",
         "layout": [
           {
             "widget": {
-              "name": "widget_3",
+              "name": "widget_viz_3",
               "queries": [
                 {
                   "name": "main_query",
                   "query": {
-                    "datasetName": "dataset_3",
+                    "datasetName": "dataset_viz_3",
                     "fields": [
                       {
                         "name": "Geo Country Code",
@@ -26,7 +26,11 @@
                       },
                       {
                         "name": "New Devices",
-                        "expression": "MEASURE(New Devices)"
+                        "expression": "MEASURE(`New Devices`)"
+                      },
+                      {
+                        "name": "Rank",
+                        "expression": "rank(MEASURE(`New Devices`), 'DESC')"
                       }
                     ],
                     "disaggregated": false
@@ -34,21 +38,23 @@
                 }
               ],
               "spec": {
-                "version": 3,
-                "widgetType": "pie",
+                "version": 1,
+                "widgetType": "sankey",
                 "encodings": {
-                  "angle": {
+                  "value": {
                     "fieldName": "New Devices",
                     "displayName": "New Devices"
                   },
-                  "color": {
-                    "fieldName": "Geo Country Code",
-                    "displayName": "Country"
-                  }
-                },
-                "frame": {
-                  "title": "New Devices by Top 10 Countries",
-                  "showTitle": true
+                  "stages": [
+                    {
+                      "fieldName": "Geo Country Code",
+                      "displayName": "Country"
+                    },
+                    {
+                      "fieldName": "Rank",
+                      "displayName": "Rank"
+                    }
+                  ]
                 }
               }
             },
