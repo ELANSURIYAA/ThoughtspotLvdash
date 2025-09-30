@@ -1,12 +1,9 @@
 {
     "datasets": [
       {
-        "name": "dataset_3",
-        "displayName": "New Devices by Country Dataset",
-        "asset_name": "workspace.default.mv_hpx_events_model",
-        "queryLines": [
-          "SELECT Geo_Country_Code AS Country, SUM(New_Devices) AS Total_New_Devices FROM hpx_events_model GROUP BY Geo_Country_Code ORDER BY Total_New_Devices DESC"
-        ]
+        "name": "dataset_hpx_events_model",
+        "displayName": "HPX Events Model Dataset",
+        "asset_name": "workspace.default.mv_hpx_events_model"
       }
     ],
     "pages": [
@@ -16,15 +13,15 @@
         "layout": [
           {
             "widget": {
-              "name": "widget_3",
+              "name": "pie_chart_widget",
               "queries": [
                 {
                   "name": "main_query",
                   "query": {
-                    "datasetName": "dataset_3",
+                    "datasetName": "dataset_hpx_events_model",
                     "fields": [
-                      { "name": "Country", "expression": "`Country`" },
-                      { "name": "Total_New_Devices", "expression": "`Total_New_Devices`" }
+                      { "name": "Geo Country Code", "expression": "geo_country_code" },
+                      { "name": "New Devices", "expression": "SUM(MEASURE(New Devices))" }
                     ],
                     "disaggregated": false
                   }
@@ -35,12 +32,14 @@
                 "widgetType": "pie",
                 "encodings": {
                   "angle": {
-                    "fieldName": "Total_New_Devices",
-                    "displayName": "Total New Devices"
+                    "fieldName": "New Devices",
+                    "displayName": "New Devices",
+                    "scale": { "type": "quantitative" }
                   },
                   "color": {
-                    "fieldName": "Country",
-                    "displayName": "Country"
+                    "fieldName": "Geo Country Code",
+                    "displayName": "Geo Country Code",
+                    "scale": { "type": "categorical" }
                   }
                 },
                 "frame": {
