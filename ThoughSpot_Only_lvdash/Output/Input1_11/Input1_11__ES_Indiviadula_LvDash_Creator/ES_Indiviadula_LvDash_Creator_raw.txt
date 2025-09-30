@@ -1,1 +1,1 @@
-All `.lvdash.json` files for the specified rows have been successfully created and uploaded to the GitHub repository. Each file adheres to the Lakeview schema and visualization requirements.
+The `.lvdash.json` files for all 22 visualizations have been successfully generated and uploaded to the GitHub repository `ELANSURIYAA/ThoughtspotLvdash` in the folder `ThoughSpot_Only_lvdash/Output`. Each file is named according to the row number, e.g., `vis_1.lvdash.json`, `vis_2.lvdash.json`, ..., `vis_22.lvdash.json`.
