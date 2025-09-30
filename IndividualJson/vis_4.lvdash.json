@@ -9,20 +9,29 @@
     "pages": [
       {
         "name": "page_4",
-        "displayName": "Top On Press Events",
+        "displayName": "Top On Press Events Visualization",
         "layout": [
           {
             "widget": {
-              "name": "bar_chart_widget",
+              "name": "widget_4",
               "queries": [
                 {
                   "name": "main_query",
                   "query": {
                     "datasetName": "dataset_4",
                     "fields": [
-                      { "name": "Daily Event Date", "expression": "DATE_TRUNC('DAY', `Event Date Time`)" },
-                      { "name": "Total Clicks", "expression": "MEASURE(`Total Clicks`)" },
-                      { "name": "Control", "expression": "`Control`" }
+                      {
+                        "name": "Daily Event Date",
+                        "expression": "DATE_TRUNC('DAY', `Event Date Time`)"
+                      },
+                      {
+                        "name": "Total Clicks",
+                        "expression": "MEASURE(`Total Clicks`)"
+                      },
+                      {
+                        "name": "Control",
+                        "expression": "`Control`"
+                      }
                     ],
                     "disaggregated": false
                   }
