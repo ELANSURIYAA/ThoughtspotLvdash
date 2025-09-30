@@ -1,12 +1,9 @@
 {
     "datasets": [
       {
-        "name": "dataset_1",
-        "displayName": "Active Devices Dataset",
-        "asset_name": "workspace.default.mv_hpx_events_model",
-        "queryLines": [
-          "SELECT DATE_TRUNC('DAY', Event_Date_Time) AS Daily_Event_Date, SUM(Active_Devices) AS Active_Devices FROM hpx_events_model GROUP BY DATE_TRUNC('DAY', Event_Date_Time) ORDER BY Daily_Event_Date"
-        ]
+        "name": "dataset_hpx_events_model",
+        "displayName": "HPX Events Model Dataset",
+        "asset_name": "workspace.default.mv_hpx_events_model"
       }
     ],
     "pages": [
@@ -16,15 +13,15 @@
         "layout": [
           {
             "widget": {
-              "name": "widget_1",
+              "name": "line_chart_widget",
               "queries": [
                 {
                   "name": "main_query",
                   "query": {
-                    "datasetName": "dataset_1",
+                    "datasetName": "dataset_hpx_events_model",
                     "fields": [
-                      { "name": "Daily_Event_Date", "expression": "`Daily_Event_Date`" },
-                      { "name": "Active_Devices", "expression": "`Active_Devices`" }
+                      { "name": "Daily Event Date", "expression": "DATE_TRUNC('DAY', event_date_time)" },
+                      { "name": "Active Devices", "expression": "MEASURE(Active Devices)" }
                     ],
                     "disaggregated": false
                   }
@@ -35,12 +32,12 @@
                 "widgetType": "line",
                 "encodings": {
                   "x": {
-                    "fieldName": "Daily_Event_Date",
+                    "fieldName": "Daily Event Date",
                     "displayName": "Daily Event Date",
                     "scale": { "type": "temporal" }
                   },
                   "y": {
-                    "fieldName": "Active_Devices",
+                    "fieldName": "Active Devices",
                     "displayName": "Active Devices",
                     "scale": { "type": "quantitative" }
                   }
