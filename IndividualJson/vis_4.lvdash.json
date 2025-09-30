@@ -1,1 +1,69 @@
-{"datasets": [{"name": "dataset_4", "displayName": "Top On Press Events Dataset", "asset_name": "workspace.default.hpx_events_model", "queryLines": ["SELECT `Control` AS `Control`, DATE_TRUNC('DAY', `Event Date Time`) AS `Daily Event Date`, MEASURE(`Clicks`) AS `Total Clicks` FROM `workspace.default.hpx_events_model` WHERE `Control` NOT LIKE '%testid%' AND `Ui Action` = 'onpress' AND `Control` != 'welcome core navigationviewitem id' AND `Event Date Time` >= '2023-05-01' GROUP BY `Control`, DATE_TRUNC('DAY', `Event Date Time`) ORDER BY `Total Clicks` DESC LIMIT 10"]}], "pages": [{"name": "page_4", "displayName": "Top On Press Events", "layout": [{"widget": {"name": "stacked_bar_chart_widget", "queries": [{"name": "main_query", "query": {"datasetName": "dataset_4", "fields": [{"name": "Control", "expression": "`Control`"}, {"name": "Daily Event Date", "expression": "`Daily Event Date`"}, {"name": "Total Clicks", "expression": "MEASURE(`Clicks`)"}], "disaggregated": false}}], "spec": {"version": 3, "widgetType": "bar", "encodings": {"x": {"fieldName": "Daily Event Date", "displayName": "Daily Event Date", "scale": {"type": "temporal"}}, "y": {"fieldName": "Total Clicks", "displayName": "Total Clicks", "scale": {"type": "quantitative"}}, "color": {"fieldName": "Control", "displayName": "Control", "scale": {"type": "categorical"}}}, "frame": {"title": "Top On Press Events by Control", "showTitle": true}}}}, "position": {"x": 0, "y": 0, "width": 12, "height": 8}}], "pageType": "PAGE_TYPE_CANVAS", "filters": []}], "uiSettings": {"theme": {"widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"}}}
+{
+    "datasets": [
+      {
+        "name": "dataset_4",
+        "displayName": "HPX Events Model Dataset",
+        "asset_name": "workspace.default.mv_hpx_events_model"
+      }
+    ],
+    "pages": [
+      {
+        "name": "page_4",
+        "displayName": "Top On Press Events Visualization",
+        "layout": [
+          {
+            "widget": {
+              "name": "stacked_column_chart_widget_4",
+              "queries": [
+                {
+                  "name": "main_query",
+                  "query": {
+                    "datasetName": "dataset_4",
+                    "fields": [
+                      { "name": "Daily Event Date", "expression": "DATE_TRUNC('DAY', event_date_time)" },
+                      { "name": "Control", "expression": "`control`" },
+                      { "name": "Total Clicks", "expression": "MEASURE(`Total Clicks`)" }
+                    ],
+                    "disaggregated": false
+                  }
+                }
+              ],
+              "spec": {
+                "version": 3,
+                "widgetType": "bar",
+                "encodings": {
+                  "x": {
+                    "fieldName": "Daily Event Date",
+                    "displayName": "Daily Event Date",
+                    "scale": { "type": "temporal" }
+                  },
+                  "y": {
+                    "fieldName": "Total Clicks",
+                    "displayName": "Total Clicks",
+                    "scale": { "type": "quantitative" }
+                  },
+                  "color": {
+                    "fieldName": "Control",
+                    "displayName": "Control",
+                    "scale": { "type": "categorical" }
+                  }
+                },
+                "frame": {
+                  "title": "Top On Press Events by Total Clicks",
+                  "showTitle": true
+                }
+              }
+            },
+            "position": { "x": 0, "y": 0, "width": 12, "height": 8 }
+          }
+        ],
+        "pageType": "PAGE_TYPE_CANVAS",
+        "filters": []
+      }
+    ],
+    "uiSettings": {
+      "theme": {
+        "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+      }
+    }
+  }
