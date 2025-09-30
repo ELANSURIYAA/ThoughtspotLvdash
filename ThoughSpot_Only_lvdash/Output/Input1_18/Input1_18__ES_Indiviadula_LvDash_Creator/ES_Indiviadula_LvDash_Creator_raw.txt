@@ -1,0 +1,1 @@
+All `.lvdash.json` files for the visualizations have been successfully generated and uploaded to the GitHub repository in the folder `Visualization_Outputs`. Each file corresponds to a row in the CSV file, and the naming convention follows `vis_<row_number>.lvdash.json`.
