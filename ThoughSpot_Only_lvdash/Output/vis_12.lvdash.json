@@ -1,93 +1,78 @@
 {
-  "datasets": [
-    {
-      "name": "dataset_12",
-      "displayName": "HPX CURR",
-      "asset_name": "workspace.default.mv_hpx_curr"
-    }
-  ],
-  "pages": [
-    {
-      "name": "page_12",
-      "displayName": "HPX CURR - Data Table",
-      "layout": [
-        {
-          "widget": {
-            "name": "widget_12",
-            "queries": [
-              {
-                "name": "main_query",
-                "query": {
-                  "datasetName": "dataset_12",
-                  "fields": [
+    "datasets": [
+      {
+        "name": "dataset_12",
+        "displayName": "HPX CURR Data Table Dataset",
+        "asset_name": "workspace.HPX_CURR.metric_view"
+      }
+    ],
+    "pages": [
+      {
+        "name": "page_12",
+        "displayName": "HPX CURR - Data Table",
+        "layout": [
+          {
+            "widget": {
+              "name": "widget_12",
+              "queries": [
+                {
+                  "name": "main_query",
+                  "query": {
+                    "datasetName": "dataset_12",
+                    "fields": [
+                      { "name": "week_active", "expression": "DATE_TRUNC('WEEK', `Week Active`)" },
+                      { "name": "curr", "expression": "MEASURE(`f_CURR`)" },
+                      { "name": "last_week_users_t7t13", "expression": "MEASURE(`Total Last Week Users T7t13`)" },
+                      { "name": "this_week_users_t0t6", "expression": "MEASURE(`Total This Week Users T0t6`)" },
+                      { "name": "previous_week_users_t14t20", "expression": "MEASURE(`Total Previous Week Users T14t20`)" }
+                    ],
+                    "disaggregated": false
+                  }
+                }
+              ],
+              "spec": {
+                "version": 3,
+                "widgetType": "table",
+                "encodings": {
+                  "columns": [
                     {
-                      "name": "Week",
-                      "expression": "DATE_TRUNC('WEEK', week_active)"
+                      "fieldName": "week_active",
+                      "displayName": "Week Active"
                     },
                     {
-                      "name": "CURR",
-                      "expression": "MEASURE("CURR")"
+                      "fieldName": "curr",
+                      "displayName": "CURR"
                     },
                     {
-                      "name": "Last Week Users T7t13",
-                      "expression": "SUM(MEASURE("Total Last Week Users T7t13"))"
+                      "fieldName": "last_week_users_t7t13",
+                      "displayName": "Last Week Users T7t13"
                     },
                     {
-                      "name": "This Week Users T0t6",
-                      "expression": "SUM(MEASURE("Total This Week Users T0t6"))"
+                      "fieldName": "this_week_users_t0t6",
+                      "displayName": "This Week Users T0t6"
                     },
                     {
-                      "name": "Previous Week Users T14t20",
-                      "expression": "SUM(MEASURE("Total Previous Week Users T14t20"))"
+                      "fieldName": "previous_week_users_t14t20",
+                      "displayName": "Previous Week Users T14t20"
                     }
-                  ],
-                  "disaggregated": false
+                  ]
+                },
+                "frame": {
+                  "title": "HPX CURR - Data Table",
+                  "showTitle": true
                 }
               }
-            ],
-            "spec": {
-              "version": 3,
-              "widgetType": "table",
-              "encodings": {
-                "columns": [
-                  {
-                    "fieldName": "Week",
-                    "displayName": "Week"
-                  },
-                  {
-                    "fieldName": "CURR",
-                    "displayName": "CURR"
-                  },
-                  {
-                    "fieldName": "Last Week Users T7t13",
-                    "displayName": "Last Week Users T7t13"
-                  },
-                  {
-                    "fieldName": "This Week Users T0t6",
-                    "displayName": "This Week Users T0t6"
-                  },
-                  {
-                    "fieldName": "Previous Week Users T14t20",
-                    "displayName": "Previous Week Users T14t20"
-                  }
-                ]
-              },
-              "frame": {
-                "title": "HPX CURR - Data Table",
-                "showTitle": true
-              }
-            }
-          },
-          "position": { "x": 0, "y": 0, "width": 12, "height": 8 }
-        }
-      ],
-      "pageType": "PAGE_TYPE_CANVAS",
-      "filters": []
-    }
-  ],
-  "uiSettings": {
-    "theme": {
-      "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+            },
+            "position": { "x": 0, "y": 0, "width": 12, "height": 8 }
+          }
+        ],
+        "pageType": "PAGE_TYPE_CANVAS",
+        "filters": []
+      }
+    ],
+    "uiSettings": {
+      "theme": {
+        "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+      }
     }
   }
-}
