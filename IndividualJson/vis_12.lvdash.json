@@ -1,98 +1,81 @@
 {
-  "datasets": [
-    {
-      "name": "dataset_12",
-      "displayName": "HPX CURR",
-      "asset_name": "workspace.default.mv_hpx_curr"
-    }
-  ],
-  "pages": [
-    {
-      "name": "page_12",
-      "displayName": "HPX CURR - Data Table",
-      "layout": [
-        {
-          "widget": {
-            "name": "widget_12",
-            "queries": [
-              {
-                "name": "main_query",
-                "query": {
-                  "datasetName": "dataset_12",
-                  "fields": [
+    "datasets": [
+      {
+        "name": "dataset_12",
+        "displayName": "HPX CURR Data Table Dataset",
+        "asset_name": "workspace.default.mv_hpx_curr",
+        "queryLines": [
+          "SELECT DATE_TRUNC('WEEK', Week_Active) AS Weekly_Active, SUM(Last_Week_Users_T7t13) AS Total_Last_Week_Users_T7t13, SUM(This_Week_Users_T0t6) AS Total_This_Week_Users_T0t6, SUM(Previous_Week_Users_T14t20) AS Total_Previous_Week_Users_T14t20, AVG(CURR) AS Average_CURR FROM HPX_CURR WHERE Week_Active >= '2023-05-01' GROUP BY DATE_TRUNC('WEEK', Week_Active) ORDER BY Weekly_Active"
+        ]
+      }
+    ],
+    "pages": [
+      {
+        "name": "page_12",
+        "displayName": "HPX CURR Data Table Visualization",
+        "layout": [
+          {
+            "widget": {
+              "name": "widget_12",
+              "queries": [
+                {
+                  "name": "main_query",
+                  "query": {
+                    "datasetName": "dataset_12",
+                    "fields": [
+                      { "name": "Weekly_Active", "expression": "`Weekly_Active`" },
+                      { "name": "Total_Last_Week_Users_T7t13", "expression": "`Total_Last_Week_Users_T7t13`" },
+                      { "name": "Total_This_Week_Users_T0t6", "expression": "`Total_This_Week_Users_T0t6`" },
+                      { "name": "Total_Previous_Week_Users_T14t20", "expression": "`Total_Previous_Week_Users_T14t20`" },
+                      { "name": "Average_CURR", "expression": "`Average_CURR`" }
+                    ],
+                    "disaggregated": false
+                  }
+                }
+              ],
+              "spec": {
+                "version": 3,
+                "widgetType": "table",
+                "encodings": {
+                  "columns": [
                     {
-                      "name": "Week",
-                      "expression": "DATE_TRUNC('WEEK', week_active)"
+                      "fieldName": "Weekly_Active",
+                      "displayName": "Week Active"
                     },
                     {
-                      "name": "Previous Week Users T14t20",
-                      "expression": "SUM(MEASURE(Total Previous Week Users T14t20))"
+                      "fieldName": "Total_Last_Week_Users_T7t13",
+                      "displayName": "Last Week Users T7t13"
                     },
                     {
-                      "name": "Last Week Users T7t13",
-                      "expression": "SUM(MEASURE(Total Last Week Users T7t13))"
+                      "fieldName": "Total_This_Week_Users_T0t6",
+                      "displayName": "This Week Users T0t6"
                     },
                     {
-                      "name": "This Week Users T0t6",
-                      "expression": "SUM(MEASURE(Total This Week Users T0t6))"
+                      "fieldName": "Total_Previous_Week_Users_T14t20",
+                      "displayName": "Previous Week Users T14t20"
                     },
                     {
-                      "name": "CURR",
-                      "expression": "AVG(MEASURE(CURR))"
+                      "fieldName": "Average_CURR",
+                      "displayName": "CURR"
                     }
-                  ],
-                  "disaggregated": false
+                  ]
+                },
+                "frame": {
+                  "title": "HPX CURR Data Table",
+                  "showTitle": true
                 }
               }
-            ],
-            "spec": {
-              "version": 3,
-              "widgetType": "table",
-              "encodings": {
-                "columns": [
-                  {
-                    "fieldName": "Week",
-                    "displayName": "Week"
-                  },
-                  {
-                    "fieldName": "Previous Week Users T14t20",
-                    "displayName": "Previous Week Users T14t20"
-                  },
-                  {
-                    "fieldName": "Last Week Users T7t13",
-                    "displayName": "Last Week Users T7t13"
-                  },
-                  {
-                    "fieldName": "This Week Users T0t6",
-                    "displayName": "This Week Users T0t6"
-                  },
-                  {
-                    "fieldName": "CURR",
-                    "displayName": "CURR"
-                  }
-                ]
-              },
-              "frame": {
-                "showTitle": true,
-                "title": "HPX CURR Data Table"
-              }
-            }
-          },
-          "position": {
-            "x": 0,
-            "y": 0,
-            "width": 12,
-            "height": 8
+            },
+            "position": { "x": 0, "y": 0, "width": 12, "height": 8 }
           }
-        }
-      ],
-      "pageType": "PAGE_TYPE_CANVAS",
-      "filters": []
-    }
-  ],
-  "uiSettings": {
-    "theme": {
-      "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+        ],
+        "pageType": "PAGE_TYPE_CANVAS",
+        "filters": []
+      }
+    ],
+    "uiSettings": {
+      "theme": {
+        "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+      }
     }
   }
-}
