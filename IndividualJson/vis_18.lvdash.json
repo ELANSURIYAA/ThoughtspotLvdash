@@ -1,12 +1,9 @@
 {
     "datasets": [
       {
-        "name": "dataset_18",
-        "displayName": "Home Tile Primary CTR Dataset",
-        "asset_name": "workspace.default.mv_hpx_events_model_homepage_summary",
-        "queryLines": [
-          "SELECT Home_Tile, SUM(Unique_Interstitial_Primary_Button_Clicks) / SUM(Unique_Interstitial_Views) AS Primary_CTR FROM hpx_events_model_homepage_summary GROUP BY Home_Tile ORDER BY Primary_CTR DESC"
-        ]
+        "name": "dataset_hpx_homepage_summary",
+        "displayName": "HPX Homepage Summary Dataset",
+        "asset_name": "workspace.default.mv_hpx_homepage_summary"
       }
     ],
     "pages": [
@@ -16,15 +13,25 @@
         "layout": [
           {
             "widget": {
-              "name": "widget_18",
+              "name": "kpi_widget",
               "queries": [
                 {
                   "name": "main_query",
                   "query": {
-                    "datasetName": "dataset_18",
+                    "datasetName": "dataset_hpx_homepage_summary",
                     "fields": [
-                      { "name": "Home_Tile", "expression": "`Home_Tile`" },
-                      { "name": "Primary_CTR", "expression": "`Primary_CTR`" }
+                      { "name": "Home Tile", "expression": "home_tile" },
+                      { "name": "Unique Tile Views", "expression": "MEASURE(Total Unique Tile Views)" },
+                      { "name": "Unique Tile Clicks", "expression": "MEASURE(Total Unique Tile Clicks)" },
+                      { "name": "Unique Interstitial Views", "expression": "MEASURE(Total Unique Interstitial Views)" },
+                      { "name": "Unique Interstitial Primary Button Clicks", "expression": "MEASURE(Total Unique Interstitial Primary Button Clicks)" },
+                      { "name": "Unique Interstitial Secondary Button Clicks", "expression": "MEASURE(Total Unique Interstitial Secondary Button Clicks)" },
+                      { "name": "% Home Tile Clicked Vs Homepage Displayed", "expression": "MEASURE(Total Home Tile Clicked Vs Homepage Displayed)" },
+                      { "name": "% Primary Button Clicked Vs Tile Displayed", "expression": "MEASURE(Total Primary Button Clicked Vs Tile Displayed)" },
+                      { "name": "% Secondary Button Clicked Vs Tile Displayed", "expression": "MEASURE(Total Secondary Button Clicked Vs Tile Displayed)" },
+                      { "name": "% Primary Button Clicked Vs Interstitial Displayed", "expression": "MEASURE(Total Primary Button Clicked Vs Interstitial Displayed)" },
+                      { "name": "% Secondary Button Clicked Vs Interstitial Displayed", "expression": "MEASURE(Total Secondary Button Clicked Vs Interstitial Displayed)" },
+                      { "name": "Primary CTR", "expression": "MEASURE(f_ctr_cta1)" }
                     ],
                     "disaggregated": false
                   }
@@ -35,8 +42,9 @@
                 "widgetType": "counter",
                 "encodings": {
                   "value": {
-                    "fieldName": "Primary_CTR",
-                    "displayName": "Primary Click Through Rate (CTR)"
+                    "fieldName": "Primary CTR",
+                    "displayName": "Primary CTR",
+                    "scale": { "type": "quantitative" }
                   }
                 },
                 "frame": {
