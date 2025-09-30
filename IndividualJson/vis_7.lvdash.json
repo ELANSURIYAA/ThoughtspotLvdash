@@ -1,12 +1,9 @@
 {
     "datasets": [
       {
-        "name": "dataset_7",
-        "displayName": "Top On Press Events Dataset",
-        "asset_name": "workspace.default.mv_hpx_events_model",
-        "queryLines": [
-          "SELECT Control, SUM(Clicks) AS Total_Clicks FROM hpx_events_model WHERE Control NOT LIKE '%testid%' AND Ui_Action = 'onpress' GROUP BY Control ORDER BY Total_Clicks DESC LIMIT 10"
-        ]
+        "name": "dataset_hpx_events_model",
+        "displayName": "HPX Events Model Dataset",
+        "asset_name": "workspace.default.mv_hpx_events_model"
       }
     ],
     "pages": [
@@ -16,15 +13,15 @@
         "layout": [
           {
             "widget": {
-              "name": "widget_7",
+              "name": "bar_chart_widget",
               "queries": [
                 {
                   "name": "main_query",
                   "query": {
-                    "datasetName": "dataset_7",
+                    "datasetName": "dataset_hpx_events_model",
                     "fields": [
-                      { "name": "Control", "expression": "`Control`" },
-                      { "name": "Total_Clicks", "expression": "`Total_Clicks`" }
+                      { "name": "Control", "expression": "control" },
+                      { "name": "Total Clicks", "expression": "SUM(MEASURE(Total Clicks))" }
                     ],
                     "disaggregated": false
                   }
@@ -40,7 +37,7 @@
                     "scale": { "type": "categorical" }
                   },
                   "y": {
-                    "fieldName": "Total_Clicks",
+                    "fieldName": "Total Clicks",
                     "displayName": "Total Clicks",
                     "scale": { "type": "quantitative" }
                   }
