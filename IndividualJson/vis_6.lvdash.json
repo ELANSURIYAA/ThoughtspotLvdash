@@ -1,77 +1,63 @@
 {
-  "datasets": [
-    {
-      "name": "dataset_6",
-      "displayName": "Top Unique Screen Views Dataset",
-      "asset_name": "workspace.default.mv_hpx_events_model"
-    }
-  ],
-  "pages": [
-    {
-      "name": "page_6",
-      "displayName": "Top Unique Screen Views",
-      "layout": [
-        {
-          "widget": {
-            "name": "widget_6",
-            "queries": [
-              {
-                "name": "main_query",
-                "query": {
-                  "datasetName": "dataset_6",
-                  "fields": [
-                    {
-                      "name": "screen",
-                      "expression": "screen"
-                    },
-                    {
-                      "name": "unique_screen_views",
-                      "expression": "COUNT(DISTINCT unique_screen_per_session)"
-                    },
-                    {
-                      "name": "monthly_event_date",
-                      "expression": "DATE_TRUNC('MONTH', event_date_time)"
-                    }
-                  ],
-                  "disaggregated": false
+    "datasets": [
+      {
+        "name": "dataset_6",
+        "displayName": "Unique Screen Views by Screen Dataset",
+        "asset_name": "workspace.default.hpx_events_model"
+      }
+    ],
+    "pages": [
+      {
+        "name": "page_6",
+        "displayName": "Unique Screen Views by Screen Overview",
+        "layout": [
+          {
+            "widget": {
+              "name": "bar_chart_widget",
+              "queries": [
+                {
+                  "name": "main_query",
+                  "query": {
+                    "datasetName": "dataset_6",
+                    "fields": [
+                      { "name": "Screen", "expression": "`Screen`" },
+                      { "name": "Unique Screen Views", "expression": "MEASURE(`Unique Screen Views`)" }
+                    ],
+                    "disaggregated": false
+                  }
+                }
+              ],
+              "spec": {
+                "version": 3,
+                "widgetType": "bar",
+                "encodings": {
+                  "x": {
+                    "fieldName": "Screen",
+                    "displayName": "Screen",
+                    "scale": { "type": "categorical" }
+                  },
+                  "y": {
+                    "fieldName": "Unique Screen Views",
+                    "displayName": "Unique Screen Views",
+                    "scale": { "type": "quantitative" }
+                  }
+                },
+                "frame": {
+                  "title": "Unique Screen Views by Screen",
+                  "showTitle": true
                 }
               }
-            ],
-            "spec": {
-              "version": 3,
-              "widgetType": "bar",
-              "encodings": {
-                "x": {
-                  "fieldName": "monthly_event_date",
-                  "displayName": "Monthly Event Date",
-                  "scale": { "type": "temporal" }
-                },
-                "y": {
-                  "fieldName": "unique_screen_views",
-                  "displayName": "Unique Screen Views",
-                  "scale": { "type": "quantitative" }
-                },
-                "color": {
-                  "fieldName": "screen",
-                  "displayName": "Screen"
-                }
-              },
-              "frame": {
-                "title": "Top Unique Screen Views",
-                "showTitle": true
-              }
-            }
-          },
-          "position": { "x": 0, "y": 0, "width": 12, "height": 8 }
-        }
-      ],
-      "pageType": "PAGE_TYPE_CANVAS",
-      "filters": []
-    }
-  ],
-  "uiSettings": {
-    "theme": {
-      "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+            },
+            "position": { "x": 0, "y": 0, "width": 12, "height": 8 }
+          }
+        ],
+        "pageType": "PAGE_TYPE_CANVAS",
+        "filters": []
+      }
+    ],
+    "uiSettings": {
+      "theme": {
+        "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+      }
     }
   }
-}
