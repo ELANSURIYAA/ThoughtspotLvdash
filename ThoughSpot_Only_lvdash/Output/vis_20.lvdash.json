@@ -1,0 +1,69 @@
+{
+  "datasets": [
+    {
+      "name": "dataset_20",
+      "displayName": "% Active Devices by Country Dataset",
+      "asset_name": "workspace.default.mv_hpx_events_model"
+    }
+  ],
+  "pages": [
+    {
+      "name": "page_20",
+      "displayName": "% Active Devices by Country",
+      "layout": [
+        {
+          "widget": {
+            "name": "widget_20",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "dataset_20",
+                  "fields": [
+                    {
+                      "name": "geo_country_code",
+                      "expression": "geo_country_code"
+                    },
+                    {
+                      "name": "percent_active_devices_by_country",
+                      "expression": "SUM(active_devices) / SUM(total_devices)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "geo_country_code",
+                  "displayName": "Country",
+                  "scale": { "type": "categorical" }
+                },
+                "y": {
+                  "fieldName": "percent_active_devices_by_country",
+                  "displayName": "% Active Devices",
+                  "scale": { "type": "quantitative" }
+                }
+              },
+              "frame": {
+                "title": "% Active Devices by Country",
+                "showTitle": true
+              }
+            }
+          },
+          "position": { "x": 0, "y": 0, "width": 12, "height": 8 }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS",
+      "filters": []
+    }
+  ],
+  "uiSettings": {
+    "theme": {
+      "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+    }
+  }
+}
