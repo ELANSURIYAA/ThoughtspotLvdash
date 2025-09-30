@@ -2,14 +2,14 @@
     "datasets": [
       {
         "name": "dataset_4",
-        "displayName": "HPX Events Model",
+        "displayName": "HPX Events Model Dataset",
         "asset_name": "workspace.default.mv_hpx_events_model"
       }
     ],
     "pages": [
       {
         "name": "page_4",
-        "displayName": "Top On Press Events",
+        "displayName": "Top On Press Events Visualization",
         "layout": [
           {
             "widget": {
@@ -22,7 +22,7 @@
                     "fields": [
                       { "name": "Daily Event Date", "expression": "DATE_TRUNC('DAY', event_date_time)" },
                       { "name": "Control", "expression": "control" },
-                      { "name": "Total Clicks", "expression": "SUM(MEASURE(Total Clicks))" }
+                      { "name": "Total Clicks", "expression": "SUM(MEASURE("Total Clicks"))" }
                     ],
                     "disaggregated": false
                   }
@@ -49,7 +49,7 @@
                   }
                 },
                 "frame": {
-                  "title": "Top On Press Events by Control",
+                  "title": "Top On Press Events",
                   "showTitle": true
                 }
               }
