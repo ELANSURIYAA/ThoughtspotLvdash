@@ -1,0 +1,67 @@
+{
+    "datasets": [
+      {
+        "name": "dataset_3",
+        "displayName": "HPX Events Model",
+        "asset_name": "workspace.default.hpx_events_model",
+        "queryLines": [
+          "SELECT `Geo Country Code` AS `Geo Country Code`, MEASURE(SUM(`New Devices`)) AS `New Devices`, RANK() OVER (ORDER BY MEASURE(SUM(`New Devices`)) DESC) AS `f_rank` FROM workspace.default.hpx_events_model GROUP BY `Geo Country Code` ORDER BY `f_rank`"
+        ]
+      }
+    ],
+    "pages": [
+      {
+        "name": "page_3",
+        "displayName": "New Devices by Top 10 Countries",
+        "layout": [
+          {
+            "widget": {
+              "name": "pie_chart_widget",
+              "queries": [
+                {
+                  "name": "main_query",
+                  "query": {
+                    "datasetName": "dataset_3",
+                    "fields": [
+                      { "name": "Geo Country Code", "expression": "`Geo Country Code`" },
+                      { "name": "New Devices", "expression": "`New Devices`" },
+                      { "name": "f_rank", "expression": "`f_rank`" }
+                    ],
+                    "disaggregated": false
+                  }
+                }
+              ],
+              "spec": {
+                "version": 3,
+                "widgetType": "pie",
+                "encodings": {
+                  "angle": {
+                    "fieldName": "New Devices",
+                    "displayName": "New Devices",
+                    "scale": { "type": "quantitative" }
+                  },
+                  "color": {
+                    "fieldName": "Geo Country Code",
+                    "displayName": "Geo Country Code",
+                    "scale": { "type": "categorical" }
+                  }
+                },
+                "frame": {
+                  "title": "New Devices by Top 10 Countries",
+                  "showTitle": true
+                }
+              }
+            },
+            "position": { "x": 0, "y": 0, "width": 12, "height": 8 }
+          }
+        ],
+        "pageType": "PAGE_TYPE_CANVAS",
+        "filters": []
+      }
+    ],
+    "uiSettings": {
+      "theme": {
+        "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+      }
+    }
+  }
