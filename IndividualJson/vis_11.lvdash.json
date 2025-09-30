@@ -2,14 +2,14 @@
     "datasets": [
       {
         "name": "dataset_11",
-        "displayName": "HPX CURR",
+        "displayName": "HPX CURR Dataset",
         "asset_name": "workspace.default.mv_hpx_curr"
       }
     ],
     "pages": [
       {
         "name": "page_11",
-        "displayName": "HPX CURR - Trendline",
+        "displayName": "HPX CURR - Trendline Visualization",
         "layout": [
           {
             "widget": {
@@ -21,7 +21,7 @@
                     "datasetName": "dataset_11",
                     "fields": [
                       { "name": "Week Active", "expression": "DATE_TRUNC('WEEK', week_active)" },
-                      { "name": "CURR", "expression": "MEASURE(CURR)" }
+                      { "name": "CURR", "expression": "MEASURE("CURR")" }
                     ],
                     "disaggregated": false
                   }
