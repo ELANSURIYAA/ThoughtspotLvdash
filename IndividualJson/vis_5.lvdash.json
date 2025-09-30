@@ -9,20 +9,29 @@
     "pages": [
       {
         "name": "page_5",
-        "displayName": "Top Unique Screen Views (excl. Home/Welcome)",
+        "displayName": "Top Unique Screen Views Visualization",
         "layout": [
           {
             "widget": {
-              "name": "bar_chart_widget",
+              "name": "widget_5",
               "queries": [
                 {
                   "name": "main_query",
                   "query": {
                     "datasetName": "dataset_5",
                     "fields": [
-                      { "name": "Monthly Event Date", "expression": "DATE_TRUNC('MONTH', `Event Date Time`)" },
-                      { "name": "Unique Screen Views", "expression": "MEASURE(`Unique Screen Views`)" },
-                      { "name": "Screen", "expression": "`Screen`" }
+                      {
+                        "name": "Monthly Event Date",
+                        "expression": "DATE_TRUNC('MONTH', `Event Date Time`)"
+                      },
+                      {
+                        "name": "Unique Screen Views",
+                        "expression": "MEASURE(`Unique Screen Views`)"
+                      },
+                      {
+                        "name": "Screen",
+                        "expression": "`Screen`"
+                      }
                     ],
                     "disaggregated": false
                   }
