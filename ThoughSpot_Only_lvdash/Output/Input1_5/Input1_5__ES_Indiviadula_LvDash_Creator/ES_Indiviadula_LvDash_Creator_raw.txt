@@ -1,1 +1,7 @@
-All `.lvdash.json` files for the 22 visualizations have been successfully generated and uploaded to the GitHub repository. Each file adheres to the Lakeview schema and references the correct Databricks metric views.
+The `.lvdash.json` files for the first five visualizations have been successfully generated and uploaded to the GitHub repository in the folder `IndividualJson`. Each file is structured according to the Lakeview schema and aligned with the metric views. The files are named as follows:
+
+1. `vis_1.lvdash.json`
+2. `vis_2.lvdash.json`
+3. `vis_3.lvdash.json`
+4. `vis_4.lvdash.json`
+5. `vis_5.lvdash.json`
