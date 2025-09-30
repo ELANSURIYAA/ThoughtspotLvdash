@@ -1,0 +1,1 @@
+All 22 `.lvdash.json` files corresponding to the visualizations in the CSV have been successfully generated and uploaded to the GitHub repository `ELANSURIYAA/ThoughtspotLvdash` under the folder `IndividualJson`. Each file adheres to the Databricks Lakeview schema and includes the correct mappings and specifications.
