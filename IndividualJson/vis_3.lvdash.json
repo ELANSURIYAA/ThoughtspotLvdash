@@ -13,15 +13,21 @@
         "layout": [
           {
             "widget": {
-              "name": "pie_chart_widget",
+              "name": "widget_3",
               "queries": [
                 {
                   "name": "main_query",
                   "query": {
                     "datasetName": "dataset_3",
                     "fields": [
-                      { "name": "Geo Country Code", "expression": "`Geo Country Code`" },
-                      { "name": "New Devices", "expression": "SUM(`New Devices`)" }
+                      {
+                        "name": "Geo Country Code",
+                        "expression": "`Geo Country Code`"
+                      },
+                      {
+                        "name": "New Devices",
+                        "expression": "SUM(`New Devices`)"
+                      }
                     ],
                     "disaggregated": false
                   }
@@ -37,11 +43,11 @@
                   },
                   "color": {
                     "fieldName": "Geo Country Code",
-                    "displayName": "Geo Country Code"
+                    "displayName": "Country"
                   }
                 },
                 "frame": {
-                  "title": "New Devices Distribution by Country",
+                  "title": "New Devices by Top 10 Countries",
                   "showTitle": true
                 }
               }
