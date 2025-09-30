@@ -2,7 +2,7 @@
   "datasets": [
     {
       "name": "dataset_22",
-      "displayName": "HPX New Version Adoption Dataset",
+      "displayName": "HPX Events Model",
       "asset_name": "workspace.default.mv_hpx_events_model"
     }
   ],
@@ -21,16 +21,16 @@
                   "datasetName": "dataset_22",
                   "fields": [
                     {
-                      "name": "daily_event_date",
+                      "name": "Daily Event Date",
                       "expression": "DATE_TRUNC('DAY', event_date_time)"
                     },
                     {
-                      "name": "app_version",
+                      "name": "App Version",
                       "expression": "app_version"
                     },
                     {
-                      "name": "percent_active_devices",
-                      "expression": "SUM(active_devices) / SUM(total_devices)"
+                      "name": "% Active Devices",
+                      "expression": "MEASURE("% Active Devices")"
                     }
                   ],
                   "disaggregated": false
@@ -42,17 +42,17 @@
               "widgetType": "line",
               "encodings": {
                 "x": {
-                  "fieldName": "daily_event_date",
+                  "fieldName": "Daily Event Date",
                   "displayName": "Daily Event Date",
                   "scale": { "type": "temporal" }
                 },
                 "y": {
-                  "fieldName": "percent_active_devices",
+                  "fieldName": "% Active Devices",
                   "displayName": "% Active Devices",
                   "scale": { "type": "quantitative" }
                 },
                 "color": {
-                  "fieldName": "app_version",
+                  "fieldName": "App Version",
                   "displayName": "App Version",
                   "scale": { "type": "categorical" }
                 }
