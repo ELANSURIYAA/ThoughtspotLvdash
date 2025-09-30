@@ -2,14 +2,14 @@
   "datasets": [
     {
       "name": "dataset_20",
-      "displayName": "% Active Devices by Country Dataset",
+      "displayName": "HPX Events Model",
       "asset_name": "workspace.default.mv_hpx_events_model"
     }
   ],
   "pages": [
     {
       "name": "page_20",
-      "displayName": "% Active Devices by Country",
+      "displayName": "% Active Devices by Country (Top 10)",
       "layout": [
         {
           "widget": {
@@ -21,12 +21,12 @@
                   "datasetName": "dataset_20",
                   "fields": [
                     {
-                      "name": "geo_country_code",
+                      "name": "Country",
                       "expression": "geo_country_code"
                     },
                     {
-                      "name": "percent_active_devices_by_country",
-                      "expression": "SUM(active_devices) / SUM(total_devices)"
+                      "name": "% Active Devices by Country",
+                      "expression": "MEASURE("% Active Devices by Country")"
                     }
                   ],
                   "disaggregated": false
@@ -38,18 +38,18 @@
               "widgetType": "bar",
               "encodings": {
                 "x": {
-                  "fieldName": "geo_country_code",
+                  "fieldName": "Country",
                   "displayName": "Country",
                   "scale": { "type": "categorical" }
                 },
                 "y": {
-                  "fieldName": "percent_active_devices_by_country",
-                  "displayName": "% Active Devices",
+                  "fieldName": "% Active Devices by Country",
+                  "displayName": "% Active Devices by Country",
                   "scale": { "type": "quantitative" }
                 }
               },
               "frame": {
-                "title": "% Active Devices by Country",
+                "title": "% Active Devices by Country (Top 10)",
                 "showTitle": true
               }
             }
