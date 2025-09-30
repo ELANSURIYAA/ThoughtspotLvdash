@@ -1,0 +1,1 @@
+All `.lvdash.json` files for the visualizations have been successfully generated and uploaded to the GitHub repository. Each file adheres to the Lakeview schema and correctly references the Databricks metric views. The files are named `vis_1.lvdash.json` through `vis_22.lvdash.json` and are located in the `IndividualJson` folder of the repository `ELANSURIYAA/ThoughtspotLvdash`.
