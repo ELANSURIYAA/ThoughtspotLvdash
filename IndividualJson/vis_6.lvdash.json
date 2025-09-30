@@ -1,1 +1,77 @@
-{"datasets": [{"name": "dataset_6","displayName": "Top Unique Screen Views Dataset","asset_name": "workspace.default.mv_hpx_events_model","queryLines": ["SELECT Screen AS Screen, SUM(Unique_Screen_Views) AS Total_Unique_Screen_Views FROM hpx_events_model WHERE Event_Date_Time >= '2023-05-01' AND Screen NOT IN ('home', 'welcome', 'welcome-core', 'welcomeContainer', 'support') AND Ui_Action = 'screendisplayed' GROUP BY Screen ORDER BY Total_Unique_Screen_Views DESC LIMIT 10"]}],"pages": [{"name": "page_6","displayName": "Top Unique Screen Views Visualization","layout": [{"widget": {"name": "widget_6","queries": [{"name": "main_query","query": {"datasetName": "dataset_6","fields": [{"name": "Screen","expression": "Screen"},{"name": "Total_Unique_Screen_Views","expression": "SUM(Unique_Screen_Views)"}],"disaggregated": false}}],"spec": {"version": 3,"widgetType": "bar","encodings": {"x": {"fieldName": "Screen","displayName": "Screen","scale": {"type": "categorical"}},"y": {"fieldName": "Total_Unique_Screen_Views","displayName": "Total Unique Screen Views","scale": {"type": "quantitative"}}},"frame": {"title": "Top Unique Screen Views","showTitle": true}}}},"position": {"x": 0,"y": 0,"width": 12,"height": 8}}],"pageType": "PAGE_TYPE_CANVAS","filters": []}],"uiSettings": {"theme": {"widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"}}}
+{
+  "datasets": [
+    {
+      "name": "dataset_6",
+      "displayName": "Top Unique Screen Views Dataset",
+      "asset_name": "workspace.default.mv_hpx_events_model"
+    }
+  ],
+  "pages": [
+    {
+      "name": "page_6",
+      "displayName": "Top Unique Screen Views",
+      "layout": [
+        {
+          "widget": {
+            "name": "widget_6",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "dataset_6",
+                  "fields": [
+                    {
+                      "name": "screen",
+                      "expression": "screen"
+                    },
+                    {
+                      "name": "unique_screen_views",
+                      "expression": "COUNT(DISTINCT unique_screen_per_session)"
+                    },
+                    {
+                      "name": "monthly_event_date",
+                      "expression": "DATE_TRUNC('MONTH', event_date_time)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "monthly_event_date",
+                  "displayName": "Monthly Event Date",
+                  "scale": { "type": "temporal" }
+                },
+                "y": {
+                  "fieldName": "unique_screen_views",
+                  "displayName": "Unique Screen Views",
+                  "scale": { "type": "quantitative" }
+                },
+                "color": {
+                  "fieldName": "screen",
+                  "displayName": "Screen"
+                }
+              },
+              "frame": {
+                "title": "Top Unique Screen Views",
+                "showTitle": true
+              }
+            }
+          },
+          "position": { "x": 0, "y": 0, "width": 12, "height": 8 }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS",
+      "filters": []
+    }
+  ],
+  "uiSettings": {
+    "theme": {
+      "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+    }
+  }
+}
