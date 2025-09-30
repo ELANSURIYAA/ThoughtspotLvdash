@@ -2,14 +2,14 @@
     "datasets": [
       {
         "name": "dataset_7",
-        "displayName": "HPX Events Model",
+        "displayName": "HPX Events Model Dataset",
         "asset_name": "workspace.default.mv_hpx_events_model"
       }
     ],
     "pages": [
       {
         "name": "page_7",
-        "displayName": "Top On Press Events",
+        "displayName": "Top On Press Events Visualization",
         "layout": [
           {
             "widget": {
@@ -21,7 +21,7 @@
                     "datasetName": "dataset_7",
                     "fields": [
                       { "name": "Control", "expression": "control" },
-                      { "name": "Total Clicks", "expression": "SUM(MEASURE(Total Clicks))" }
+                      { "name": "Total Clicks", "expression": "SUM(MEASURE("Total Clicks"))" }
                     ],
                     "disaggregated": false
                   }
