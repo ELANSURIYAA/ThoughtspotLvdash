@@ -3,7 +3,7 @@
       {
         "name": "dataset_4",
         "displayName": "Top On Press Events Dataset",
-        "asset_name": "workspace.default.hpx_events_model"
+        "asset_name": "workspace.hpx_events_model.metricview"
       }
     ],
     "pages": [
@@ -13,16 +13,16 @@
         "layout": [
           {
             "widget": {
-              "name": "bar_chart_widget",
+              "name": "widget_4",
               "queries": [
                 {
                   "name": "main_query",
                   "query": {
                     "datasetName": "dataset_4",
                     "fields": [
-                      { "name": "Daily Event Date", "expression": "DATE_TRUNC('DAY', `Event Date Time`)" },
+                      { "name": "Daily_Event_Date", "expression": "DATE_TRUNC('DAY', `Event Date Time`)" },
                       { "name": "Control", "expression": "`Control`" },
-                      { "name": "Total Clicks", "expression": "MEASURE(`Total Clicks`)" }
+                      { "name": "Total_Clicks", "expression": "MEASURE(`Total Clicks`)" }
                     ],
                     "disaggregated": false
                   }
@@ -33,12 +33,12 @@
                 "widgetType": "bar",
                 "encodings": {
                   "x": {
-                    "fieldName": "Daily Event Date",
+                    "fieldName": "Daily_Event_Date",
                     "displayName": "Daily Event Date",
                     "scale": { "type": "temporal" }
                   },
                   "y": {
-                    "fieldName": "Total Clicks",
+                    "fieldName": "Total_Clicks",
                     "displayName": "Total Clicks",
                     "scale": { "type": "quantitative" }
                   },
