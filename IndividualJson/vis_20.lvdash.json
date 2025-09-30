@@ -1,1 +1,63 @@
-{"datasets": [{"name": "dataset_20", "displayName": "% Active Devices by Country Dataset", "asset_name": "workspace.default.hpx_events_model", "queryLines": ["SELECT `Geo Country Code` AS `Country`, MEASURE(`Active Devices`) / SUM(MEASURE(`Active Devices`)) OVER (PARTITION BY `Geo Country Code`) * 100 AS `% Active Devices by Country`, MEASURE(`Active Devices`) AS `MAU`, RANK() OVER (ORDER BY MEASURE(`Active Devices`) DESC) AS `f_active_devices_rank` FROM `workspace.default.hpx_events_model` WHERE `App Version` NOT IN ('not a store release', 'other non-releases') AND `Event Date Time` >= '2023-05-01' AND `Os Version` IS NOT NULL ORDER BY `MAU` DESC LIMIT 10"]}], "pages": [{"name": "page_20", "displayName": "% Active Devices by Country (Top 10)", "layout": [{"widget": {"name": "bar_chart_widget", "queries": [{"name": "main_query", "query": {"datasetName": "dataset_20", "fields": [{"name": "Country", "expression": "`Geo Country Code`"}, {"name": "% Active Devices by Country", "expression": "MEASURE(`Active Devices`) / SUM(MEASURE(`Active Devices`)) OVER (PARTITION BY `Geo Country Code`) * 100"}, {"name": "MAU", "expression": "MEASURE(`Active Devices`)"}, {"name": "f_active_devices_rank", "expression": "RANK() OVER (ORDER BY MEASURE(`Active Devices`) DESC)"}], "disaggregated": false}}], "spec": {"version": 3, "widgetType": "bar", "encodings": {"x": {"fieldName": "Country", "displayName": "Country", "scale": {"type": "categorical"}}, "y": {"fieldName": "% Active Devices by Country", "displayName": "% Active Devices by Country", "scale": {"type": "quantitative"}}}, "frame": {"title": "% Active Devices by Country (Top 10)", "showTitle": true}}}}, "position": {"x": 0, "y": 0, "width": 12, "height": 8}}], "pageType": "PAGE_TYPE_CANVAS", "filters": []}], "uiSettings": {"theme": {"widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"}}}
+{
+    "datasets": [
+      {
+        "name": "dataset_20",
+        "displayName": "HPX Events Model Dataset",
+        "asset_name": "workspace.default.mv_hpx_events_model"
+      }
+    ],
+    "pages": [
+      {
+        "name": "page_20",
+        "displayName": "% Active Devices by Country Visualization",
+        "layout": [
+          {
+            "widget": {
+              "name": "bar_chart_widget_20",
+              "queries": [
+                {
+                  "name": "main_query",
+                  "query": {
+                    "datasetName": "dataset_20",
+                    "fields": [
+                      { "name": "Geo Country Code", "expression": "`geo_country_code`" },
+                      { "name": "% Active Devices by Country", "expression": "MEASURE(`% Active Devices by Country`)" }
+                    ],
+                    "disaggregated": false
+                  }
+                }
+              ],
+              "spec": {
+                "version": 3,
+                "widgetType": "bar",
+                "encodings": {
+                  "x": {
+                    "fieldName": "Geo Country Code",
+                    "displayName": "Country",
+                    "scale": { "type": "categorical" }
+                  },
+                  "y": {
+                    "fieldName": "% Active Devices by Country",
+                    "displayName": "% Active Devices by Country",
+                    "scale": { "type": "quantitative" }
+                  }
+                },
+                "frame": {
+                  "title": "% Active Devices by Country (Top 10)",
+                  "showTitle": true
+                }
+              }
+            },
+            "position": { "x": 0, "y": 0, "width": 12, "height": 8 }
+          }
+        ],
+        "pageType": "PAGE_TYPE_CANVAS",
+        "filters": []
+      }
+    ],
+    "uiSettings": {
+      "theme": {
+        "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+      }
+    }
+  }
