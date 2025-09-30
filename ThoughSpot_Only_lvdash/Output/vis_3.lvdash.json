@@ -3,7 +3,7 @@
       {
         "name": "dataset_3",
         "displayName": "New Devices by Country Dataset",
-        "asset_name": "workspace.hpx_events_model.metric_view"
+        "asset_name": "workspace.default.hpx_events_model"
       }
     ],
     "pages": [
@@ -13,30 +13,30 @@
         "layout": [
           {
             "widget": {
-              "name": "widget_3",
+              "name": "pie_chart_widget",
               "queries": [
                 {
                   "name": "main_query",
                   "query": {
                     "datasetName": "dataset_3",
                     "fields": [
-                      { "name": "geo_country_code", "expression": "`Geo Country Code`" },
-                      { "name": "new_devices", "expression": "SUM(`New Devices`)" }
+                      { "name": "Geo Country Code", "expression": "`Geo Country Code`" },
+                      { "name": "New Devices", "expression": "MEASURE(`New Devices`)" }
                     ],
                     "disaggregated": false
                   }
                 }
               ],
               "spec": {
-                "version": 1,
+                "version": 3,
                 "widgetType": "pie",
                 "encodings": {
                   "angle": {
-                    "fieldName": "new_devices",
+                    "fieldName": "New Devices",
                     "displayName": "New Devices"
                   },
                   "color": {
-                    "fieldName": "geo_country_code",
+                    "fieldName": "Geo Country Code",
                     "displayName": "Country"
                   }
                 },
