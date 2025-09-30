@@ -1,12 +1,9 @@
 {
     "datasets": [
       {
-        "name": "dataset_14",
-        "displayName": "Home Tile Interactions Dataset",
-        "asset_name": "workspace.default.mv_hpx_events_model_homepage_summary",
-        "queryLines": [
-          "SELECT Home_Tile, SUM(Unique_Tile_Views) AS Total_Unique_Tile_Views, SUM(Unique_Tile_Clicks) AS Total_Unique_Tile_Clicks, SUM(Unique_Interstitial_Views) AS Total_Unique_Interstitial_Views, SUM(Unique_Interstitial_Primary_Button_Clicks) AS Total_Unique_Interstitial_Primary_Button_Clicks, SUM(Unique_Interstitial_Secondary_Button_Clicks) AS Total_Unique_Interstitial_Secondary_Button_Clicks FROM hpx_events_model_homepage_summary GROUP BY Home_Tile ORDER BY Total_Unique_Tile_Views DESC"
-        ]
+        "name": "dataset_hpx_homepage_summary",
+        "displayName": "HPX Homepage Summary Dataset",
+        "asset_name": "workspace.default.mv_hpx_homepage_summary"
       }
     ],
     "pages": [
@@ -16,19 +13,19 @@
         "layout": [
           {
             "widget": {
-              "name": "widget_14",
+              "name": "bar_chart_widget",
               "queries": [
                 {
                   "name": "main_query",
                   "query": {
-                    "datasetName": "dataset_14",
+                    "datasetName": "dataset_hpx_homepage_summary",
                     "fields": [
-                      { "name": "Home_Tile", "expression": "`Home_Tile`" },
-                      { "name": "Total_Unique_Tile_Views", "expression": "`Total_Unique_Tile_Views`" },
-                      { "name": "Total_Unique_Tile_Clicks", "expression": "`Total_Unique_Tile_Clicks`" },
-                      { "name": "Total_Unique_Interstitial_Views", "expression": "`Total_Unique_Interstitial_Views`" },
-                      { "name": "Total_Unique_Interstitial_Primary_Button_Clicks", "expression": "`Total_Unique_Interstitial_Primary_Button_Clicks`" },
-                      { "name": "Total_Unique_Interstitial_Secondary_Button_Clicks", "expression": "`Total_Unique_Interstitial_Secondary_Button_Clicks`" }
+                      { "name": "Home Tile", "expression": "home_tile" },
+                      { "name": "Unique Tile Views", "expression": "MEASURE(Total Unique Tile Views)" },
+                      { "name": "Unique Tile Clicks", "expression": "MEASURE(Total Unique Tile Clicks)" },
+                      { "name": "Unique Interstitial Views", "expression": "MEASURE(Total Unique Interstitial Views)" },
+                      { "name": "Unique Interstitial Primary Button Clicks", "expression": "MEASURE(Total Unique Interstitial Primary Button Clicks)" },
+                      { "name": "Unique Interstitial Secondary Button Clicks", "expression": "MEASURE(Total Unique Interstitial Secondary Button Clicks)" }
                     ],
                     "disaggregated": false
                   }
@@ -39,30 +36,30 @@
                 "widgetType": "bar",
                 "encodings": {
                   "x": {
-                    "fieldName": "Home_Tile",
+                    "fieldName": "Home Tile",
                     "displayName": "Home Tile",
                     "scale": { "type": "categorical" }
                   },
                   "y": {
                     "fields": [
                       {
-                        "fieldName": "Total_Unique_Tile_Views",
+                        "fieldName": "Unique Tile Views",
                         "displayName": "Unique Tile Views"
                       },
                       {
-                        "fieldName": "Total_Unique_Tile_Clicks",
+                        "fieldName": "Unique Tile Clicks",
                         "displayName": "Unique Tile Clicks"
                       },
                       {
-                        "fieldName": "Total_Unique_Interstitial_Views",
+                        "fieldName": "Unique Interstitial Views",
                         "displayName": "Unique Interstitial Views"
                       },
                       {
-                        "fieldName": "Total_Unique_Interstitial_Primary_Button_Clicks",
+                        "fieldName": "Unique Interstitial Primary Button Clicks",
                         "displayName": "Unique Interstitial Primary Button Clicks"
                       },
                       {
-                        "fieldName": "Total_Unique_Interstitial_Secondary_Button_Clicks",
+                        "fieldName": "Unique Interstitial Secondary Button Clicks",
                         "displayName": "Unique Interstitial Secondary Button Clicks"
                       }
                     ],
