@@ -1,1 +1,68 @@
-{"datasets": [{"name": "dataset_16","displayName": "Home Tile Clicks Dataset","asset_name": "workspace.default.mv_hpx_events_model_homepage_summary","queryLines": ["SELECT Home_Tile AS Home_Tile, MEASURE(Total_Unique_Tile_Clicks) AS Total_Unique_Tile_Clicks, MEASURE(Total_Unique_Tile_Views) AS Total_Unique_Tile_Views, MEASURE(Total_Unique_Interstitial_Views) AS Total_Unique_Interstitial_Views, MEASURE(Total_Unique_Interstitial_Primary_Button_Clicks) AS Total_Unique_Interstitial_Primary_Button_Clicks, MEASURE(Total_Unique_Interstitial_Secondary_Button_Clicks) AS Total_Unique_Interstitial_Secondary_Button_Clicks, MEASURE(Total_Home_Tile_Clicked_vs_Homepage_Displayed) AS Percent_Home_Tile_Clicked_vs_Homepage_Displayed, MEASURE(Total_Primary_Button_Clicked_vs_Tile_Displayed) AS Percent_Primary_Button_Clicked_vs_Tile_Displayed, MEASURE(Total_Secondary_Button_Clicked_vs_Tile_Displayed) AS Percent_Secondary_Button_Clicked_vs_Tile_Displayed, MEASURE(Total_Primary_Button_Clicked_vs_Interstitial_Displayed) AS Percent_Primary_Button_Clicked_vs_Interstitial_Displayed, MEASURE(Total_Secondary_Button_Clicked_vs_Interstitial_Displayed) AS Percent_Secondary_Button_Clicked_vs_Interstitial_Displayed FROM hpx_events_model_homepage_summary GROUP BY Home_Tile ORDER BY Total_Unique_Tile_Clicks DESC"]}],"pages": [{"name": "page_16","displayName": "Home Tile Clicks","layout": [{"widget": {"name": "widget_16","queries": [{"name": "main_query","query": {"datasetName": "dataset_16","fields": [{"name": "Home_Tile","expression": "`Home_Tile`"},{"name": "Total_Unique_Tile_Clicks","expression": "MEASURE(`Total_Unique_Tile_Clicks`)"},{"name": "Total_Unique_Tile_Views","expression": "MEASURE(`Total_Unique_Tile_Views`)"},{"name": "Total_Unique_Interstitial_Views","expression": "MEASURE(`Total_Unique_Interstitial_Views`)"},{"name": "Total_Unique_Interstitial_Primary_Button_Clicks","expression": "MEASURE(`Total_Unique_Interstitial_Primary_Button_Clicks`)"},{"name": "Total_Unique_Interstitial_Secondary_Button_Clicks","expression": "MEASURE(`Total_Unique_Interstitial_Secondary_Button_Clicks`)"},{"name": "Percent_Home_Tile_Clicked_vs_Homepage_Displayed","expression": "MEASURE(`Percent_Home_Tile_Clicked_vs_Homepage_Displayed`)"},{"name": "Percent_Primary_Button_Clicked_vs_Tile_Displayed","expression": "MEASURE(`Percent_Primary_Button_Clicked_vs_Tile_Displayed`)"},{"name": "Percent_Secondary_Button_Clicked_vs_Tile_Displayed","expression": "MEASURE(`Percent_Secondary_Button_Clicked_vs_Tile_Displayed`)"},{"name": "Percent_Primary_Button_Clicked_vs_Interstitial_Displayed","expression": "MEASURE(`Percent_Primary_Button_Clicked_vs_Interstitial_Displayed`)"},{"name": "Percent_Secondary_Button_Clicked_vs_Interstitial_Displayed","expression": "MEASURE(`Percent_Secondary_Button_Clicked_vs_Interstitial_Displayed`)"}],"disaggregated": false}}],"spec": {"version": 3,"widgetType": "counter","encodings": {"value": {"fieldName": "Total_Unique_Tile_Clicks","displayName": "Total Unique Tile Clicks"}},"frame": {"title": "Home Tile Clicks","showTitle": true}}}},"position": {"x": 0,"y": 0,"width": 12,"height": 8}}],"pageType": "PAGE_TYPE_CANVAS","filters": []}],"uiSettings": {"theme": {"widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"}}}
+{
+  "datasets": [
+    {
+      "name": "dataset_16",
+      "displayName": "HPX Events Model Homepage Summary",
+      "asset_name": "workspace.default.mv_hpx_homepage_summary"
+    }
+  ],
+  "pages": [
+    {
+      "name": "page_16",
+      "displayName": "Home Tile Clicks",
+      "layout": [
+        {
+          "widget": {
+            "name": "widget_16",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "dataset_16",
+                  "fields": [
+                    {
+                      "name": "Home Tile",
+                      "expression": "Home Tile"
+                    },
+                    {
+                      "name": "Unique Tile Clicks",
+                      "expression": "SUM(MEASURE(Total Unique Tile Clicks))"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "Unique Tile Clicks",
+                  "displayName": "Unique Tile Clicks"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Home Tile Clicks"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 12,
+            "height": 8
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS",
+      "filters": []
+    }
+  ],
+  "uiSettings": {
+    "theme": {
+      "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+    }
+  }
+}
