@@ -2,14 +2,14 @@
     "datasets": [
       {
         "name": "dataset_6",
-        "displayName": "HPX Events Model Dataset",
-        "asset_name": "workspace.default.mv_hpx_events_model"
+        "displayName": "Unique Screen Views Dataset",
+        "asset_name": "workspace.default.hpx_events_model"
       }
     ],
     "pages": [
       {
         "name": "page_6",
-        "displayName": "Top Unique Screen Views Visualization",
+        "displayName": "Unique Screen Views Visualization",
         "layout": [
           {
             "widget": {
@@ -20,7 +20,7 @@
                   "query": {
                     "datasetName": "dataset_6",
                     "fields": [
-                      { "name": "Screen", "expression": "`screen`" },
+                      { "name": "Screen", "expression": "`Screen`" },
                       { "name": "Unique Screen Views", "expression": "MEASURE(`Unique Screen Views`)" }
                     ],
                     "disaggregated": false
@@ -43,7 +43,7 @@
                   }
                 },
                 "frame": {
-                  "title": "Top Unique Screen Views (excluding Home/Welcome)",
+                  "title": "Unique Screen Views by Screen",
                   "showTitle": true
                 }
               }
