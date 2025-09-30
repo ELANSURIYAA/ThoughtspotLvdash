@@ -2,7 +2,7 @@
   "datasets": [
     {
       "name": "dataset_16",
-      "displayName": "Home Tile Clicks Dataset",
+      "displayName": "HPX Events Model Homepage Summary",
       "asset_name": "workspace.default.mv_hpx_homepage_summary"
     }
   ],
@@ -21,12 +21,28 @@
                   "datasetName": "dataset_16",
                   "fields": [
                     {
-                      "name": "home_tile",
+                      "name": "Home Tile",
                       "expression": "home_tile"
                     },
                     {
-                      "name": "unique_tile_clicks",
-                      "expression": "SUM(unique_tile_clicks)"
+                      "name": "Unique Tile Clicks",
+                      "expression": "SUM(MEASURE("Total Unique Tile Clicks"))"
+                    },
+                    {
+                      "name": "Unique Interstitial Views",
+                      "expression": "SUM(MEASURE("Total Unique Interstitial Views"))"
+                    },
+                    {
+                      "name": "% Home Tile Clicked Vs Homepage Displayed",
+                      "expression": "SUM(MEASURE("Total Home Tile Clicked Vs Homepage Displayed"))"
+                    },
+                    {
+                      "name": "% Primary Button Clicked Vs Tile Displayed",
+                      "expression": "SUM(MEASURE("Total Primary Button Clicked Vs Tile Displayed"))"
+                    },
+                    {
+                      "name": "% Secondary Button Clicked Vs Tile Displayed",
+                      "expression": "SUM(MEASURE("Total Secondary Button Clicked Vs Tile Displayed"))"
                     }
                   ],
                   "disaggregated": false
@@ -38,7 +54,7 @@
               "widgetType": "counter",
               "encodings": {
                 "value": {
-                  "fieldName": "unique_tile_clicks",
+                  "fieldName": "Unique Tile Clicks",
                   "displayName": "Unique Tile Clicks"
                 }
               },
