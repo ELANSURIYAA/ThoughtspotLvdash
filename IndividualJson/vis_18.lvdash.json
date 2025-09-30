@@ -2,14 +2,14 @@
     "datasets": [
       {
         "name": "dataset_18",
-        "displayName": "HPX Events Model Homepage Summary",
+        "displayName": "HPX Events Model Homepage Summary Dataset",
         "asset_name": "workspace.default.mv_hpx_homepage_summary"
       }
     ],
     "pages": [
       {
         "name": "page_18",
-        "displayName": "Home Tile Primary CTR",
+        "displayName": "Home Tile Primary CTR Visualization",
         "layout": [
           {
             "widget": {
@@ -21,18 +21,18 @@
                     "datasetName": "dataset_18",
                     "fields": [
                       { "name": "Home Tile", "expression": "home_tile" },
-                      { "name": "% Home Tile Clicked Vs Homepage Displayed", "expression": "MEASURE(Total Home Tile Clicked Vs Homepage Displayed)" },
-                      { "name": "% Primary Button Clicked Vs Interstitial Displayed", "expression": "MEASURE(Total Primary Button Clicked Vs Interstitial Displayed)" },
-                      { "name": "% Primary Button Clicked Vs Tile Displayed", "expression": "MEASURE(Total Primary Button Clicked Vs Tile Displayed)" },
-                      { "name": "% Secondary Button Clicked Vs Interstitial Displayed", "expression": "MEASURE(Total Secondary Button Clicked Vs Interstitial Displayed)" },
-                      { "name": "% Secondary Button Clicked Vs Tile Displayed", "expression": "MEASURE(Total Secondary Button Clicked Vs Tile Displayed)" },
-                      { "name": "Unique Interstitial Primary Button Clicks", "expression": "SUM(MEASURE(Total Unique Interstitial Primary Button Clicks))" },
-                      { "name": "Unique Interstitial Secondary Button Clicks", "expression": "SUM(MEASURE(Total Unique Interstitial Secondary Button Clicks))" },
-                      { "name": "Unique Interstitial Views", "expression": "SUM(MEASURE(Total Unique Interstitial Views))" },
-                      { "name": "Unique Tile Clicks", "expression": "SUM(MEASURE(Total Unique Tile Clicks))" },
-                      { "name": "Unique Tile Views", "expression": "SUM(MEASURE(Total Unique Tile Views))" },
-                      { "name": "CTR", "expression": "MEASURE(f_ctr)" },
-                      { "name": "Primary CTR", "expression": "MEASURE(f_ctr_cta1)" }
+                      { "name": "Unique Tile Views", "expression": "MEASURE("Total Unique Tile Views")" },
+                      { "name": "Unique Tile Clicks", "expression": "MEASURE("Total Unique Tile Clicks")" },
+                      { "name": "Unique Interstitial Views", "expression": "MEASURE("Total Unique Interstitial Views")" },
+                      { "name": "Unique Interstitial Primary Button Clicks", "expression": "MEASURE("Total Unique Interstitial Primary Button Clicks")" },
+                      { "name": "Unique Interstitial Secondary Button Clicks", "expression": "MEASURE("Total Unique Interstitial Secondary Button Clicks")" },
+                      { "name": "% Home Tile Clicked vs Homepage Displayed", "expression": "MEASURE("Total Home Tile Clicked Vs Homepage Displayed")" },
+                      { "name": "% Primary Button Clicked vs Tile Displayed", "expression": "MEASURE("Total Primary Button Clicked Vs Tile Displayed")" },
+                      { "name": "% Secondary Button Clicked vs Tile Displayed", "expression": "MEASURE("Total Secondary Button Clicked Vs Tile Displayed")" },
+                      { "name": "% Primary Button Clicked vs Interstitial Displayed", "expression": "MEASURE("Total Primary Button Clicked Vs Interstitial Displayed")" },
+                      { "name": "% Secondary Button Clicked vs Interstitial Displayed", "expression": "MEASURE("Total Secondary Button Clicked Vs Interstitial Displayed")" },
+                      { "name": "CTR", "expression": "MEASURE("f_ctr")" },
+                      { "name": "Primary CTR", "expression": "MEASURE("f_ctr_cta1")" }
                     ],
                     "disaggregated": false
                   }
@@ -40,19 +40,23 @@
               ],
               "spec": {
                 "version": 3,
-                "widgetType": "counter",
+                "widgetType": "table",
                 "encodings": {
-                  "value": {
-                    "fields": [
-                      { "fieldName": "Primary CTR", "displayName": "Primary CTR" },
-                      { "fieldName": "CTR", "displayName": "CTR" },
-                      { "fieldName": "Unique Tile Views", "displayName": "Unique Tile Views" },
-                      { "fieldName": "Unique Tile Clicks", "displayName": "Unique Tile Clicks" },
-                      { "fieldName": "Unique Interstitial Views", "displayName": "Unique Interstitial Views" },
-                      { "fieldName": "Unique Interstitial Primary Button Clicks", "displayName": "Unique Interstitial Primary Button Clicks" },
-                      { "fieldName": "Unique Interstitial Secondary Button Clicks", "displayName": "Unique Interstitial Secondary Button Clicks" }
-                    ]
-                  }
+                  "columns": [
+                    { "fieldName": "Home Tile", "displayName": "Home Tile" },
+                    { "fieldName": "Unique Tile Views", "displayName": "Unique Tile Views" },
+                    { "fieldName": "Unique Tile Clicks", "displayName": "Unique Tile Clicks" },
+                    { "fieldName": "Unique Interstitial Views", "displayName": "Unique Interstitial Views" },
+                    { "fieldName": "Unique Interstitial Primary Button Clicks", "displayName": "Unique Interstitial Primary Button Clicks" },
+                    { "fieldName": "Unique Interstitial Secondary Button Clicks", "displayName": "Unique Interstitial Secondary Button Clicks" },
+                    { "fieldName": "% Home Tile Clicked vs Homepage Displayed", "displayName": "% Home Tile Clicked vs Homepage Displayed" },
+                    { "fieldName": "% Primary Button Clicked vs Tile Displayed", "displayName": "% Primary Button Clicked vs Tile Displayed" },
+                    { "fieldName": "% Secondary Button Clicked vs Tile Displayed", "displayName": "% Secondary Button Clicked vs Tile Displayed" },
+                    { "fieldName": "% Primary Button Clicked vs Interstitial Displayed", "displayName": "% Primary Button Clicked vs Interstitial Displayed" },
+                    { "fieldName": "% Secondary Button Clicked vs Interstitial Displayed", "displayName": "% Secondary Button Clicked vs Interstitial Displayed" },
+                    { "fieldName": "CTR", "displayName": "CTR" },
+                    { "fieldName": "Primary CTR", "displayName": "Primary CTR" }
+                  ]
                 },
                 "frame": {
                   "title": "Home Tile Primary CTR",
