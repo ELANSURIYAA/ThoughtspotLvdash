@@ -1,28 +1,37 @@
 {
   "datasets": [
     {
-      "name": "mv_hpx_events_model",
-      "displayName": "HPX Events Model",
+      "name": "dataset_8",
+      "displayName": "Launch Type Active Devices Dataset",
       "asset_name": "workspace.default.mv_hpx_events_model"
     }
   ],
   "pages": [
     {
       "name": "page_8",
-      "displayName": "Launch type Active Devices",
+      "displayName": "Launch Type Active Devices",
       "layout": [
         {
           "widget": {
-            "name": "stacked_column_chart_widget",
+            "name": "widget_8",
             "queries": [
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "mv_hpx_events_model",
+                  "datasetName": "dataset_8",
                   "fields": [
-                    { "name": "Daily Event Date", "expression": "DATE_TRUNC('DAY', event_date_time)" },
-                    { "name": "Active Devices", "expression": "MEASURE(Active Devices)" },
-                    { "name": "Launch Type", "expression": "launch_type" }
+                    {
+                      "name": "daily_event_date",
+                      "expression": "DATE_TRUNC('DAY', event_date_time)"
+                    },
+                    {
+                      "name": "launch_type",
+                      "expression": "launch_type"
+                    },
+                    {
+                      "name": "active_devices",
+                      "expression": "COUNT(DISTINCT sys_sn_hash)"
+                    }
                   ],
                   "disaggregated": false
                 }
@@ -33,17 +42,17 @@
               "widgetType": "bar",
               "encodings": {
                 "x": {
-                  "fieldName": "Daily Event Date",
+                  "fieldName": "daily_event_date",
                   "displayName": "Daily Event Date",
                   "scale": { "type": "temporal" }
                 },
                 "y": {
-                  "fieldName": "Active Devices",
+                  "fieldName": "active_devices",
                   "displayName": "Active Devices",
                   "scale": { "type": "quantitative" }
                 },
                 "color": {
-                  "fieldName": "Launch Type",
+                  "fieldName": "launch_type",
                   "displayName": "Launch Type",
                   "scale": { "type": "categorical" }
                 }
