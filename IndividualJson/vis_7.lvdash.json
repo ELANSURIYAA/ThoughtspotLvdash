@@ -2,8 +2,8 @@
     "datasets": [
       {
         "name": "dataset_7",
-        "displayName": "HPX Events Model Dataset",
-        "asset_name": "workspace.default.mv_hpx_events_model"
+        "displayName": "Top On Press Events Dataset",
+        "asset_name": "workspace.default.hpx_events_model"
       }
     ],
     "pages": [
@@ -20,7 +20,7 @@
                   "query": {
                     "datasetName": "dataset_7",
                     "fields": [
-                      { "name": "Control", "expression": "`control`" },
+                      { "name": "Control", "expression": "`Control`" },
                       { "name": "Total Clicks", "expression": "MEASURE(`Total Clicks`)" }
                     ],
                     "disaggregated": false
@@ -43,7 +43,7 @@
                   }
                 },
                 "frame": {
-                  "title": "Top On Press Events by Total Clicks",
+                  "title": "Top On Press Events by Control",
                   "showTitle": true
                 }
               }
