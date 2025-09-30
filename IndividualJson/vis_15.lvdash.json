@@ -1,1 +1,101 @@
-{"datasets": [{"name": "dataset_15","displayName": "Home Tile Views Dataset","asset_name": "workspace.default.mv_hpx_events_model_homepage_summary","queryLines": ["SELECT Home_Tile AS Home_Tile, SUM(Unique_Tile_Views) AS Total_Unique_Tile_Views FROM hpx_events_model_homepage_summary GROUP BY Home_Tile ORDER BY Total_Unique_Tile_Views DESC"]}],"pages": [{"name": "page_15","displayName": "Home Tile Views Visualization","layout": [{"widget": {"name": "widget_15","queries": [{"name": "main_query","query": {"datasetName": "dataset_15","fields": [{"name": "Home_Tile","expression": "Home_Tile"},{"name": "Total_Unique_Tile_Views","expression": "SUM(Unique_Tile_Views)"}],"disaggregated": false}}],"spec": {"version": 3,"widgetType": "counter","encodings": {"value": {"fieldName": "Total_Unique_Tile_Views","displayName": "Unique Tile Views"}},"frame": {"title": "Home Tile Views","showTitle": true}}}},"position": {"x": 0,"y": 0,"width": 12,"height": 8}}],"pageType": "PAGE_TYPE_CANVAS","filters": []}],"uiSettings": {"theme": {"widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"}}}
+{
+  "datasets": [
+    {
+      "name": "dataset_15",
+      "displayName": "Home Tile Views Dataset",
+      "asset_name": "workspace.default.mv_hpx_homepage_summary"
+    }
+  ],
+  "pages": [
+    {
+      "name": "page_15",
+      "displayName": "Home Tile Views",
+      "layout": [
+        {
+          "widget": {
+            "name": "widget_15",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "dataset_15",
+                  "fields": [
+                    {
+                      "name": "home_tile",
+                      "expression": "home_tile"
+                    },
+                    {
+                      "name": "unique_tile_views",
+                      "expression": "SUM(unique_tile_views)"
+                    },
+                    {
+                      "name": "unique_tile_clicks",
+                      "expression": "SUM(unique_tile_clicks)"
+                    },
+                    {
+                      "name": "unique_interstitial_views",
+                      "expression": "SUM(unique_interstitial_views)"
+                    },
+                    {
+                      "name": "unique_interstitial_primary_button_clicks",
+                      "expression": "SUM(unique_interstitial_primary_button_clicks)"
+                    },
+                    {
+                      "name": "unique_interstitial_secondary_button_clicks",
+                      "expression": "SUM(unique_interstitial_secondary_button_clicks)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "table",
+              "encodings": {
+                "columns": [
+                  {
+                    "fieldName": "home_tile",
+                    "displayName": "Home Tile"
+                  },
+                  {
+                    "fieldName": "unique_tile_views",
+                    "displayName": "Unique Tile Views"
+                  },
+                  {
+                    "fieldName": "unique_tile_clicks",
+                    "displayName": "Unique Tile Clicks"
+                  },
+                  {
+                    "fieldName": "unique_interstitial_views",
+                    "displayName": "Unique Interstitial Views"
+                  },
+                  {
+                    "fieldName": "unique_interstitial_primary_button_clicks",
+                    "displayName": "Unique Interstitial Primary Button Clicks"
+                  },
+                  {
+                    "fieldName": "unique_interstitial_secondary_button_clicks",
+                    "displayName": "Unique Interstitial Secondary Button Clicks"
+                  }
+                ]
+              },
+              "frame": {
+                "title": "Home Tile Views",
+                "showTitle": true
+              }
+            }
+          },
+          "position": { "x": 0, "y": 0, "width": 12, "height": 8 }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS",
+      "filters": []
+    }
+  ],
+  "uiSettings": {
+    "theme": {
+      "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+    }
+  }
+}
