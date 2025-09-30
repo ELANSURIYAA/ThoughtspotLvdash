@@ -1,12 +1,9 @@
 {
     "datasets": [
       {
-        "name": "dataset_13",
+        "name": "dataset_hpx_first_use_behavior_flow",
         "displayName": "HPX First Use Behavior Flow Dataset",
-        "asset_name": "workspace.default.mv_hpx_first_use_behavior_flow",
-        "queryLines": [
-          "SELECT Screen_1, Screen_2, Screen_3, Screen_4, Screen_5, SUM(Devices) AS Total_Devices FROM hpx_first_use_behavior_flow WHERE Date >= '2023-05-01' AND Screen_2 != 'welcome_S2' AND Screen_3 != 'welcome_S3' AND Screen_4 != 'welcome_S4' AND Screen_5 != 'welcome_S5' GROUP BY Screen_1, Screen_2, Screen_3, Screen_4, Screen_5 ORDER BY Total_Devices DESC"
-        ]
+        "asset_name": "workspace.default.mv_hpx_first_use_behavior_flow"
       }
     ],
     "pages": [
@@ -16,19 +13,19 @@
         "layout": [
           {
             "widget": {
-              "name": "widget_13",
+              "name": "sankey_chart_widget",
               "queries": [
                 {
                   "name": "main_query",
                   "query": {
-                    "datasetName": "dataset_13",
+                    "datasetName": "dataset_hpx_first_use_behavior_flow",
                     "fields": [
-                      { "name": "Screen_1", "expression": "`Screen_1`" },
-                      { "name": "Screen_2", "expression": "`Screen_2`" },
-                      { "name": "Screen_3", "expression": "`Screen_3`" },
-                      { "name": "Screen_4", "expression": "`Screen_4`" },
-                      { "name": "Screen_5", "expression": "`Screen_5`" },
-                      { "name": "Total_Devices", "expression": "`Total_Devices`" }
+                      { "name": "Screen 1", "expression": "screen_1" },
+                      { "name": "Screen 2", "expression": "screen_2" },
+                      { "name": "Screen 3", "expression": "screen_3" },
+                      { "name": "Screen 4", "expression": "screen_4" },
+                      { "name": "Screen 5", "expression": "screen_5" },
+                      { "name": "Total Devices", "expression": "MEASURE(Total Devices)" }
                     ],
                     "disaggregated": false
                   }
@@ -39,15 +36,15 @@
                 "widgetType": "sankey",
                 "encodings": {
                   "value": {
-                    "fieldName": "Total_Devices",
+                    "fieldName": "Total Devices",
                     "displayName": "Total Devices"
                   },
                   "stages": [
-                    { "fieldName": "Screen_1", "displayName": "Screen 1" },
-                    { "fieldName": "Screen_2", "displayName": "Screen 2" },
-                    { "fieldName": "Screen_3", "displayName": "Screen 3" },
-                    { "fieldName": "Screen_4", "displayName": "Screen 4" },
-                    { "fieldName": "Screen_5", "displayName": "Screen 5" }
+                    { "fieldName": "Screen 1", "displayName": "Screen 1" },
+                    { "fieldName": "Screen 2", "displayName": "Screen 2" },
+                    { "fieldName": "Screen 3", "displayName": "Screen 3" },
+                    { "fieldName": "Screen 4", "displayName": "Screen 4" },
+                    { "fieldName": "Screen 5", "displayName": "Screen 5" }
                   ]
                 },
                 "frame": {
