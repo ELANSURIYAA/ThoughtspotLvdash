@@ -2,14 +2,14 @@
   "datasets": [
     {
       "name": "dataset_2",
-      "displayName": "New Devices Dataset",
+      "displayName": "HPX Events Model",
       "asset_name": "workspace.default.mv_hpx_events_model"
     }
   ],
   "pages": [
     {
       "name": "page_2",
-      "displayName": "New Devices Visualization",
+      "displayName": "New Devices",
       "layout": [
         {
           "widget": {
@@ -20,18 +20,9 @@
                 "query": {
                   "datasetName": "dataset_2",
                   "fields": [
-                    {
-                      "name": "daily_event_date",
-                      "expression": "DATE_TRUNC('DAY', event_date_time)"
-                    },
-                    {
-                      "name": "new_devices",
-                      "expression": "SUM(first_event_ct)"
-                    },
-                    {
-                      "name": "cumulative_new_devices",
-                      "expression": "SUM(SUM(first_event_ct)) OVER (ORDER BY DATE_TRUNC('DAY', event_date_time) ROWS UNBOUNDED PRECEDING)"
-                    }
+                    { "name": "Daily Event Date", "expression": "DATE_TRUNC('DAY', event_date_time)" },
+                    { "name": "New Devices", "expression": "MEASURE(New Devices)" },
+                    { "name": "Cumulative New Devices", "expression": "SUM(MEASURE(New Devices)) OVER (ORDER BY DATE_TRUNC('DAY', event_date_time) ROWS UNBOUNDED PRECEDING)" }
                   ],
                   "disaggregated": false
                 }
@@ -42,18 +33,18 @@
               "widgetType": "line",
               "encodings": {
                 "x": {
-                  "fieldName": "daily_event_date",
+                  "fieldName": "Daily Event Date",
                   "displayName": "Daily Event Date",
                   "scale": { "type": "temporal" }
                 },
                 "y": {
                   "fields": [
                     {
-                      "fieldName": "new_devices",
+                      "fieldName": "New Devices",
                       "displayName": "New Devices"
                     },
                     {
-                      "fieldName": "cumulative_new_devices",
+                      "fieldName": "Cumulative New Devices",
                       "displayName": "Cumulative New Devices"
                     }
                   ],
@@ -61,7 +52,7 @@
                 }
               },
               "frame": {
-                "title": "New Devices and Cumulative Devices Over Time",
+                "title": "New and Cumulative Devices Over Time",
                 "showTitle": true
               }
             }
