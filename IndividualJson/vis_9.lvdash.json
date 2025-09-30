@@ -1,1 +1,77 @@
-{"datasets": [{"name": "dataset_9","displayName": "HPX Retention Dataset","asset_name": "workspace.default.mv_hpx_retention_css_analytics","queryLines": ["SELECT DATE_TRUNC('MONTH', `First Device Event Date Time`) AS `Monthly Event Date`, MEASURE(`Active Devices`) AS `Active Devices`, MEASURE(`% Devices Returning`) AS `% Devices Returning`, `Months Since First Use`, `Session Type`, `Weeks Since First Use` FROM workspace.default.mv_hpx_retention_css_analytics WHERE `First Device Event Date Time` >= '2023-05-01' GROUP BY DATE_TRUNC('MONTH', `First Device Event Date Time`), `Months Since First Use`, `Session Type`, `Weeks Since First Use` ORDER BY `Monthly Event Date`"]}],"pages": [{"name": "page_9","displayName": "0.5 HPX Retention","layout": [{"widget": {"name": "widget_9","queries": [{"name": "main_query","query": {"datasetName": "dataset_9","fields": [{"name": "Monthly Event Date","expression": "DATE_TRUNC('MONTH', `First Device Event Date Time`)"},{"name": "Active Devices","expression": "MEASURE(`Active Devices`)"},{"name": "% Devices Returning","expression": "MEASURE(`% Devices Returning`)"},{"name": "Months Since First Use","expression": "`Months Since First Use`"},{"name": "Session Type","expression": "`Session Type`"},{"name": "Weeks Since First Use","expression": "`Weeks Since First Use`"}],"disaggregated": false}}],"spec": {"version": 3,"widgetType": "pivot_table","encodings": {"x": {"fieldName": "Monthly Event Date","displayName": "Monthly Event Date","scale": {"type": "temporal"}},"y": {"fields": [{"fieldName": "% Devices Returning","displayName": "% Devices Returning"}],"scale": {"type": "quantitative"}},"color": {"fields": [{"fieldName": "Months Since First Use","displayName": "Months Since First Use"},{"fieldName": "Session Type","displayName": "Session Type"}]},"heatmap": {"enabled": true}},"frame": {"title": "0.5 HPX Retention","showTitle": true}}}},"position": {"x": 0,"y": 0,"width": 12,"height": 8}}],"pageType": "PAGE_TYPE_CANVAS","filters": []}],"uiSettings": {"theme": {"widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"}}}
+{
+    "datasets": [
+      {
+        "name": "dataset_9",
+        "displayName": "HPX Retention Dataset",
+        "asset_name": "workspace.default.HPX_Retention_CSS_Analytics"
+      }
+    ],
+    "pages": [
+      {
+        "name": "page_9",
+        "displayName": "0.5 HPX Retention",
+        "layout": [
+          {
+            "widget": {
+              "name": "pivot_table_widget_9",
+              "queries": [
+                {
+                  "name": "main_query",
+                  "query": {
+                    "datasetName": "dataset_9",
+                    "fields": [
+                      { "name": "Month(First Device Event Date Time)", "expression": "DATE_TRUNC('MONTH', `First Device Event Date Time`)" },
+                      { "name": "% Devices Returning", "expression": "MEASURE(`% Devices Returning`)" },
+                      { "name": "Months Since First Use", "expression": "`Months Since First Use`" },
+                      { "name": "Session Type", "expression": "`Session Type`" }
+                    ],
+                    "disaggregated": false
+                  }
+                }
+              ],
+              "spec": {
+                "version": 3,
+                "widgetType": "pivot_table",
+                "encodings": {
+                  "x": {
+                    "fieldName": "Month(First Device Event Date Time)",
+                    "displayName": "Month",
+                    "scale": { "type": "temporal" }
+                  },
+                  "y": {
+                    "fieldName": "% Devices Returning",
+                    "displayName": "% Devices Returning",
+                    "scale": { "type": "quantitative" }
+                  },
+                  "color": {
+                    "fields": [
+                      {
+                        "fieldName": "Months Since First Use",
+                        "displayName": "Months Since First Use"
+                      },
+                      {
+                        "fieldName": "Session Type",
+                        "displayName": "Session Type"
+                      }
+                    ]
+                  }
+                },
+                "frame": {
+                  "title": "0.5 HPX Retention",
+                  "showTitle": true
+                }
+              }
+            },
+            "position": { "x": 0, "y": 0, "width": 12, "height": 8 }
+          }
+        ],
+        "pageType": "PAGE_TYPE_CANVAS",
+        "filters": []
+      }
+    ],
+    "uiSettings": {
+      "theme": {
+        "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+      }
+    }
+  }
