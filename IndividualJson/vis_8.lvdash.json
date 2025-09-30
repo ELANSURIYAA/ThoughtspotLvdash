@@ -1,77 +1,69 @@
 {
-  "datasets": [
-    {
-      "name": "dataset_8",
-      "displayName": "Launch Type Active Devices Dataset",
-      "asset_name": "workspace.default.mv_hpx_events_model"
-    }
-  ],
-  "pages": [
-    {
-      "name": "page_8",
-      "displayName": "Launch Type Active Devices",
-      "layout": [
-        {
-          "widget": {
-            "name": "widget_8",
-            "queries": [
-              {
-                "name": "main_query",
-                "query": {
-                  "datasetName": "dataset_8",
-                  "fields": [
-                    {
-                      "name": "daily_event_date",
-                      "expression": "DATE_TRUNC('DAY', event_date_time)"
-                    },
-                    {
-                      "name": "launch_type",
-                      "expression": "launch_type"
-                    },
-                    {
-                      "name": "active_devices",
-                      "expression": "COUNT(DISTINCT sys_sn_hash)"
-                    }
-                  ],
-                  "disaggregated": false
+    "datasets": [
+      {
+        "name": "dataset_8",
+        "displayName": "Active Devices by Launch Type Dataset",
+        "asset_name": "workspace.default.hpx_events_model"
+      }
+    ],
+    "pages": [
+      {
+        "name": "page_8",
+        "displayName": "Active Devices by Launch Type Overview",
+        "layout": [
+          {
+            "widget": {
+              "name": "stacked_column_chart_widget",
+              "queries": [
+                {
+                  "name": "main_query",
+                  "query": {
+                    "datasetName": "dataset_8",
+                    "fields": [
+                      { "name": "Daily Event Date", "expression": "DATE_TRUNC('DAY', `Event Date Time`)" },
+                      { "name": "Active Devices", "expression": "MEASURE(`Active Devices`)" },
+                      { "name": "Launch Type", "expression": "`Launch Type`" }
+                    ],
+                    "disaggregated": false
+                  }
+                }
+              ],
+              "spec": {
+                "version": 3,
+                "widgetType": "bar",
+                "encodings": {
+                  "x": {
+                    "fieldName": "Daily Event Date",
+                    "displayName": "Daily Event Date",
+                    "scale": { "type": "temporal" }
+                  },
+                  "y": {
+                    "fieldName": "Active Devices",
+                    "displayName": "Active Devices",
+                    "scale": { "type": "quantitative" }
+                  },
+                  "color": {
+                    "fieldName": "Launch Type",
+                    "displayName": "Launch Type",
+                    "scale": { "type": "categorical" }
+                  }
+                },
+                "frame": {
+                  "title": "Active Devices by Launch Type Over Time",
+                  "showTitle": true
                 }
               }
-            ],
-            "spec": {
-              "version": 3,
-              "widgetType": "bar",
-              "encodings": {
-                "x": {
-                  "fieldName": "daily_event_date",
-                  "displayName": "Daily Event Date",
-                  "scale": { "type": "temporal" }
-                },
-                "y": {
-                  "fieldName": "active_devices",
-                  "displayName": "Active Devices",
-                  "scale": { "type": "quantitative" }
-                },
-                "color": {
-                  "fieldName": "launch_type",
-                  "displayName": "Launch Type"
-                }
-              },
-              "frame": {
-                "title": "Launch Type Active Devices",
-                "showTitle": true
-              }
-            }
-          },
-          "position": { "x": 0, "y": 0, "width": 12, "height": 8 }
-        }
-      ],
-      "pageType": "PAGE_TYPE_CANVAS",
-      "filters": []
-    }
-  ],
-  "uiSettings": {
-    "theme": {
-      "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+            },
+            "position": { "x": 0, "y": 0, "width": 12, "height": 8 }
+          }
+        ],
+        "pageType": "PAGE_TYPE_CANVAS",
+        "filters": []
+      }
+    ],
+    "uiSettings": {
+      "theme": {
+        "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+      }
     }
   }
-}
