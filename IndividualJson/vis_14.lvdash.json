@@ -2,8 +2,8 @@
     "datasets": [
       {
         "name": "dataset_14",
-        "displayName": "HPX Events Model Homepage Summary Dataset",
-        "asset_name": "workspace.default.mv_hpx_homepage_summary"
+        "displayName": "Home Tile Interactions Dataset",
+        "asset_name": "workspace.default.hpx_events_model_homepage_summary"
       }
     ],
     "pages": [
@@ -20,7 +20,7 @@
                   "query": {
                     "datasetName": "dataset_14",
                     "fields": [
-                      { "name": "Home Tile", "expression": "`home_tile`" },
+                      { "name": "Home Tile", "expression": "`Home Tile`" },
                       { "name": "Unique Tile Views", "expression": "MEASURE(`Total Unique Tile Views`)" },
                       { "name": "Unique Tile Clicks", "expression": "MEASURE(`Total Unique Tile Clicks`)" },
                       { "name": "Unique Interstitial Views", "expression": "MEASURE(`Total Unique Interstitial Views`)" },
