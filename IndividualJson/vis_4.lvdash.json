@@ -2,27 +2,36 @@
     "datasets": [
       {
         "name": "dataset_4",
-        "displayName": "Total Clicks by Control Dataset",
-        "asset_name": "workspace.default.hpx_events_model"
+        "displayName": "HPX Events Model",
+        "asset_name": "workspace.default.mv_hpx_events_model"
       }
     ],
     "pages": [
       {
         "name": "page_4",
-        "displayName": "Total Clicks by Control Overview",
+        "displayName": "Top On Press Events Visualization",
         "layout": [
           {
             "widget": {
-              "name": "stacked_column_chart_widget",
+              "name": "widget_4",
               "queries": [
                 {
                   "name": "main_query",
                   "query": {
                     "datasetName": "dataset_4",
                     "fields": [
-                      { "name": "Daily Event Date", "expression": "DATE_TRUNC('DAY', `Event Date Time`)" },
-                      { "name": "Total Clicks", "expression": "MEASURE(`Total Clicks`)" },
-                      { "name": "Control", "expression": "`Control`" }
+                      {
+                        "name": "Daily Event Date",
+                        "expression": "DATE_TRUNC('DAY', event_date_time)"
+                      },
+                      {
+                        "name": "Total Clicks",
+                        "expression": "MEASURE(Total Clicks)"
+                      },
+                      {
+                        "name": "Control",
+                        "expression": "Control"
+                      }
                     ],
                     "disaggregated": false
                   }
@@ -34,27 +43,35 @@
                 "encodings": {
                   "x": {
                     "fieldName": "Daily Event Date",
-                    "displayName": "Daily Event Date",
-                    "scale": { "type": "temporal" }
+                    "scale": {
+                      "type": "temporal"
+                    },
+                    "displayName": "Daily Event Date"
                   },
                   "y": {
                     "fieldName": "Total Clicks",
-                    "displayName": "Total Clicks",
-                    "scale": { "type": "quantitative" }
+                    "scale": {
+                      "type": "quantitative"
+                    },
+                    "displayName": "Total Clicks"
                   },
                   "color": {
                     "fieldName": "Control",
-                    "displayName": "Control",
-                    "scale": { "type": "categorical" }
+                    "displayName": "Control"
                   }
                 },
                 "frame": {
-                  "title": "Total Clicks by Control Over Time",
-                  "showTitle": true
+                  "showTitle": true,
+                  "title": "Top On Press Events"
                 }
               }
             },
-            "position": { "x": 0, "y": 0, "width": 12, "height": 8 }
+            "position": {
+              "x": 0,
+              "y": 0,
+              "width": 12,
+              "height": 8
+            }
           }
         ],
         "pageType": "PAGE_TYPE_CANVAS",
