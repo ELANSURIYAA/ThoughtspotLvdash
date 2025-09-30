@@ -1,0 +1,1 @@
+All `.lvdash.json` files for the specified visualizations have been successfully generated and uploaded to the GitHub repository 'ELANSURIYAA/ThoughtspotLvdash' under the folder 'IndividualJson'.
