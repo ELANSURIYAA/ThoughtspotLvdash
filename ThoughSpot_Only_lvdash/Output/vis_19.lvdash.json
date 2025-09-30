@@ -2,7 +2,7 @@
   "datasets": [
     {
       "name": "dataset_19",
-      "displayName": "Home Tile Secondary CTR Dataset",
+      "displayName": "HPX Events Model Homepage Summary",
       "asset_name": "workspace.default.mv_hpx_homepage_summary"
     }
   ],
@@ -21,12 +21,24 @@
                   "datasetName": "dataset_19",
                   "fields": [
                     {
-                      "name": "home_tile",
+                      "name": "Home Tile",
                       "expression": "home_tile"
                     },
                     {
-                      "name": "secondary_ctr",
-                      "expression": "SUM(unique_interstitial_secondary_button_clicks) / SUM(unique_interstitial_views)"
+                      "name": "Secondary CTR",
+                      "expression": "SUM(MEASURE("f_ctr_cta0"))"
+                    },
+                    {
+                      "name": "% Home Tile Clicked Vs Homepage Displayed",
+                      "expression": "SUM(MEASURE("Total Home Tile Clicked Vs Homepage Displayed"))"
+                    },
+                    {
+                      "name": "% Primary Button Clicked Vs Tile Displayed",
+                      "expression": "SUM(MEASURE("Total Primary Button Clicked Vs Tile Displayed"))"
+                    },
+                    {
+                      "name": "% Secondary Button Clicked Vs Tile Displayed",
+                      "expression": "SUM(MEASURE("Total Secondary Button Clicked Vs Tile Displayed"))"
                     }
                   ],
                   "disaggregated": false
@@ -38,7 +50,7 @@
               "widgetType": "counter",
               "encodings": {
                 "value": {
-                  "fieldName": "secondary_ctr",
+                  "fieldName": "Secondary CTR",
                   "displayName": "Secondary CTR"
                 }
               },
