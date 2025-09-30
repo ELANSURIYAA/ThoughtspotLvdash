@@ -1,56 +1,64 @@
 {
-    "datasets": [
-      {
-        "name": "dataset_10",
-        "displayName": "Total Consented Devices Dataset",
-        "asset_name": "workspace.default.hpx_events_model"
-      }
-    ],
-    "pages": [
-      {
-        "name": "page_10",
-        "displayName": "Total Consented Devices",
-        "layout": [
-          {
-            "widget": {
-              "name": "kpi_widget_10",
-              "queries": [
-                {
-                  "name": "main_query",
-                  "query": {
-                    "datasetName": "dataset_10",
-                    "fields": [
-                      { "name": "Active Devices", "expression": "MEASURE(`Active Devices`)" }
-                    ],
-                    "disaggregated": false
-                  }
-                }
-              ],
-              "spec": {
-                "version": 3,
-                "widgetType": "counter",
-                "encodings": {
-                  "value": {
-                    "fieldName": "Active Devices",
-                    "displayName": "Active Devices"
-                  }
-                },
-                "frame": {
-                  "title": "Total Consented Devices",
-                  "showTitle": true
+  "datasets": [
+    {
+      "name": "dataset_viz_10",
+      "displayName": "Total Consented Devices Dataset",
+      "asset_name": "workspace.default.mv_hpx_events_model"
+    }
+  ],
+  "pages": [
+    {
+      "name": "page_viz_10",
+      "displayName": "Total Consented Devices",
+      "layout": [
+        {
+          "widget": {
+            "name": "widget_viz_10",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "dataset_viz_10",
+                  "fields": [
+                    {
+                      "name": "active_devices",
+                      "expression": "MEASURE(Active Devices)"
+                    }
+                  ],
+                  "disaggregated": false
                 }
               }
-            },
-            "position": { "x": 0, "y": 0, "width": 12, "height": 8 }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "counter",
+              "encodings": {
+                "y": {
+                  "fieldName": "active_devices",
+                  "displayName": "Active Devices"
+                }
+              },
+              "frame": {
+                "title": "Total Consented Devices",
+                "showTitle": true
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 12,
+            "height": 8
           }
-        ],
-        "pageType": "PAGE_TYPE_CANVAS",
-        "filters": []
-      }
-    ],
-    "uiSettings": {
-      "theme": {
-        "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
-      }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS",
+      "filters": []
+    }
+  ],
+  "uiSettings": {
+    "theme": {
+      "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
     }
   }
+}
