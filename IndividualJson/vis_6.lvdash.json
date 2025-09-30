@@ -1,27 +1,27 @@
 {
     "datasets": [
       {
-        "name": "dataset_hpx_events_model",
-        "displayName": "HPX Events Model Dataset",
-        "asset_name": "workspace.default.mv_hpx_events_model"
+        "name": "dataset_6",
+        "displayName": "Top Unique Screen Views Dataset",
+        "asset_name": "workspace.default.hpx_events_model"
       }
     ],
     "pages": [
       {
         "name": "page_6",
-        "displayName": "Top Unique Screen Views Visualization",
+        "displayName": "Top Unique Screen Views Overview",
         "layout": [
           {
             "widget": {
-              "name": "bar_chart_widget",
+              "name": "bar_chart_widget_6",
               "queries": [
                 {
                   "name": "main_query",
                   "query": {
-                    "datasetName": "dataset_hpx_events_model",
+                    "datasetName": "dataset_6",
                     "fields": [
-                      { "name": "Screen", "expression": "screen" },
-                      { "name": "Unique Screen Views", "expression": "SUM(MEASURE(Unique Screen Views))" }
+                      { "name": "Screen", "expression": "`Screen`" },
+                      { "name": "Unique Screen Views", "expression": "MEASURE(`Unique Screen Views`)" }
                     ],
                     "disaggregated": false
                   }
@@ -43,7 +43,7 @@
                   }
                 },
                 "frame": {
-                  "title": "Top Unique Screen Views",
+                  "title": "Top Unique Screen Views (excl. Home/Welcome)",
                   "showTitle": true
                 }
               }
