@@ -1,27 +1,27 @@
 {
     "datasets": [
       {
-        "name": "dataset_hpx_events_model",
-        "displayName": "HPX Events Model Dataset",
-        "asset_name": "workspace.default.mv_hpx_events_model"
+        "name": "dataset_21",
+        "displayName": "% Active Devices by Appversion Dataset",
+        "asset_name": "workspace.default.hpx_events_model"
       }
     ],
     "pages": [
       {
         "name": "page_21",
-        "displayName": "% Active Devices by Appversion Visualization",
+        "displayName": "% Active Devices by Appversion Overview",
         "layout": [
           {
             "widget": {
-              "name": "bar_chart_widget",
+              "name": "bar_chart_widget_21",
               "queries": [
                 {
                   "name": "main_query",
                   "query": {
-                    "datasetName": "dataset_hpx_events_model",
+                    "datasetName": "dataset_21",
                     "fields": [
-                      { "name": "App Version", "expression": "app_version" },
-                      { "name": "% Active Devices By Appversion", "expression": "MEASURE(% Active Devices By Appversion)" }
+                      { "name": "App Version", "expression": "`App Version`" },
+                      { "name": "% Active Devices By Appversion", "expression": "MEASURE(`% Active Devices By Appversion`)" }
                     ],
                     "disaggregated": false
                   }
