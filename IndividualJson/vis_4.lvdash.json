@@ -1,12 +1,9 @@
 {
     "datasets": [
       {
-        "name": "dataset_4",
-        "displayName": "Top On Press Events Dataset",
-        "asset_name": "workspace.default.mv_hpx_events_model",
-        "queryLines": [
-          "SELECT DATE_TRUNC('DAY', Event_Date_Time) AS Daily_Event_Date, Control, SUM(Clicks) AS Total_Clicks FROM hpx_events_model WHERE Event_Date_Time >= '2023-05-01' AND Control NOT LIKE '%testid%' AND Ui_Action = 'onpress' AND Control != 'welcome core navigationviewitem id' GROUP BY DATE_TRUNC('DAY', Event_Date_Time), Control ORDER BY Total_Clicks DESC LIMIT 10"
-        ]
+        "name": "dataset_hpx_events_model",
+        "displayName": "HPX Events Model Dataset",
+        "asset_name": "workspace.default.mv_hpx_events_model"
       }
     ],
     "pages": [
@@ -16,16 +13,16 @@
         "layout": [
           {
             "widget": {
-              "name": "widget_4",
+              "name": "stacked_bar_chart_widget",
               "queries": [
                 {
                   "name": "main_query",
                   "query": {
-                    "datasetName": "dataset_4",
+                    "datasetName": "dataset_hpx_events_model",
                     "fields": [
-                      { "name": "Daily_Event_Date", "expression": "`Daily_Event_Date`" },
-                      { "name": "Control", "expression": "`Control`" },
-                      { "name": "Total_Clicks", "expression": "`Total_Clicks`" }
+                      { "name": "Daily Event Date", "expression": "DATE_TRUNC('DAY', event_date_time)" },
+                      { "name": "Control", "expression": "control" },
+                      { "name": "Total Clicks", "expression": "SUM(MEASURE(Total Clicks))" }
                     ],
                     "disaggregated": false
                   }
@@ -36,12 +33,12 @@
                 "widgetType": "bar",
                 "encodings": {
                   "x": {
-                    "fieldName": "Daily_Event_Date",
+                    "fieldName": "Daily Event Date",
                     "displayName": "Daily Event Date",
                     "scale": { "type": "temporal" }
                   },
                   "y": {
-                    "fieldName": "Total_Clicks",
+                    "fieldName": "Total Clicks",
                     "displayName": "Total Clicks",
                     "scale": { "type": "quantitative" }
                   },
@@ -52,7 +49,7 @@
                   }
                 },
                 "frame": {
-                  "title": "Top On Press Events",
+                  "title": "Top On Press Events by Control",
                   "showTitle": true
                 }
               }
