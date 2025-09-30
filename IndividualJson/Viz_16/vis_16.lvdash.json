@@ -1,0 +1,66 @@
+{
+  "datasets": [
+    {
+      "name": "dataset_viz_16",
+      "displayName": "HPX Events Model Homepage Summary Dataset",
+      "asset_name": "workspace.default.mv_hpx_homepage_summary"
+    }
+  ],
+  "pages": [
+    {
+      "name": "page_viz_16",
+      "displayName": "Home Tile Clicks",
+      "layout": [
+        {
+          "widget": {
+            "name": "kpi_widget_viz_16",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "dataset_viz_16",
+                  "fields": [
+                    { "name": "Home Tile", "expression": "Home Tile" },
+                    { "name": "Unique Tile Views", "expression": "MEASURE(Total Unique Tile Views)" },
+                    { "name": "Unique Tile Clicks", "expression": "MEASURE(Total Unique Tile Clicks)" },
+                    { "name": "Unique Interstitial Views", "expression": "MEASURE(Total Unique Interstitial Views)" },
+                    { "name": "Unique Interstitial Primary Button Clicks", "expression": "MEASURE(Total Unique Interstitial Primary Button Clicks)" },
+                    { "name": "Unique Interstitial Secondary Button Clicks", "expression": "MEASURE(Total Unique Interstitial Secondary Button Clicks)" },
+                    { "name": "% Home Tile Clicked Vs Homepage Displayed", "expression": "MEASURE(Total Home Tile Clicked Vs Homepage Displayed)" },
+                    { "name": "% Primary Button Clicked Vs Tile Displayed", "expression": "MEASURE(Total Primary Button Clicked Vs Tile Displayed)" },
+                    { "name": "% Secondary Button Clicked Vs Tile Displayed", "expression": "MEASURE(Total Secondary Button Clicked Vs Tile Displayed)" },
+                    { "name": "% Primary Button Clicked Vs Interstitial Displayed", "expression": "MEASURE(Total Primary Button Clicked Vs Interstitial Displayed)" },
+                    { "name": "% Secondary Button Clicked Vs Interstitial Displayed", "expression": "MEASURE(Total Secondary Button Clicked Vs Interstitial Displayed)" }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "Unique Tile Clicks",
+                  "displayName": "Unique Tile Clicks"
+                }
+              },
+              "frame": {
+                "title": "Home Tile Clicks",
+                "showTitle": true
+              }
+            }
+          },
+          "position": { "x": 0, "y": 0, "width": 12, "height": 8 }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS",
+      "filters": []
+    }
+  ],
+  "uiSettings": {
+    "theme": {
+      "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+    }
+  }
+}
