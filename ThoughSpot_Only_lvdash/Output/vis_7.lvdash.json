@@ -3,7 +3,7 @@
       {
         "name": "dataset_7",
         "displayName": "Top On Press Events Dataset",
-        "asset_name": "workspace.default.hpx_events_model"
+        "asset_name": "workspace.hpx_events_model.metricview"
       }
     ],
     "pages": [
@@ -13,7 +13,7 @@
         "layout": [
           {
             "widget": {
-              "name": "bar_chart_widget",
+              "name": "widget_7",
               "queries": [
                 {
                   "name": "main_query",
@@ -21,7 +21,7 @@
                     "datasetName": "dataset_7",
                     "fields": [
                       { "name": "Control", "expression": "`Control`" },
-                      { "name": "Total Clicks", "expression": "MEASURE(`Total Clicks`)" }
+                      { "name": "Total_Clicks", "expression": "MEASURE(`Total Clicks`)" }
                     ],
                     "disaggregated": false
                   }
@@ -37,7 +37,7 @@
                     "scale": { "type": "categorical" }
                   },
                   "y": {
-                    "fieldName": "Total Clicks",
+                    "fieldName": "Total_Clicks",
                     "displayName": "Total Clicks",
                     "scale": { "type": "quantitative" }
                   }
