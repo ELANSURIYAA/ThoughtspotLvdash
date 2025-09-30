@@ -1,0 +1,69 @@
+{
+  "datasets": [
+    {
+      "name": "dataset_4",
+      "displayName": "Top On Press Events Dataset",
+      "asset_name": "workspace.default.mv_hpx_events_model"
+    }
+  ],
+  "pages": [
+    {
+      "name": "page_4",
+      "displayName": "Top On Press Events",
+      "layout": [
+        {
+          "widget": {
+            "name": "widget_4",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "dataset_4",
+                  "fields": [
+                    {
+                      "name": "control",
+                      "expression": "control"
+                    },
+                    {
+                      "name": "total_clicks",
+                      "expression": "SUM(clicks)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "control",
+                  "displayName": "Control",
+                  "scale": { "type": "categorical" }
+                },
+                "y": {
+                  "fieldName": "total_clicks",
+                  "displayName": "Total Clicks",
+                  "scale": { "type": "quantitative" }
+                }
+              },
+              "frame": {
+                "title": "Top On Press Events",
+                "showTitle": true
+              }
+            }
+          },
+          "position": { "x": 0, "y": 0, "width": 12, "height": 8 }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS",
+      "filters": []
+    }
+  ],
+  "uiSettings": {
+    "theme": {
+      "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+    }
+  }
+}
