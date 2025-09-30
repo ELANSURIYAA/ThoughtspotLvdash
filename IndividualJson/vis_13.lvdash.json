@@ -2,14 +2,14 @@
     "datasets": [
       {
         "name": "dataset_13",
-        "displayName": "HPX First Use Behavior Flow",
+        "displayName": "HPX First Use Behavior Flow Dataset",
         "asset_name": "workspace.default.mv_hpx_first_use_behavior_flow"
       }
     ],
     "pages": [
       {
         "name": "page_13",
-        "displayName": "HPX First Use Behavior Flow",
+        "displayName": "HPX First Use Behavior Flow Visualization",
         "layout": [
           {
             "widget": {
@@ -25,7 +25,7 @@
                       { "name": "Screen 3", "expression": "screen_3" },
                       { "name": "Screen 4", "expression": "screen_4" },
                       { "name": "Screen 5", "expression": "screen_5" },
-                      { "name": "Total Devices", "expression": "SUM(MEASURE(Total Devices))" }
+                      { "name": "Total Devices", "expression": "MEASURE("Total Devices")" }
                     ],
                     "disaggregated": false
                   }
