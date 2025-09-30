@@ -3,7 +3,7 @@
       {
         "name": "dataset_9",
         "displayName": "HPX Retention Dataset",
-        "asset_name": "workspace.default.mv_hpx_retention"
+        "asset_name": "workspace.default.HPX_Retention_CSS_Analytics"
       }
     ],
     "pages": [
@@ -20,11 +20,12 @@
                   "query": {
                     "datasetName": "dataset_9",
                     "fields": [
-                      { "name": "Month(First Device Event Date Time)", "expression": "DATE_TRUNC('MONTH', first_device_event_date_time)" },
-                      { "name": "Months Since First Use", "expression": "`months_since_first_use`" },
-                      { "name": "Session Type", "expression": "`session_type`" },
+                      { "name": "Month(First Device Event Date Time)", "expression": "DATE_TRUNC('MONTH', `First Device Event Date Time`)" },
                       { "name": "% Devices Returning", "expression": "MEASURE(`% Devices Returning`)" },
-                      { "name": "Active Devices", "expression": "MEASURE(`Active Devices`)" }
+                      { "name": "Active Devices", "expression": "MEASURE(`Active Devices`)" },
+                      { "name": "Months Since First Use", "expression": "`Months Since First Use`" },
+                      { "name": "Session Type", "expression": "`Session Type`" },
+                      { "name": "Weeks Since First Use", "expression": "`Weeks Since First Use`" }
                     ],
                     "disaggregated": false
                   }
@@ -34,17 +35,34 @@
                 "version": 3,
                 "widgetType": "pivot_table",
                 "encodings": {
-                  "row": {
-                    "fields": [
-                      { "fieldName": "Month(First Device Event Date Time)", "displayName": "Month(First Device Event Date Time)" },
-                      { "fieldName": "Months Since First Use", "displayName": "Months Since First Use" },
-                      { "fieldName": "Session Type", "displayName": "Session Type" }
-                    ]
+                  "x": {
+                    "fieldName": "Month(First Device Event Date Time)",
+                    "displayName": "Month",
+                    "scale": { "type": "temporal" }
                   },
-                  "value": {
+                  "y": {
                     "fields": [
-                      { "fieldName": "% Devices Returning", "displayName": "% Devices Returning" },
-                      { "fieldName": "Active Devices", "displayName": "Active Devices" }
+                      {
+                        "fieldName": "% Devices Returning",
+                        "displayName": "% Devices Returning"
+                      },
+                      {
+                        "fieldName": "Active Devices",
+                        "displayName": "Active Devices"
+                      }
+                    ],
+                    "scale": { "type": "quantitative" }
+                  },
+                  "color": {
+                    "fields": [
+                      {
+                        "fieldName": "Months Since First Use",
+                        "displayName": "Months Since First Use"
+                      },
+                      {
+                        "fieldName": "Session Type",
+                        "displayName": "Session Type"
+                      }
                     ]
                   }
                 },
