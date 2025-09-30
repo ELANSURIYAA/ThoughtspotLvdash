@@ -1,1 +1,68 @@
-{"datasets": [{"name": "dataset_15", "displayName": "Home Tile Views Dataset", "asset_name": "workspace.default.mv_hpx_events_model_homepage_summary"}], "pages": [{"name": "page_15", "displayName": "Home Tile Views", "layout": [{"widget": {"name": "widget_15", "queries": [{"name": "main_query", "query": {"datasetName": "dataset_15", "fields": [{"name": "Home Tile", "expression": "`Home Tile`"}, {"name": "Unique Tile Views", "expression": "MEASURE(`Total Unique Tile Views`)"}], "disaggregated": false}}], "spec": {"version": 3, "widgetType": "counter", "encodings": {"value": {"fieldName": "Unique Tile Views", "displayName": "Unique Tile Views"}}, "frame": {"showTitle": true, "title": "Home Tile Views"}}}, "position": {"x": 0, "y": 0, "width": 12, "height": 8}}], "pageType": "PAGE_TYPE_CANVAS", "filters": []}], "uiSettings": {"theme": {"widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"}}}
+{
+  "datasets": [
+    {
+      "name": "dataset_15",
+      "displayName": "HPX Events Model Homepage Summary",
+      "asset_name": "workspace.default.mv_hpx_homepage_summary"
+    }
+  ],
+  "pages": [
+    {
+      "name": "page_15",
+      "displayName": "Home Tile Views",
+      "layout": [
+        {
+          "widget": {
+            "name": "widget_15",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "dataset_15",
+                  "fields": [
+                    {
+                      "name": "Home Tile",
+                      "expression": "home_tile"
+                    },
+                    {
+                      "name": "Unique Tile Views",
+                      "expression": "SUM(MEASURE(Total Unique Tile Views))"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "Unique Tile Views",
+                  "displayName": "Unique Tile Views"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Home Tile Views"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 12,
+            "height": 8
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS",
+      "filters": []
+    }
+  ],
+  "uiSettings": {
+    "theme": {
+      "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+    }
+  }
+}
