@@ -1,26 +1,26 @@
 {
     "datasets": [
       {
-        "name": "dataset_hpx_events_model",
-        "displayName": "HPX Events Model Dataset",
-        "asset_name": "workspace.default.mv_hpx_events_model"
+        "name": "dataset_10",
+        "displayName": "Total Consented Devices Dataset",
+        "asset_name": "workspace.default.hpx_events_model"
       }
     ],
     "pages": [
       {
         "name": "page_10",
-        "displayName": "Total Consented Devices Visualization",
+        "displayName": "Total Consented Devices Overview",
         "layout": [
           {
             "widget": {
-              "name": "kpi_widget",
+              "name": "kpi_widget_10",
               "queries": [
                 {
                   "name": "main_query",
                   "query": {
-                    "datasetName": "dataset_hpx_events_model",
+                    "datasetName": "dataset_10",
                     "fields": [
-                      { "name": "Active Devices", "expression": "MEASURE(Active Devices)" }
+                      { "name": "Active Devices", "expression": "MEASURE(`Active Devices`)" }
                     ],
                     "disaggregated": false
                   }
@@ -32,8 +32,7 @@
                 "encodings": {
                   "value": {
                     "fieldName": "Active Devices",
-                    "displayName": "Active Devices",
-                    "scale": { "type": "quantitative" }
+                    "displayName": "Active Devices"
                   }
                 },
                 "frame": {
