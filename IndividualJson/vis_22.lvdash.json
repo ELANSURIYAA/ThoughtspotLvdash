@@ -9,11 +9,11 @@
     "pages": [
       {
         "name": "page_22",
-        "displayName": "HPX New Version Adoption Visualization",
+        "displayName": "HPX New Version Adoption",
         "layout": [
           {
             "widget": {
-              "name": "widget_22",
+              "name": "line_chart_widget_22",
               "queries": [
                 {
                   "name": "main_query",
@@ -22,7 +22,6 @@
                     "fields": [
                       { "name": "Daily Event Date", "expression": "DATE_TRUNC('DAY', event_date_time)" },
                       { "name": "App Version", "expression": "app_version" },
-                      { "name": "Active Devices", "expression": "MEASURE("Active Devices")" },
                       { "name": "% Active Devices", "expression": "MEASURE("% Active Devices")" }
                     ],
                     "disaggregated": false
