@@ -1,0 +1,1 @@
+This folder contains individual .lvdash.json files for each visualization.
