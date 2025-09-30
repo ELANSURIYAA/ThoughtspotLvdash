@@ -2,26 +2,26 @@
     "datasets": [
       {
         "name": "dataset_6",
-        "displayName": "Top Unique Screen Views Dataset",
-        "asset_name": "workspace.default.hpx_events_model"
+        "displayName": "HPX Events Model",
+        "asset_name": "workspace.default.mv_hpx_events_model"
       }
     ],
     "pages": [
       {
         "name": "page_6",
-        "displayName": "Top Unique Screen Views Overview",
+        "displayName": "Top Unique Screen Views (excl. Home/Welcome)",
         "layout": [
           {
             "widget": {
-              "name": "bar_chart_widget_6",
+              "name": "widget_6",
               "queries": [
                 {
                   "name": "main_query",
                   "query": {
                     "datasetName": "dataset_6",
                     "fields": [
-                      { "name": "Screen", "expression": "`Screen`" },
-                      { "name": "Unique Screen Views", "expression": "MEASURE(`Unique Screen Views`)" }
+                      { "name": "Screen", "expression": "screen" },
+                      { "name": "Unique Screen Views", "expression": "SUM(MEASURE(Unique Screen Views))" }
                     ],
                     "disaggregated": false
                   }
