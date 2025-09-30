@@ -3,7 +3,7 @@
       {
         "name": "dataset_17",
         "displayName": "Home Tile Interactions CTR Dataset",
-        "asset_name": "workspace.default.hpx_events_model_homepage_summary"
+        "asset_name": "workspace.hpx_events_model_homepage_summary.metricview"
       }
     ],
     "pages": [
@@ -13,15 +13,20 @@
         "layout": [
           {
             "widget": {
-              "name": "kpi_widget",
+              "name": "widget_17",
               "queries": [
                 {
                   "name": "main_query",
                   "query": {
                     "datasetName": "dataset_17",
                     "fields": [
-                      { "name": "Home Tile", "expression": "`Home Tile`" },
-                      { "name": "CTR", "expression": "MEASURE(`f_ctr`)" }
+                      { "name": "Home_Tile", "expression": "`Home Tile`" },
+                      { "name": "CTR", "expression": "MEASURE(`f_ctr`)" },
+                      { "name": "Unique_Tile_Views", "expression": "MEASURE(`Total Unique Tile Views`)" },
+                      { "name": "Unique_Tile_Clicks", "expression": "MEASURE(`Total Unique Tile Clicks`)" },
+                      { "name": "Unique_Interstitial_Views", "expression": "MEASURE(`Total Unique Interstitial Views`)" },
+                      { "name": "Unique_Interstitial_Primary_Clicks", "expression": "MEASURE(`Total Unique Interstitial Primary Button Clicks`)" },
+                      { "name": "Unique_Interstitial_Secondary_Clicks", "expression": "MEASURE(`Total Unique Interstitial Secondary Button Clicks`)" }
                     ],
                     "disaggregated": false
                   }
@@ -29,13 +34,17 @@
               ],
               "spec": {
                 "version": 3,
-                "widgetType": "counter",
+                "widgetType": "table",
                 "encodings": {
-                  "y": {
-                    "fieldName": "CTR",
-                    "displayName": "CTR",
-                    "scale": { "type": "quantitative" }
-                  }
+                  "columns": [
+                    { "fieldName": "Home_Tile", "displayName": "Home Tile" },
+                    { "fieldName": "CTR", "displayName": "% CTR" },
+                    { "fieldName": "Unique_Tile_Views", "displayName": "Unique Tile Views" },
+                    { "fieldName": "Unique_Tile_Clicks", "displayName": "Unique Tile Clicks" },
+                    { "fieldName": "Unique_Interstitial_Views", "displayName": "Unique Interstitial Views" },
+                    { "fieldName": "Unique_Interstitial_Primary_Clicks", "displayName": "Unique Interstitial Primary Button Clicks" },
+                    { "fieldName": "Unique_Interstitial_Secondary_Clicks", "displayName": "Unique Interstitial Secondary Button Clicks" }
+                  ]
                 },
                 "frame": {
                   "title": "Home Tile Interactions CTR",
