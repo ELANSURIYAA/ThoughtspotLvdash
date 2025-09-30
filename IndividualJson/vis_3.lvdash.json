@@ -1,1 +1,67 @@
-{"datasets": [{"name": "dataset_3","displayName": "New Devices by Country Dataset","asset_name": "workspace.default.mv_hpx_events_model","queryLines": ["SELECT Geo_Country_Code AS Country, SUM(New_Devices) AS Total_New_Devices FROM hpx_events_model GROUP BY Geo_Country_Code ORDER BY Total_New_Devices DESC"]}],"pages": [{"name": "page_3","displayName": "New Devices by Country Visualization","layout": [{"widget": {"name": "widget_3","queries": [{"name": "main_query","query": {"datasetName": "dataset_3","fields": [{"name": "Country","expression": "Geo_Country_Code"},{"name": "Total_New_Devices","expression": "SUM(New_Devices)"}],"disaggregated": false}}],"spec": {"version": 3,"widgetType": "pie","encodings": {"angle": {"fieldName": "Total_New_Devices","displayName": "Total New Devices"},"color": {"fieldName": "Country","displayName": "Country"}},"frame": {"title": "New Devices by Top 10 Countries","showTitle": true}}}},"position": {"x": 0,"y": 0,"width": 12,"height": 8}}],"pageType": "PAGE_TYPE_CANVAS","filters": []}],"uiSettings": {"theme": {"widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"}}}
+{
+  "datasets": [
+    {
+      "name": "dataset_3",
+      "displayName": "New Devices by Country Dataset",
+      "asset_name": "workspace.default.mv_hpx_events_model"
+    }
+  ],
+  "pages": [
+    {
+      "name": "page_3",
+      "displayName": "New Devices by Top 10 Countries",
+      "layout": [
+        {
+          "widget": {
+            "name": "widget_3",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "dataset_3",
+                  "fields": [
+                    {
+                      "name": "geo_country_code",
+                      "expression": "geo_country_code"
+                    },
+                    {
+                      "name": "new_devices",
+                      "expression": "SUM(new_devices)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 1,
+              "widgetType": "pie",
+              "encodings": {
+                "value": {
+                  "fieldName": "new_devices",
+                  "displayName": "New Devices"
+                },
+                "color": {
+                  "fieldName": "geo_country_code",
+                  "displayName": "Country"
+                }
+              },
+              "frame": {
+                "title": "New Devices by Top 10 Countries",
+                "showTitle": true
+              }
+            }
+          },
+          "position": { "x": 0, "y": 0, "width": 12, "height": 8 }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS",
+      "filters": []
+    }
+  ],
+  "uiSettings": {
+    "theme": {
+      "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+    }
+  }
+}
