@@ -2,26 +2,38 @@
     "datasets": [
       {
         "name": "dataset_19",
-        "displayName": "Home Tile Secondary CTR Dataset",
-        "asset_name": "workspace.default.hpx_events_model_homepage_summary"
+        "displayName": "HPX Events Model Homepage Summary",
+        "asset_name": "workspace.default.mv_hpx_homepage_summary"
       }
     ],
     "pages": [
       {
         "name": "page_19",
-        "displayName": "Home Tile Secondary CTR Overview",
+        "displayName": "Home Tile Secondary CTR",
         "layout": [
           {
             "widget": {
-              "name": "kpi_widget_19",
+              "name": "widget_19",
               "queries": [
                 {
                   "name": "main_query",
                   "query": {
                     "datasetName": "dataset_19",
                     "fields": [
-                      { "name": "Home Tile", "expression": "`Home Tile`" },
-                      { "name": "Secondary CTR", "expression": "MEASURE(`f_ctr_cta0`)" }
+                      { "name": "Home Tile", "expression": "home_tile" },
+                      { "name": "% Home Tile Clicked Vs Homepage Displayed", "expression": "MEASURE(Total Home Tile Clicked Vs Homepage Displayed)" },
+                      { "name": "% Primary Button Clicked Vs Interstitial Displayed", "expression": "MEASURE(Total Primary Button Clicked Vs Interstitial Displayed)" },
+                      { "name": "% Primary Button Clicked Vs Tile Displayed", "expression": "MEASURE(Total Primary Button Clicked Vs Tile Displayed)" },
+                      { "name": "% Secondary Button Clicked Vs Interstitial Displayed", "expression": "MEASURE(Total Secondary Button Clicked Vs Interstitial Displayed)" },
+                      { "name": "% Secondary Button Clicked Vs Tile Displayed", "expression": "MEASURE(Total Secondary Button Clicked Vs Tile Displayed)" },
+                      { "name": "Unique Interstitial Primary Button Clicks", "expression": "SUM(MEASURE(Total Unique Interstitial Primary Button Clicks))" },
+                      { "name": "Unique Interstitial Secondary Button Clicks", "expression": "SUM(MEASURE(Total Unique Interstitial Secondary Button Clicks))" },
+                      { "name": "Unique Interstitial Views", "expression": "SUM(MEASURE(Total Unique Interstitial Views))" },
+                      { "name": "Unique Tile Clicks", "expression": "SUM(MEASURE(Total Unique Tile Clicks))" },
+                      { "name": "Unique Tile Views", "expression": "SUM(MEASURE(Total Unique Tile Views))" },
+                      { "name": "CTR", "expression": "MEASURE(f_ctr)" },
+                      { "name": "Primary CTR", "expression": "MEASURE(f_ctr_cta1)" },
+                      { "name": "Secondary CTR", "expression": "MEASURE(f_ctr_cta0)" }
                     ],
                     "disaggregated": false
                   }
@@ -32,8 +44,16 @@
                 "widgetType": "counter",
                 "encodings": {
                   "value": {
-                    "fieldName": "Secondary CTR",
-                    "displayName": "Secondary Click Through Rate (CTR)"
+                    "fields": [
+                      { "fieldName": "Secondary CTR", "displayName": "Secondary CTR" },
+                      { "fieldName": "Primary CTR", "displayName": "Primary CTR" },
+                      { "fieldName": "CTR", "displayName": "CTR" },
+                      { "fieldName": "Unique Tile Views", "displayName": "Unique Tile Views" },
+                      { "fieldName": "Unique Tile Clicks", "displayName": "Unique Tile Clicks" },
+                      { "fieldName": "Unique Interstitial Views", "displayName": "Unique Interstitial Views" },
+                      { "fieldName": "Unique Interstitial Primary Button Clicks", "displayName": "Unique Interstitial Primary Button Clicks" },
+                      { "fieldName": "Unique Interstitial Secondary Button Clicks", "displayName": "Unique Interstitial Secondary Button Clicks" }
+                    ]
                   }
                 },
                 "frame": {
