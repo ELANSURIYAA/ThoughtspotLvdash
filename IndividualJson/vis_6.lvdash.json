@@ -2,26 +2,32 @@
     "datasets": [
       {
         "name": "dataset_6",
-        "displayName": "Unique Screen Views by Screen Dataset",
-        "asset_name": "workspace.default.hpx_events_model"
+        "displayName": "HPX Events Model",
+        "asset_name": "workspace.default.mv_hpx_events_model"
       }
     ],
     "pages": [
       {
         "name": "page_6",
-        "displayName": "Unique Screen Views by Screen Overview",
+        "displayName": "Top Unique Screen Views (excl. Home/Welcome) Visualization",
         "layout": [
           {
             "widget": {
-              "name": "bar_chart_widget",
+              "name": "widget_6",
               "queries": [
                 {
                   "name": "main_query",
                   "query": {
                     "datasetName": "dataset_6",
                     "fields": [
-                      { "name": "Screen", "expression": "`Screen`" },
-                      { "name": "Unique Screen Views", "expression": "MEASURE(`Unique Screen Views`)" }
+                      {
+                        "name": "Screen",
+                        "expression": "Screen"
+                      },
+                      {
+                        "name": "Unique Screen Views",
+                        "expression": "MEASURE(Unique Screen Views)"
+                      }
                     ],
                     "disaggregated": false
                   }
@@ -33,22 +39,31 @@
                 "encodings": {
                   "x": {
                     "fieldName": "Screen",
-                    "displayName": "Screen",
-                    "scale": { "type": "categorical" }
+                    "scale": {
+                      "type": "categorical"
+                    },
+                    "displayName": "Screen"
                   },
                   "y": {
                     "fieldName": "Unique Screen Views",
-                    "displayName": "Unique Screen Views",
-                    "scale": { "type": "quantitative" }
+                    "scale": {
+                      "type": "quantitative"
+                    },
+                    "displayName": "Unique Screen Views"
                   }
                 },
                 "frame": {
-                  "title": "Unique Screen Views by Screen",
-                  "showTitle": true
+                  "showTitle": true,
+                  "title": "Top Unique Screen Views (excl. Home/Welcome)"
                 }
               }
             },
-            "position": { "x": 0, "y": 0, "width": 12, "height": 8 }
+            "position": {
+              "x": 0,
+              "y": 0,
+              "width": 12,
+              "height": 8
+            }
           }
         ],
         "pageType": "PAGE_TYPE_CANVAS",
