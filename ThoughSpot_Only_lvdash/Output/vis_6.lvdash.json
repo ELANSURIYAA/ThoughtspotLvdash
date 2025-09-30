@@ -2,14 +2,14 @@
   "datasets": [
     {
       "name": "dataset_6",
-      "displayName": "Launch Type Active Devices Dataset",
+      "displayName": "HPX Events Model",
       "asset_name": "workspace.default.mv_hpx_events_model"
     }
   ],
   "pages": [
     {
       "name": "page_6",
-      "displayName": "Launch Type Active Devices",
+      "displayName": "Top Unique Screen Views (excl. Home/Welcome)",
       "layout": [
         {
           "widget": {
@@ -21,16 +21,12 @@
                   "datasetName": "dataset_6",
                   "fields": [
                     {
-                      "name": "daily_event_date",
-                      "expression": "DATE_TRUNC('DAY', event_date_time)"
+                      "name": "Screen",
+                      "expression": "screen"
                     },
                     {
-                      "name": "launch_type",
-                      "expression": "launch_type"
-                    },
-                    {
-                      "name": "active_devices",
-                      "expression": "COUNT(DISTINCT sys_sn_hash)"
+                      "name": "Unique Screen Views",
+                      "expression": "SUM(MEASURE("Unique Screen Views"))"
                     }
                   ],
                   "disaggregated": false
@@ -42,23 +38,18 @@
               "widgetType": "bar",
               "encodings": {
                 "x": {
-                  "fieldName": "daily_event_date",
-                  "displayName": "Daily Event Date",
-                  "scale": { "type": "temporal" }
+                  "fieldName": "Screen",
+                  "displayName": "Screen",
+                  "scale": { "type": "categorical" }
                 },
                 "y": {
-                  "fieldName": "active_devices",
-                  "displayName": "Active Devices",
+                  "fieldName": "Unique Screen Views",
+                  "displayName": "Unique Screen Views",
                   "scale": { "type": "quantitative" }
-                },
-                "color": {
-                  "fieldName": "launch_type",
-                  "displayName": "Launch Type",
-                  "scale": { "type": "categorical" }
                 }
               },
               "frame": {
-                "title": "Launch Type Active Devices",
+                "title": "Top Unique Screen Views (excl. Home/Welcome)",
                 "showTitle": true
               }
             }
