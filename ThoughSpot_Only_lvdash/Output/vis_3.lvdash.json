@@ -3,7 +3,7 @@
       {
         "name": "dataset_3",
         "displayName": "New Devices by Country Dataset",
-        "asset_name": "workspace.default.hpx_events_model"
+        "asset_name": "workspace.hpx_events_model.metricview"
       }
     ],
     "pages": [
@@ -20,44 +20,33 @@
                   "query": {
                     "datasetName": "dataset_3",
                     "fields": [
-                      {
-                        "name": "Geo Country Code",
-                        "expression": "`Geo Country Code`"
-                      },
-                      {
-                        "name": "New Devices",
-                        "expression": "SUM(`New Devices`)"
-                      }
+                      { "name": "Geo_Country_Code", "expression": "`Geo Country Code`" },
+                      { "name": "New_Devices", "expression": "MEASURE(`New Devices`)" }
                     ],
                     "disaggregated": false
                   }
                 }
               ],
               "spec": {
-                "version": 3,
+                "version": 1,
                 "widgetType": "pie",
                 "encodings": {
                   "angle": {
-                    "fieldName": "New Devices",
+                    "fieldName": "New_Devices",
                     "displayName": "New Devices"
                   },
                   "color": {
-                    "fieldName": "Geo Country Code",
+                    "fieldName": "Geo_Country_Code",
                     "displayName": "Country"
                   }
                 },
                 "frame": {
-                  "showTitle": true,
-                  "title": "New Devices by Top 10 Countries"
+                  "title": "New Devices by Top 10 Countries",
+                  "showTitle": true
                 }
               }
             },
-            "position": {
-              "x": 0,
-              "y": 0,
-              "width": 12,
-              "height": 8
-            }
+            "position": { "x": 0, "y": 0, "width": 12, "height": 8 }
           }
         ],
         "pageType": "PAGE_TYPE_CANVAS",
