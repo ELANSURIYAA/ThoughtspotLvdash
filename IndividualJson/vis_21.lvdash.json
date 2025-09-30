@@ -1,1 +1,78 @@
-{"datasets": [{"name": "dataset_21","displayName": "% Active Devices By Appversion Dataset","asset_name": "workspace.default.mv_hpx_events_model","queryLines": ["SELECT App_Version AS App_Version, MEASURE(Active_Devices) / SUM(MEASURE(Active_Devices)) OVER (PARTITION BY App_Version) AS Percent_Active_Devices_By_Appversion FROM hpx_events_model WHERE Event_Date_Time >= '2023-05-01' AND App_Version IS NOT NULL AND App_Version != 'not a store release' GROUP BY App_Version ORDER BY Percent_Active_Devices_By_Appversion DESC"]}],"pages": [{"name": "page_21","displayName": "% Active Devices by Appversion","layout": [{"widget": {"name": "widget_21","queries": [{"name": "main_query","query": {"datasetName": "dataset_21","fields": [{"name": "App_Version","expression": "`App_Version`"},{"name": "Percent_Active_Devices_By_Appversion","expression": "MEASURE(`Percent_Active_Devices_By_Appversion`)"}],"disaggregated": false}}],"spec": {"version": 3,"widgetType": "bar","encodings": {"x": {"fieldName": "App_Version","displayName": "App Version","scale": {"type": "categorical"}},"y": {"fieldName": "Percent_Active_Devices_By_Appversion","displayName": "% Active Devices By Appversion","scale": {"type": "quantitative"}}},"frame": {"title": "% Active Devices by Appversion","showTitle": true}}}},"position": {"x": 0,"y": 0,"width": 12,"height": 8}}],"pageType": "PAGE_TYPE_CANVAS","filters": []}],"uiSettings": {"theme": {"widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"}}}
+{
+  "datasets": [
+    {
+      "name": "dataset_21",
+      "displayName": "HPX Events Model",
+      "asset_name": "workspace.default.mv_hpx_events_model"
+    }
+  ],
+  "pages": [
+    {
+      "name": "page_21",
+      "displayName": "% Active Devices by Appversion",
+      "layout": [
+        {
+          "widget": {
+            "name": "widget_21",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "dataset_21",
+                  "fields": [
+                    {
+                      "name": "App Version",
+                      "expression": "App Version"
+                    },
+                    {
+                      "name": "% Active Devices By Appversion",
+                      "expression": "MEASURE(% Active Devices By Appversion)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "App Version",
+                  "scale": {
+                    "type": "categorical"
+                  },
+                  "displayName": "App Version"
+                },
+                "y": {
+                  "fieldName": "% Active Devices By Appversion",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "% Active Devices By Appversion"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "% Active Devices by Appversion"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 12,
+            "height": 8
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS",
+      "filters": []
+    }
+  ],
+  "uiSettings": {
+    "theme": {
+      "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+    }
+  }
+}
