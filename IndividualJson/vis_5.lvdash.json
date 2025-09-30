@@ -1,69 +1,86 @@
 {
-    "datasets": [
-      {
-        "name": "dataset_5",
-        "displayName": "Top Unique Screen Views Dataset",
-        "asset_name": "workspace.default.hpx_events_model"
-      }
-    ],
-    "pages": [
-      {
-        "name": "page_5",
-        "displayName": "Top Unique Screen Views (excl. Home/Welcome)",
-        "layout": [
-          {
-            "widget": {
-              "name": "stacked_column_chart_widget_5",
-              "queries": [
-                {
-                  "name": "main_query",
-                  "query": {
-                    "datasetName": "dataset_5",
-                    "fields": [
-                      { "name": "Monthly Event Date", "expression": "DATE_TRUNC('MONTH', `Event Date Time`)" },
-                      { "name": "Unique Screen Views", "expression": "MEASURE(`Unique Screen Views`)" },
-                      { "name": "Screen", "expression": "`Screen`" }
-                    ],
-                    "disaggregated": false
-                  }
-                }
-              ],
-              "spec": {
-                "version": 3,
-                "widgetType": "bar",
-                "encodings": {
-                  "x": {
-                    "fieldName": "Monthly Event Date",
-                    "displayName": "Monthly Event Date",
-                    "scale": { "type": "temporal" }
-                  },
-                  "y": {
-                    "fieldName": "Unique Screen Views",
-                    "displayName": "Unique Screen Views",
-                    "scale": { "type": "quantitative" }
-                  },
-                  "color": {
-                    "fieldName": "Screen",
-                    "displayName": "Screen",
-                    "scale": { "type": "categorical" }
-                  }
-                },
-                "frame": {
-                  "title": "Top Unique Screen Views (excl. Home/Welcome)",
-                  "showTitle": true
+  "datasets": [
+    {
+      "name": "dataset_viz_5",
+      "displayName": "Top Unique Screen Views Dataset",
+      "asset_name": "workspace.default.mv_hpx_events_model"
+    }
+  ],
+  "pages": [
+    {
+      "name": "page_viz_5",
+      "displayName": "Top Unique Screen Views (excl. Home/Welcome)",
+      "layout": [
+        {
+          "widget": {
+            "name": "widget_viz_5",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "dataset_viz_5",
+                  "fields": [
+                    {
+                      "name": "monthly_event_date",
+                      "expression": "DATE_TRUNC('MONTH', event_date_time)"
+                    },
+                    {
+                      "name": "screen",
+                      "expression": "screen"
+                    },
+                    {
+                      "name": "unique_screen_views",
+                      "expression": "MEASURE(Unique Screen Views)"
+                    }
+                  ],
+                  "disaggregated": false
                 }
               }
-            },
-            "position": { "x": 0, "y": 0, "width": 12, "height": 8 }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "monthly_event_date",
+                  "scale": {
+                    "type": "temporal"
+                  },
+                  "displayName": "Monthly Event Date"
+                },
+                "y": {
+                  "fieldName": "unique_screen_views",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "Unique Screen Views"
+                },
+                "color": {
+                  "fieldName": "screen",
+                  "displayName": "Screen"
+                }
+              },
+              "frame": {
+                "title": "Top Unique Screen Views",
+                "showTitle": true
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 12,
+            "height": 8
           }
-        ],
-        "pageType": "PAGE_TYPE_CANVAS",
-        "filters": []
-      }
-    ],
-    "uiSettings": {
-      "theme": {
-        "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
-      }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS",
+      "filters": []
+    }
+  ],
+  "uiSettings": {
+    "theme": {
+      "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
     }
   }
+}
