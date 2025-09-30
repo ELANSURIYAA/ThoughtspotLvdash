@@ -1,69 +1,63 @@
 {
-  "datasets": [
-    {
-      "name": "dataset_20",
-      "displayName": "% Active Devices by Country Dataset",
-      "asset_name": "workspace.default.mv_hpx_events_model"
-    }
-  ],
-  "pages": [
-    {
-      "name": "page_20",
-      "displayName": "% Active Devices by Country (Top 10)",
-      "layout": [
-        {
-          "widget": {
-            "name": "widget_20",
-            "queries": [
-              {
-                "name": "main_query",
-                "query": {
-                  "datasetName": "dataset_20",
-                  "fields": [
-                    {
-                      "name": "geo_country_code",
-                      "expression": "geo_country_code"
-                    },
-                    {
-                      "name": "percent_active_devices",
-                      "expression": "SUM(active_devices) / SUM(total_devices)"
-                    }
-                  ],
-                  "disaggregated": false
+    "datasets": [
+      {
+        "name": "dataset_20",
+        "displayName": "Active Devices by Country Dataset",
+        "asset_name": "workspace.default.hpx_events_model"
+      }
+    ],
+    "pages": [
+      {
+        "name": "page_20",
+        "displayName": "Active Devices by Country Overview",
+        "layout": [
+          {
+            "widget": {
+              "name": "bar_chart_widget",
+              "queries": [
+                {
+                  "name": "main_query",
+                  "query": {
+                    "datasetName": "dataset_20",
+                    "fields": [
+                      { "name": "Country", "expression": "`Geo Country Code`" },
+                      { "name": "% Active Devices by Country", "expression": "MEASURE(`% Active Devices by Country`)" }
+                    ],
+                    "disaggregated": false
+                  }
                 }
-              }
-            ],
-            "spec": {
-              "version": 3,
-              "widgetType": "bar",
-              "encodings": {
-                "x": {
-                  "fieldName": "geo_country_code",
-                  "displayName": "Country",
-                  "scale": { "type": "categorical" }
+              ],
+              "spec": {
+                "version": 3,
+                "widgetType": "bar",
+                "encodings": {
+                  "x": {
+                    "fieldName": "Country",
+                    "displayName": "Country",
+                    "scale": { "type": "categorical" }
+                  },
+                  "y": {
+                    "fieldName": "% Active Devices by Country",
+                    "displayName": "% Active Devices by Country",
+                    "scale": { "type": "quantitative" }
+                  }
                 },
-                "y": {
-                  "fieldName": "percent_active_devices",
-                  "displayName": "% Active Devices",
-                  "scale": { "type": "quantitative" }
+                "frame": {
+                  "title": "% Active Devices by Country (Top 10)",
+                  "showTitle": true
                 }
-              },
-              "frame": {
-                "title": "% Active Devices by Country (Top 10)",
-                "showTitle": true
               }
-            }
-          },
-          "position": { "x": 0, "y": 0, "width": 12, "height": 8 }
-        }
-      ],
-      "pageType": "PAGE_TYPE_CANVAS",
-      "filters": []
-    }
-  ],
-  "uiSettings": {
-    "theme": {
-      "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+            },
+            "position": { "x": 0, "y": 0, "width": 12, "height": 8 }
+          }
+        ],
+        "pageType": "PAGE_TYPE_CANVAS",
+        "filters": []
+      }
+    ],
+    "uiSettings": {
+      "theme": {
+        "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+      }
     }
   }
-}
