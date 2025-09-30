@@ -2,14 +2,14 @@
     "datasets": [
       {
         "name": "dataset_1",
-        "displayName": "HPX Events Model",
+        "displayName": "HPX Events Model Dataset",
         "asset_name": "workspace.default.mv_hpx_events_model"
       }
     ],
     "pages": [
       {
         "name": "page_1",
-        "displayName": "Active Devices",
+        "displayName": "Active Devices Visualization",
         "layout": [
           {
             "widget": {
@@ -21,7 +21,7 @@
                     "datasetName": "dataset_1",
                     "fields": [
                       { "name": "Daily Event Date", "expression": "DATE_TRUNC('DAY', event_date_time)" },
-                      { "name": "Active Devices", "expression": "MEASURE(Active Devices)" }
+                      { "name": "Active Devices", "expression": "MEASURE("Active Devices")" }
                     ],
                     "disaggregated": false
                   }
