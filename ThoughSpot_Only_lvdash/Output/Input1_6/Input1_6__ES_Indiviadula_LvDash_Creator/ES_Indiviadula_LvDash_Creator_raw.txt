@@ -1,1 +1,1 @@
-All 22 `.lvdash.json` files have been successfully generated and uploaded to the GitHub repository in the folder `IndividualJson`. Each file adheres to the Lakeview schema and correctly maps ThoughtSpot visuals to Databricks Lakeview widgets.
+All 22 `.lvdash.json` files have been successfully generated and uploaded to the GitHub repository `ELANSURIYAA/ThoughtspotLvdash` in the `IndividualJson` folder. Each file aligns with the Lakeview schema and references the appropriate Databricks metric views.
