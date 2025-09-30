@@ -1,0 +1,63 @@
+{
+  "datasets": [
+    {
+      "name": "dataset_18",
+      "displayName": "Home Tile Primary CTR Dataset",
+      "asset_name": "workspace.default.mv_hpx_homepage_summary"
+    }
+  ],
+  "pages": [
+    {
+      "name": "page_18",
+      "displayName": "Home Tile Primary CTR",
+      "layout": [
+        {
+          "widget": {
+            "name": "widget_18",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "dataset_18",
+                  "fields": [
+                    {
+                      "name": "home_tile",
+                      "expression": "home_tile"
+                    },
+                    {
+                      "name": "primary_ctr",
+                      "expression": "SUM(unique_interstitial_primary_button_clicks) / SUM(unique_interstitial_views)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "primary_ctr",
+                  "displayName": "Primary CTR"
+                }
+              },
+              "frame": {
+                "title": "Home Tile Primary CTR",
+                "showTitle": true
+              }
+            }
+          },
+          "position": { "x": 0, "y": 0, "width": 12, "height": 8 }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS",
+      "filters": []
+    }
+  ],
+  "uiSettings": {
+    "theme": {
+      "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+    }
+  }
+}
