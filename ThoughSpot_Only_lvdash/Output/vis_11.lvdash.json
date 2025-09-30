@@ -3,7 +3,7 @@
       {
         "name": "dataset_11",
         "displayName": "HPX CURR Dataset",
-        "asset_name": "workspace.default.HPX_CURR"
+        "asset_name": "workspace.HPX_CURR.metricview"
       }
     ],
     "pages": [
@@ -13,14 +13,14 @@
         "layout": [
           {
             "widget": {
-              "name": "line_chart_widget",
+              "name": "widget_11",
               "queries": [
                 {
                   "name": "main_query",
                   "query": {
                     "datasetName": "dataset_11",
                     "fields": [
-                      { "name": "Week Active", "expression": "DATE_TRUNC('WEEK', `Week Active`)" },
+                      { "name": "Week_Active", "expression": "DATE_TRUNC('WEEK', `Week Active`)" },
                       { "name": "CURR", "expression": "MEASURE(`f_CURR`)" }
                     ],
                     "disaggregated": false
@@ -32,7 +32,7 @@
                 "widgetType": "line",
                 "encodings": {
                   "x": {
-                    "fieldName": "Week Active",
+                    "fieldName": "Week_Active",
                     "displayName": "Week Active",
                     "scale": { "type": "temporal" }
                   },
