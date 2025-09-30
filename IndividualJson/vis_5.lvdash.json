@@ -1,1 +1,69 @@
-{"datasets": [{"name": "dataset_8a038a48","displayName": "Top Unique Screen Views Dataset","asset_name": "workspace.default.hpx_events_model"}],"pages": [{"name": "page_5","displayName": "Top Unique Screen Views (excl. Home/Welcome)","layout": [{"widget": {"name": "widget_8a038a48","queries": [{"name": "main_query","query": {"datasetName": "dataset_8a038a48","fields": [{"name": "Monthly Event Date","expression": "DATE_TRUNC('MONTH', `Event Date Time`)"},{"name": "Unique Screen Views","expression": "MEASURE(`Unique Screen Views`)"},{"name": "Screen","expression": "`Screen`"}],"disaggregated": false}}],"spec": {"version": 3,"widgetType": "bar","encodings": {"x": {"fieldName": "Monthly Event Date","displayName": "Monthly Event Date","scale": {"type": "temporal"}},"y": {"fieldName": "Unique Screen Views","displayName": "Unique Screen Views","scale": {"type": "quantitative"}},"color": {"fieldName": "Screen","displayName": "Screen","scale": {"type": "categorical"}}},"frame": {"title": "Top Unique Screen Views (excl. Home/Welcome)","showTitle": true}}}},"position": {"x": 0,"y": 0,"width": 12,"height": 8}}],"pageType": "PAGE_TYPE_CANVAS","filters": []}],"uiSettings": {"theme": {"widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"}}}
+{
+    "datasets": [
+      {
+        "name": "dataset_5",
+        "displayName": "HPX Events Model Dataset",
+        "asset_name": "workspace.default.mv_hpx_events_model"
+      }
+    ],
+    "pages": [
+      {
+        "name": "page_5",
+        "displayName": "Top Unique Screen Views",
+        "layout": [
+          {
+            "widget": {
+              "name": "bar_chart_widget_5",
+              "queries": [
+                {
+                  "name": "main_query",
+                  "query": {
+                    "datasetName": "dataset_5",
+                    "fields": [
+                      { "name": "Daily Event Date", "expression": "DATE_TRUNC('DAY', event_date_time)" },
+                      { "name": "Screen", "expression": "screen" },
+                      { "name": "Unique Screen Views", "expression": "SUM(MEASURE("Unique Screen Views"))" }
+                    ],
+                    "disaggregated": false
+                  }
+                }
+              ],
+              "spec": {
+                "version": 3,
+                "widgetType": "bar",
+                "encodings": {
+                  "x": {
+                    "fieldName": "Daily Event Date",
+                    "displayName": "Daily Event Date",
+                    "scale": { "type": "temporal" }
+                  },
+                  "y": {
+                    "fieldName": "Unique Screen Views",
+                    "displayName": "Unique Screen Views",
+                    "scale": { "type": "quantitative" }
+                  },
+                  "color": {
+                    "fieldName": "Screen",
+                    "displayName": "Screen",
+                    "scale": { "type": "categorical" }
+                  }
+                },
+                "frame": {
+                  "title": "Top Unique Screen Views (Excluding Home/Welcome)",
+                  "showTitle": true
+                }
+              }
+            },
+            "position": { "x": 0, "y": 0, "width": 12, "height": 8 }
+          }
+        ],
+        "pageType": "PAGE_TYPE_CANVAS",
+        "filters": []
+      }
+    ],
+    "uiSettings": {
+      "theme": {
+        "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+      }
+    }
+  }
