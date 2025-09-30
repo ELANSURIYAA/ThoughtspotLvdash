@@ -9,19 +9,25 @@
     "pages": [
       {
         "name": "page_3",
-        "displayName": "New Devices by Top 10 Countries Visualization",
+        "displayName": "New Devices by Top 10 Countries",
         "layout": [
           {
             "widget": {
-              "name": "pie_chart_widget_3",
+              "name": "widget_3",
               "queries": [
                 {
                   "name": "main_query",
                   "query": {
                     "datasetName": "dataset_3",
                     "fields": [
-                      { "name": "Geo Country Code", "expression": "`geo_country_code`" },
-                      { "name": "New Devices", "expression": "SUM(MEASURE(`New Devices`))" }
+                      {
+                        "name": "Geo Country Code",
+                        "expression": "geo_country_code"
+                      },
+                      {
+                        "name": "New Devices",
+                        "expression": "SUM(MEASURE("New Devices"))"
+                      }
                     ],
                     "disaggregated": false
                   }
@@ -37,16 +43,21 @@
                   },
                   "color": {
                     "fieldName": "Geo Country Code",
-                    "displayName": "Geo Country Code"
+                    "displayName": "Country"
                   }
                 },
                 "frame": {
-                  "title": "New Devices by Top 10 Countries",
-                  "showTitle": true
+                  "showTitle": true,
+                  "title": "New Devices Distribution by Country"
                 }
               }
             },
-            "position": { "x": 0, "y": 0, "width": 12, "height": 8 }
+            "position": {
+              "x": 0,
+              "y": 0,
+              "width": 12,
+              "height": 8
+            }
           }
         ],
         "pageType": "PAGE_TYPE_CANVAS",
