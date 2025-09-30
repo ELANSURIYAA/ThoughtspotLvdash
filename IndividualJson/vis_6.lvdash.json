@@ -1,12 +1,9 @@
 {
     "datasets": [
       {
-        "name": "dataset_6",
-        "displayName": "Top Unique Screen Views Dataset",
-        "asset_name": "workspace.default.mv_hpx_events_model",
-        "queryLines": [
-          "SELECT Screen, SUM(Unique_Screen_Views) AS Total_Unique_Screen_Views FROM hpx_events_model WHERE Event_Date_Time >= '2023-05-01' AND Screen NOT IN ('home', 'welcome', 'welcome-core', 'welcomeContainer', 'support') AND Ui_Action = 'screendisplayed' GROUP BY Screen ORDER BY Total_Unique_Screen_Views DESC LIMIT 10"
-        ]
+        "name": "dataset_hpx_events_model",
+        "displayName": "HPX Events Model Dataset",
+        "asset_name": "workspace.default.mv_hpx_events_model"
       }
     ],
     "pages": [
@@ -16,15 +13,15 @@
         "layout": [
           {
             "widget": {
-              "name": "widget_6",
+              "name": "bar_chart_widget",
               "queries": [
                 {
                   "name": "main_query",
                   "query": {
-                    "datasetName": "dataset_6",
+                    "datasetName": "dataset_hpx_events_model",
                     "fields": [
-                      { "name": "Screen", "expression": "`Screen`" },
-                      { "name": "Total_Unique_Screen_Views", "expression": "`Total_Unique_Screen_Views`" }
+                      { "name": "Screen", "expression": "screen" },
+                      { "name": "Unique Screen Views", "expression": "SUM(MEASURE(Unique Screen Views))" }
                     ],
                     "disaggregated": false
                   }
@@ -40,8 +37,8 @@
                     "scale": { "type": "categorical" }
                   },
                   "y": {
-                    "fieldName": "Total_Unique_Screen_Views",
-                    "displayName": "Total Unique Screen Views",
+                    "fieldName": "Unique Screen Views",
+                    "displayName": "Unique Screen Views",
                     "scale": { "type": "quantitative" }
                   }
                 },
