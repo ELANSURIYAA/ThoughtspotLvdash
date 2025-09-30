@@ -1,0 +1,69 @@
+{
+  "datasets": [
+    {
+      "name": "dataset_5",
+      "displayName": "Top Unique Screen Views Dataset",
+      "asset_name": "workspace.default.mv_hpx_events_model"
+    }
+  ],
+  "pages": [
+    {
+      "name": "page_5",
+      "displayName": "Top Unique Screen Views",
+      "layout": [
+        {
+          "widget": {
+            "name": "widget_5",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "dataset_5",
+                  "fields": [
+                    {
+                      "name": "screen",
+                      "expression": "screen"
+                    },
+                    {
+                      "name": "unique_screen_views",
+                      "expression": "COUNT(DISTINCT unique_screen_per_session)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "screen",
+                  "displayName": "Screen",
+                  "scale": { "type": "categorical" }
+                },
+                "y": {
+                  "fieldName": "unique_screen_views",
+                  "displayName": "Unique Screen Views",
+                  "scale": { "type": "quantitative" }
+                }
+              },
+              "frame": {
+                "title": "Top Unique Screen Views",
+                "showTitle": true
+              }
+            }
+          },
+          "position": { "x": 0, "y": 0, "width": 12, "height": 8 }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS",
+      "filters": []
+    }
+  ],
+  "uiSettings": {
+    "theme": {
+      "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+    }
+  }
+}
