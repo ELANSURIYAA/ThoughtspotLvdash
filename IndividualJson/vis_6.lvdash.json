@@ -9,19 +9,25 @@
     "pages": [
       {
         "name": "page_6",
-        "displayName": "Top Unique Screen Views (excl. Home/Welcome)",
+        "displayName": "Top Unique Screen Views Visualization",
         "layout": [
           {
             "widget": {
-              "name": "bar_chart_widget",
+              "name": "widget_6",
               "queries": [
                 {
                   "name": "main_query",
                   "query": {
                     "datasetName": "dataset_6",
                     "fields": [
-                      { "name": "Screen", "expression": "`Screen`" },
-                      { "name": "Unique Screen Views", "expression": "MEASURE(`Unique Screen Views`)" }
+                      {
+                        "name": "Screen",
+                        "expression": "`Screen`"
+                      },
+                      {
+                        "name": "Unique Screen Views",
+                        "expression": "MEASURE(`Unique Screen Views`)"
+                      }
                     ],
                     "disaggregated": false
                   }
