@@ -3,7 +3,7 @@
       {
         "name": "dataset_17",
         "displayName": "Home Tile Interactions CTR Dataset",
-        "asset_name": "workspace.hpx_events_model_homepage_summary.metric_view"
+        "asset_name": "workspace.default.hpx_events_model_homepage_summary"
       }
     ],
     "pages": [
@@ -13,19 +13,15 @@
         "layout": [
           {
             "widget": {
-              "name": "widget_17",
+              "name": "kpi_widget",
               "queries": [
                 {
                   "name": "main_query",
                   "query": {
                     "datasetName": "dataset_17",
                     "fields": [
-                      { "name": "home_tile", "expression": "`Home Tile`" },
-                      { "name": "f_ctr", "expression": "MEASURE(`f_ctr`)" },
-                      { "name": "unique_tile_views", "expression": "MEASURE(`Total Unique Tile Views`)" },
-                      { "name": "unique_tile_clicks", "expression": "MEASURE(`Total Unique Tile Clicks`)" },
-                      { "name": "unique_interstitial_views", "expression": "MEASURE(`Total Unique Interstitial Views`)" },
-                      { "name": "unique_interstitial_primary_clicks", "expression": "MEASURE(`Total Unique Interstitial Primary Button Clicks`)" }
+                      { "name": "Home Tile", "expression": "`Home Tile`" },
+                      { "name": "CTR", "expression": "MEASURE(`f_ctr`)" }
                     ],
                     "disaggregated": false
                   }
@@ -36,28 +32,8 @@
                 "widgetType": "counter",
                 "encodings": {
                   "y": {
-                    "fields": [
-                      {
-                        "fieldName": "f_ctr",
-                        "displayName": "% CTR"
-                      },
-                      {
-                        "fieldName": "unique_tile_views",
-                        "displayName": "Unique Tile Views"
-                      },
-                      {
-                        "fieldName": "unique_tile_clicks",
-                        "displayName": "Unique Tile Clicks"
-                      },
-                      {
-                        "fieldName": "unique_interstitial_views",
-                        "displayName": "Unique Interstitial Views"
-                      },
-                      {
-                        "fieldName": "unique_interstitial_primary_clicks",
-                        "displayName": "Unique Interstitial Primary Button Clicks"
-                      }
-                    ],
+                    "fieldName": "CTR",
+                    "displayName": "CTR",
                     "scale": { "type": "quantitative" }
                   }
                 },
