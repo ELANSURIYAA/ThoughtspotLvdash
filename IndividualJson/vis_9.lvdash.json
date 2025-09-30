@@ -1,108 +1,82 @@
 {
-  "datasets": [
-    {
-      "name": "dataset_9",
-      "displayName": "HPX Retention",
-      "asset_name": "workspace.default.mv_hpx_retention"
-    }
-  ],
-  "pages": [
-    {
-      "name": "page_9",
-      "displayName": "0.5 HPX Retention",
-      "layout": [
-        {
-          "widget": {
-            "name": "widget_9",
-            "queries": [
-              {
-                "name": "main_query",
-                "query": {
-                  "datasetName": "dataset_9",
-                  "fields": [
-                    {
-                      "name": "Month(First Device Event Date Time)",
-                      "expression": "DATE_TRUNC('MONTH', first_device_event_date_time)"
-                    },
-                    {
-                      "name": "Months Since First Use",
-                      "expression": "Months Since First Use"
-                    },
-                    {
-                      "name": "Session Type",
-                      "expression": "Session Type"
-                    },
-                    {
-                      "name": "Weeks Since First Use",
-                      "expression": "Weeks Since First Use"
-                    },
-                    {
-                      "name": "Active Devices",
-                      "expression": "MEASURE(Active Devices)"
-                    },
-                    {
-                      "name": "% Devices Returning",
-                      "expression": "MEASURE(Active Devices) / SUM(MEASURE(Active Devices)) OVER (PARTITION BY DATE_TRUNC('MONTH', first_device_event_date_time))"
-                    }
-                  ],
-                  "disaggregated": false
+    "datasets": [
+      {
+        "name": "dataset_9",
+        "displayName": "HPX Retention Dataset",
+        "asset_name": "workspace.default.mv_hpx_retention_css_analytics",
+        "queryLines": [
+          "SELECT DATE_TRUNC('MONTH', First_Device_Event_Date_Time) AS Monthly_First_Device_Event_Date, Months_Since_First_Use, Session_Type, SUM(Active_Devices) AS Total_Active_Devices, SUM(Active_Devices) / SUM(SUM(Active_Devices)) OVER (PARTITION BY Months_Since_First_Use ORDER BY DATE_TRUNC('MONTH', First_Device_Event_Date_Time)) AS Percentage_Devices_Returning FROM HPX_Retention_CSS_Analytics WHERE First_Device_Event_Date_Time >= '2023-05-01' GROUP BY DATE_TRUNC('MONTH', First_Device_Event_Date_Time), Months_Since_First_Use, Session_Type ORDER BY Monthly_First_Device_Event_Date"
+        ]
+      }
+    ],
+    "pages": [
+      {
+        "name": "page_9",
+        "displayName": "HPX Retention Visualization",
+        "layout": [
+          {
+            "widget": {
+              "name": "widget_9",
+              "queries": [
+                {
+                  "name": "main_query",
+                  "query": {
+                    "datasetName": "dataset_9",
+                    "fields": [
+                      { "name": "Monthly_First_Device_Event_Date", "expression": "`Monthly_First_Device_Event_Date`" },
+                      { "name": "Months_Since_First_Use", "expression": "`Months_Since_First_Use`" },
+                      { "name": "Session_Type", "expression": "`Session_Type`" },
+                      { "name": "Total_Active_Devices", "expression": "`Total_Active_Devices`" },
+                      { "name": "Percentage_Devices_Returning", "expression": "`Percentage_Devices_Returning`" }
+                    ],
+                    "disaggregated": false
+                  }
+                }
+              ],
+              "spec": {
+                "version": 3,
+                "widgetType": "pivot_table",
+                "encodings": {
+                  "x": {
+                    "fieldName": "Monthly_First_Device_Event_Date",
+                    "displayName": "Monthly First Device Event Date",
+                    "scale": { "type": "temporal" }
+                  },
+                  "y": {
+                    "fieldName": "Percentage_Devices_Returning",
+                    "displayName": "% Devices Returning",
+                    "scale": { "type": "quantitative" }
+                  },
+                  "color": {
+                    "fields": [
+                      {
+                        "fieldName": "Months_Since_First_Use",
+                        "displayName": "Months Since First Use"
+                      },
+                      {
+                        "fieldName": "Session_Type",
+                        "displayName": "Session Type"
+                      }
+                    ],
+                    "scale": { "type": "categorical" }
+                  }
+                },
+                "frame": {
+                  "title": "HPX Retention",
+                  "showTitle": true
                 }
               }
-            ],
-            "spec": {
-              "version": 3,
-              "widgetType": "pivot_table",
-              "encodings": {
-                "x": {
-                  "fieldName": "Month(First Device Event Date Time)",
-                  "displayName": "Month(First Device Event Date Time)"
-                },
-                "y": {
-                  "fields": [
-                    {
-                      "fieldName": "% Devices Returning",
-                      "displayName": "% Devices Returning"
-                    },
-                    {
-                      "fieldName": "Active Devices",
-                      "displayName": "Active Devices"
-                    }
-                  ]
-                },
-                "color": {
-                  "fields": [
-                    {
-                      "fieldName": "Months Since First Use",
-                      "displayName": "Months Since First Use"
-                    },
-                    {
-                      "fieldName": "Session Type",
-                      "displayName": "Session Type"
-                    }
-                  ]
-                }
-              },
-              "frame": {
-                "showTitle": true,
-                "title": "HPX Retention Cohort Analysis"
-              }
-            }
-          },
-          "position": {
-            "x": 0,
-            "y": 0,
-            "width": 12,
-            "height": 8
+            },
+            "position": { "x": 0, "y": 0, "width": 12, "height": 8 }
           }
-        }
-      ],
-      "pageType": "PAGE_TYPE_CANVAS",
-      "filters": []
-    }
-  ],
-  "uiSettings": {
-    "theme": {
-      "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+        ],
+        "pageType": "PAGE_TYPE_CANVAS",
+        "filters": []
+      }
+    ],
+    "uiSettings": {
+      "theme": {
+        "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+      }
     }
   }
-}
