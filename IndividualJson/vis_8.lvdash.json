@@ -2,14 +2,14 @@
     "datasets": [
       {
         "name": "dataset_8",
-        "displayName": "HPX Events Model",
+        "displayName": "HPX Events Model Dataset",
         "asset_name": "workspace.default.mv_hpx_events_model"
       }
     ],
     "pages": [
       {
         "name": "page_8",
-        "displayName": "Launch type Active Devices",
+        "displayName": "Launch Type Active Devices Visualization",
         "layout": [
           {
             "widget": {
@@ -22,7 +22,7 @@
                     "fields": [
                       { "name": "Daily Event Date", "expression": "DATE_TRUNC('DAY', event_date_time)" },
                       { "name": "Launch Type", "expression": "launch_type" },
-                      { "name": "Active Devices", "expression": "SUM(MEASURE(Active Devices))" }
+                      { "name": "Active Devices", "expression": "MEASURE("Active Devices")" }
                     ],
                     "disaggregated": false
                   }
@@ -49,7 +49,7 @@
                   }
                 },
                 "frame": {
-                  "title": "Launch type Active Devices",
+                  "title": "Launch Type Active Devices",
                   "showTitle": true
                 }
               }
