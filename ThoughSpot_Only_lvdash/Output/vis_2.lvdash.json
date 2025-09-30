@@ -1,81 +1,72 @@
 {
-  "datasets": [
-    {
-      "name": "dataset_2",
-      "displayName": "HPX Events Model",
-      "asset_name": "workspace.default.mv_hpx_events_model"
-    }
-  ],
-  "pages": [
-    {
-      "name": "page_2",
-      "displayName": "New Devices",
-      "layout": [
-        {
-          "widget": {
-            "name": "widget_2",
-            "queries": [
-              {
-                "name": "main_query",
-                "query": {
-                  "datasetName": "dataset_2",
-                  "fields": [
-                    {
-                      "name": "Daily Event Date",
-                      "expression": "DATE_TRUNC('DAY', event_date_time)"
-                    },
-                    {
-                      "name": "New Devices",
-                      "expression": "MEASURE("New Devices")"
-                    },
-                    {
-                      "name": "Cumulative New Devices",
-                      "expression": "SUM(MEASURE("New Devices")) OVER (ORDER BY DATE_TRUNC('DAY', event_date_time) ROWS UNBOUNDED PRECEDING)"
-                    }
-                  ],
-                  "disaggregated": false
+    "datasets": [
+      {
+        "name": "dataset_2",
+        "displayName": "New Devices Dataset",
+        "asset_name": "workspace.hpx_events_model.metric_view"
+      }
+    ],
+    "pages": [
+      {
+        "name": "page_2",
+        "displayName": "New Devices",
+        "layout": [
+          {
+            "widget": {
+              "name": "widget_2",
+              "queries": [
+                {
+                  "name": "main_query",
+                  "query": {
+                    "datasetName": "dataset_2",
+                    "fields": [
+                      { "name": "daily_event_date", "expression": "DATE_TRUNC('DAY', `Event Date Time`)" },
+                      { "name": "new_devices", "expression": "MEASURE(`New Devices`)" },
+                      { "name": "cumulative_new_devices", "expression": "MEASURE(`Cumulative New Devices`)" }
+                    ],
+                    "disaggregated": false
+                  }
                 }
-              }
-            ],
-            "spec": {
-              "version": 3,
-              "widgetType": "line",
-              "encodings": {
-                "x": {
-                  "fieldName": "Daily Event Date",
-                  "displayName": "Daily Event Date",
-                  "scale": { "type": "temporal" }
+              ],
+              "spec": {
+                "version": 3,
+                "widgetType": "line",
+                "encodings": {
+                  "x": {
+                    "fieldName": "daily_event_date",
+                    "displayName": "Daily Event Date",
+                    "scale": { "type": "temporal" }
+                  },
+                  "y": {
+                    "fields": [
+                      {
+                        "fieldName": "new_devices",
+                        "displayName": "New Devices"
+                      },
+                      {
+                        "fieldName": "cumulative_new_devices",
+                        "displayName": "Cumulative New Devices"
+                      }
+                    ],
+                    "scale": { "type": "quantitative" }
+                  }
                 },
-                "y": {
-                  "fields": [
-                    {
-                      "fieldName": "New Devices",
-                      "displayName": "New Devices"
-                    },
-                    {
-                      "fieldName": "Cumulative New Devices",
-                      "displayName": "Cumulative New Devices"
-                    }
-                  ],
-                  "scale": { "type": "quantitative" }
+                "frame": {
+                  "title": "New and Cumulative Devices Over Time",
+                  "showTitle": true
                 }
-              },
-              "frame": {
-                "title": "New Devices and Cumulative New Devices Over Time",
-                "showTitle": true
               }
-            }
-          },
-          "position": { "x": 0, "y": 0, "width": 12, "height": 8 }
-        }
-      ],
-      "pageType": "PAGE_TYPE_CANVAS",
-      "filters": []
-    }
-  ],
-  "uiSettings": {
-    "theme": {
-      "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+            },
+            "position": { "x": 0, "y": 0, "width": 12, "height": 8 }
+          }
+        ],
+        "pageType": "PAGE_TYPE_CANVAS",
+        "filters": []
+      }
+    ],
+    "uiSettings": {
+      "theme": {
+        "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+      }
     }
   }
-}
