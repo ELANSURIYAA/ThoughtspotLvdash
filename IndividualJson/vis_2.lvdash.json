@@ -1,12 +1,9 @@
 {
     "datasets": [
       {
-        "name": "dataset_2",
-        "displayName": "New Devices Dataset",
-        "asset_name": "workspace.default.mv_hpx_events_model",
-        "queryLines": [
-          "SELECT DATE_TRUNC('DAY', Event_Date_Time) AS Daily_Event_Date, SUM(New_Devices) AS New_Devices, SUM(SUM(New_Devices)) OVER (ORDER BY DATE_TRUNC('DAY', Event_Date_Time) ROWS UNBOUNDED PRECEDING) AS Cumulative_New_Devices FROM hpx_events_model GROUP BY DATE_TRUNC('DAY', Event_Date_Time) ORDER BY Daily_Event_Date"
-        ]
+        "name": "dataset_hpx_events_model",
+        "displayName": "HPX Events Model Dataset",
+        "asset_name": "workspace.default.mv_hpx_events_model"
       }
     ],
     "pages": [
@@ -16,16 +13,16 @@
         "layout": [
           {
             "widget": {
-              "name": "widget_2",
+              "name": "line_chart_widget",
               "queries": [
                 {
                   "name": "main_query",
                   "query": {
-                    "datasetName": "dataset_2",
+                    "datasetName": "dataset_hpx_events_model",
                     "fields": [
-                      { "name": "Daily_Event_Date", "expression": "`Daily_Event_Date`" },
-                      { "name": "New_Devices", "expression": "`New_Devices`" },
-                      { "name": "Cumulative_New_Devices", "expression": "`Cumulative_New_Devices`" }
+                      { "name": "Daily Event Date", "expression": "DATE_TRUNC('DAY', event_date_time)" },
+                      { "name": "New Devices", "expression": "MEASURE(New Devices)" },
+                      { "name": "Cumulative New Devices", "expression": "SUM(MEASURE(New Devices)) OVER (ORDER BY DATE_TRUNC('DAY', event_date_time) ROWS UNBOUNDED PRECEDING)" }
                     ],
                     "disaggregated": false
                   }
@@ -36,18 +33,18 @@
                 "widgetType": "line",
                 "encodings": {
                   "x": {
-                    "fieldName": "Daily_Event_Date",
+                    "fieldName": "Daily Event Date",
                     "displayName": "Daily Event Date",
                     "scale": { "type": "temporal" }
                   },
                   "y": {
                     "fields": [
                       {
-                        "fieldName": "New_Devices",
+                        "fieldName": "New Devices",
                         "displayName": "New Devices"
                       },
                       {
-                        "fieldName": "Cumulative_New_Devices",
+                        "fieldName": "Cumulative New Devices",
                         "displayName": "Cumulative New Devices"
                       }
                     ],
