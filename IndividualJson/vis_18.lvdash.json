@@ -1,85 +1,59 @@
 {
-  "datasets": [
-    {
-      "name": "dataset_18",
-      "displayName": "Home Tile Primary CTR Dataset",
-      "asset_name": "workspace.default.mv_hpx_homepage_summary"
-    }
-  ],
-  "pages": [
-    {
-      "name": "page_18",
-      "displayName": "Home Tile Primary CTR",
-      "layout": [
-        {
-          "widget": {
-            "name": "widget_18",
-            "queries": [
-              {
-                "name": "main_query",
-                "query": {
-                  "datasetName": "dataset_18",
-                  "fields": [
-                    {
-                      "name": "home_tile",
-                      "expression": "home_tile"
-                    },
-                    {
-                      "name": "unique_tile_views",
-                      "expression": "SUM(unique_tile_views)"
-                    },
-                    {
-                      "name": "unique_tile_clicks",
-                      "expression": "SUM(unique_tile_clicks)"
-                    },
-                    {
-                      "name": "f_ctr_primary",
-                      "expression": "SUM(unique_interstitial_primary_button_clicks) / SUM(unique_interstitial_views)"
-                    }
-                  ],
-                  "disaggregated": false
+    "datasets": [
+      {
+        "name": "dataset_18",
+        "displayName": "Home Tile Primary CTR Dataset",
+        "asset_name": "workspace.default.hpx_events_model_homepage_summary"
+      }
+    ],
+    "pages": [
+      {
+        "name": "page_18",
+        "displayName": "Home Tile Primary CTR Overview",
+        "layout": [
+          {
+            "widget": {
+              "name": "kpi_widget",
+              "queries": [
+                {
+                  "name": "main_query",
+                  "query": {
+                    "datasetName": "dataset_18",
+                    "fields": [
+                      { "name": "Home Tile", "expression": "`Home Tile`" },
+                      { "name": "% Primary Button Clicked Vs Interstitial Displayed", "expression": "MEASURE(`Total Primary Button Clicked Vs Interstitial Displayed`)" },
+                      { "name": "% Primary Button Clicked Vs Tile Displayed", "expression": "MEASURE(`Total Primary Button Clicked Vs Tile Displayed`)" },
+                      { "name": "Primary CTR", "expression": "MEASURE(`f_ctr_cta1`)" }
+                    ],
+                    "disaggregated": false
+                  }
                 }
-              }
-            ],
-            "spec": {
-              "version": 3,
-              "widgetType": "table",
-              "encodings": {
-                "columns": [
-                  {
-                    "fieldName": "home_tile",
-                    "displayName": "Home Tile"
-                  },
-                  {
-                    "fieldName": "unique_tile_views",
-                    "displayName": "Unique Tile Views"
-                  },
-                  {
-                    "fieldName": "unique_tile_clicks",
-                    "displayName": "Unique Tile Clicks"
-                  },
-                  {
-                    "fieldName": "f_ctr_primary",
+              ],
+              "spec": {
+                "version": 3,
+                "widgetType": "counter",
+                "encodings": {
+                  "value": {
+                    "fieldName": "Primary CTR",
                     "displayName": "Primary CTR"
                   }
-                ]
-              },
-              "frame": {
-                "title": "Home Tile Primary CTR",
-                "showTitle": true
+                },
+                "frame": {
+                  "title": "Home Tile Primary CTR",
+                  "showTitle": true
+                }
               }
-            }
-          },
-          "position": { "x": 0, "y": 0, "width": 12, "height": 8 }
-        }
-      ],
-      "pageType": "PAGE_TYPE_CANVAS",
-      "filters": []
-    }
-  ],
-  "uiSettings": {
-    "theme": {
-      "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+            },
+            "position": { "x": 0, "y": 0, "width": 12, "height": 8 }
+          }
+        ],
+        "pageType": "PAGE_TYPE_CANVAS",
+        "filters": []
+      }
+    ],
+    "uiSettings": {
+      "theme": {
+        "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+      }
     }
   }
-}
