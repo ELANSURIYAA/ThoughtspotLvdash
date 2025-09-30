@@ -3,7 +3,7 @@
       {
         "name": "dataset_6",
         "displayName": "Top Unique Screen Views Dataset",
-        "asset_name": "workspace.default.hpx_events_model"
+        "asset_name": "workspace.hpx_events_model.metricview"
       }
     ],
     "pages": [
@@ -13,7 +13,7 @@
         "layout": [
           {
             "widget": {
-              "name": "bar_chart_widget",
+              "name": "widget_6",
               "queries": [
                 {
                   "name": "main_query",
@@ -21,7 +21,7 @@
                     "datasetName": "dataset_6",
                     "fields": [
                       { "name": "Screen", "expression": "`Screen`" },
-                      { "name": "Unique Screen Views", "expression": "MEASURE(`Unique Screen Views`)" }
+                      { "name": "Unique_Screen_Views", "expression": "MEASURE(`Unique Screen Views`)" }
                     ],
                     "disaggregated": false
                   }
@@ -37,7 +37,7 @@
                     "scale": { "type": "categorical" }
                   },
                   "y": {
-                    "fieldName": "Unique Screen Views",
+                    "fieldName": "Unique_Screen_Views",
                     "displayName": "Unique Screen Views",
                     "scale": { "type": "quantitative" }
                   }
