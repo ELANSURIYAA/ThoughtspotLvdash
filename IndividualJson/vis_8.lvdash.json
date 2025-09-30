@@ -1,1 +1,77 @@
-{"datasets": [{"name": "dataset_8","displayName": "Launch Type Active Devices Dataset","asset_name": "workspace.default.mv_hpx_events_model","queryLines": ["SELECT DATE_TRUNC('DAY', Event_Date_Time) AS Daily_Event_Date, Launch_Type AS Launch_Type, SUM(Active_Devices) AS Total_Active_Devices FROM hpx_events_model WHERE Launch_Type IS NOT NULL GROUP BY DATE_TRUNC('DAY', Event_Date_Time), Launch_Type ORDER BY Daily_Event_Date"]}],"pages": [{"name": "page_8","displayName": "Launch Type Active Devices Visualization","layout": [{"widget": {"name": "widget_8","queries": [{"name": "main_query","query": {"datasetName": "dataset_8","fields": [{"name": "Daily_Event_Date","expression": "DATE_TRUNC('DAY', Event_Date_Time)"},{"name": "Launch_Type","expression": "Launch_Type"},{"name": "Total_Active_Devices","expression": "SUM(Active_Devices)"}],"disaggregated": false}}],"spec": {"version": 3,"widgetType": "bar","encodings": {"x": {"fieldName": "Daily_Event_Date","displayName": "Daily Event Date","scale": {"type": "temporal"}},"y": {"fieldName": "Total_Active_Devices","displayName": "Total Active Devices","scale": {"type": "quantitative"}},"color": {"fieldName": "Launch_Type","displayName": "Launch Type","scale": {"type": "categorical"}}},"frame": {"title": "Launch Type Active Devices","showTitle": true}}}},"position": {"x": 0,"y": 0,"width": 12,"height": 8}}],"pageType": "PAGE_TYPE_CANVAS","filters": []}],"uiSettings": {"theme": {"widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"}}}
+{
+  "datasets": [
+    {
+      "name": "dataset_8",
+      "displayName": "Launch Type Active Devices Dataset",
+      "asset_name": "workspace.default.mv_hpx_events_model"
+    }
+  ],
+  "pages": [
+    {
+      "name": "page_8",
+      "displayName": "Launch Type Active Devices",
+      "layout": [
+        {
+          "widget": {
+            "name": "widget_8",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "dataset_8",
+                  "fields": [
+                    {
+                      "name": "daily_event_date",
+                      "expression": "DATE_TRUNC('DAY', event_date_time)"
+                    },
+                    {
+                      "name": "launch_type",
+                      "expression": "launch_type"
+                    },
+                    {
+                      "name": "active_devices",
+                      "expression": "COUNT(DISTINCT sys_sn_hash)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "daily_event_date",
+                  "displayName": "Daily Event Date",
+                  "scale": { "type": "temporal" }
+                },
+                "y": {
+                  "fieldName": "active_devices",
+                  "displayName": "Active Devices",
+                  "scale": { "type": "quantitative" }
+                },
+                "color": {
+                  "fieldName": "launch_type",
+                  "displayName": "Launch Type"
+                }
+              },
+              "frame": {
+                "title": "Launch Type Active Devices",
+                "showTitle": true
+              }
+            }
+          },
+          "position": { "x": 0, "y": 0, "width": 12, "height": 8 }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS",
+      "filters": []
+    }
+  ],
+  "uiSettings": {
+    "theme": {
+      "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+    }
+  }
+}
