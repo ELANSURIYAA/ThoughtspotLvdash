@@ -1,78 +1,66 @@
 {
-  "datasets": [
-    {
-      "name": "dataset_6",
-      "displayName": "HPX Events Model",
-      "asset_name": "workspace.default.mv_hpx_events_model"
-    }
-  ],
-  "pages": [
-    {
-      "name": "page_6",
-      "displayName": "Top Unique Screen Views (excl. Home/Welcome)",
-      "layout": [
-        {
-          "widget": {
-            "name": "widget_6",
-            "queries": [
-              {
-                "name": "main_query",
-                "query": {
-                  "datasetName": "dataset_6",
-                  "fields": [
-                    {
-                      "name": "Screen",
-                      "expression": "Screen"
-                    },
-                    {
-                      "name": "Unique Screen Views",
-                      "expression": "SUM(MEASURE(Unique Screen Views))"
-                    }
-                  ],
-                  "disaggregated": false
+    "datasets": [
+      {
+        "name": "dataset_6",
+        "displayName": "Top Unique Screen Views Dataset",
+        "asset_name": "workspace.default.mv_hpx_events_model",
+        "queryLines": [
+          "SELECT Screen, SUM(Unique_Screen_Views) AS Total_Unique_Screen_Views FROM hpx_events_model WHERE Event_Date_Time >= '2023-05-01' AND Screen NOT IN ('home', 'welcome', 'welcome-core', 'welcomeContainer', 'support') AND Ui_Action = 'screendisplayed' GROUP BY Screen ORDER BY Total_Unique_Screen_Views DESC LIMIT 10"
+        ]
+      }
+    ],
+    "pages": [
+      {
+        "name": "page_6",
+        "displayName": "Top Unique Screen Views Visualization",
+        "layout": [
+          {
+            "widget": {
+              "name": "widget_6",
+              "queries": [
+                {
+                  "name": "main_query",
+                  "query": {
+                    "datasetName": "dataset_6",
+                    "fields": [
+                      { "name": "Screen", "expression": "`Screen`" },
+                      { "name": "Total_Unique_Screen_Views", "expression": "`Total_Unique_Screen_Views`" }
+                    ],
+                    "disaggregated": false
+                  }
                 }
-              }
-            ],
-            "spec": {
-              "version": 3,
-              "widgetType": "bar",
-              "encodings": {
-                "x": {
-                  "fieldName": "Screen",
-                  "scale": {
-                    "type": "categorical"
+              ],
+              "spec": {
+                "version": 3,
+                "widgetType": "bar",
+                "encodings": {
+                  "x": {
+                    "fieldName": "Screen",
+                    "displayName": "Screen",
+                    "scale": { "type": "categorical" }
                   },
-                  "displayName": "Screen"
+                  "y": {
+                    "fieldName": "Total_Unique_Screen_Views",
+                    "displayName": "Total Unique Screen Views",
+                    "scale": { "type": "quantitative" }
+                  }
                 },
-                "y": {
-                  "fieldName": "Unique Screen Views",
-                  "scale": {
-                    "type": "quantitative"
-                  },
-                  "displayName": "Unique Screen Views"
+                "frame": {
+                  "title": "Top Unique Screen Views",
+                  "showTitle": true
                 }
-              },
-              "frame": {
-                "showTitle": true,
-                "title": "Top Unique Screen Views by Screen"
               }
-            }
-          },
-          "position": {
-            "x": 0,
-            "y": 0,
-            "width": 12,
-            "height": 8
+            },
+            "position": { "x": 0, "y": 0, "width": 12, "height": 8 }
           }
-        }
-      ],
-      "pageType": "PAGE_TYPE_CANVAS",
-      "filters": []
-    }
-  ],
-  "uiSettings": {
-    "theme": {
-      "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+        ],
+        "pageType": "PAGE_TYPE_CANVAS",
+        "filters": []
+      }
+    ],
+    "uiSettings": {
+      "theme": {
+        "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+      }
     }
   }
-}
