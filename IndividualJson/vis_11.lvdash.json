@@ -2,26 +2,32 @@
     "datasets": [
       {
         "name": "dataset_11",
-        "displayName": "HPX CURR Dataset",
-        "asset_name": "workspace.default.HPX_CURR"
+        "displayName": "HPX CURR",
+        "asset_name": "workspace.default.mv_hpx_curr"
       }
     ],
     "pages": [
       {
         "name": "page_11",
-        "displayName": "HPX CURR Trendline Overview",
+        "displayName": "HPX CURR - Trendline Visualization",
         "layout": [
           {
             "widget": {
-              "name": "line_chart_widget",
+              "name": "widget_11",
               "queries": [
                 {
                   "name": "main_query",
                   "query": {
                     "datasetName": "dataset_11",
                     "fields": [
-                      { "name": "Week Active", "expression": "DATE_TRUNC('WEEK', `Week Active`)" },
-                      { "name": "CURR", "expression": "MEASURE(`f_CURR`)" }
+                      {
+                        "name": "Week Active",
+                        "expression": "DATE_TRUNC('WEEK', week_active)"
+                      },
+                      {
+                        "name": "CURR",
+                        "expression": "MEASURE(CURR)"
+                      }
                     ],
                     "disaggregated": false
                   }
@@ -33,22 +39,31 @@
                 "encodings": {
                   "x": {
                     "fieldName": "Week Active",
-                    "displayName": "Week Active",
-                    "scale": { "type": "temporal" }
+                    "scale": {
+                      "type": "temporal"
+                    },
+                    "displayName": "Week Active"
                   },
                   "y": {
                     "fieldName": "CURR",
-                    "displayName": "CURR",
-                    "scale": { "type": "quantitative" }
+                    "scale": {
+                      "type": "quantitative"
+                    },
+                    "displayName": "CURR"
                   }
                 },
                 "frame": {
-                  "title": "HPX CURR Trendline",
-                  "showTitle": true
+                  "showTitle": true,
+                  "title": "HPX CURR - Trendline"
                 }
               }
             },
-            "position": { "x": 0, "y": 0, "width": 12, "height": 8 }
+            "position": {
+              "x": 0,
+              "y": 0,
+              "width": 12,
+              "height": 8
+            }
           }
         ],
         "pageType": "PAGE_TYPE_CANVAS",
