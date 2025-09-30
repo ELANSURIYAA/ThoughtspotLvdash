@@ -2,7 +2,7 @@
   "datasets": [
     {
       "name": "dataset_17",
-      "displayName": "Home Tile Interactions CTR Dataset",
+      "displayName": "HPX Events Model Homepage Summary",
       "asset_name": "workspace.default.mv_hpx_homepage_summary"
     }
   ],
@@ -21,12 +21,24 @@
                   "datasetName": "dataset_17",
                   "fields": [
                     {
-                      "name": "home_tile",
+                      "name": "Home Tile",
                       "expression": "home_tile"
                     },
                     {
-                      "name": "ctr",
-                      "expression": "SUM(unique_tile_clicks) / SUM(unique_tile_views)"
+                      "name": "CTR",
+                      "expression": "SUM(MEASURE("f_ctr"))"
+                    },
+                    {
+                      "name": "% Home Tile Clicked Vs Homepage Displayed",
+                      "expression": "SUM(MEASURE("Total Home Tile Clicked Vs Homepage Displayed"))"
+                    },
+                    {
+                      "name": "% Primary Button Clicked Vs Tile Displayed",
+                      "expression": "SUM(MEASURE("Total Primary Button Clicked Vs Tile Displayed"))"
+                    },
+                    {
+                      "name": "% Secondary Button Clicked Vs Tile Displayed",
+                      "expression": "SUM(MEASURE("Total Secondary Button Clicked Vs Tile Displayed"))"
                     }
                   ],
                   "disaggregated": false
@@ -38,7 +50,7 @@
               "widgetType": "counter",
               "encodings": {
                 "value": {
-                  "fieldName": "ctr",
+                  "fieldName": "CTR",
                   "displayName": "CTR"
                 }
               },
