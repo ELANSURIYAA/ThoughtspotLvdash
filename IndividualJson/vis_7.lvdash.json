@@ -1,27 +1,27 @@
 {
     "datasets": [
       {
-        "name": "dataset_hpx_events_model",
-        "displayName": "HPX Events Model Dataset",
-        "asset_name": "workspace.default.mv_hpx_events_model"
+        "name": "dataset_7",
+        "displayName": "Top On Press Events Dataset",
+        "asset_name": "workspace.default.hpx_events_model"
       }
     ],
     "pages": [
       {
         "name": "page_7",
-        "displayName": "Top On Press Events Visualization",
+        "displayName": "Top On Press Events Overview",
         "layout": [
           {
             "widget": {
-              "name": "bar_chart_widget",
+              "name": "bar_chart_widget_7",
               "queries": [
                 {
                   "name": "main_query",
                   "query": {
-                    "datasetName": "dataset_hpx_events_model",
+                    "datasetName": "dataset_7",
                     "fields": [
-                      { "name": "Control", "expression": "control" },
-                      { "name": "Total Clicks", "expression": "SUM(MEASURE(Total Clicks))" }
+                      { "name": "Control", "expression": "`Control`" },
+                      { "name": "Total Clicks", "expression": "MEASURE(`Total Clicks`)" }
                     ],
                     "disaggregated": false
                   }
