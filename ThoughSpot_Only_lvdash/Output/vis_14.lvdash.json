@@ -2,7 +2,7 @@
   "datasets": [
     {
       "name": "dataset_14",
-      "displayName": "Home Tile Interactions Dataset",
+      "displayName": "HPX Events Model Homepage Summary",
       "asset_name": "workspace.default.mv_hpx_homepage_summary"
     }
   ],
@@ -21,28 +21,28 @@
                   "datasetName": "dataset_14",
                   "fields": [
                     {
-                      "name": "home_tile",
+                      "name": "Home Tile",
                       "expression": "home_tile"
                     },
                     {
-                      "name": "unique_tile_views",
-                      "expression": "SUM(unique_tile_views)"
+                      "name": "Unique Tile Views",
+                      "expression": "SUM(MEASURE("Total Unique Tile Views"))"
                     },
                     {
-                      "name": "unique_tile_clicks",
-                      "expression": "SUM(unique_tile_clicks)"
+                      "name": "Unique Tile Clicks",
+                      "expression": "SUM(MEASURE("Total Unique Tile Clicks"))"
                     },
                     {
-                      "name": "unique_interstitial_views",
-                      "expression": "SUM(unique_interstitial_views)"
+                      "name": "Unique Interstitial Views",
+                      "expression": "SUM(MEASURE("Total Unique Interstitial Views"))"
                     },
                     {
-                      "name": "unique_interstitial_primary_button_clicks",
-                      "expression": "SUM(unique_interstitial_primary_button_clicks)"
+                      "name": "Unique Interstitial Primary Button Clicks",
+                      "expression": "SUM(MEASURE("Total Unique Interstitial Primary Button Clicks"))"
                     },
                     {
-                      "name": "unique_interstitial_secondary_button_clicks",
-                      "expression": "SUM(unique_interstitial_secondary_button_clicks)"
+                      "name": "Unique Interstitial Secondary Button Clicks",
+                      "expression": "SUM(MEASURE("Total Unique Interstitial Secondary Button Clicks"))"
                     }
                   ],
                   "disaggregated": false
@@ -51,34 +51,38 @@
             ],
             "spec": {
               "version": 3,
-              "widgetType": "table",
+              "widgetType": "bar",
               "encodings": {
-                "columns": [
-                  {
-                    "fieldName": "home_tile",
-                    "displayName": "Home Tile"
-                  },
-                  {
-                    "fieldName": "unique_tile_views",
-                    "displayName": "Unique Tile Views"
-                  },
-                  {
-                    "fieldName": "unique_tile_clicks",
-                    "displayName": "Unique Tile Clicks"
-                  },
-                  {
-                    "fieldName": "unique_interstitial_views",
-                    "displayName": "Unique Interstitial Views"
-                  },
-                  {
-                    "fieldName": "unique_interstitial_primary_button_clicks",
-                    "displayName": "Unique Interstitial Primary Button Clicks"
-                  },
-                  {
-                    "fieldName": "unique_interstitial_secondary_button_clicks",
-                    "displayName": "Unique Interstitial Secondary Button Clicks"
-                  }
-                ]
+                "x": {
+                  "fieldName": "Home Tile",
+                  "displayName": "Home Tile",
+                  "scale": { "type": "categorical" }
+                },
+                "y": {
+                  "fields": [
+                    {
+                      "fieldName": "Unique Tile Views",
+                      "displayName": "Unique Tile Views"
+                    },
+                    {
+                      "fieldName": "Unique Tile Clicks",
+                      "displayName": "Unique Tile Clicks"
+                    },
+                    {
+                      "fieldName": "Unique Interstitial Views",
+                      "displayName": "Unique Interstitial Views"
+                    },
+                    {
+                      "fieldName": "Unique Interstitial Primary Button Clicks",
+                      "displayName": "Unique Interstitial Primary Button Clicks"
+                    },
+                    {
+                      "fieldName": "Unique Interstitial Secondary Button Clicks",
+                      "displayName": "Unique Interstitial Secondary Button Clicks"
+                    }
+                  ],
+                  "scale": { "type": "quantitative" }
+                }
               },
               "frame": {
                 "title": "Home Tile Interactions",
