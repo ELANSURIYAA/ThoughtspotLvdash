@@ -9,20 +9,29 @@
     "pages": [
       {
         "name": "page_2",
-        "displayName": "New Devices Overview",
+        "displayName": "New Devices Visualization",
         "layout": [
           {
             "widget": {
-              "name": "line_chart_widget",
+              "name": "widget_2",
               "queries": [
                 {
                   "name": "main_query",
                   "query": {
                     "datasetName": "dataset_2",
                     "fields": [
-                      { "name": "Daily Event Date", "expression": "DATE_TRUNC('DAY', `Event Date Time`)" },
-                      { "name": "New Devices", "expression": "MEASURE(`New Devices`)" },
-                      { "name": "Cumulative New Devices", "expression": "MEASURE(`Cumulative New Devices`)" }
+                      {
+                        "name": "Daily Event Date",
+                        "expression": "DATE_TRUNC('DAY', `Event Date Time`)"
+                      },
+                      {
+                        "name": "New Devices",
+                        "expression": "MEASURE(`New Devices`)"
+                      },
+                      {
+                        "name": "Cumulative New Devices",
+                        "expression": "MEASURE(`Cumulative New Devices`)"
+                      }
                     ],
                     "disaggregated": false
                   }
@@ -52,7 +61,7 @@
                   }
                 },
                 "frame": {
-                  "title": "New Devices and Cumulative Devices Over Time",
+                  "title": "New and Cumulative Devices Over Time",
                   "showTitle": true
                 }
               }
