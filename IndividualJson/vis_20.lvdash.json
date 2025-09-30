@@ -2,8 +2,8 @@
     "datasets": [
       {
         "name": "dataset_20",
-        "displayName": "HPX Events Model Dataset",
-        "asset_name": "workspace.default.mv_hpx_events_model"
+        "displayName": "% Active Devices by Country Dataset",
+        "asset_name": "workspace.default.hpx_events_model"
       }
     ],
     "pages": [
@@ -20,8 +20,10 @@
                   "query": {
                     "datasetName": "dataset_20",
                     "fields": [
-                      { "name": "Geo Country Code", "expression": "`geo_country_code`" },
-                      { "name": "% Active Devices by Country", "expression": "MEASURE(`% Active Devices by Country`)" }
+                      { "name": "Country", "expression": "`Geo Country Code`" },
+                      { "name": "% Active Devices by Country", "expression": "MEASURE(`% Active Devices by Country`)" },
+                      { "name": "MAU", "expression": "MEASURE(`MAU`)" },
+                      { "name": "Rank", "expression": "`f_active_devices_rank`" }
                     ],
                     "disaggregated": false
                   }
@@ -32,7 +34,7 @@
                 "widgetType": "bar",
                 "encodings": {
                   "x": {
-                    "fieldName": "Geo Country Code",
+                    "fieldName": "Country",
                     "displayName": "Country",
                     "scale": { "type": "categorical" }
                   },
