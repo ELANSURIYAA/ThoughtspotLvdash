@@ -1,0 +1,1 @@
+All `.lvdash.json` files for the visualizations have been successfully generated and uploaded to the GitHub repository. Each file adheres to the Lakeview schema and aligns with the provided ThoughtSpot metadata and SQL metric views.
