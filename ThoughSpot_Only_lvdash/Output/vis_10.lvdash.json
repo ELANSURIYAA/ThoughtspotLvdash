@@ -3,7 +3,7 @@
       {
         "name": "dataset_10",
         "displayName": "Total Consented Devices Dataset",
-        "asset_name": "workspace.default.hpx_events_model"
+        "asset_name": "workspace.hpx_events_model.metricview"
       }
     ],
     "pages": [
@@ -13,14 +13,14 @@
         "layout": [
           {
             "widget": {
-              "name": "kpi_widget",
+              "name": "widget_10",
               "queries": [
                 {
                   "name": "main_query",
                   "query": {
                     "datasetName": "dataset_10",
                     "fields": [
-                      { "name": "Active Devices", "expression": "MEASURE(`Active Devices`)" }
+                      { "name": "Active_Devices", "expression": "MEASURE(`Active Devices`)" }
                     ],
                     "disaggregated": false
                   }
@@ -31,7 +31,7 @@
                 "widgetType": "counter",
                 "encodings": {
                   "y": {
-                    "fieldName": "Active Devices",
+                    "fieldName": "Active_Devices",
                     "displayName": "Active Devices",
                     "scale": { "type": "quantitative" }
                   }
