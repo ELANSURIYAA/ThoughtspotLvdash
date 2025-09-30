@@ -2,8 +2,8 @@
     "datasets": [
       {
         "name": "dataset_10",
-        "displayName": "HPX Events Model Dataset",
-        "asset_name": "workspace.default.mv_hpx_events_model"
+        "displayName": "Total Consented Devices Dataset",
+        "asset_name": "workspace.default.hpx_events_model"
       }
     ],
     "pages": [
@@ -41,7 +41,7 @@
                 }
               }
             },
-            "position": { "x": 0, "y": 0, "width": 6, "height": 4 }
+            "position": { "x": 0, "y": 0, "width": 12, "height": 8 }
           }
         ],
         "pageType": "PAGE_TYPE_CANVAS",
