@@ -22,7 +22,7 @@
                   "fields": [
                     {
                       "name": "weekly_week_active",
-                      "expression": "`Weekly Week Active`"
+                      "expression": "DATE_TRUNC('WEEK', `Weekly Week Active`)"
                     },
                     {
                       "name": "curr",
@@ -53,7 +53,7 @@
                 }
               },
               "frame": {
-                "title": "HPX CURR Trendline",
+                "title": "HPX CURR - Trendline",
                 "showTitle": true
               }
             }
