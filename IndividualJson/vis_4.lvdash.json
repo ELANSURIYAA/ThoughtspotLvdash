@@ -22,7 +22,7 @@
                   "fields": [
                     {
                       "name": "daily_event_date",
-                      "expression": "DATE_TRUNC('DAY', `Daily Event Date`)"
+                      "expression": "`Daily Event Date`"
                     },
                     {
                       "name": "control",
@@ -64,7 +64,7 @@
                 }
               },
               "frame": {
-                "title": "Top On Press Events",
+                "title": "Top On Press Events by Control Over Time",
                 "showTitle": true
               }
             }
