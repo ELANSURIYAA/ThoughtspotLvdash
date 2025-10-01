@@ -1,35 +1,76 @@
 {
   "datasets": [
     {
-      "name": "dataset_viz_6",
-      "displayName": "Top Unique Screen Views Dataset",
+      "name": "hpx_events_model_dataset",
+      "displayName": "HPX Events Model",
       "asset_name": "workspace.default.mv_hpx_events_model"
     }
   ],
   "pages": [
     {
-      "name": "page_viz_6",
+      "name": "top_unique_screen_views_bar_page",
       "displayName": "Top Unique Screen Views (excl. Home/Welcome)",
       "layout": [
         {
           "widget": {
-            "name": "top_screen_views_horizontal_bar_chart",
+            "name": "top_unique_screen_views_bar_chart",
             "queries": [
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "dataset_viz_6",
+                  "datasetName": "hpx_events_model_dataset",
                   "fields": [
                     {
-                      "name": "screen",
+                      "name": "Screen",
                       "expression": "`Screen`"
                     },
                     {
-                      "name": "unique_screen_views",
+                      "name": "Unique Screen Views",
                       "expression": "MEASURE(`Unique Screen Views`)"
                     }
                   ],
-                  "disaggregated": false
+                  "disaggregated": false,
+                  "filters": [
+                    {
+                      "name": "date_filter",
+                      "expression": "`Event Date Time` >= DATE '2023-05-01'"
+                    },
+                    {
+                      "name": "screen_filter_1",
+                      "expression": "`Screen` != 'home'"
+                    },
+                    {
+                      "name": "screen_filter_2",
+                      "expression": "`Screen` != 'support'"
+                    },
+                    {
+                      "name": "screen_filter_3",
+                      "expression": "`Screen` != 'welcome'"
+                    },
+                    {
+                      "name": "screen_filter_4",
+                      "expression": "`Screen` != 'welcome-core'"
+                    },
+                    {
+                      "name": "screen_filter_5",
+                      "expression": "`Screen` != 'welcomeContainer'"
+                    },
+                    {
+                      "name": "screen_filter_6",
+                      "expression": "`Screen` IS NOT NULL"
+                    },
+                    {
+                      "name": "ui_action_filter",
+                      "expression": "`Ui Action` = 'screendisplayed'"
+                    }
+                  ],
+                  "orderBy": [
+                    {
+                      "fieldName": "Unique Screen Views",
+                      "direction": "DESC"
+                    }
+                  ],
+                  "limit": 10
                 }
               }
             ],
@@ -38,14 +79,14 @@
               "widgetType": "bar",
               "encodings": {
                 "x": {
-                  "fieldName": "screen",
+                  "fieldName": "Screen",
                   "displayName": "Screen",
                   "scale": {
                     "type": "categorical"
                   }
                 },
                 "y": {
-                  "fieldName": "unique_screen_views",
+                  "fieldName": "Unique Screen Views",
                   "displayName": "Unique Screen Views",
                   "scale": {
                     "type": "quantitative"
