@@ -1,14 +1,14 @@
 {
   "datasets": [
     {
-      "name": "hpx_curr_dataset_12",
+      "name": "hpx_curr_dataset",
       "displayName": "HPX CURR Dataset",
       "asset_name": "workspace.default.mv_hpx_curr"
     }
   ],
   "pages": [
     {
-      "name": "page_12",
+      "name": "hpx_curr_data_table_page",
       "displayName": "HPX CURR - Data Table",
       "layout": [
         {
@@ -18,14 +18,14 @@
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "hpx_curr_dataset_12",
+                  "datasetName": "hpx_curr_dataset",
                   "fields": [
                     {
-                      "name": "week_active",
+                      "name": "week",
                       "expression": "`Weekly Week Active`"
                     },
                     {
-                      "name": "curr_avg",
+                      "name": "curr",
                       "expression": "MEASURE(`Curr`)"
                     },
                     {
@@ -51,7 +51,7 @@
               "encodings": {
                 "columns": [
                   {
-                    "fieldName": "week_active",
+                    "fieldName": "week",
                     "displayName": "Week"
                   },
                   {
@@ -67,7 +67,7 @@
                     "displayName": "This Week Users T0t6"
                   },
                   {
-                    "fieldName": "curr_avg",
+                    "fieldName": "curr",
                     "displayName": "CURR"
                   }
                 ]
