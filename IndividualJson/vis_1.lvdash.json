@@ -2,18 +2,18 @@
   "datasets": [
     {
       "name": "hpx_events_dataset",
-      "displayName": "HPX Events Dataset",
+      "displayName": "HPX Events Model Dataset",
       "asset_name": "workspace.default.mv_hpx_events_model"
     }
   ],
   "pages": [
     {
-      "name": "active_devices_page",
-      "displayName": "Active Devices",
+      "name": "executive_summary_page",
+      "displayName": "Executive Summary",
       "layout": [
         {
           "widget": {
-            "name": "active_devices_chart",
+            "name": "active_devices_line_chart",
             "queries": [
               {
                 "name": "main_query",
@@ -61,8 +61,8 @@
           "position": {
             "x": 0,
             "y": 0,
-            "width": 12,
-            "height": 8
+            "width": 6,
+            "height": 4
           }
         }
       ],
