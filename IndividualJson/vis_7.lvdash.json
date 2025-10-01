@@ -1,24 +1,24 @@
 {
   "datasets": [
     {
-      "name": "hpx_events_dataset_7",
-      "displayName": "HPX Events Model - Top On Press Events",
+      "name": "hpx_events_dataset",
+      "displayName": "HPX Events Dataset",
       "asset_name": "workspace.default.mv_hpx_events_model"
     }
   ],
   "pages": [
     {
-      "name": "top_on_press_events_page",
+      "name": "top_onpress_events_page",
       "displayName": "Top On Press Events",
       "layout": [
         {
           "widget": {
-            "name": "top_on_press_events_chart",
+            "name": "top_onpress_events_chart",
             "queries": [
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "hpx_events_dataset_7",
+                  "datasetName": "hpx_events_dataset",
                   "fields": [
                     {
                       "name": "Control",
