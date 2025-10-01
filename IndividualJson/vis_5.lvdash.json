@@ -1,7 +1,7 @@
 {
   "datasets": [
     {
-      "name": "hpx_events_dataset",
+      "name": "hpx_events_dataset_5",
       "displayName": "HPX Events Model Dataset",
       "asset_name": "workspace.default.mv_hpx_events_model"
     }
@@ -13,16 +13,16 @@
       "layout": [
         {
           "widget": {
-            "name": "top_screen_views_chart",
+            "name": "unique_screen_views_chart",
             "queries": [
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "hpx_events_dataset",
+                  "datasetName": "hpx_events_dataset_5",
                   "fields": [
                     {
-                      "name": "monthly_event_date",
-                      "expression": "DATE_TRUNC('MONTH', `Monthly Event Date`)"
+                      "name": "daily_event_date",
+                      "expression": "DATE_TRUNC(\"DAY\", `Daily Event Date`)"
                     },
                     {
                       "name": "screen",
@@ -42,8 +42,8 @@
               "widgetType": "bar",
               "encodings": {
                 "x": {
-                  "fieldName": "monthly_event_date",
-                  "displayName": "Monthly Event Date",
+                  "fieldName": "daily_event_date",
+                  "displayName": "Daily Event Date",
                   "scale": {
                     "type": "temporal"
                   }
@@ -64,7 +64,7 @@
                 }
               },
               "frame": {
-                "title": "Top Unique Screen Views (excl. Home/Welcome) Over Time",
+                "title": "Top Unique Screen Views (excl. Home/Welcome)",
                 "showTitle": true
               }
             }
