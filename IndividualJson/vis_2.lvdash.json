@@ -22,7 +22,7 @@
                   "fields": [
                     {
                       "name": "daily_event_date",
-                      "expression": "`Daily Event Date`"
+                      "expression": "DATE_TRUNC('DAY', `Daily Event Date`)"
                     },
                     {
                       "name": "new_devices",
@@ -30,7 +30,7 @@
                     },
                     {
                       "name": "cumulative_new_devices",
-                      "expression": "SUM(MEASURE(`New Devices`)) OVER (ORDER BY `Daily Event Date` ROWS UNBOUNDED PRECEDING)"
+                      "expression": "SUM(MEASURE(`New Devices`)) OVER (ORDER BY DATE_TRUNC('DAY', `Daily Event Date`) ROWS UNBOUNDED PRECEDING)"
                     }
                   ],
                   "disaggregated": false
