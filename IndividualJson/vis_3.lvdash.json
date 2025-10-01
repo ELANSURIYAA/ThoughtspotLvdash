@@ -13,7 +13,7 @@
       "layout": [
         {
           "widget": {
-            "name": "new_devices_pie_chart",
+            "name": "new_devices_by_country_chart",
             "queries": [
               {
                 "name": "main_query",
@@ -21,12 +21,12 @@
                   "datasetName": "hpx_events_dataset",
                   "fields": [
                     {
-                      "name": "geo_country_code",
+                      "name": "Geo Country Code",
                       "expression": "`Geo Country Code`"
                     },
                     {
-                      "name": "new_devices_sum",
-                      "expression": "SUM(MEASURE(`New Devices`))"
+                      "name": "New Devices",
+                      "expression": "MEASURE(`New Devices`)"
                     }
                   ],
                   "disaggregated": false
@@ -37,19 +37,19 @@
               "version": 3,
               "widgetType": "pie",
               "encodings": {
-                "color": {
-                  "fieldName": "geo_country_code",
-                  "scale": {
-                    "type": "categorical"
-                  },
-                  "displayName": "Geo Country Code"
-                },
                 "angle": {
-                  "fieldName": "new_devices_sum",
+                  "fieldName": "New Devices",
+                  "displayName": "New Devices",
                   "scale": {
                     "type": "quantitative"
-                  },
-                  "displayName": "New Devices"
+                  }
+                },
+                "color": {
+                  "fieldName": "Geo Country Code",
+                  "displayName": "Geo Country Code",
+                  "scale": {
+                    "type": "categorical"
+                  }
                 }
               },
               "frame": {
