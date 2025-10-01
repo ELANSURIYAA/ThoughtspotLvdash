@@ -8,12 +8,12 @@
   ],
   "pages": [
     {
-      "name": "top_on_press_events_bar_page",
+      "name": "top_on_press_events_page",
       "displayName": "Top On Press Events",
       "layout": [
         {
           "widget": {
-            "name": "top_on_press_events_bar_chart",
+            "name": "top_on_press_events_widget",
             "queries": [
               {
                 "name": "main_query",
@@ -25,28 +25,30 @@
                       "expression": "`Control`"
                     },
                     {
-                      "name": "Total Clicks",
+                      "name": "Total_Clicks",
                       "expression": "MEASURE(`Total Clicks`)"
                     }
                   ],
-                  "disaggregated": false,
                   "filters": [
                     {
-                      "name": "control_filter",
-                      "expression": "NOT CONTAINS(`Control`, 'testid')"
+                      "fieldName": "Control",
+                      "operator": "NOT_CONTAINS",
+                      "values": ["testid"]
                     },
                     {
-                      "name": "ui_action_filter",
-                      "expression": "`Ui Action` = 'onpress'"
+                      "fieldName": "Ui Action",
+                      "operator": "EQUAL",
+                      "values": ["onpress"]
                     }
                   ],
+                  "limit": 10,
                   "orderBy": [
                     {
-                      "fieldName": "Total Clicks",
+                      "fieldName": "Total_Clicks",
                       "direction": "DESC"
                     }
                   ],
-                  "limit": 10
+                  "disaggregated": false
                 }
               }
             ],
@@ -57,30 +59,21 @@
                 "x": {
                   "fieldName": "Control",
                   "displayName": "Control",
-                  "scale": {
-                    "type": "categorical"
-                  }
+                  "scale": { "type": "categorical" }
                 },
                 "y": {
-                  "fieldName": "Total Clicks",
+                  "fieldName": "Total_Clicks",
                   "displayName": "Total Clicks",
-                  "scale": {
-                    "type": "quantitative"
-                  }
+                  "scale": { "type": "quantitative" }
                 }
               },
               "frame": {
-                "showTitle": true,
-                "title": "Top On Press Events"
+                "title": "Top On Press Events",
+                "showTitle": true
               }
             }
           },
-          "position": {
-            "x": 0,
-            "y": 0,
-            "width": 12,
-            "height": 8
-          }
+          "position": { "x": 0, "y": 0, "width": 12, "height": 8 }
         }
       ],
       "pageType": "PAGE_TYPE_CANVAS",
