@@ -1,8 +1,8 @@
 {
   "datasets": [
     {
-      "name": "hpx_events_dataset_22",
-      "displayName": "HPX Events Model Dataset",
+      "name": "hpx_events_model_dataset",
+      "displayName": "HPX Events Model",
       "asset_name": "workspace.default.mv_hpx_events_model"
     }
   ],
@@ -13,27 +13,27 @@
       "layout": [
         {
           "widget": {
-            "name": "hpx_version_adoption_line_chart",
+            "name": "new_version_adoption_chart",
             "queries": [
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "hpx_events_dataset_22",
+                  "datasetName": "hpx_events_model_dataset",
                   "fields": [
                     {
-                      "name": "daily_event_date",
+                      "name": "Daily Event Date",
                       "expression": "`Daily Event Date`"
                     },
                     {
-                      "name": "active_devices",
-                      "expression": "MEASURE(`Active Devices`)"
-                    },
-                    {
-                      "name": "app_version",
+                      "name": "App Version",
                       "expression": "`App Version`"
                     },
                     {
-                      "name": "pct_active_devices",
+                      "name": "Active Devices",
+                      "expression": "MEASURE(`Active Devices`)"
+                    },
+                    {
+                      "name": "% Active Devices",
                       "expression": "MEASURE(`Active Devices`) / SUM(MEASURE(`Active Devices`)) OVER (PARTITION BY `Daily Event Date`)"
                     }
                   ],
@@ -46,39 +46,28 @@
               "widgetType": "line",
               "encodings": {
                 "x": {
-                  "fieldName": "daily_event_date",
+                  "fieldName": "Daily Event Date",
                   "displayName": "Daily Event Date",
-                  "scale": {
-                    "type": "temporal"
-                  }
+                  "scale": { "type": "temporal" }
                 },
                 "y": {
-                  "fieldName": "pct_active_devices",
+                  "fieldName": "% Active Devices",
                   "displayName": "% Active Devices",
-                  "scale": {
-                    "type": "quantitative"
-                  }
+                  "scale": { "type": "quantitative" }
                 },
                 "color": {
-                  "fieldName": "app_version",
+                  "fieldName": "App Version",
                   "displayName": "App Version",
-                  "scale": {
-                    "type": "categorical"
-                  }
+                  "scale": { "type": "categorical" }
                 }
               },
               "frame": {
-                "showTitle": true,
-                "title": "HPX New Version Adoption"
+                "title": "HPX New Version Adoption",
+                "showTitle": true
               }
             }
           },
-          "position": {
-            "x": 0,
-            "y": 0,
-            "width": 12,
-            "height": 8
-          }
+          "position": { "x": 0, "y": 0, "width": 12, "height": 8 }
         }
       ],
       "pageType": "PAGE_TYPE_CANVAS",
