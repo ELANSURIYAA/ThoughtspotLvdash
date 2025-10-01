@@ -53,7 +53,7 @@
                 }
               },
               "frame": {
-                "title": "Top Unique Screen Views by Screen",
+                "title": "Top Unique Screen Views (excl. Home/Welcome)",
                 "showTitle": true
               }
             }
