@@ -22,7 +22,7 @@
                   "fields": [
                     {
                       "name": "daily_event_date",
-                      "expression": "`Daily Event Date`"
+                      "expression": "DATE_TRUNC('DAY', `Daily Event Date`)"
                     },
                     {
                       "name": "launch_type",
@@ -64,7 +64,7 @@
                 }
               },
               "frame": {
-                "title": "Launch Type Active Devices Over Time",
+                "title": "Launch type Active Devices",
                 "showTitle": true
               }
             }
