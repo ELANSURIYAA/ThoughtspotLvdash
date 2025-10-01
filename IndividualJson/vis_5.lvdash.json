@@ -1,15 +1,15 @@
 {
   "datasets": [
     {
-      "name": "hpx_events_model_dataset",
-      "displayName": "Top Unique Screen Views Dataset",
+      "name": "hpx_events_dataset",
+      "displayName": "HPX Events Model",
       "asset_name": "workspace.default.mv_hpx_events_model"
     }
   ],
   "pages": [
     {
       "name": "top_unique_screen_views_page",
-      "displayName": "Top Unique Screen Views",
+      "displayName": "Top Unique Screen Views (excl. Home/Welcome)",
       "layout": [
         {
           "widget": {
@@ -18,19 +18,37 @@
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "hpx_events_model_dataset",
+                  "datasetName": "hpx_events_dataset",
                   "fields": [
                     {
-                      "name": "Daily Event Date",
-                      "expression": "DATE_TRUNC('DAY', `Event Date Time`)"
+                      "name": "Monthly_Event_Date",
+                      "expression": "`Monthly Event Date`"
                     },
                     {
                       "name": "Screen",
                       "expression": "`Screen`"
                     },
                     {
-                      "name": "Unique Screen Views",
+                      "name": "Unique_Screen_Views",
                       "expression": "MEASURE(`Unique Screen Views`)"
+                    }
+                  ],
+                  "filters": [
+                    {
+                      "expression": "`Screen` != 'home' AND `Screen` != 'welcome' AND `Screen` != 'welcomecontainer' AND `Screen` != 'welcome-core' AND `Screen` != 'support'"
+                    },
+                    {
+                      "expression": "`Ui Action` = 'screendisplayed'"
+                    },
+                    {
+                      "expression": "`Event Date Time` >= '2023-05-01'"
+                    }
+                  ],
+                  "limit": 10,
+                  "orderBy": [
+                    {
+                      "fieldName": "Unique_Screen_Views",
+                      "direction": "DESC"
                     }
                   ],
                   "disaggregated": false
@@ -42,14 +60,14 @@
               "widgetType": "bar",
               "encodings": {
                 "x": {
-                  "fieldName": "Daily Event Date",
-                  "displayName": "Daily Event Date",
+                  "fieldName": "Monthly_Event_Date",
+                  "displayName": "Monthly Event Date",
                   "scale": {
                     "type": "temporal"
                   }
                 },
                 "y": {
-                  "fieldName": "Unique Screen Views",
+                  "fieldName": "Unique_Screen_Views",
                   "displayName": "Unique Screen Views",
                   "scale": {
                     "type": "quantitative"
@@ -64,8 +82,8 @@
                 }
               },
               "frame": {
-                "showTitle": true,
-                "title": "Top Unique Screen Views (excl. Home/Welcome)"
+                "title": "Top Unique Screen Views (excl. Home/Welcome)",
+                "showTitle": true
               }
             }
           },
@@ -78,22 +96,7 @@
         }
       ],
       "pageType": "PAGE_TYPE_CANVAS",
-      "filters": [
-        {
-          "fieldName": "Event Date Time",
-          "displayName": "Event Date Time",
-          "type": "FILTER",
-          "isMandatory": false,
-          "isSingleValue": false
-        },
-        {
-          "fieldName": "Screen",
-          "displayName": "Screen",
-          "type": "FILTER",
-          "isMandatory": false,
-          "isSingleValue": false
-        }
-      ]
+      "filters": []
     }
   ],
   "uiSettings": {
