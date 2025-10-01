@@ -13,7 +13,7 @@
       "layout": [
         {
           "widget": {
-            "name": "top_on_press_events_chart",
+            "name": "top_onpress_events_chart",
             "queries": [
               {
                 "name": "main_query",
@@ -22,7 +22,7 @@
                   "fields": [
                     {
                       "name": "daily_event_date",
-                      "expression": "DATE_TRUNC('DAY', `Daily Event Date`)"
+                      "expression": "`Daily Event Date`"
                     },
                     {
                       "name": "control",
