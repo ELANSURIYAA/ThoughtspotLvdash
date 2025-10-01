@@ -21,8 +21,8 @@
                   "datasetName": "hpx_curr_dataset",
                   "fields": [
                     {
-                      "name": "week",
-                      "expression": "`Weekly Week Active`"
+                      "name": "weekly_week_active",
+                      "expression": "DATE_TRUNC('WEEK', `Weekly Week Active`)"
                     },
                     {
                       "name": "curr",
@@ -51,7 +51,7 @@
               "encodings": {
                 "columns": [
                   {
-                    "fieldName": "week",
+                    "fieldName": "weekly_week_active",
                     "displayName": "Week"
                   },
                   {
@@ -73,7 +73,7 @@
                 ]
               },
               "frame": {
-                "title": "HPX CURR Data Table",
+                "title": "HPX CURR - Data Table",
                 "showTitle": true
               }
             }
