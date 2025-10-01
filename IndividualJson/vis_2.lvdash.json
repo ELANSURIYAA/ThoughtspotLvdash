@@ -21,15 +21,15 @@
                   "datasetName": "hpx_events_dataset",
                   "fields": [
                     {
-                      "name": "daily_event_date",
+                      "name": "Daily Event Date",
                       "expression": "DATE_TRUNC('DAY', `Event Date Time`)"
                     },
                     {
-                      "name": "new_devices",
+                      "name": "New Devices",
                       "expression": "MEASURE(`New Devices`)"
                     },
                     {
-                      "name": "cumulative_new_devices",
+                      "name": "Cumulative New Devices",
                       "expression": "SUM(MEASURE(`New Devices`)) OVER (ORDER BY DATE_TRUNC('DAY', `Event Date Time`) ROWS UNBOUNDED PRECEDING)"
                     }
                   ],
@@ -42,20 +42,20 @@
               "widgetType": "line",
               "encodings": {
                 "x": {
-                  "fieldName": "daily_event_date",
+                  "fieldName": "Daily Event Date",
+                  "displayName": "Daily Event Date",
                   "scale": {
                     "type": "temporal"
-                  },
-                  "displayName": "Daily Event Date"
+                  }
                 },
                 "y": {
                   "fields": [
                     {
-                      "fieldName": "new_devices",
+                      "fieldName": "New Devices",
                       "displayName": "New Devices"
                     },
                     {
-                      "fieldName": "cumulative_new_devices",
+                      "fieldName": "Cumulative New Devices",
                       "displayName": "Cumulative New Devices"
                     }
                   ],
