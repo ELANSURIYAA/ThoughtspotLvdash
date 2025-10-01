@@ -9,7 +9,7 @@
   "pages": [
     {
       "name": "hpx_retention_page",
-      "displayName": "0.5 HPX Retention",
+      "displayName": "HPX Retention",
       "layout": [
         {
           "widget": {
@@ -22,7 +22,7 @@
                   "fields": [
                     {
                       "name": "monthly_first_device_event_date_time",
-                      "expression": "`Monthly First Device Event Date Time`"
+                      "expression": "DATE_TRUNC('MONTH', `Monthly First Device Event Date Time`)"
                     },
                     {
                       "name": "months_since_first_use",
@@ -39,10 +39,6 @@
                     {
                       "name": "active_devices",
                       "expression": "MEASURE(`Active Devices`)"
-                    },
-                    {
-                      "name": "devices_returning_percent",
-                      "expression": "MEASURE(`Active Devices`) / SUM(MEASURE(`Active Devices`)) OVER (PARTITION BY `Monthly First Device Event Date Time`) * 100"
                     }
                   ],
                   "disaggregated": false
@@ -56,7 +52,7 @@
                 "columns": [
                   {
                     "fieldName": "monthly_first_device_event_date_time",
-                    "displayName": "Month(First Device Event Date Time)"
+                    "displayName": "Monthly First Device Event Date Time"
                   },
                   {
                     "fieldName": "months_since_first_use",
@@ -73,15 +69,11 @@
                   {
                     "fieldName": "active_devices",
                     "displayName": "Active Devices"
-                  },
-                  {
-                    "fieldName": "devices_returning_percent",
-                    "displayName": "% Devices Returning"
                   }
                 ]
               },
               "frame": {
-                "title": "HPX Retention Cohort Analysis",
+                "title": "HPX Retention",
                 "showTitle": true
               }
             }
