@@ -1,28 +1,28 @@
 {
   "datasets": [
     {
-      "name": "hpx_events_dataset",
-      "displayName": "HPX Events Model Dataset",
+      "name": "dataset_viz_8",
+      "displayName": "Launch Type Active Devices Dataset",
       "asset_name": "workspace.default.mv_hpx_events_model"
     }
   ],
   "pages": [
     {
-      "name": "launch_type_active_devices_page",
+      "name": "page_viz_8",
       "displayName": "Launch type Active Devices",
       "layout": [
         {
           "widget": {
-            "name": "launch_type_active_devices_stacked_column",
+            "name": "launch_type_active_devices_bar_chart",
             "queries": [
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "hpx_events_dataset",
+                  "datasetName": "dataset_viz_8",
                   "fields": [
                     {
                       "name": "daily_event_date",
-                      "expression": "DATE_TRUNC('DAY', `Daily Event Date`)"
+                      "expression": "DATE_TRUNC('DAY', `Event Date Time`)"
                     },
                     {
                       "name": "launch_type",
@@ -50,7 +50,7 @@
                 },
                 "y": {
                   "fieldName": "active_devices",
-                  "displayName": "Active Devices",
+                  "displayName": "Total % Event ID",
                   "scale": {
                     "type": "quantitative"
                   }
@@ -64,8 +64,8 @@
                 }
               },
               "frame": {
-                "title": "Launch type Active Devices",
-                "showTitle": true
+                "showTitle": true,
+                "title": "Launch type Active Devices"
               }
             }
           },
