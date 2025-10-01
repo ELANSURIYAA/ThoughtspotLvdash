@@ -25,32 +25,36 @@
                       "expression": "`Control`"
                     },
                     {
-                      "name": "Daily_Event_Date",
+                      "name": "Daily Event Date",
                       "expression": "`Daily Event Date`"
                     },
                     {
-                      "name": "Total_Clicks",
+                      "name": "Total Clicks",
                       "expression": "MEASURE(`Total Clicks`)"
                     }
                   ],
                   "filters": [
                     {
+                      "name": "date_filter",
+                      "expression": "`Event Date Time` >= DATE '2023-05-01'"
+                    },
+                    {
+                      "name": "control_filter",
                       "expression": "`Control` NOT LIKE '%testid%'"
                     },
                     {
+                      "name": "ui_action_filter",
                       "expression": "`Ui Action` = 'onpress'"
                     },
                     {
+                      "name": "welcome_filter",
                       "expression": "`Control` != 'welcome core navigationviewitem id'"
-                    },
-                    {
-                      "expression": "`Event Date Time` >= '2023-05-01'"
                     }
                   ],
                   "limit": 10,
                   "orderBy": [
                     {
-                      "fieldName": "Total_Clicks",
+                      "fieldName": "Total Clicks",
                       "direction": "DESC"
                     }
                   ],
@@ -63,14 +67,14 @@
               "widgetType": "bar",
               "encodings": {
                 "x": {
-                  "fieldName": "Daily_Event_Date",
+                  "fieldName": "Daily Event Date",
                   "displayName": "Daily Event Date",
                   "scale": {
                     "type": "temporal"
                   }
                 },
                 "y": {
-                  "fieldName": "Total_Clicks",
+                  "fieldName": "Total Clicks",
                   "displayName": "Total Clicks",
                   "scale": {
                     "type": "quantitative"
