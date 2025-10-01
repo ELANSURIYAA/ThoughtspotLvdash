@@ -2,7 +2,7 @@
   "datasets": [
     {
       "name": "hpx_first_use_behavior_flow_dataset",
-      "displayName": "HPX First Use Behavior Flow Dataset",
+      "displayName": "HPX First Use Behavior Flow",
       "asset_name": "workspace.default.mv_hpx_first_use_behavior_flow"
     }
   ],
@@ -21,27 +21,27 @@
                   "datasetName": "hpx_first_use_behavior_flow_dataset",
                   "fields": [
                     {
-                      "name": "screen_1",
+                      "name": "Screen 1",
                       "expression": "`Screen 1`"
                     },
                     {
-                      "name": "screen_2",
+                      "name": "Screen 2",
                       "expression": "`Screen 2`"
                     },
                     {
-                      "name": "screen_3",
+                      "name": "Screen 3",
                       "expression": "`Screen 3`"
                     },
                     {
-                      "name": "screen_4",
+                      "name": "Screen 4",
                       "expression": "`Screen 4`"
                     },
                     {
-                      "name": "screen_5",
+                      "name": "Screen 5",
                       "expression": "`Screen 5`"
                     },
                     {
-                      "name": "total_devices",
+                      "name": "Total Devices",
                       "expression": "MEASURE(`Total Devices`)"
                     }
                   ],
@@ -54,28 +54,28 @@
               "widgetType": "sankey",
               "encodings": {
                 "value": {
-                  "fieldName": "total_devices",
+                  "fieldName": "Total Devices",
                   "displayName": "Total Devices"
                 },
                 "stages": [
                   {
-                    "fieldName": "screen_1",
+                    "fieldName": "Screen 1",
                     "displayName": "Screen 1"
                   },
                   {
-                    "fieldName": "screen_2",
+                    "fieldName": "Screen 2",
                     "displayName": "Screen 2"
                   },
                   {
-                    "fieldName": "screen_3",
+                    "fieldName": "Screen 3",
                     "displayName": "Screen 3"
                   },
                   {
-                    "fieldName": "screen_4",
+                    "fieldName": "Screen 4",
                     "displayName": "Screen 4"
                   },
                   {
-                    "fieldName": "screen_5",
+                    "fieldName": "Screen 5",
                     "displayName": "Screen 5"
                   }
                 ]
