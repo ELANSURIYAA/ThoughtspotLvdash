@@ -1,1 +1,170 @@
-{"datasets": [{"name": "dataset_18","displayName": "Home Tile Primary CTR","asset_name": "workspace.default.mv_hpx_events_model_homepage_summary"}],"pages": [{"name": "page_18","displayName": "Home Tile Primary CTR","layout": [{"widget": {"name": "widget_18","queries": [{"name": "main_query","query": {"datasetName": "dataset_18","fields": [{"name": "Home Tile","expression": "`Home Tile`"},{"name": "Primary CTR","expression": "MEASURE(`f_ctr_cta1`)"}],"disaggregated": false}}],"spec": {"version": 3,"widgetType": "counter","encodings": {"value": {"fieldName": "Primary CTR","displayName": "Primary CTR"}},"frame": {"showTitle": true,"title": "Home Tile Primary CTR"}}}},"position": {"x": 0,"y": 0,"width": 12,"height": 8}}],"pageType": "PAGE_TYPE_CANVAS","filters": []}],"uiSettings": {"theme": {"widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"}}}
+{
+  "datasets": [
+    {
+      "name": "homepage_summary_dataset",
+      "displayName": "Homepage Summary Dataset",
+      "asset_name": "workspace.default.mv_hpx_homepage_summary"
+    }
+  ],
+  "pages": [
+    {
+      "name": "home_tile_ctr_page",
+      "displayName": "Home Tile Primary CTR",
+      "layout": [
+        {
+          "widget": {
+            "name": "home_tile_ctr_widget",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "homepage_summary_dataset",
+                  "fields": [
+                    {
+                      "name": "Home Tile",
+                      "expression": "`Home Tile`"
+                    },
+                    {
+                      "name": "f_ctr",
+                      "expression": "MEASURE(`Total Unique Tile Clicks`) / MEASURE(`Total Unique Tile Views`)"
+                    },
+                    {
+                      "name": "f_ctr_cta1",
+                      "expression": "MEASURE(`Total Unique Interstitial Primary Button Clicks`) / MEASURE(`Total Unique Interstitial Views`)"
+                    },
+                    {
+                      "name": "Total Unique Tile Views",
+                      "expression": "MEASURE(`Total Unique Tile Views`)"
+                    },
+                    {
+                      "name": "Total Unique Tile Clicks",
+                      "expression": "MEASURE(`Total Unique Tile Clicks`)"
+                    },
+                    {
+                      "name": "Total Unique Interstitial Views",
+                      "expression": "MEASURE(`Total Unique Interstitial Views`)"
+                    },
+                    {
+                      "name": "Total Unique Interstitial Primary Button Clicks",
+                      "expression": "MEASURE(`Total Unique Interstitial Primary Button Clicks`)"
+                    },
+                    {
+                      "name": "Total Unique Interstitial Secondary Button Clicks",
+                      "expression": "MEASURE(`Total Unique Interstitial Secondary Button Clicks`)"
+                    },
+                    {
+                      "name": "Total Home Tile Clicked Vs Homepage Displayed",
+                      "expression": "MEASURE(`Total Home Tile Clicked Vs Homepage Displayed`)"
+                    },
+                    {
+                      "name": "Total Primary Button Clicked Vs Tile Displayed",
+                      "expression": "MEASURE(`Total Primary Button Clicked Vs Tile Displayed`)"
+                    },
+                    {
+                      "name": "Total Secondary Button Clicked Vs Tile Displayed",
+                      "expression": "MEASURE(`Total Secondary Button Clicked Vs Tile Displayed`)"
+                    },
+                    {
+                      "name": "Total Primary Button Clicked Vs Interstitial Displayed",
+                      "expression": "MEASURE(`Total Primary Button Clicked Vs Interstitial Displayed`)"
+                    },
+                    {
+                      "name": "Total Secondary Button Clicked Vs Interstitial Displayed",
+                      "expression": "MEASURE(`Total Secondary Button Clicked Vs Interstitial Displayed`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "f_ctr_cta1",
+                  "displayName": "Primary Button CTR",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "label": {
+                  "fieldName": "Home Tile",
+                  "displayName": "Home Tile"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Home Tile Primary CTR"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 6,
+            "height": 4
+          }
+        },
+        {
+          "widget": {
+            "name": "home_tile_ctr_secondary_widget",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "homepage_summary_dataset",
+                  "fields": [
+                    {
+                      "name": "Home Tile",
+                      "expression": "`Home Tile`"
+                    },
+                    {
+                      "name": "f_ctr",
+                      "expression": "MEASURE(`Total Unique Tile Clicks`) / MEASURE(`Total Unique Tile Views`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "f_ctr",
+                  "displayName": "Tile CTR",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "label": {
+                  "fieldName": "Home Tile",
+                  "displayName": "Home Tile"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Home Tile CTR"
+              }
+            }
+          },
+          "position": {
+            "x": 6,
+            "y": 0,
+            "width": 6,
+            "height": 4
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS",
+      "filters": []
+    }
+  ],
+  "uiSettings": {
+    "theme": {
+      "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+    }
+  }
+}
