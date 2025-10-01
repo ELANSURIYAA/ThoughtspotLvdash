@@ -8,12 +8,12 @@
   ],
   "pages": [
     {
-      "name": "top_unique_screen_views_bar_page",
+      "name": "top_unique_screen_views_page",
       "displayName": "Top Unique Screen Views (excl. Home/Welcome)",
       "layout": [
         {
           "widget": {
-            "name": "top_unique_screen_views_bar_chart",
+            "name": "top_unique_screen_views_widget",
             "queries": [
               {
                 "name": "main_query",
@@ -25,52 +25,29 @@
                       "expression": "`Screen`"
                     },
                     {
-                      "name": "Unique Screen Views",
+                      "name": "Unique_Screen_Views",
                       "expression": "MEASURE(`Unique Screen Views`)"
                     }
                   ],
-                  "disaggregated": false,
                   "filters": [
                     {
-                      "name": "date_filter",
-                      "expression": "`Event Date Time` >= DATE '2023-05-01'"
-                    },
-                    {
-                      "name": "screen_filter_1",
-                      "expression": "`Screen` != 'home'"
-                    },
-                    {
-                      "name": "screen_filter_2",
-                      "expression": "`Screen` != 'support'"
-                    },
-                    {
-                      "name": "screen_filter_3",
-                      "expression": "`Screen` != 'welcome'"
-                    },
-                    {
-                      "name": "screen_filter_4",
-                      "expression": "`Screen` != 'welcome-core'"
-                    },
-                    {
-                      "name": "screen_filter_5",
-                      "expression": "`Screen` != 'welcomeContainer'"
-                    },
-                    {
-                      "name": "screen_filter_6",
-                      "expression": "`Screen` IS NOT NULL"
-                    },
-                    {
-                      "name": "ui_action_filter",
                       "expression": "`Ui Action` = 'screendisplayed'"
+                    },
+                    {
+                      "expression": "`Screen` != 'home' AND `Screen` != 'support' AND `Screen` != 'welcome' AND `Screen` != 'welcome-core' AND `Screen` != 'welcomeContainer' AND `Screen` IS NOT NULL"
+                    },
+                    {
+                      "expression": "`Event Date Time` >= '2023-05-01'"
                     }
                   ],
-                  "orderBy": [
+                  "limit": 10,
+                  "sorts": [
                     {
-                      "fieldName": "Unique Screen Views",
+                      "fieldName": "Unique_Screen_Views",
                       "direction": "DESC"
                     }
                   ],
-                  "limit": 10
+                  "disaggregated": false
                 }
               }
             ],
@@ -86,16 +63,19 @@
                   }
                 },
                 "y": {
-                  "fieldName": "Unique Screen Views",
+                  "fieldName": "Unique_Screen_Views",
                   "displayName": "Unique Screen Views",
                   "scale": {
                     "type": "quantitative"
                   }
+                },
+                "color": {
+                  "value": "#0096D3"
                 }
               },
               "frame": {
-                "showTitle": true,
-                "title": "Top Unique Screen Views (excl. Home/Welcome)"
+                "title": "Top Unique Screen Views (excl. Home/Welcome)",
+                "showTitle": true
               }
             }
           },
