@@ -1,31 +1,31 @@
 {
   "datasets": [
     {
-      "name": "hpx_events_dataset_3",
+      "name": "hpx_events_dataset",
       "displayName": "HPX Events Model Dataset",
       "asset_name": "workspace.default.mv_hpx_events_model"
     }
   ],
   "pages": [
     {
-      "name": "new_devices_countries_page",
+      "name": "new_devices_by_country_page",
       "displayName": "New Devices by Top 10 Countries",
       "layout": [
         {
           "widget": {
-            "name": "new_devices_countries_pie_chart",
+            "name": "new_devices_by_country_pie_chart",
             "queries": [
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "hpx_events_dataset_3",
+                  "datasetName": "hpx_events_dataset",
                   "fields": [
                     {
                       "name": "geo_country_code",
                       "expression": "`Geo Country Code`"
                     },
                     {
-                      "name": "new_devices_sum",
+                      "name": "total_new_devices",
                       "expression": "MEASURE(`New Devices`)"
                     }
                   ],
@@ -38,7 +38,7 @@
               "widgetType": "pie",
               "encodings": {
                 "angle": {
-                  "fieldName": "new_devices_sum",
+                  "fieldName": "total_new_devices",
                   "displayName": "New Devices",
                   "scale": {
                     "type": "quantitative"
