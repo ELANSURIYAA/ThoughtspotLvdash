@@ -8,12 +8,12 @@
   ],
   "pages": [
     {
-      "name": "top_on_press_events_page",
+      "name": "top_onpress_events_page",
       "displayName": "Top On Press Events",
       "layout": [
         {
           "widget": {
-            "name": "top_on_press_events_stacked_column",
+            "name": "top_onpress_events_stacked_bar",
             "queries": [
               {
                 "name": "main_query",
@@ -64,7 +64,7 @@
                 }
               },
               "frame": {
-                "title": "Top On Press Events by Control Over Time",
+                "title": "Top On Press Events",
                 "showTitle": true
               }
             }
