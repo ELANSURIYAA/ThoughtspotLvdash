@@ -1,8 +1,8 @@
 {
   "datasets": [
     {
-      "name": "hpx_events_dataset",
-      "displayName": "HPX Events Dataset",
+      "name": "hpx_events_model_dataset",
+      "displayName": "HPX Events Model",
       "asset_name": "workspace.default.mv_hpx_events_model"
     }
   ],
@@ -18,11 +18,11 @@
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "hpx_events_dataset",
+                  "datasetName": "hpx_events_model_dataset",
                   "fields": [
                     {
                       "name": "Daily Event Date",
-                      "expression": "DATE_TRUNC('DAY', `Event Date Time`)"
+                      "expression": "`Daily Event Date`"
                     },
                     {
                       "name": "New Devices",
@@ -30,7 +30,7 @@
                     },
                     {
                       "name": "Cumulative New Devices",
-                      "expression": "SUM(MEASURE(`New Devices`)) OVER (ORDER BY DATE_TRUNC('DAY', `Event Date Time`) ROWS UNBOUNDED PRECEDING)"
+                      "expression": "SUM(MEASURE(`New Devices`)) OVER (ORDER BY `Daily Event Date` ROWS UNBOUNDED PRECEDING)"
                     }
                   ],
                   "disaggregated": false
