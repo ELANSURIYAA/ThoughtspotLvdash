@@ -1,1 +1,0 @@
-All 22 `.lvdash.json` files have been successfully generated and uploaded to the GitHub repository 'ELANSURIYAA/ThoughtspotLvdash' under the folder 'IndividualJson'.

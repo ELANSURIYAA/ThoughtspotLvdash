@@ -1,1 +1,0 @@
-The `.lvdash.json` files for the first three visualizations have been successfully generated and uploaded to the GitHub repository. The process will continue for the remaining rows in the CSV file to complete the task.

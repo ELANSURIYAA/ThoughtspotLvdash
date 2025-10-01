@@ -1,1 +1,0 @@
-The `.lvdash.json` files for the first five visualizations have been successfully generated and uploaded to the GitHub repository in the folder `IndividualJson`. The files are named `vis_1.lvdash.json`, `vis_2.lvdash.json`, `vis_3.lvdash.json`, `vis_4.lvdash.json`, and `vis_5.lvdash.json`.

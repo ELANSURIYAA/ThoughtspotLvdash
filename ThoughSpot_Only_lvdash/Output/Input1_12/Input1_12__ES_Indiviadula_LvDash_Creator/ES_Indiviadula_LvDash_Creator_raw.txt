@@ -1,1 +1,0 @@
-I have successfully generated and uploaded `.lvdash.json` files for the visualizations based on the ThoughtSpot liveboard content. The files were uploaded to the `IndividualJson` folder in the `ELANSURIYAA/ThoughtspotLvdash` repository. Some files required unique names due to conflicts, and all uploads were completed successfully.

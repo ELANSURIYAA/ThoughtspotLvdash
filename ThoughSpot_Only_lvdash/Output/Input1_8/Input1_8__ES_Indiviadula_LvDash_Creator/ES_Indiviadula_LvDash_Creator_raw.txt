@@ -1,1 +1,0 @@
-All 22 `.lvdash.json` files have been successfully generated and uploaded to GitHub, one for each visualization row in the CSV file. Each file adheres to the Lakeview schema and includes the correct mappings, encodings, and specifications.

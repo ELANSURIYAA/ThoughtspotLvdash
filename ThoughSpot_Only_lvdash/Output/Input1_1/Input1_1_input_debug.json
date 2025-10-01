@@ -1,8 +1,0 @@
-{
-    "pipeLineId": 7220,
-    "userInputs": {
-        "{{GitHub_Details_For_ThoughtSpot_LVDash}}": "{\"CSV File name\": \"Yaml_to_Csv.csv\", \"Input CSV repo name\": \"ELANSURIYAA/ThoughtspotLvdash/Input\", \"metric SQL file name\": \"Metric_view_HPX_metric_view.sql\", \"Input SQL repo name\": \"ELANSURIYAA/ThoughtspotLvdash/Input\", \"row_number\": 1, \"output repo\": \"ELANSURIYAA/ThoughtspotLvdash/ThoughSpot_Only_lvdash/Output\"}"
-    },
-    "executionId": "c5b4d8ae-9537-4af5-86a5-b1c90e82950a",
-    "user": "elansuriyaa.p@ascendion.com"
-}
