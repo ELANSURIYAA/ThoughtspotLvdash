@@ -2,18 +2,18 @@
   "datasets": [
     {
       "name": "hpx_events_dataset",
-      "displayName": "HPX Events Model Dataset",
+      "displayName": "HPX Events Dataset",
       "asset_name": "workspace.default.mv_hpx_events_model"
     }
   ],
   "pages": [
     {
-      "name": "executive_summary_page",
-      "displayName": "Executive Summary",
+      "name": "active_devices_page",
+      "displayName": "Active Devices",
       "layout": [
         {
           "widget": {
-            "name": "active_devices_line_chart",
+            "name": "active_devices_chart",
             "queries": [
               {
                 "name": "main_query",
@@ -21,11 +21,11 @@
                   "datasetName": "hpx_events_dataset",
                   "fields": [
                     {
-                      "name": "daily_event_date",
+                      "name": "Daily Event Date",
                       "expression": "DATE_TRUNC('DAY', `Event Date Time`)"
                     },
                     {
-                      "name": "active_devices",
+                      "name": "Active Devices",
                       "expression": "MEASURE(`Active Devices`)"
                     }
                   ],
@@ -38,14 +38,14 @@
               "widgetType": "line",
               "encodings": {
                 "x": {
-                  "fieldName": "daily_event_date",
+                  "fieldName": "Daily Event Date",
                   "displayName": "Daily Event Date",
                   "scale": {
                     "type": "temporal"
                   }
                 },
                 "y": {
-                  "fieldName": "active_devices",
+                  "fieldName": "Active Devices",
                   "displayName": "Active Devices",
                   "scale": {
                     "type": "quantitative"
@@ -61,8 +61,8 @@
           "position": {
             "x": 0,
             "y": 0,
-            "width": 6,
-            "height": 4
+            "width": 12,
+            "height": 8
           }
         }
       ],
