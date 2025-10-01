@@ -1,32 +1,32 @@
 {
   "datasets": [
     {
-      "name": "dataset_viz_11",
-      "displayName": "HPX CURR Trendline Dataset",
+      "name": "hpx_curr_dataset",
+      "displayName": "HPX CURR Dataset",
       "asset_name": "workspace.default.mv_hpx_curr"
     }
   ],
   "pages": [
     {
-      "name": "page_viz_11",
+      "name": "hpx_curr_trendline_page",
       "displayName": "HPX CURR - Trendline",
       "layout": [
         {
           "widget": {
-            "name": "hpx_curr_trendline_chart",
+            "name": "hpx_curr_trendline_widget",
             "queries": [
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "dataset_viz_11",
+                  "datasetName": "hpx_curr_dataset",
                   "fields": [
                     {
-                      "name": "week_active",
-                      "expression": "DATE_TRUNC('WEEK', `Week Active`)"
+                      "name": "Week_Active",
+                      "expression": "`Week Active`"
                     },
                     {
-                      "name": "curr",
-                      "expression": "AVG(MEASURE(`Curr`))"
+                      "name": "Curr_Value",
+                      "expression": "MEASURE(`Curr`)"
                     }
                   ],
                   "disaggregated": false
@@ -38,14 +38,14 @@
               "widgetType": "line",
               "encodings": {
                 "x": {
-                  "fieldName": "week_active",
+                  "fieldName": "Week_Active",
                   "displayName": "Week Active",
                   "scale": {
                     "type": "temporal"
                   }
                 },
                 "y": {
-                  "fieldName": "curr",
+                  "fieldName": "Curr_Value",
                   "displayName": "CURR",
                   "scale": {
                     "type": "quantitative"
@@ -54,7 +54,7 @@
               },
               "frame": {
                 "showTitle": true,
-                "title": "HPX CURR - Trendline"
+                "title": "% Devices active in the previous week t14t20, last week t7t13 and this week t0t6"
               }
             }
           },
