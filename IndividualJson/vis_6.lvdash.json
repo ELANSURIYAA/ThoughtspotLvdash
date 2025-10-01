@@ -13,7 +13,7 @@
       "layout": [
         {
           "widget": {
-            "name": "screen_views_bar_chart",
+            "name": "unique_screen_views_bar",
             "queries": [
               {
                 "name": "main_query",
@@ -53,7 +53,7 @@
                 }
               },
               "frame": {
-                "title": "Top Unique Screen Views by Screen",
+                "title": "Top Unique Screen Views by Screen (excl. Home/Welcome)",
                 "showTitle": true
               }
             }
