@@ -1,15 +1,15 @@
 {
   "datasets": [
     {
-      "name": "hpx_retention_dataset",
+      "name": "dataset_viz_9",
       "displayName": "HPX Retention Dataset",
       "asset_name": "workspace.default.mv_hpx_retention"
     }
   ],
   "pages": [
     {
-      "name": "hpx_retention_page",
-      "displayName": "HPX Retention",
+      "name": "page_viz_9",
+      "displayName": "0.5 HPX Retention",
       "layout": [
         {
           "widget": {
@@ -18,11 +18,11 @@
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "hpx_retention_dataset",
+                  "datasetName": "dataset_viz_9",
                   "fields": [
                     {
                       "name": "monthly_first_device_event_date_time",
-                      "expression": "DATE_TRUNC('MONTH', `Monthly First Device Event Date Time`)"
+                      "expression": "DATE_TRUNC('MONTH', `First Device Event Date Time`)"
                     },
                     {
                       "name": "months_since_first_use",
@@ -39,6 +39,10 @@
                     {
                       "name": "active_devices",
                       "expression": "MEASURE(`Active Devices`)"
+                    },
+                    {
+                      "name": "pct_devices_returning",
+                      "expression": "MEASURE(`Active Devices`) / SUM(MEASURE(`Active Devices`)) OVER (PARTITION BY DATE_TRUNC('MONTH', `First Device Event Date Time`))"
                     }
                   ],
                   "disaggregated": false
@@ -52,7 +56,7 @@
                 "columns": [
                   {
                     "fieldName": "monthly_first_device_event_date_time",
-                    "displayName": "Monthly First Device Event Date Time"
+                    "displayName": "Month(First Device Event Date Time)"
                   },
                   {
                     "fieldName": "months_since_first_use",
@@ -69,12 +73,16 @@
                   {
                     "fieldName": "active_devices",
                     "displayName": "Active Devices"
+                  },
+                  {
+                    "fieldName": "pct_devices_returning",
+                    "displayName": "% Devices Returning"
                   }
                 ]
               },
               "frame": {
-                "title": "HPX Retention",
-                "showTitle": true
+                "showTitle": true,
+                "title": "0.5 HPX Retention"
               }
             }
           },
