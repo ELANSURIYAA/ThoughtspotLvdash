@@ -1,24 +1,24 @@
 {
   "datasets": [
     {
-      "name": "hpx_events_dataset",
-      "displayName": "HPX Events Dataset",
+      "name": "dataset_viz_1",
+      "displayName": "Active Devices Dataset",
       "asset_name": "workspace.default.mv_hpx_events_model"
     }
   ],
   "pages": [
     {
-      "name": "active_devices_page",
+      "name": "page_viz_1",
       "displayName": "Active Devices",
       "layout": [
         {
           "widget": {
-            "name": "active_devices_chart",
+            "name": "active_devices_line_chart",
             "queries": [
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "hpx_events_dataset",
+                  "datasetName": "dataset_viz_1",
                   "fields": [
                     {
                       "name": "daily_event_date",
