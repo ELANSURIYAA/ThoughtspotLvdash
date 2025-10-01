@@ -1,7 +1,7 @@
 {
   "datasets": [
     {
-      "name": "hpx_events_dataset",
+      "name": "hpx_events_dataset_3",
       "displayName": "HPX Events Model Dataset",
       "asset_name": "workspace.default.mv_hpx_events_model"
     }
@@ -18,7 +18,7 @@
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "hpx_events_dataset",
+                  "datasetName": "hpx_events_dataset_3",
                   "fields": [
                     {
                       "name": "geo_country_code",
@@ -37,18 +37,18 @@
               "version": 3,
               "widgetType": "pie",
               "encodings": {
-                "color": {
-                  "fieldName": "geo_country_code",
-                  "displayName": "Geo Country Code",
-                  "scale": {
-                    "type": "categorical"
-                  }
-                },
                 "angle": {
                   "fieldName": "new_devices_sum",
                   "displayName": "New Devices",
                   "scale": {
                     "type": "quantitative"
+                  }
+                },
+                "color": {
+                  "fieldName": "geo_country_code",
+                  "displayName": "Geo Country Code",
+                  "scale": {
+                    "type": "categorical"
                   }
                 }
               },
