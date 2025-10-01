@@ -8,7 +8,7 @@
   ],
   "pages": [
     {
-      "name": "page_10",
+      "name": "total_consented_devices_page",
       "displayName": "Total Consented Devices",
       "layout": [
         {
