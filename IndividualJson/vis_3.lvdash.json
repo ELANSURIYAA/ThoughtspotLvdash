@@ -13,7 +13,7 @@
       "layout": [
         {
           "widget": {
-            "name": "new_devices_by_country_chart",
+            "name": "new_devices_by_country_pie",
             "queries": [
               {
                 "name": "main_query",
@@ -27,19 +27,9 @@
                     {
                       "name": "New Devices",
                       "expression": "MEASURE(`New Devices`)"
-                    },
-                    {
-                      "name": "f_rank",
-                      "expression": "RANK() OVER (ORDER BY MEASURE(`New Devices`) DESC)"
                     }
                   ],
-                  "disaggregated": false,
-                  "filters": [
-                    {
-                      "name": "f_rank_filter",
-                      "expression": "f_rank <= 10"
-                    }
-                  ]
+                  "disaggregated": false
                 }
               }
             ],
@@ -47,24 +37,24 @@
               "version": 3,
               "widgetType": "pie",
               "encodings": {
-                "angle": {
-                  "fieldName": "New Devices",
-                  "displayName": "New Devices",
-                  "scale": {
-                    "type": "quantitative"
-                  }
-                },
                 "color": {
                   "fieldName": "Geo Country Code",
                   "displayName": "Country",
                   "scale": {
                     "type": "categorical"
                   }
+                },
+                "angle": {
+                  "fieldName": "New Devices",
+                  "displayName": "New Devices",
+                  "scale": {
+                    "type": "quantitative"
+                  }
                 }
               },
               "frame": {
-                "showTitle": true,
-                "title": "New Devices by Top 10 Countries"
+                "title": "New Devices by Top 10 Countries",
+                "showTitle": true
               }
             }
           },
