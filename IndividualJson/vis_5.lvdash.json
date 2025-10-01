@@ -8,12 +8,12 @@
   ],
   "pages": [
     {
-      "name": "top_unique_screen_views_page",
+      "name": "top_screen_views_page",
       "displayName": "Top Unique Screen Views (excl. Home/Welcome)",
       "layout": [
         {
           "widget": {
-            "name": "top_unique_screen_views_stacked_column",
+            "name": "top_screen_views_stacked_bar",
             "queries": [
               {
                 "name": "main_query",
@@ -64,7 +64,7 @@
                 }
               },
               "frame": {
-                "title": "Top Unique Screen Views by Screen Over Time",
+                "title": "Top Unique Screen Views (excl. Home/Welcome)",
                 "showTitle": true
               }
             }
