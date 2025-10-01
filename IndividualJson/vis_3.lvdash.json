@@ -26,7 +26,7 @@
                     },
                     {
                       "name": "new_devices_sum",
-                      "expression": "SUM(MEASURE(`New Devices`))"
+                      "expression": "MEASURE(`New Devices`)"
                     }
                   ],
                   "disaggregated": false
