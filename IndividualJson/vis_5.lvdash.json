@@ -22,7 +22,7 @@
                   "fields": [
                     {
                       "name": "monthly_event_date",
-                      "expression": "`Monthly Event Date`"
+                      "expression": "DATE_TRUNC('MONTH', `Monthly Event Date`)"
                     },
                     {
                       "name": "screen",
@@ -64,7 +64,7 @@
                 }
               },
               "frame": {
-                "title": "Top Unique Screen Views by Screen Over Time",
+                "title": "Top Unique Screen Views (excl. Home/Welcome)",
                 "showTitle": true
               }
             }
