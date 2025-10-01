@@ -1,7 +1,7 @@
 {
   "datasets": [
     {
-      "name": "hpx_events_model_dataset",
+      "name": "hpx_events_dataset",
       "displayName": "HPX Events Model",
       "asset_name": "workspace.default.mv_hpx_events_model"
     }
@@ -13,45 +13,48 @@
       "layout": [
         {
           "widget": {
-            "name": "top_on_press_events_chart",
+            "name": "top_on_press_events_widget",
             "queries": [
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "hpx_events_model_dataset",
+                  "datasetName": "hpx_events_dataset",
                   "fields": [
-                    {
-                      "name": "Daily Event Date",
-                      "expression": "`Daily Event Date`"
-                    },
                     {
                       "name": "Control",
                       "expression": "`Control`"
                     },
                     {
-                      "name": "Total Clicks",
+                      "name": "Daily_Event_Date",
+                      "expression": "`Daily Event Date`"
+                    },
+                    {
+                      "name": "Total_Clicks",
                       "expression": "MEASURE(`Total Clicks`)"
                     }
                   ],
-                  "disaggregated": false,
                   "filters": [
                     {
-                      "name": "date_filter",
-                      "expression": "`Event Date Time` >= DATE '2023-05-01'"
+                      "expression": "`Control` NOT LIKE '%testid%'"
                     },
                     {
-                      "name": "control_filter_1",
-                      "expression": "NOT CONTAINS(`Control`, 'testid')"
-                    },
-                    {
-                      "name": "ui_action_filter",
                       "expression": "`Ui Action` = 'onpress'"
                     },
                     {
-                      "name": "control_filter_2",
                       "expression": "`Control` != 'welcome core navigationviewitem id'"
+                    },
+                    {
+                      "expression": "`Event Date Time` >= '2023-05-01'"
                     }
-                  ]
+                  ],
+                  "limit": 10,
+                  "orderBy": [
+                    {
+                      "fieldName": "Total_Clicks",
+                      "direction": "DESC"
+                    }
+                  ],
+                  "disaggregated": false
                 }
               }
             ],
@@ -60,14 +63,14 @@
               "widgetType": "bar",
               "encodings": {
                 "x": {
-                  "fieldName": "Daily Event Date",
+                  "fieldName": "Daily_Event_Date",
                   "displayName": "Daily Event Date",
                   "scale": {
                     "type": "temporal"
                   }
                 },
                 "y": {
-                  "fieldName": "Total Clicks",
+                  "fieldName": "Total_Clicks",
                   "displayName": "Total Clicks",
                   "scale": {
                     "type": "quantitative"
@@ -82,8 +85,8 @@
                 }
               },
               "frame": {
-                "showTitle": true,
-                "title": "Top On Press Events"
+                "title": "Top On Press Events",
+                "showTitle": true
               }
             }
           },
