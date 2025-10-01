@@ -2,7 +2,7 @@
   "datasets": [
     {
       "name": "hpx_events_model_dataset",
-      "displayName": "HPX Events Model",
+      "displayName": "HPX Events Model Dataset",
       "asset_name": "workspace.default.mv_hpx_events_model"
     }
   ],
@@ -29,17 +29,11 @@
                       "expression": "`Launch Type`"
                     },
                     {
-                      "name": "Total % Event ID",
+                      "name": "Active Devices",
                       "expression": "MEASURE(`Active Devices`)"
                     }
                   ],
-                  "disaggregated": false,
-                  "filters": [
-                    {
-                      "name": "launch_type_filter",
-                      "expression": "`Launch Type` IS NOT NULL"
-                    }
-                  ]
+                  "disaggregated": false
                 }
               }
             ],
@@ -55,7 +49,7 @@
                   }
                 },
                 "y": {
-                  "fieldName": "Total % Event ID",
+                  "fieldName": "Active Devices",
                   "displayName": "Total % Event ID",
                   "scale": {
                     "type": "quantitative"
@@ -74,7 +68,8 @@
                 "title": "Launch type Active Devices"
               },
               "options": {
-                "stackType": "percent"
+                "stack": true,
+                "stackNormalized": true
               }
             }
           },
