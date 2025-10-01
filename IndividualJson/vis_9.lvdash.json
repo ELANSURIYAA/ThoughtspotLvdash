@@ -13,7 +13,7 @@
       "layout": [
         {
           "widget": {
-            "name": "hpx_retention_pivot",
+            "name": "hpx_retention_pivot_table",
             "queries": [
               {
                 "name": "main_query",
@@ -33,12 +33,16 @@
                       "expression": "`Session Type`"
                     },
                     {
+                      "name": "weeks_since_first_use",
+                      "expression": "`Weeks Since First Use`"
+                    },
+                    {
                       "name": "active_devices",
                       "expression": "MEASURE(`Active Devices`)"
                     },
                     {
-                      "name": "percent_devices_returning",
-                      "expression": "MEASURE(`Active Devices`) / WINDOW_AGGREGATE(MEASURE(`Active Devices`), PARTITION BY `Monthly First Device Event Date Time`)"
+                      "name": "devices_returning_pct",
+                      "expression": "MEASURE(`Active Devices`) / WINDOW_AGGREGATE(MEASURE(`Active Devices`), PARTITION BY [`Monthly First Device Event Date Time`])"
                     }
                   ],
                   "disaggregated": false
@@ -47,16 +51,14 @@
             ],
             "spec": {
               "version": 3,
-              "widgetType": "pivot-table",
+              "widgetType": "table",
               "encodings": {
-                "rows": [
+                "columns": [
                   {
                     "fieldName": "monthly_first_device_event",
                     "displayName": "Month(First Device Event Date Time)",
                     "scale": { "type": "temporal" }
-                  }
-                ],
-                "columns": [
+                  },
                   {
                     "fieldName": "months_since_first_use",
                     "displayName": "Months Since First Use",
@@ -66,23 +68,47 @@
                     "fieldName": "session_type",
                     "displayName": "Session Type",
                     "scale": { "type": "categorical" }
-                  }
-                ],
-                "values": [
+                  },
                   {
-                    "fieldName": "percent_devices_returning",
-                    "displayName": "% Devices Returning",
+                    "fieldName": "weeks_since_first_use",
+                    "displayName": "Weeks Since First Use",
+                    "scale": { "type": "categorical" }
+                  },
+                  {
+                    "fieldName": "active_devices",
+                    "displayName": "Active Devices",
                     "scale": { "type": "quantitative" }
+                  },
+                  {
+                    "fieldName": "devices_returning_pct",
+                    "displayName": "% Devices Returning",
+                    "scale": { "type": "quantitative" },
+                    "format": {
+                      "type": "percent",
+                      "decimalPlaces": 1
+                    }
                   }
                 ]
               },
               "frame": {
-                "title": "0.5 HPX Retention - Cohort Graph",
-                "showTitle": true
+                "title": "0.5 HPX Retention",
+                "showTitle": true,
+                "subtitle": "Cohort Graph"
+              },
+              "pivotConfig": {
+                "rows": ["monthly_first_device_event"],
+                "columns": ["months_since_first_use", "session_type"],
+                "values": ["devices_returning_pct"],
+                "showHeatmap": true
               }
             }
           },
-          "position": { "x": 0, "y": 0, "width": 12, "height": 8 }
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 12,
+            "height": 8
+          }
         }
       ],
       "pageType": "PAGE_TYPE_CANVAS",
