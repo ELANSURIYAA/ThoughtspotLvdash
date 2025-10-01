@@ -40,13 +40,13 @@
                       "expression": "`Event Date Time` >= '2023-05-01'"
                     }
                   ],
-                  "limit": 10,
                   "sorts": [
                     {
                       "fieldName": "Unique_Screen_Views",
                       "direction": "DESC"
                     }
                   ],
+                  "limit": 10,
                   "disaggregated": false
                 }
               }
@@ -68,9 +68,6 @@
                   "scale": {
                     "type": "quantitative"
                   }
-                },
-                "color": {
-                  "value": "#0096D3"
                 }
               },
               "frame": {
