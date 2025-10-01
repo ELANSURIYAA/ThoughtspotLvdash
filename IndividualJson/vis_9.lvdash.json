@@ -1,1 +1,106 @@
-{"datasets": [{"name": "dataset_9","displayName": "0.5 HPX Retention","asset_name": "workspace.default.mv_hpx_retention_css_analytics"}],"pages": [{"name": "page_9","displayName": "0.5 HPX Retention","layout": [{"widget": {"name": "widget_9","queries": [{"name": "main_query","query": {"datasetName": "dataset_9","fields": [{"name": "Month(First Device Event Date Time)","expression": "DATE_TRUNC('MONTH', `First Device Event Date Time`)"},{"name": "% Devices Returning","expression": "MEASURE(`% Devices Returning`)"},{"name": "Months Since First Use","expression": "`Months Since First Use`"},{"name": "Session Type","expression": "`Session Type`"}],"disaggregated": false}}],"spec": {"version": 3,"widgetType": "pivot_table","encodings": {"x": {"fieldName": "Month(First Device Event Date Time)","displayName": "Month(First Device Event Date Time)"},"y": {"fieldName": "% Devices Returning","displayName": "% Devices Returning"},"color": {"fields": [{"fieldName": "Months Since First Use","displayName": "Months Since First Use"},{"fieldName": "Session Type","displayName": "Session Type"}]},"heatmap": {"enabled": true}},"frame": {"showTitle": true,"title": "HPX Retention Cohort Analysis"}}}},"position": {"x": 0,"y": 0,"width": 12,"height": 8}}],"pageType": "PAGE_TYPE_CANVAS","filters": []}],"uiSettings": {"theme": {"widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"}}}
+{
+  "datasets": [
+    {
+      "name": "hpx_retention_dataset_9",
+      "displayName": "HPX Retention Dataset",
+      "asset_name": "workspace.default.mv_hpx_retention"
+    }
+  ],
+  "pages": [
+    {
+      "name": "page_9",
+      "displayName": "0.5 HPX Retention",
+      "layout": [
+        {
+          "widget": {
+            "name": "hpx_retention_table",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "hpx_retention_dataset_9",
+                  "fields": [
+                    {
+                      "name": "monthly_first_device_event_date_time",
+                      "expression": "`Monthly First Device Event Date Time`"
+                    },
+                    {
+                      "name": "months_since_first_use",
+                      "expression": "`Months Since First Use`"
+                    },
+                    {
+                      "name": "session_type",
+                      "expression": "`Session Type`"
+                    },
+                    {
+                      "name": "weeks_since_first_use",
+                      "expression": "`Weeks Since First Use`"
+                    },
+                    {
+                      "name": "active_devices",
+                      "expression": "MEASURE(`Active Devices`)"
+                    },
+                    {
+                      "name": "devices_returning_percent",
+                      "expression": "MEASURE(`Active Devices`) / SUM(MEASURE(`Active Devices`)) OVER (PARTITION BY `Monthly First Device Event Date Time`) * 100"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "table",
+              "encodings": {
+                "columns": [
+                  {
+                    "fieldName": "monthly_first_device_event_date_time",
+                    "displayName": "Month(First Device Event Date Time)"
+                  },
+                  {
+                    "fieldName": "months_since_first_use",
+                    "displayName": "Months Since First Use"
+                  },
+                  {
+                    "fieldName": "session_type",
+                    "displayName": "Session Type"
+                  },
+                  {
+                    "fieldName": "weeks_since_first_use",
+                    "displayName": "Weeks Since First Use"
+                  },
+                  {
+                    "fieldName": "active_devices",
+                    "displayName": "Active Devices"
+                  },
+                  {
+                    "fieldName": "devices_returning_percent",
+                    "displayName": "% Devices Returning"
+                  }
+                ]
+              },
+              "frame": {
+                "title": "HPX Retention Cohort Analysis",
+                "showTitle": true
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 12,
+            "height": 8
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS",
+      "filters": []
+    }
+  ],
+  "uiSettings": {
+    "theme": {
+      "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+    }
+  }
+}
