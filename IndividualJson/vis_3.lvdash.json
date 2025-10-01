@@ -2,18 +2,18 @@
   "datasets": [
     {
       "name": "hpx_events_dataset",
-      "displayName": "HPX Events Model Dataset",
+      "displayName": "HPX Events Dataset",
       "asset_name": "workspace.default.mv_hpx_events_model"
     }
   ],
   "pages": [
     {
-      "name": "new_devices_countries_page",
+      "name": "new_devices_by_country_page",
       "displayName": "New Devices by Top 10 Countries",
       "layout": [
         {
           "widget": {
-            "name": "new_devices_countries_pie_chart",
+            "name": "new_devices_by_country_chart",
             "queries": [
               {
                 "name": "main_query",
@@ -25,7 +25,7 @@
                       "expression": "`Geo Country Code`"
                     },
                     {
-                      "name": "total_new_devices",
+                      "name": "new_devices_sum",
                       "expression": "MEASURE(`New Devices`)"
                     }
                   ],
@@ -37,24 +37,24 @@
               "version": 3,
               "widgetType": "pie",
               "encodings": {
-                "angle": {
-                  "fieldName": "total_new_devices",
-                  "displayName": "New Devices",
-                  "scale": {
-                    "type": "quantitative"
-                  }
-                },
                 "color": {
                   "fieldName": "geo_country_code",
                   "displayName": "Geo Country Code",
                   "scale": {
                     "type": "categorical"
                   }
+                },
+                "angle": {
+                  "fieldName": "new_devices_sum",
+                  "displayName": "New Devices",
+                  "scale": {
+                    "type": "quantitative"
+                  }
                 }
               },
               "frame": {
-                "title": "New Devices by Top 10 Countries",
-                "showTitle": true
+                "showTitle": true,
+                "title": "New Devices by Top 10 Countries"
               }
             }
           },
