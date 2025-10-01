@@ -1,28 +1,28 @@
 {
   "datasets": [
     {
-      "name": "hpx_events_dataset_2",
+      "name": "hpx_events_dataset",
       "displayName": "HPX Events Model Dataset",
       "asset_name": "workspace.default.mv_hpx_events_model"
     }
   ],
   "pages": [
     {
-      "name": "page_2",
+      "name": "new_devices_page",
       "displayName": "New Devices",
       "layout": [
         {
           "widget": {
-            "name": "new_devices_chart",
+            "name": "new_devices_line_chart",
             "queries": [
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "hpx_events_dataset_2",
+                  "datasetName": "hpx_events_dataset",
                   "fields": [
                     {
                       "name": "daily_event_date",
-                      "expression": "DATE_TRUNC(\"DAY\", `Daily Event Date`)"
+                      "expression": "`Daily Event Date`"
                     },
                     {
                       "name": "new_devices",
@@ -30,7 +30,7 @@
                     },
                     {
                       "name": "cumulative_new_devices",
-                      "expression": "SUM(MEASURE(`New Devices`)) OVER (ORDER BY DATE_TRUNC(\"DAY\", `Daily Event Date`) ROWS UNBOUNDED PRECEDING)"
+                      "expression": "SUM(MEASURE(`New Devices`)) OVER (ORDER BY `Daily Event Date` ROWS UNBOUNDED PRECEDING)"
                     }
                   ],
                   "disaggregated": false
