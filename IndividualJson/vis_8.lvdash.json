@@ -1,8 +1,8 @@
 {
   "datasets": [
     {
-      "name": "hpx_events_model_dataset",
-      "displayName": "HPX Events Model Dataset",
+      "name": "hpx_events_dataset",
+      "displayName": "HPX Events Model",
       "asset_name": "workspace.default.mv_hpx_events_model"
     }
   ],
@@ -18,7 +18,7 @@
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "hpx_events_model_dataset",
+                  "datasetName": "hpx_events_dataset",
                   "fields": [
                     {
                       "name": "Daily Event Date",
@@ -64,8 +64,8 @@
                 }
               },
               "frame": {
-                "showTitle": true,
-                "title": "Launch type Active Devices"
+                "title": "Launch type Active Devices",
+                "showTitle": true
               },
               "options": {
                 "stack": true,
