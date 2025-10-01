@@ -37,24 +37,24 @@
               "version": 3,
               "widgetType": "pie",
               "encodings": {
-                "color": {
-                  "fieldName": "Geo Country Code",
-                  "displayName": "Country",
-                  "scale": {
-                    "type": "categorical"
-                  }
-                },
                 "angle": {
                   "fieldName": "New Devices",
-                  "displayName": "New Devices",
                   "scale": {
                     "type": "quantitative"
-                  }
+                  },
+                  "displayName": "New Devices"
+                },
+                "color": {
+                  "fieldName": "Geo Country Code",
+                  "scale": {
+                    "type": "categorical"
+                  },
+                  "displayName": "Country"
                 }
               },
               "frame": {
-                "title": "New Devices by Top 10 Countries",
-                "showTitle": true
+                "showTitle": true,
+                "title": "New Devices by Top 10 Countries"
               }
             }
           },
