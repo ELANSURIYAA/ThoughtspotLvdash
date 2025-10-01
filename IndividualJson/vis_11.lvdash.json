@@ -1,31 +1,31 @@
 {
   "datasets": [
     {
-      "name": "hpx_curr_dataset_11",
+      "name": "hpx_curr_dataset",
       "displayName": "HPX CURR Dataset",
       "asset_name": "workspace.default.mv_hpx_curr"
     }
   ],
   "pages": [
     {
-      "name": "page_11",
+      "name": "hpx_curr_trendline_page",
       "displayName": "HPX CURR - Trendline",
       "layout": [
         {
           "widget": {
-            "name": "hpx_curr_trendline",
+            "name": "hpx_curr_trendline_chart",
             "queries": [
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "hpx_curr_dataset_11",
+                  "datasetName": "hpx_curr_dataset",
                   "fields": [
                     {
                       "name": "weekly_week_active",
                       "expression": "`Weekly Week Active`"
                     },
                     {
-                      "name": "curr_avg",
+                      "name": "curr",
                       "expression": "MEASURE(`Curr`)"
                     }
                   ],
@@ -45,7 +45,7 @@
                   }
                 },
                 "y": {
-                  "fieldName": "curr_avg",
+                  "fieldName": "curr",
                   "displayName": "CURR",
                   "scale": {
                     "type": "quantitative"
@@ -53,7 +53,7 @@
                 }
               },
               "frame": {
-                "title": "HPX CURR Trendline Over Time",
+                "title": "HPX CURR Trendline",
                 "showTitle": true
               }
             }
