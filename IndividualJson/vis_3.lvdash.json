@@ -25,7 +25,7 @@
                       "expression": "`Geo Country Code`"
                     },
                     {
-                      "name": "new_devices_sum",
+                      "name": "total_new_devices",
                       "expression": "MEASURE(`New Devices`)"
                     }
                   ],
@@ -37,18 +37,18 @@
               "version": 3,
               "widgetType": "pie",
               "encodings": {
+                "angle": {
+                  "fieldName": "total_new_devices",
+                  "displayName": "New Devices",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
                 "color": {
                   "fieldName": "geo_country_code",
                   "displayName": "Geo Country Code",
                   "scale": {
                     "type": "categorical"
-                  }
-                },
-                "angle": {
-                  "fieldName": "new_devices_sum",
-                  "displayName": "New Devices",
-                  "scale": {
-                    "type": "quantitative"
                   }
                 }
               },
