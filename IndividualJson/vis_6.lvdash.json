@@ -1,7 +1,7 @@
 {
   "datasets": [
     {
-      "name": "hpx_events_model_dataset",
+      "name": "hpx_events_dataset",
       "displayName": "HPX Events Model",
       "asset_name": "workspace.default.mv_hpx_events_model"
     }
@@ -18,7 +18,7 @@
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "hpx_events_model_dataset",
+                  "datasetName": "hpx_events_dataset",
                   "fields": [
                     {
                       "name": "Screen",
@@ -31,16 +31,13 @@
                   ],
                   "filters": [
                     {
-                      "name": "ui_action_filter",
                       "expression": "`Ui Action` = 'screendisplayed'"
                     },
                     {
-                      "name": "event_date_filter",
-                      "expression": "`Event Date Time` >= '2023-05-01'"
+                      "expression": "`Screen` != 'home' AND `Screen` != 'support' AND `Screen` != 'welcome' AND `Screen` != 'welcome-core' AND `Screen` != 'welcomeContainer' AND `Screen` IS NOT NULL"
                     },
                     {
-                      "name": "screen_exclusion_filter",
-                      "expression": "`Screen` != 'home' AND `Screen` != 'support' AND `Screen` != 'welcome' AND `Screen` != 'welcome-core' AND `Screen` != 'welcomeContainer' AND `Screen` IS NOT NULL"
+                      "expression": "`Event Date Time` >= '2023-05-01'"
                     }
                   ],
                   "limit": 10,
