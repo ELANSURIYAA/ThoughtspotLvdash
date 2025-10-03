@@ -8,12 +8,12 @@
   ],
   "pages": [
     {
-      "name": "hpx_new_version_adoption",
+      "name": "hpx_new_version_adoption_page",
       "displayName": "HPX New Version Adoption",
       "layout": [
         {
           "widget": {
-            "name": "version_adoption_line_chart",
+            "name": "version_adoption_chart",
             "queries": [
               {
                 "name": "main_query",
@@ -48,23 +48,17 @@
                 "x": {
                   "fieldName": "Daily Event Date",
                   "displayName": "Daily Event Date",
-                  "scale": {
-                    "type": "temporal"
-                  }
+                  "scale": { "type": "temporal" }
                 },
                 "y": {
                   "fieldName": "% Active Devices",
                   "displayName": "% Active Devices",
-                  "scale": {
-                    "type": "quantitative"
-                  }
+                  "scale": { "type": "quantitative" }
                 },
                 "color": {
                   "fieldName": "App Version",
                   "displayName": "App Version",
-                  "scale": {
-                    "type": "categorical"
-                  }
+                  "scale": { "type": "categorical" }
                 }
               },
               "frame": {
@@ -73,12 +67,7 @@
               }
             }
           },
-          "position": {
-            "x": 0,
-            "y": 0,
-            "width": 12,
-            "height": 8
-          }
+          "position": { "x": 0, "y": 0, "width": 12, "height": 8 }
         }
       ],
       "pageType": "PAGE_TYPE_CANVAS",
