@@ -21,15 +21,15 @@
                   "datasetName": "hpx_events_dataset",
                   "fields": [
                     {
-                      "name": "daily_event_date",
+                      "name": "Daily Event Date",
                       "expression": "`Daily Event Date`"
                     },
                     {
-                      "name": "launch_type",
+                      "name": "Launch Type",
                       "expression": "`Launch Type`"
                     },
                     {
-                      "name": "active_devices",
+                      "name": "Active Devices",
                       "expression": "MEASURE(`Active Devices`)"
                     }
                   ],
@@ -42,19 +42,25 @@
               "widgetType": "bar",
               "encodings": {
                 "x": {
-                  "fieldName": "daily_event_date",
+                  "fieldName": "Daily Event Date",
                   "displayName": "Daily Event Date",
-                  "scale": { "type": "temporal" }
+                  "scale": {
+                    "type": "temporal"
+                  }
                 },
                 "y": {
-                  "fieldName": "active_devices",
+                  "fieldName": "Active Devices",
                   "displayName": "Total % Event ID",
-                  "scale": { "type": "quantitative" }
+                  "scale": {
+                    "type": "quantitative"
+                  }
                 },
                 "color": {
-                  "fieldName": "launch_type",
+                  "fieldName": "Launch Type",
                   "displayName": "Launch Type",
-                  "scale": { "type": "categorical" }
+                  "scale": {
+                    "type": "categorical"
+                  }
                 }
               },
               "frame": {
@@ -62,8 +68,7 @@
                 "showTitle": true
               },
               "options": {
-                "stack": true,
-                "stackNormalized": true
+                "stack": "normalize"
               }
             }
           },
