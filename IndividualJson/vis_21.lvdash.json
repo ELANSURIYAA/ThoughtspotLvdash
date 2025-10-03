@@ -2,18 +2,18 @@
   "datasets": [
     {
       "name": "dataset_active_devices_by_appversion",
-      "displayName": "Active Devices by App Version",
+      "displayName": "% Active Devices By Appversion",
       "asset_name": "workspace.default.mv_hpx_events_model"
     }
   ],
   "pages": [
     {
-      "name": "active_devices_by_appversion_page",
+      "name": "page_active_devices_by_appversion",
       "displayName": "% Active Devices by Appversion",
       "layout": [
         {
           "widget": {
-            "name": "active_devices_by_appversion_chart",
+            "name": "widget_active_devices_by_appversion",
             "queries": [
               {
                 "name": "main_query",
@@ -26,7 +26,7 @@
                     },
                     {
                       "name": "% Active Devices By Appversion",
-                      "expression": "MEASURE(`Active Devices`) / (SUM(MEASURE(`Active Devices`)) OVER ())"
+                      "expression": "MEASURE(`Active Devices`) / MEASURE(`Active Devices`) OVER (PARTITION BY 1)"
                     }
                   ],
                   "disaggregated": false
