@@ -9,7 +9,7 @@
   "pages": [
     {
       "name": "launch_type_active_devices_page",
-      "displayName": "Launch type Active Devices",
+      "displayName": "Launch Type Active Devices",
       "layout": [
         {
           "widget": {
@@ -64,7 +64,7 @@
                 }
               },
               "frame": {
-                "title": "Launch type Active Devices",
+                "title": "Launch Type Active Devices",
                 "showTitle": true
               },
               "options": {
