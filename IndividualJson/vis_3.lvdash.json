@@ -1,14 +1,14 @@
 {
   "datasets": [
     {
-      "name": "hpx_events_dataset",
+      "name": "hpx_events_model_dataset",
       "displayName": "HPX Events Model",
       "asset_name": "workspace.default.mv_hpx_events_model"
     }
   ],
   "pages": [
     {
-      "name": "new_devices_by_country",
+      "name": "new_devices_by_country_page",
       "displayName": "New Devices by Top 10 Countries",
       "layout": [
         {
@@ -18,7 +18,7 @@
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "hpx_events_dataset",
+                  "datasetName": "hpx_events_model_dataset",
                   "fields": [
                     {
                       "name": "Geo Country Code",
@@ -29,7 +29,7 @@
                       "expression": "MEASURE(`New Devices`)"
                     },
                     {
-                      "name": "rank",
+                      "name": "f_rank",
                       "expression": "RANK() OVER (ORDER BY MEASURE(`New Devices`) DESC)"
                     }
                   ],
@@ -57,8 +57,8 @@
                 }
               },
               "frame": {
-                "showTitle": true,
-                "title": "New Devices by Top 10 Countries"
+                "title": "New Devices by Top 10 Countries",
+                "showTitle": true
               }
             }
           },
