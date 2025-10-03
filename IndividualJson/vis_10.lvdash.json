@@ -8,12 +8,12 @@
   ],
   "pages": [
     {
-      "name": "total_consented_devices_page",
+      "name": "hpx_dashboard_page",
       "displayName": "Total Consented Devices",
       "layout": [
         {
           "widget": {
-            "name": "total_consented_devices_widget",
+            "name": "total_consented_devices_kpi",
             "queries": [
               {
                 "name": "main_query",
@@ -21,7 +21,7 @@
                   "datasetName": "hpx_events_dataset",
                   "fields": [
                     {
-                      "name": "active_devices",
+                      "name": "Active_Devices",
                       "expression": "MEASURE(`Active Devices`)"
                     }
                   ],
@@ -34,11 +34,9 @@
               "widgetType": "counter",
               "encodings": {
                 "value": {
-                  "fieldName": "active_devices",
+                  "fieldName": "Active_Devices",
                   "displayName": "Active Devices",
-                  "scale": {
-                    "type": "quantitative"
-                  }
+                  "scale": { "type": "quantitative" }
                 }
               },
               "frame": {
@@ -47,16 +45,40 @@
               }
             }
           },
-          "position": {
-            "x": 0,
-            "y": 0,
-            "width": 12,
-            "height": 6
-          }
+          "position": { "x": 0, "y": 0, "width": 6, "height": 4 }
         }
       ],
       "pageType": "PAGE_TYPE_CANVAS",
-      "filters": []
+      "filters": [
+        {
+          "fieldName": "App_Version",
+          "displayName": "App Version",
+          "type": "FILTER",
+          "isMandatory": false,
+          "isSingleValue": false
+        },
+        {
+          "fieldName": "Event_Date_Time",
+          "displayName": "Event Date Time",
+          "type": "FILTER",
+          "isMandatory": false,
+          "isSingleValue": false
+        },
+        {
+          "fieldName": "Pc_Type",
+          "displayName": "PC Type",
+          "type": "FILTER",
+          "isMandatory": false,
+          "isSingleValue": false
+        },
+        {
+          "fieldName": "Geo_Country_Code",
+          "displayName": "Geo Country Code",
+          "type": "FILTER",
+          "isMandatory": false,
+          "isSingleValue": false
+        }
+      ]
     }
   ],
   "uiSettings": {
