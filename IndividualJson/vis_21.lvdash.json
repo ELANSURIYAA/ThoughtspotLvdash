@@ -1,40 +1,32 @@
 {
   "datasets": [
     {
-      "name": "hpx_events_model_dataset",
-      "displayName": "HPX Events Model",
+      "name": "dataset_active_devices_by_appversion",
+      "displayName": "Active Devices by App Version",
       "asset_name": "workspace.default.mv_hpx_events_model"
     }
   ],
   "pages": [
     {
-      "name": "app_version_analysis",
-      "displayName": "App Version Analysis",
+      "name": "active_devices_by_appversion_page",
+      "displayName": "% Active Devices by Appversion",
       "layout": [
         {
           "widget": {
-            "name": "active_devices_by_appversion",
+            "name": "active_devices_by_appversion_chart",
             "queries": [
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "hpx_events_model_dataset",
+                  "datasetName": "dataset_active_devices_by_appversion",
                   "fields": [
                     {
                       "name": "App Version",
                       "expression": "`App Version`"
                     },
                     {
-                      "name": "Active Devices",
-                      "expression": "MEASURE(`Active Devices`)"
-                    },
-                    {
-                      "name": "Total Active Devices",
-                      "expression": "SUM(MEASURE(`Active Devices`)) OVER ()"
-                    },
-                    {
                       "name": "% Active Devices By Appversion",
-                      "expression": "MEASURE(`Active Devices`) / SUM(MEASURE(`Active Devices`)) OVER ()"
+                      "expression": "MEASURE(`Active Devices`) / (SUM(MEASURE(`Active Devices`)) OVER ())"
                     }
                   ],
                   "disaggregated": false
@@ -61,8 +53,8 @@
                 }
               },
               "frame": {
-                "title": "% Active Devices by Appversion",
-                "showTitle": true
+                "showTitle": true,
+                "title": "% Active Devices by Appversion"
               }
             }
           },
@@ -75,22 +67,7 @@
         }
       ],
       "pageType": "PAGE_TYPE_CANVAS",
-      "filters": [
-        {
-          "fieldName": "Event Date Time",
-          "displayName": "Event Date Time",
-          "type": "FILTER",
-          "isMandatory": false,
-          "isSingleValue": false
-        },
-        {
-          "fieldName": "Os Version",
-          "displayName": "Os Version",
-          "type": "FILTER",
-          "isMandatory": false,
-          "isSingleValue": false
-        }
-      ]
+      "filters": []
     }
   ],
   "uiSettings": {
