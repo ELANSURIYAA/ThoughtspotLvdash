@@ -64,8 +64,8 @@
                 }
               },
               "frame": {
-                "title": "Launch Type Active Devices",
-                "showTitle": true
+                "showTitle": true,
+                "title": "Launch Type Active Devices"
               },
               "options": {
                 "stack": true,
