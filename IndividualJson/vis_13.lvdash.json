@@ -82,8 +82,7 @@
               },
               "frame": {
                 "title": "HPX First Use Behavior Flow",
-                "showTitle": true,
-                "subtitle": "Sankey Diagram as user moves between Screens 1 - 5"
+                "showTitle": true
               }
             }
           },
@@ -96,22 +95,7 @@
         }
       ],
       "pageType": "PAGE_TYPE_CANVAS",
-      "filters": [
-        {
-          "fieldName": "Date",
-          "displayName": "Date",
-          "type": "FILTER",
-          "isMandatory": false,
-          "isSingleValue": false
-        },
-        {
-          "fieldName": "App Version",
-          "displayName": "App Version",
-          "type": "FILTER",
-          "isMandatory": false,
-          "isSingleValue": false
-        }
-      ]
+      "filters": []
     }
   ],
   "uiSettings": {
