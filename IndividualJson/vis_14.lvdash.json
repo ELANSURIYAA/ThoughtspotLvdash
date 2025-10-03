@@ -2,7 +2,7 @@
   "datasets": [
     {
       "name": "homepage_summary_dataset",
-      "displayName": "Home Tile Interactions Dataset",
+      "displayName": "Home Tile Interactions",
       "asset_name": "workspace.default.mv_hpx_homepage_summary"
     }
   ],
@@ -39,30 +39,6 @@
                     {
                       "name": "Total Unique Interstitial Primary Button Clicks",
                       "expression": "MEASURE(`Total Unique Interstitial Primary Button Clicks`)"
-                    },
-                    {
-                      "name": "Total Unique Interstitial Secondary Button Clicks",
-                      "expression": "MEASURE(`Total Unique Interstitial Secondary Button Clicks`)"
-                    },
-                    {
-                      "name": "f_ctr",
-                      "expression": "MEASURE(`Total Unique Tile Clicks`) / MEASURE(`Total Unique Tile Views`)"
-                    },
-                    {
-                      "name": "f_ctr_cta_primary",
-                      "expression": "MEASURE(`Total Unique Interstitial Primary Button Clicks`) / MEASURE(`Total Unique Tile Views`)"
-                    },
-                    {
-                      "name": "f_ctr_primary",
-                      "expression": "MEASURE(`Total Unique Interstitial Primary Button Clicks`) / MEASURE(`Total Unique Interstitial Views`)"
-                    },
-                    {
-                      "name": "f_ctr_secondary",
-                      "expression": "MEASURE(`Total Unique Interstitial Secondary Button Clicks`) / MEASURE(`Total Unique Interstitial Views`)"
-                    },
-                    {
-                      "name": "% Secondary Button Clicked vs Tile Displayed",
-                      "expression": "MEASURE(`Total Unique Interstitial Secondary Button Clicks`) / MEASURE(`Total Unique Tile Views`)"
                     }
                   ],
                   "disaggregated": false
@@ -71,7 +47,7 @@
             ],
             "spec": {
               "version": 3,
-              "widgetType": "bar",
+              "widgetType": "table",
               "encodings": {
                 "x": {
                   "fieldName": "Home Tile",
@@ -84,19 +60,19 @@
                   "fields": [
                     {
                       "fieldName": "Total Unique Tile Views",
-                      "displayName": "Total Unique Tile Views"
+                      "displayName": "Unique Tile Views"
                     },
                     {
                       "fieldName": "Total Unique Tile Clicks",
-                      "displayName": "Total Unique Tile Clicks"
+                      "displayName": "Unique Tile Clicks"
                     },
                     {
                       "fieldName": "Total Unique Interstitial Views",
-                      "displayName": "Total Unique Interstitial Views"
+                      "displayName": "Unique Interstitial Views"
                     },
                     {
                       "fieldName": "Total Unique Interstitial Primary Button Clicks",
-                      "displayName": "Total Unique Interstitial Primary Button Clicks"
+                      "displayName": "Unique Interstitial Primary Button Clicks"
                     }
                   ],
                   "scale": {
