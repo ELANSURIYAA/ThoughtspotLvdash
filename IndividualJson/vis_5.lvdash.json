@@ -47,14 +47,14 @@
                       "expression": "`Event Date Time` >= '2023-05-01'"
                     }
                   ],
-                  "disaggregated": false,
                   "limit": 10,
                   "orderBy": [
                     {
                       "fieldName": "Unique Screen Views",
                       "direction": "DESC"
                     }
-                  ]
+                  ],
+                  "disaggregated": false
                 }
               }
             ],
@@ -65,23 +65,17 @@
                 "x": {
                   "fieldName": "Monthly Event Date",
                   "displayName": "Monthly Event Date",
-                  "scale": {
-                    "type": "temporal"
-                  }
+                  "scale": { "type": "temporal" }
                 },
                 "y": {
                   "fieldName": "Unique Screen Views",
                   "displayName": "Unique Screen Views",
-                  "scale": {
-                    "type": "quantitative"
-                  }
+                  "scale": { "type": "quantitative" }
                 },
                 "color": {
                   "fieldName": "Screen",
                   "displayName": "Screen",
-                  "scale": {
-                    "type": "categorical"
-                  }
+                  "scale": { "type": "categorical" }
                 }
               },
               "frame": {
@@ -90,12 +84,7 @@
               }
             }
           },
-          "position": {
-            "x": 0,
-            "y": 0,
-            "width": 12,
-            "height": 8
-          }
+          "position": { "x": 0, "y": 0, "width": 12, "height": 8 }
         }
       ],
       "pageType": "PAGE_TYPE_CANVAS",
