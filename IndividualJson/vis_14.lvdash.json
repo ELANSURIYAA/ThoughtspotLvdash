@@ -1,8 +1,8 @@
 {
   "datasets": [
     {
-      "name": "hpx_homepage_summary_dataset",
-      "displayName": "HPX Homepage Summary",
+      "name": "homepage_summary_dataset",
+      "displayName": "Home Tile Interactions",
       "asset_name": "workspace.default.mv_hpx_homepage_summary"
     }
   ],
@@ -18,7 +18,7 @@
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "hpx_homepage_summary_dataset",
+                  "datasetName": "homepage_summary_dataset",
                   "fields": [
                     {
                       "name": "Home Tile",
