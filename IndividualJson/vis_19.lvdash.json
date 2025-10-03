@@ -2,7 +2,7 @@
   "datasets": [
     {
       "name": "homepage_summary_dataset",
-      "displayName": "Homepage Summary Dataset",
+      "displayName": "Home Tile Secondary CTR",
       "asset_name": "workspace.default.mv_hpx_homepage_summary"
     }
   ],
@@ -13,7 +13,7 @@
       "layout": [
         {
           "widget": {
-            "name": "secondary_ctr_widget",
+            "name": "home_tile_secondary_ctr_widget",
             "queries": [
               {
                 "name": "main_query",
@@ -25,8 +25,56 @@
                       "expression": "`Home Tile`"
                     },
                     {
-                      "name": "Secondary Button CTR",
+                      "name": "Unique Tile Views",
+                      "expression": "MEASURE(`Total Unique Tile Views`)"
+                    },
+                    {
+                      "name": "Unique Tile Clicks",
+                      "expression": "MEASURE(`Total Unique Tile Clicks`)"
+                    },
+                    {
+                      "name": "Unique Interstitial Views",
+                      "expression": "MEASURE(`Total Unique Interstitial Views`)"
+                    },
+                    {
+                      "name": "Unique Interstitial Primary Button Clicks",
+                      "expression": "MEASURE(`Total Unique Interstitial Primary Button Clicks`)"
+                    },
+                    {
+                      "name": "Unique Interstitial Secondary Button Clicks",
+                      "expression": "MEASURE(`Total Unique Interstitial Secondary Button Clicks`)"
+                    },
+                    {
+                      "name": "Home Tile Clicked Vs Homepage Displayed",
+                      "expression": "MEASURE(`Total Home Tile Clicked Vs Homepage Displayed`)"
+                    },
+                    {
+                      "name": "Primary Button Clicked Vs Tile Displayed",
+                      "expression": "MEASURE(`Total Primary Button Clicked Vs Tile Displayed`)"
+                    },
+                    {
+                      "name": "Secondary Button Clicked Vs Tile Displayed",
+                      "expression": "MEASURE(`Total Secondary Button Clicked Vs Tile Displayed`)"
+                    },
+                    {
+                      "name": "Primary Button Clicked Vs Interstitial Displayed",
+                      "expression": "MEASURE(`Total Primary Button Clicked Vs Interstitial Displayed`)"
+                    },
+                    {
+                      "name": "Secondary Button Clicked Vs Interstitial Displayed",
+                      "expression": "MEASURE(`Total Secondary Button Clicked Vs Interstitial Displayed`)"
+                    },
+                    {
+                      "name": "f_ctr",
+                      "expression": "MEASURE(`Total Unique Tile Clicks`) / MEASURE(`Total Unique Tile Views`)"
+                    },
+                    {
+                      "name": "f_ctr_cta0",
                       "expression": "MEASURE(`Total Unique Interstitial Secondary Button Clicks`) / MEASURE(`Total Unique Interstitial Views`)"
+                    },
+                    {
+                      "name": "f_ctr_cta1",
+                      "expression": "MEASURE(`Total Unique Interstitial Primary Button Clicks`) / MEASURE(`Total Unique Interstitial Views`)"
                     }
                   ],
                   "disaggregated": false
@@ -37,24 +85,16 @@
               "version": 3,
               "widgetType": "counter",
               "encodings": {
-                "value": {
-                  "fieldName": "Secondary Button CTR",
-                  "displayName": "% Secondary Button Clicked Vs Interstitial Displayed",
-                  "format": {
-                    "type": "percent",
-                    "decimalPlaces": 1
-                  },
-                  "scale": {
-                    "type": "quantitative"
+                "values": [
+                  {
+                    "fieldName": "f_ctr_cta0",
+                    "displayName": "Secondary Button CTR",
+                    "numberFormat": {
+                      "unit": "PERCENT",
+                      "precision": 1
+                    }
                   }
-                },
-                "category": {
-                  "fieldName": "Home Tile",
-                  "displayName": "Home Tile",
-                  "scale": {
-                    "type": "categorical"
-                  }
-                }
+                ]
               },
               "frame": {
                 "showTitle": true,
