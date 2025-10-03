@@ -119,8 +119,8 @@
                 }
               },
               "frame": {
-                "title": "Home Tile Clicks",
-                "showTitle": true
+                "showTitle": true,
+                "title": "Home Tile Clicks"
               }
             }
           },
