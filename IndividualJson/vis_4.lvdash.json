@@ -33,28 +33,32 @@
                       "expression": "MEASURE(`Total Clicks`)"
                     }
                   ],
-                  "disaggregated": false,
                   "filters": [
                     {
+                      "name": "event_date_filter",
                       "expression": "`Event Date Time` >= DATE '2023-05-01'"
                     },
                     {
+                      "name": "control_filter",
                       "expression": "`Control` NOT LIKE '%testid%'"
                     },
                     {
+                      "name": "ui_action_filter",
                       "expression": "`Ui Action` = 'onpress'"
                     },
                     {
+                      "name": "welcome_filter",
                       "expression": "`Control` != 'welcome core navigationviewitem id'"
                     }
                   ],
                   "limit": 10,
                   "orderBy": [
                     {
-                      "expression": "MEASURE(`Total Clicks`)",
+                      "fieldName": "Total Clicks",
                       "direction": "DESC"
                     }
-                  ]
+                  ],
+                  "disaggregated": false
                 }
               }
             ],
