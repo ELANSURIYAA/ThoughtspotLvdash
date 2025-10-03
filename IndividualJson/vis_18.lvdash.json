@@ -2,18 +2,18 @@
   "datasets": [
     {
       "name": "homepage_summary_dataset",
-      "displayName": "Home Tile Primary CTR",
+      "displayName": "Home Tile Primary CTR Dataset",
       "asset_name": "workspace.default.mv_hpx_homepage_summary"
     }
   ],
   "pages": [
     {
-      "name": "home_tile_primary_ctr_page",
+      "name": "home_tile_ctr_page",
       "displayName": "Home Tile Primary CTR",
       "layout": [
         {
           "widget": {
-            "name": "home_tile_primary_ctr_widget",
+            "name": "home_tile_ctr_widget",
             "queries": [
               {
                 "name": "main_query",
@@ -41,11 +41,35 @@
                       "expression": "MEASURE(`Total Unique Interstitial Primary Button Clicks`)"
                     },
                     {
+                      "name": "Unique Interstitial Secondary Button Clicks",
+                      "expression": "MEASURE(`Total Unique Interstitial Secondary Button Clicks`)"
+                    },
+                    {
+                      "name": "Home Tile Clicked Vs Homepage Displayed",
+                      "expression": "MEASURE(`Total Home Tile Clicked Vs Homepage Displayed`)"
+                    },
+                    {
+                      "name": "Primary Button Clicked Vs Tile Displayed",
+                      "expression": "MEASURE(`Total Primary Button Clicked Vs Tile Displayed`)"
+                    },
+                    {
+                      "name": "Secondary Button Clicked Vs Tile Displayed",
+                      "expression": "MEASURE(`Total Secondary Button Clicked Vs Tile Displayed`)"
+                    },
+                    {
+                      "name": "Primary Button Clicked Vs Interstitial Displayed",
+                      "expression": "MEASURE(`Total Primary Button Clicked Vs Interstitial Displayed`)"
+                    },
+                    {
+                      "name": "Secondary Button Clicked Vs Interstitial Displayed",
+                      "expression": "MEASURE(`Total Secondary Button Clicked Vs Interstitial Displayed`)"
+                    },
+                    {
                       "name": "CTR",
                       "expression": "MEASURE(`Total Unique Tile Clicks`) / MEASURE(`Total Unique Tile Views`)"
                     },
                     {
-                      "name": "Primary CTR",
+                      "name": "CTR CTA1",
                       "expression": "MEASURE(`Total Unique Interstitial Primary Button Clicks`) / MEASURE(`Total Unique Interstitial Views`)"
                     }
                   ],
@@ -59,36 +83,12 @@
               "encodings": {
                 "values": [
                   {
-                    "fieldName": "Primary CTR",
+                    "fieldName": "CTR CTA1",
                     "displayName": "Primary Button CTR",
                     "numberFormat": {
                       "unit": "PERCENT",
-                      "pattern": "#,##0.0%"
+                      "precision": 1
                     }
-                  },
-                  {
-                    "fieldName": "CTR",
-                    "displayName": "Tile CTR",
-                    "numberFormat": {
-                      "unit": "PERCENT",
-                      "pattern": "#,##0.0%"
-                    }
-                  },
-                  {
-                    "fieldName": "Unique Tile Views",
-                    "displayName": "Unique Tile Views"
-                  },
-                  {
-                    "fieldName": "Unique Tile Clicks",
-                    "displayName": "Unique Tile Clicks"
-                  },
-                  {
-                    "fieldName": "Unique Interstitial Views",
-                    "displayName": "Unique Interstitial Views"
-                  },
-                  {
-                    "fieldName": "Unique Interstitial Primary Button Clicks",
-                    "displayName": "Unique Interstitial Primary Button Clicks"
                   }
                 ]
               },
