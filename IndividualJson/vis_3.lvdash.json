@@ -29,8 +29,14 @@
                       "expression": "MEASURE(`New Devices`)"
                     },
                     {
-                      "name": "f_rank",
+                      "name": "rank",
                       "expression": "RANK() OVER (ORDER BY MEASURE(`New Devices`) DESC)"
+                    }
+                  ],
+                  "filters": [
+                    {
+                      "name": "rank_filter",
+                      "expression": "rank <= 10"
                     }
                   ],
                   "disaggregated": false
