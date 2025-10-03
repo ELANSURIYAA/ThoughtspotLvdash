@@ -13,7 +13,7 @@
       "layout": [
         {
           "widget": {
-            "name": "first_use_behavior_flow_sankey",
+            "name": "hpx_first_use_behavior_flow_sankey",
             "queries": [
               {
                 "name": "main_query",
@@ -21,27 +21,27 @@
                   "datasetName": "hpx_first_use_behavior_flow_dataset",
                   "fields": [
                     {
-                      "name": "Screen_1",
+                      "name": "Screen 1",
                       "expression": "`Screen 1`"
                     },
                     {
-                      "name": "Screen_2",
+                      "name": "Screen 2",
                       "expression": "`Screen 2`"
                     },
                     {
-                      "name": "Screen_3",
+                      "name": "Screen 3",
                       "expression": "`Screen 3`"
                     },
                     {
-                      "name": "Screen_4",
+                      "name": "Screen 4",
                       "expression": "`Screen 4`"
                     },
                     {
-                      "name": "Screen_5",
+                      "name": "Screen 5",
                       "expression": "`Screen 5`"
                     },
                     {
-                      "name": "Total_Devices",
+                      "name": "Total Devices",
                       "expression": "MEASURE(`Total Devices`)"
                     }
                   ],
@@ -54,28 +54,28 @@
               "widgetType": "sankey",
               "encodings": {
                 "value": {
-                  "fieldName": "Total_Devices",
+                  "fieldName": "Total Devices",
                   "displayName": "Total Devices"
                 },
                 "stages": [
                   {
-                    "fieldName": "Screen_1",
+                    "fieldName": "Screen 1",
                     "displayName": "Screen 1"
                   },
                   {
-                    "fieldName": "Screen_2",
+                    "fieldName": "Screen 2",
                     "displayName": "Screen 2"
                   },
                   {
-                    "fieldName": "Screen_3",
+                    "fieldName": "Screen 3",
                     "displayName": "Screen 3"
                   },
                   {
-                    "fieldName": "Screen_4",
+                    "fieldName": "Screen 4",
                     "displayName": "Screen 4"
                   },
                   {
-                    "fieldName": "Screen_5",
+                    "fieldName": "Screen 5",
                     "displayName": "Screen 5"
                   }
                 ]
@@ -95,7 +95,15 @@
         }
       ],
       "pageType": "PAGE_TYPE_CANVAS",
-      "filters": []
+      "filters": [
+        {
+          "fieldName": "Date",
+          "displayName": "Date",
+          "type": "FILTER",
+          "isMandatory": false,
+          "isSingleValue": false
+        }
+      ]
     }
   ],
   "uiSettings": {
