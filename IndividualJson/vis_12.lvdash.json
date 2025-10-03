@@ -25,10 +25,6 @@
                       "expression": "`Weekly Week Active`"
                     },
                     {
-                      "name": "CURR",
-                      "expression": "MEASURE(`Curr`)"
-                    },
-                    {
                       "name": "Last Week Users T7t13",
                       "expression": "MEASURE(`Total Last Week Users T7t13`)"
                     },
@@ -39,6 +35,10 @@
                     {
                       "name": "Previous Week Users T14t20",
                       "expression": "MEASURE(`Total Previous Week Users T14t20`)"
+                    },
+                    {
+                      "name": "CURR",
+                      "expression": "MEASURE(`Curr`)"
                     }
                   ],
                   "disaggregated": false
@@ -58,13 +58,6 @@
                     }
                   },
                   {
-                    "fieldName": "CURR",
-                    "displayName": "CURR",
-                    "scale": {
-                      "type": "quantitative"
-                    }
-                  },
-                  {
                     "fieldName": "Last Week Users T7t13",
                     "displayName": "Last Week Users T7t13",
                     "scale": {
@@ -81,6 +74,13 @@
                   {
                     "fieldName": "Previous Week Users T14t20",
                     "displayName": "Previous Week Users T14t20",
+                    "scale": {
+                      "type": "quantitative"
+                    }
+                  },
+                  {
+                    "fieldName": "CURR",
+                    "displayName": "CURR",
                     "scale": {
                       "type": "quantitative"
                     }
