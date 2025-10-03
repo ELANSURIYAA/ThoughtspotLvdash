@@ -75,15 +75,15 @@
               "encodings": {
                 "values": [
                   {
-                    "fieldName": "Unique Tile Views",
-                    "displayName": "Unique Tile Views",
+                    "fieldName": "Unique Tile Clicks",
+                    "displayName": "Unique Tile Clicks",
                     "scale": {
                       "type": "quantitative"
                     }
                   },
                   {
-                    "fieldName": "Unique Tile Clicks",
-                    "displayName": "Unique Tile Clicks",
+                    "fieldName": "Unique Tile Views",
+                    "displayName": "Unique Tile Views",
                     "scale": {
                       "type": "quantitative"
                     }
@@ -110,7 +110,7 @@
                     }
                   }
                 ],
-                "color": {
+                "splitBy": {
                   "fieldName": "Home Tile",
                   "displayName": "Home Tile",
                   "scale": {
