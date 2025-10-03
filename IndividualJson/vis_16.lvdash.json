@@ -80,47 +80,21 @@
                     "scale": {
                       "type": "quantitative"
                     }
-                  },
-                  {
-                    "fieldName": "Unique Tile Views",
-                    "displayName": "Unique Tile Views",
-                    "scale": {
-                      "type": "quantitative"
-                    }
-                  },
-                  {
-                    "fieldName": "Unique Interstitial Views",
-                    "displayName": "Unique Interstitial Views",
-                    "scale": {
-                      "type": "quantitative"
-                    }
-                  },
-                  {
-                    "fieldName": "Unique Interstitial Primary Button Clicks",
-                    "displayName": "Unique Interstitial Primary Button Clicks",
-                    "scale": {
-                      "type": "quantitative"
-                    }
-                  },
-                  {
-                    "fieldName": "Unique Interstitial Secondary Button Clicks",
-                    "displayName": "Unique Interstitial Secondary Button Clicks",
-                    "scale": {
-                      "type": "quantitative"
-                    }
                   }
                 ],
-                "splitBy": {
-                  "fieldName": "Home Tile",
-                  "displayName": "Home Tile",
-                  "scale": {
-                    "type": "categorical"
+                "dimensions": [
+                  {
+                    "fieldName": "Home Tile",
+                    "displayName": "Home Tile",
+                    "scale": {
+                      "type": "categorical"
+                    }
                   }
-                }
+                ]
               },
               "frame": {
-                "showTitle": true,
-                "title": "Home Tile Clicks"
+                "title": "Home Tile Clicks",
+                "showTitle": true
               }
             }
           },
