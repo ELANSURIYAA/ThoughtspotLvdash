@@ -33,31 +33,28 @@
                       "expression": "MEASURE(`Total Clicks`)"
                     }
                   ],
-                  "disaggregated": false,
                   "filters": [
                     {
-                      "fieldName": "Ui Action",
-                      "operator": "EQUAL",
-                      "values": ["onpress"]
+                      "expression": "`Event Date Time` >= DATE '2023-05-01'"
                     },
                     {
-                      "fieldName": "Control",
-                      "operator": "NOT_CONTAINS",
-                      "values": ["testid"]
+                      "expression": "`Control` NOT LIKE '%testid%'"
                     },
                     {
-                      "fieldName": "Control",
-                      "operator": "NOT_EQUAL",
-                      "values": ["welcome core navigationviewitem id"]
+                      "expression": "`Ui Action` = 'onpress'"
+                    },
+                    {
+                      "expression": "`Control` != 'welcome core navigationviewitem id'"
                     }
                   ],
                   "limit": 10,
                   "orderBy": [
                     {
-                      "fieldName": "Total Clicks",
+                      "expression": "MEASURE(`Total Clicks`)",
                       "direction": "DESC"
                     }
-                  ]
+                  ],
+                  "disaggregated": false
                 }
               }
             ],
