@@ -1,8 +1,8 @@
 {
   "datasets": [
     {
-      "name": "hpx_events_dataset",
-      "displayName": "HPX Events Dataset",
+      "name": "dataset_active_devices_by_country",
+      "displayName": "Active Devices by Country",
       "asset_name": "workspace.default.mv_hpx_events_model"
     }
   ],
@@ -18,42 +18,26 @@
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "hpx_events_dataset",
+                  "datasetName": "dataset_active_devices_by_country",
                   "fields": [
                     {
                       "name": "Geo Country Code",
                       "expression": "`Geo Country Code`"
                     },
                     {
-                      "name": "% Active Devices by Country",
-                      "expression": "MEASURE(`Active Devices`) / MEASURE(`Active Devices`) OVER (PARTITION BY 1)"
+                      "name": "Active Devices",
+                      "expression": "MEASURE(`Active Devices`)"
                     },
                     {
-                      "name": "MAU",
-                      "expression": "MEASURE(`Active Devices`)"
+                      "name": "Percent Active Devices by Country",
+                      "expression": "MEASURE(`Active Devices`) / SUM(MEASURE(`Active Devices`)) OVER ()"
                     }
                   ],
                   "disaggregated": false,
-                  "filters": [
-                    {
-                      "fieldName": "App Version",
-                      "operator": "NOT_EQUAL",
-                      "values": ["not a store release", "other non-releases"]
-                    },
-                    {
-                      "fieldName": "Event Date Time",
-                      "operator": "GREATER_THAN_OR_EQUAL",
-                      "values": ["2023-05-01T00:00:00.000"]
-                    },
-                    {
-                      "fieldName": "Os Version",
-                      "operator": "NOT_NULL"
-                    }
-                  ],
                   "limit": 10,
                   "orderBy": [
                     {
-                      "fieldName": "MAU",
+                      "fieldName": "Percent Active Devices by Country",
                       "direction": "DESC"
                     }
                   ]
@@ -72,7 +56,7 @@
                   }
                 },
                 "y": {
-                  "fieldName": "% Active Devices by Country",
+                  "fieldName": "Percent Active Devices by Country",
                   "displayName": "% Active Devices by Country",
                   "scale": {
                     "type": "quantitative"
@@ -94,7 +78,35 @@
         }
       ],
       "pageType": "PAGE_TYPE_CANVAS",
-      "filters": []
+      "filters": [
+        {
+          "fieldName": "App Version",
+          "displayName": "App Version",
+          "type": "FILTER",
+          "isMandatory": false,
+          "isSingleValue": false,
+          "excludedValues": ["not a store release", "other non-releases"]
+        },
+        {
+          "fieldName": "Event Date Time",
+          "displayName": "Event Date Time",
+          "type": "FILTER",
+          "isMandatory": false,
+          "isSingleValue": false,
+          "defaultValues": {
+            "operator": "GREATER_THAN_OR_EQUAL_TO",
+            "values": ["2023-05-01"]
+          }
+        },
+        {
+          "fieldName": "Os Version",
+          "displayName": "Os Version",
+          "type": "FILTER",
+          "isMandatory": false,
+          "isSingleValue": false,
+          "excludedValues": [null]
+        }
+      ]
     }
   ],
   "uiSettings": {
