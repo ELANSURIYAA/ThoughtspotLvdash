@@ -1,15 +1,15 @@
 {
   "datasets": [
     {
-      "name": "hpx_events_model_dataset",
-      "displayName": "HPX Events Model",
+      "name": "hpx_events_dataset",
+      "displayName": "HPX Events Dataset",
       "asset_name": "workspace.default.mv_hpx_events_model"
     }
   ],
   "pages": [
     {
-      "name": "active_devices_by_country_page",
-      "displayName": "% Active Devices by Country (Top 10)",
+      "name": "country_analysis_page",
+      "displayName": "Country Analysis",
       "layout": [
         {
           "widget": {
@@ -18,25 +18,25 @@
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "hpx_events_model_dataset",
+                  "datasetName": "hpx_events_dataset",
                   "fields": [
                     {
                       "name": "Geo Country Code",
                       "expression": "`Geo Country Code`"
                     },
                     {
-                      "name": "Active Devices by Country",
-                      "expression": "MEASURE(`Active Devices`) / MEASURE(`Active Devices`) OVER (PARTITION BY 1)"
+                      "name": "Active Devices",
+                      "expression": "MEASURE(`Active Devices`)"
                     },
                     {
-                      "name": "MAU",
-                      "expression": "MEASURE(`Active Devices`)"
+                      "name": "Percent Active Devices",
+                      "expression": "MEASURE(`Active Devices`) / SUM(MEASURE(`Active Devices`)) OVER ()"
                     }
                   ],
                   "disaggregated": false,
                   "orderBy": [
                     {
-                      "fieldName": "MAU",
+                      "fieldName": "Percent Active Devices",
                       "direction": "DESC"
                     }
                   ],
@@ -56,7 +56,7 @@
                   }
                 },
                 "y": {
-                  "fieldName": "Active Devices by Country",
+                  "fieldName": "Percent Active Devices",
                   "displayName": "% Active Devices by Country",
                   "scale": {
                     "type": "quantitative"
