@@ -13,7 +13,7 @@
       "layout": [
         {
           "widget": {
-            "name": "top_on_press_events_chart",
+            "name": "top_on_press_events_widget",
             "queries": [
               {
                 "name": "main_query",
@@ -33,22 +33,19 @@
                       "expression": "MEASURE(`Total Clicks`)"
                     }
                   ],
+                  "disaggregated": false,
                   "filters": [
                     {
-                      "name": "event_date_filter",
-                      "expression": "`Event Date Time` >= DATE '2023-05-01'"
-                    },
-                    {
-                      "name": "control_filter",
-                      "expression": "`Control` NOT LIKE '%testid%'"
-                    },
-                    {
-                      "name": "ui_action_filter",
                       "expression": "`Ui Action` = 'onpress'"
                     },
                     {
-                      "name": "welcome_filter",
+                      "expression": "`Control` NOT LIKE '%testid%'"
+                    },
+                    {
                       "expression": "`Control` != 'welcome core navigationviewitem id'"
+                    },
+                    {
+                      "expression": "`Event Date Time` >= '2023-05-01'"
                     }
                   ],
                   "limit": 10,
@@ -57,8 +54,7 @@
                       "fieldName": "Total Clicks",
                       "direction": "DESC"
                     }
-                  ],
-                  "disaggregated": false
+                  ]
                 }
               }
             ],
