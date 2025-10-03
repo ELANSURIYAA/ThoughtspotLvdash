@@ -1,8 +1,8 @@
 {
   "datasets": [
     {
-      "name": "hpx_homepage_summary_dataset",
-      "displayName": "HPX Homepage Summary",
+      "name": "homepage_summary_dataset",
+      "displayName": "Home Tile Views Dataset",
       "asset_name": "workspace.default.mv_hpx_homepage_summary"
     }
   ],
@@ -13,55 +13,55 @@
       "layout": [
         {
           "widget": {
-            "name": "home_tile_metrics_widget",
+            "name": "home_tile_views_widget",
             "queries": [
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "hpx_homepage_summary_dataset",
+                  "datasetName": "homepage_summary_dataset",
                   "fields": [
                     {
-                      "name": "Home_Tile",
+                      "name": "Home Tile",
                       "expression": "`Home Tile`"
                     },
                     {
-                      "name": "Unique_Tile_Views",
+                      "name": "Unique Tile Views",
                       "expression": "MEASURE(`Total Unique Tile Views`)"
                     },
                     {
-                      "name": "Unique_Tile_Clicks",
+                      "name": "Unique Tile Clicks",
                       "expression": "MEASURE(`Total Unique Tile Clicks`)"
                     },
                     {
-                      "name": "Unique_Interstitial_Views",
+                      "name": "Unique Interstitial Views",
                       "expression": "MEASURE(`Total Unique Interstitial Views`)"
                     },
                     {
-                      "name": "Unique_Interstitial_Primary_Button_Clicks",
+                      "name": "Unique Interstitial Primary Button Clicks",
                       "expression": "MEASURE(`Total Unique Interstitial Primary Button Clicks`)"
                     },
                     {
-                      "name": "Unique_Interstitial_Secondary_Button_Clicks",
+                      "name": "Unique Interstitial Secondary Button Clicks",
                       "expression": "MEASURE(`Total Unique Interstitial Secondary Button Clicks`)"
                     },
                     {
-                      "name": "Home_Tile_Clicked_Vs_Homepage_Displayed",
+                      "name": "Home Tile Clicked Vs Homepage Displayed",
                       "expression": "MEASURE(`Total Home Tile Clicked Vs Homepage Displayed`)"
                     },
                     {
-                      "name": "Primary_Button_Clicked_Vs_Tile_Displayed",
+                      "name": "Primary Button Clicked Vs Tile Displayed",
                       "expression": "MEASURE(`Total Primary Button Clicked Vs Tile Displayed`)"
                     },
                     {
-                      "name": "Secondary_Button_Clicked_Vs_Tile_Displayed",
+                      "name": "Secondary Button Clicked Vs Tile Displayed",
                       "expression": "MEASURE(`Total Secondary Button Clicked Vs Tile Displayed`)"
                     },
                     {
-                      "name": "Primary_Button_Clicked_Vs_Interstitial_Displayed",
+                      "name": "Primary Button Clicked Vs Interstitial Displayed",
                       "expression": "MEASURE(`Total Primary Button Clicked Vs Interstitial Displayed`)"
                     },
                     {
-                      "name": "Secondary_Button_Clicked_Vs_Interstitial_Displayed",
+                      "name": "Secondary Button Clicked Vs Interstitial Displayed",
                       "expression": "MEASURE(`Total Secondary Button Clicked Vs Interstitial Displayed`)"
                     }
                   ],
@@ -73,55 +73,85 @@
               "version": 3,
               "widgetType": "counter",
               "encodings": {
-                "values": [
+                "columns": [
                   {
-                    "fieldName": "Unique_Tile_Views",
-                    "displayName": "Unique Tile Views"
+                    "fieldName": "Home Tile",
+                    "displayName": "Home Tile",
+                    "scale": {
+                      "type": "categorical"
+                    }
                   },
                   {
-                    "fieldName": "Unique_Tile_Clicks",
-                    "displayName": "Unique Tile Clicks"
+                    "fieldName": "Unique Tile Views",
+                    "displayName": "Unique Tile Views",
+                    "scale": {
+                      "type": "quantitative"
+                    }
                   },
                   {
-                    "fieldName": "Unique_Interstitial_Views",
-                    "displayName": "Unique Interstitial Views"
+                    "fieldName": "Unique Tile Clicks",
+                    "displayName": "Unique Tile Clicks",
+                    "scale": {
+                      "type": "quantitative"
+                    }
                   },
                   {
-                    "fieldName": "Unique_Interstitial_Primary_Button_Clicks",
-                    "displayName": "Unique Interstitial Primary Button Clicks"
+                    "fieldName": "Unique Interstitial Views",
+                    "displayName": "Unique Interstitial Views",
+                    "scale": {
+                      "type": "quantitative"
+                    }
                   },
                   {
-                    "fieldName": "Unique_Interstitial_Secondary_Button_Clicks",
-                    "displayName": "Unique Interstitial Secondary Button Clicks"
+                    "fieldName": "Unique Interstitial Primary Button Clicks",
+                    "displayName": "Unique Interstitial Primary Button Clicks",
+                    "scale": {
+                      "type": "quantitative"
+                    }
                   },
                   {
-                    "fieldName": "Home_Tile_Clicked_Vs_Homepage_Displayed",
-                    "displayName": "% Home Tile Clicked Vs Homepage Displayed"
+                    "fieldName": "Unique Interstitial Secondary Button Clicks",
+                    "displayName": "Unique Interstitial Secondary Button Clicks",
+                    "scale": {
+                      "type": "quantitative"
+                    }
                   },
                   {
-                    "fieldName": "Primary_Button_Clicked_Vs_Tile_Displayed",
-                    "displayName": "% Primary Button Clicked Vs Tile Displayed"
+                    "fieldName": "Home Tile Clicked Vs Homepage Displayed",
+                    "displayName": "% Home Tile Clicked Vs Homepage Displayed",
+                    "scale": {
+                      "type": "quantitative"
+                    }
                   },
                   {
-                    "fieldName": "Secondary_Button_Clicked_Vs_Tile_Displayed",
-                    "displayName": "% Secondary Button Clicked Vs Tile Displayed"
+                    "fieldName": "Primary Button Clicked Vs Tile Displayed",
+                    "displayName": "% Primary Button Clicked Vs Tile Displayed",
+                    "scale": {
+                      "type": "quantitative"
+                    }
                   },
                   {
-                    "fieldName": "Primary_Button_Clicked_Vs_Interstitial_Displayed",
-                    "displayName": "% Primary Button Clicked Vs Interstitial Displayed"
+                    "fieldName": "Secondary Button Clicked Vs Tile Displayed",
+                    "displayName": "% Secondary Button Clicked Vs Tile Displayed",
+                    "scale": {
+                      "type": "quantitative"
+                    }
                   },
                   {
-                    "fieldName": "Secondary_Button_Clicked_Vs_Interstitial_Displayed",
-                    "displayName": "% Secondary Button Clicked Vs Interstitial Displayed"
+                    "fieldName": "Primary Button Clicked Vs Interstitial Displayed",
+                    "displayName": "% Primary Button Clicked Vs Interstitial Displayed",
+                    "scale": {
+                      "type": "quantitative"
+                    }
+                  },
+                  {
+                    "fieldName": "Secondary Button Clicked Vs Interstitial Displayed",
+                    "displayName": "% Secondary Button Clicked Vs Interstitial Displayed",
+                    "scale": {
+                      "type": "quantitative"
+                    }
                   }
-                ],
-                "color": {
-                  "fieldName": "Home_Tile",
-                  "displayName": "Home Tile",
-                  "scale": {
-                    "type": "categorical"
-                  }
-                }
+                ]
               },
               "frame": {
                 "showTitle": true,
