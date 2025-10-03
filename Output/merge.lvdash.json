@@ -1,7 +1,7 @@
 {
   "datasets": [
     {
-      "name": "hpx_events_dataset",
+      "name": "hpx_events_model_dataset",
       "displayName": "HPX Events Model",
       "asset_name": "workspace.default.mv_hpx_events_model"
     },
@@ -17,7 +17,7 @@
     },
     {
       "name": "homepage_summary_dataset",
-      "displayName": "Home Tile Interactions Dataset",
+      "displayName": "Home Tile Interactions",
       "asset_name": "workspace.default.mv_hpx_homepage_summary"
     },
     {
@@ -33,19 +33,19 @@
       "layout": [
         {
           "widget": {
-            "name": "active_devices_line_chart",
+            "name": "active_devices_chart",
             "queries": [
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "hpx_events_dataset",
+                  "datasetName": "hpx_events_model_dataset",
                   "fields": [
                     {
-                      "name": "Daily Event Date",
-                      "expression": "`Daily Event Date`"
+                      "name": "daily_event_date",
+                      "expression": "DATE_TRUNC('DAY', `Event Date Time`)"
                     },
                     {
-                      "name": "Active Devices",
+                      "name": "active_devices",
                       "expression": "MEASURE(`Active Devices`)"
                     }
                   ],
@@ -58,14 +58,14 @@
               "widgetType": "line",
               "encodings": {
                 "x": {
-                  "fieldName": "Daily Event Date",
+                  "fieldName": "daily_event_date",
                   "displayName": "Daily Event Date",
                   "scale": {
                     "type": "temporal"
                   }
                 },
                 "y": {
-                  "fieldName": "Active Devices",
+                  "fieldName": "active_devices",
                   "displayName": "Active Devices",
                   "scale": {
                     "type": "quantitative"
@@ -90,20 +90,20 @@
       "filters": []
     },
     {
-      "name": "total_consented_devices_page",
+      "name": "hpx_dashboard_page",
       "displayName": "Total Consented Devices",
       "layout": [
         {
           "widget": {
-            "name": "total_consented_devices_widget",
+            "name": "total_consented_devices_kpi",
             "queries": [
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "hpx_events_dataset",
+                  "datasetName": "hpx_events_model_dataset",
                   "fields": [
                     {
-                      "name": "active_devices",
+                      "name": "Active_Devices",
                       "expression": "MEASURE(`Active Devices`)"
                     }
                   ],
@@ -116,7 +116,7 @@
               "widgetType": "counter",
               "encodings": {
                 "value": {
-                  "fieldName": "active_devices",
+                  "fieldName": "Active_Devices",
                   "displayName": "Active Devices",
                   "scale": {
                     "type": "quantitative"
@@ -132,13 +132,42 @@
           "position": {
             "x": 0,
             "y": 0,
-            "width": 12,
-            "height": 6
+            "width": 6,
+            "height": 4
           }
         }
       ],
       "pageType": "PAGE_TYPE_CANVAS",
-      "filters": []
+      "filters": [
+        {
+          "fieldName": "App_Version",
+          "displayName": "App Version",
+          "type": "FILTER",
+          "isMandatory": false,
+          "isSingleValue": false
+        },
+        {
+          "fieldName": "Event_Date_Time",
+          "displayName": "Event Date Time",
+          "type": "FILTER",
+          "isMandatory": false,
+          "isSingleValue": false
+        },
+        {
+          "fieldName": "Pc_Type",
+          "displayName": "PC Type",
+          "type": "FILTER",
+          "isMandatory": false,
+          "isSingleValue": false
+        },
+        {
+          "fieldName": "Geo_Country_Code",
+          "displayName": "Geo Country Code",
+          "type": "FILTER",
+          "isMandatory": false,
+          "isSingleValue": false
+        }
+      ]
     },
     {
       "name": "hpx_curr_trendline_page",
@@ -146,7 +175,7 @@
       "layout": [
         {
           "widget": {
-            "name": "hpx_curr_trendline_widget",
+            "name": "curr_trendline_chart",
             "queries": [
               {
                 "name": "main_query",
@@ -154,11 +183,11 @@
                   "datasetName": "hpx_curr_dataset",
                   "fields": [
                     {
-                      "name": "Week_Active",
+                      "name": "Week Active",
                       "expression": "`Week Active`"
                     },
                     {
-                      "name": "Curr_Value",
+                      "name": "Curr",
                       "expression": "MEASURE(`Curr`)"
                     }
                   ],
@@ -171,14 +200,14 @@
               "widgetType": "line",
               "encodings": {
                 "x": {
-                  "fieldName": "Week_Active",
+                  "fieldName": "Week Active",
                   "displayName": "Week Active",
                   "scale": {
                     "type": "temporal"
                   }
                 },
                 "y": {
-                  "fieldName": "Curr_Value",
+                  "fieldName": "Curr",
                   "displayName": "CURR",
                   "scale": {
                     "type": "quantitative"
@@ -186,8 +215,8 @@
                 }
               },
               "frame": {
-                "showTitle": true,
-                "title": "% Devices active in the previous week t14t20, last week t7t13 and this week t0t6"
+                "title": "% Devices active in the previous week t14t20, last week t7t13 and this week t0t6",
+                "showTitle": true
               }
             }
           },
@@ -208,7 +237,7 @@
       "layout": [
         {
           "widget": {
-            "name": "hpx_curr_table",
+            "name": "hpx_curr_table_widget",
             "queries": [
               {
                 "name": "main_query",
@@ -217,22 +246,22 @@
                   "fields": [
                     {
                       "name": "Week",
-                      "expression": "`Week Active`"
+                      "expression": "`Weekly Week Active`"
                     },
                     {
                       "name": "CURR",
                       "expression": "MEASURE(`Curr`)"
                     },
                     {
-                      "name": "Last Week Users T7t13",
+                      "name": "Last_Week_Users",
                       "expression": "MEASURE(`Total Last Week Users T7t13`)"
                     },
                     {
-                      "name": "This Week Users T0t6",
+                      "name": "This_Week_Users",
                       "expression": "MEASURE(`Total This Week Users T0t6`)"
                     },
                     {
-                      "name": "Previous Week Users T14t20",
+                      "name": "Previous_Week_Users",
                       "expression": "MEASURE(`Total Previous Week Users T14t20`)"
                     }
                   ],
@@ -253,21 +282,21 @@
                     }
                   },
                   {
-                    "fieldName": "Previous Week Users T14t20",
+                    "fieldName": "Previous_Week_Users",
                     "displayName": "Previous Week Users T14t20",
                     "scale": {
                       "type": "quantitative"
                     }
                   },
                   {
-                    "fieldName": "Last Week Users T7t13",
+                    "fieldName": "Last_Week_Users",
                     "displayName": "Last Week Users T7t13",
                     "scale": {
                       "type": "quantitative"
                     }
                   },
                   {
-                    "fieldName": "This Week Users T0t6",
+                    "fieldName": "This_Week_Users",
                     "displayName": "This Week Users T0t6",
                     "scale": {
                       "type": "quantitative"
@@ -305,7 +334,7 @@
       "layout": [
         {
           "widget": {
-            "name": "hpx_first_use_behavior_flow_sankey",
+            "name": "first_use_behavior_flow_sankey",
             "queries": [
               {
                 "name": "main_query",
@@ -313,27 +342,27 @@
                   "datasetName": "hpx_first_use_behavior_flow_dataset",
                   "fields": [
                     {
-                      "name": "Screen 1",
+                      "name": "Screen_1",
                       "expression": "`Screen 1`"
                     },
                     {
-                      "name": "Screen 2",
+                      "name": "Screen_2",
                       "expression": "`Screen 2`"
                     },
                     {
-                      "name": "Screen 3",
+                      "name": "Screen_3",
                       "expression": "`Screen 3`"
                     },
                     {
-                      "name": "Screen 4",
+                      "name": "Screen_4",
                       "expression": "`Screen 4`"
                     },
                     {
-                      "name": "Screen 5",
+                      "name": "Screen_5",
                       "expression": "`Screen 5`"
                     },
                     {
-                      "name": "Total Devices",
+                      "name": "Total_Devices",
                       "expression": "MEASURE(`Total Devices`)"
                     }
                   ],
@@ -346,28 +375,28 @@
               "widgetType": "sankey",
               "encodings": {
                 "value": {
-                  "fieldName": "Total Devices",
+                  "fieldName": "Total_Devices",
                   "displayName": "Total Devices"
                 },
                 "stages": [
                   {
-                    "fieldName": "Screen 1",
+                    "fieldName": "Screen_1",
                     "displayName": "Screen 1"
                   },
                   {
-                    "fieldName": "Screen 2",
+                    "fieldName": "Screen_2",
                     "displayName": "Screen 2"
                   },
                   {
-                    "fieldName": "Screen 3",
+                    "fieldName": "Screen_3",
                     "displayName": "Screen 3"
                   },
                   {
-                    "fieldName": "Screen 4",
+                    "fieldName": "Screen_4",
                     "displayName": "Screen 4"
                   },
                   {
-                    "fieldName": "Screen 5",
+                    "fieldName": "Screen_5",
                     "displayName": "Screen 5"
                   }
                 ]
@@ -421,30 +450,6 @@
                     {
                       "name": "Total Unique Interstitial Primary Button Clicks",
                       "expression": "MEASURE(`Total Unique Interstitial Primary Button Clicks`)"
-                    },
-                    {
-                      "name": "Total Unique Interstitial Secondary Button Clicks",
-                      "expression": "MEASURE(`Total Unique Interstitial Secondary Button Clicks`)"
-                    },
-                    {
-                      "name": "f_ctr",
-                      "expression": "MEASURE(`Total Unique Tile Clicks`) / MEASURE(`Total Unique Tile Views`)"
-                    },
-                    {
-                      "name": "f_ctr_cta_primary",
-                      "expression": "MEASURE(`Total Unique Interstitial Primary Button Clicks`) / MEASURE(`Total Unique Tile Views`)"
-                    },
-                    {
-                      "name": "f_ctr_primary",
-                      "expression": "MEASURE(`Total Unique Interstitial Primary Button Clicks`) / MEASURE(`Total Unique Interstitial Views`)"
-                    },
-                    {
-                      "name": "f_ctr_secondary",
-                      "expression": "MEASURE(`Total Unique Interstitial Secondary Button Clicks`) / MEASURE(`Total Unique Interstitial Views`)"
-                    },
-                    {
-                      "name": "% Secondary Button Clicked vs Tile Displayed",
-                      "expression": "MEASURE(`Total Unique Interstitial Secondary Button Clicks`) / MEASURE(`Total Unique Tile Views`)"
                     }
                   ],
                   "disaggregated": false
@@ -453,7 +458,7 @@
             ],
             "spec": {
               "version": 3,
-              "widgetType": "bar",
+              "widgetType": "table",
               "encodings": {
                 "x": {
                   "fieldName": "Home Tile",
@@ -466,19 +471,19 @@
                   "fields": [
                     {
                       "fieldName": "Total Unique Tile Views",
-                      "displayName": "Total Unique Tile Views"
+                      "displayName": "Unique Tile Views"
                     },
                     {
                       "fieldName": "Total Unique Tile Clicks",
-                      "displayName": "Total Unique Tile Clicks"
+                      "displayName": "Unique Tile Clicks"
                     },
                     {
                       "fieldName": "Total Unique Interstitial Views",
-                      "displayName": "Total Unique Interstitial Views"
+                      "displayName": "Unique Interstitial Views"
                     },
                     {
                       "fieldName": "Total Unique Interstitial Primary Button Clicks",
-                      "displayName": "Total Unique Interstitial Primary Button Clicks"
+                      "displayName": "Unique Interstitial Primary Button Clicks"
                     }
                   ],
                   "scale": {
@@ -569,7 +574,7 @@
               "version": 3,
               "widgetType": "counter",
               "encodings": {
-                "columns": [
+                "values": [
                   {
                     "fieldName": "Home Tile",
                     "displayName": "Home Tile",
@@ -734,15 +739,15 @@
               "encodings": {
                 "values": [
                   {
-                    "fieldName": "Unique Tile Views",
-                    "displayName": "Unique Tile Views",
+                    "fieldName": "Unique Tile Clicks",
+                    "displayName": "Unique Tile Clicks",
                     "scale": {
                       "type": "quantitative"
                     }
                   },
                   {
-                    "fieldName": "Unique Tile Clicks",
-                    "displayName": "Unique Tile Clicks",
+                    "fieldName": "Unique Tile Views",
+                    "displayName": "Unique Tile Views",
                     "scale": {
                       "type": "quantitative"
                     }
@@ -769,7 +774,7 @@
                     }
                   }
                 ],
-                "color": {
+                "splitBy": {
                   "fieldName": "Home Tile",
                   "displayName": "Home Tile",
                   "scale": {
@@ -812,43 +817,43 @@
                       "expression": "`Home Tile`"
                     },
                     {
-                      "name": "Unique Tile Views",
+                      "name": "Total Unique Tile Views",
                       "expression": "MEASURE(`Total Unique Tile Views`)"
                     },
                     {
-                      "name": "Unique Tile Clicks",
+                      "name": "Total Unique Tile Clicks",
                       "expression": "MEASURE(`Total Unique Tile Clicks`)"
                     },
                     {
-                      "name": "Unique Interstitial Views",
+                      "name": "Total Unique Interstitial Views",
                       "expression": "MEASURE(`Total Unique Interstitial Views`)"
                     },
                     {
-                      "name": "Unique Interstitial Primary Button Clicks",
+                      "name": "Total Unique Interstitial Primary Button Clicks",
                       "expression": "MEASURE(`Total Unique Interstitial Primary Button Clicks`)"
                     },
                     {
-                      "name": "Unique Interstitial Secondary Button Clicks",
+                      "name": "Total Unique Interstitial Secondary Button Clicks",
                       "expression": "MEASURE(`Total Unique Interstitial Secondary Button Clicks`)"
                     },
                     {
-                      "name": "Home Tile Clicked Vs Homepage Displayed",
+                      "name": "Total Home Tile Clicked Vs Homepage Displayed",
                       "expression": "MEASURE(`Total Home Tile Clicked Vs Homepage Displayed`)"
                     },
                     {
-                      "name": "Primary Button Clicked Vs Tile Displayed",
+                      "name": "Total Primary Button Clicked Vs Tile Displayed",
                       "expression": "MEASURE(`Total Primary Button Clicked Vs Tile Displayed`)"
                     },
                     {
-                      "name": "Secondary Button Clicked Vs Tile Displayed",
+                      "name": "Total Secondary Button Clicked Vs Tile Displayed",
                       "expression": "MEASURE(`Total Secondary Button Clicked Vs Tile Displayed`)"
                     },
                     {
-                      "name": "Primary Button Clicked Vs Interstitial Displayed",
+                      "name": "Total Primary Button Clicked Vs Interstitial Displayed",
                       "expression": "MEASURE(`Total Primary Button Clicked Vs Interstitial Displayed`)"
                     },
                     {
-                      "name": "Secondary Button Clicked Vs Interstitial Displayed",
+                      "name": "Total Secondary Button Clicked Vs Interstitial Displayed",
                       "expression": "MEASURE(`Total Secondary Button Clicked Vs Interstitial Displayed`)"
                     },
                     {
@@ -874,12 +879,20 @@
                     }
                   },
                   {
-                    "fieldName": "Unique Tile Views",
-                    "displayName": "Unique Tile Views"
+                    "fieldName": "Total Unique Tile Clicks",
+                    "displayName": "Unique Tile Clicks",
+                    "format": {
+                      "type": "number",
+                      "decimalPlaces": 0
+                    }
                   },
                   {
-                    "fieldName": "Unique Tile Clicks",
-                    "displayName": "Unique Tile Clicks"
+                    "fieldName": "Total Unique Tile Views",
+                    "displayName": "Unique Tile Views",
+                    "format": {
+                      "type": "number",
+                      "decimalPlaces": 0
+                    }
                   }
                 ]
               },
@@ -918,19 +931,19 @@
                       "expression": "`Home Tile`"
                     },
                     {
-                      "name": "Unique Tile Views",
+                      "name": "Total Unique Tile Views",
                       "expression": "MEASURE(`Total Unique Tile Views`)"
                     },
                     {
-                      "name": "Unique Tile Clicks",
+                      "name": "Total Unique Tile Clicks",
                       "expression": "MEASURE(`Total Unique Tile Clicks`)"
                     },
                     {
-                      "name": "Unique Interstitial Views",
+                      "name": "Total Unique Interstitial Views",
                       "expression": "MEASURE(`Total Unique Interstitial Views`)"
                     },
                     {
-                      "name": "Unique Interstitial Primary Button Clicks",
+                      "name": "Total Unique Interstitial Primary Button Clicks",
                       "expression": "MEASURE(`Total Unique Interstitial Primary Button Clicks`)"
                     },
                     {
@@ -950,18 +963,10 @@
                   {
                     "fieldName": "Primary Button CTR",
                     "displayName": "Primary Button CTR",
-                    "numberFormat": {
-                      "unit": "PERCENT",
-                      "precision": 1
+                    "format": {
+                      "type": "percent",
+                      "decimalPlaces": 1
                     }
-                  },
-                  {
-                    "fieldName": "Unique Interstitial Primary Button Clicks",
-                    "displayName": "Primary Button Clicks"
-                  },
-                  {
-                    "fieldName": "Unique Interstitial Views",
-                    "displayName": "Interstitial Views"
                   }
                 ]
               },
@@ -1020,35 +1025,7 @@
                       "expression": "MEASURE(`Total Unique Interstitial Secondary Button Clicks`)"
                     },
                     {
-                      "name": "Home Tile Clicked Vs Homepage Displayed",
-                      "expression": "MEASURE(`Total Home Tile Clicked Vs Homepage Displayed`)"
-                    },
-                    {
-                      "name": "Primary Button Clicked Vs Tile Displayed",
-                      "expression": "MEASURE(`Total Primary Button Clicked Vs Tile Displayed`)"
-                    },
-                    {
-                      "name": "Secondary Button Clicked Vs Tile Displayed",
-                      "expression": "MEASURE(`Total Secondary Button Clicked Vs Tile Displayed`)"
-                    },
-                    {
-                      "name": "Primary Button Clicked Vs Interstitial Displayed",
-                      "expression": "MEASURE(`Total Primary Button Clicked Vs Interstitial Displayed`)"
-                    },
-                    {
-                      "name": "Secondary Button Clicked Vs Interstitial Displayed",
-                      "expression": "MEASURE(`Total Secondary Button Clicked Vs Interstitial Displayed`)"
-                    },
-                    {
-                      "name": "CTR",
-                      "expression": "MEASURE(`Total Unique Tile Clicks`) / MEASURE(`Total Unique Tile Views`)"
-                    },
-                    {
-                      "name": "Primary CTR",
-                      "expression": "MEASURE(`Total Unique Interstitial Primary Button Clicks`) / MEASURE(`Total Unique Interstitial Views`)"
-                    },
-                    {
-                      "name": "Secondary CTR",
+                      "name": "Secondary Button CTR",
                       "expression": "MEASURE(`Total Unique Interstitial Secondary Button Clicks`) / MEASURE(`Total Unique Interstitial Views`)"
                     }
                   ],
@@ -1060,16 +1037,21 @@
               "version": 3,
               "widgetType": "counter",
               "encodings": {
-                "values": [
-                  {
-                    "fieldName": "Secondary CTR",
-                    "displayName": "Secondary Button CTR",
-                    "numberFormat": {
-                      "unit": "PERCENT",
-                      "precision": 1
-                    }
+                "value": {
+                  "fieldName": "Secondary Button CTR",
+                  "displayName": "Secondary Button CTR",
+                  "format": {
+                    "type": "percent",
+                    "decimalPlaces": 1
                   }
-                ]
+                },
+                "color": {
+                  "fieldName": "Home Tile",
+                  "displayName": "Home Tile",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                }
               },
               "frame": {
                 "showTitle": true,
@@ -1094,12 +1076,12 @@
       "layout": [
         {
           "widget": {
-            "name": "new_devices_chart",
+            "name": "new_devices_line_chart",
             "queries": [
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "hpx_events_dataset",
+                  "datasetName": "hpx_events_model_dataset",
                   "fields": [
                     {
                       "name": "Daily Event Date",
@@ -1111,7 +1093,7 @@
                     },
                     {
                       "name": "Cumulative New Devices",
-                      "expression": "MEASURE(`New Devices`) OVER (ORDER BY `Daily Event Date` ROWS UNBOUNDED PRECEDING)"
+                      "expression": "SUM(MEASURE(`New Devices`)) OVER (ORDER BY `Daily Event Date` ROWS UNBOUNDED PRECEDING)"
                     }
                   ],
                   "disaggregated": false
@@ -1163,8 +1145,8 @@
       "filters": []
     },
     {
-      "name": "active_devices_by_country_page",
-      "displayName": "% Active Devices by Country (Top 10)",
+      "name": "country_analysis_page",
+      "displayName": "Country Analysis",
       "layout": [
         {
           "widget": {
@@ -1173,25 +1155,25 @@
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "hpx_events_dataset",
+                  "datasetName": "hpx_events_model_dataset",
                   "fields": [
                     {
                       "name": "Geo Country Code",
                       "expression": "`Geo Country Code`"
                     },
                     {
-                      "name": "Active Devices by Country",
-                      "expression": "MEASURE(`Active Devices`) / MEASURE(`Active Devices`) OVER (PARTITION BY 1)"
+                      "name": "Active Devices",
+                      "expression": "MEASURE(`Active Devices`)"
                     },
                     {
-                      "name": "MAU",
-                      "expression": "MEASURE(`Active Devices`)"
+                      "name": "Percent Active Devices",
+                      "expression": "MEASURE(`Active Devices`) / SUM(MEASURE(`Active Devices`)) OVER ()"
                     }
                   ],
                   "disaggregated": false,
                   "orderBy": [
                     {
-                      "fieldName": "MAU",
+                      "fieldName": "Percent Active Devices",
                       "direction": "DESC"
                     }
                   ],
@@ -1211,7 +1193,7 @@
                   }
                 },
                 "y": {
-                  "fieldName": "Active Devices by Country",
+                  "fieldName": "Percent Active Devices",
                   "displayName": "% Active Devices by Country",
                   "scale": {
                     "type": "quantitative"
@@ -1240,25 +1222,33 @@
       "filters": []
     },
     {
-      "name": "active_devices_by_appversion_page",
-      "displayName": "% Active Devices by Appversion",
+      "name": "app_version_analysis",
+      "displayName": "App Version Analysis",
       "layout": [
         {
           "widget": {
-            "name": "active_devices_by_appversion_chart",
+            "name": "active_devices_by_appversion",
             "queries": [
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "hpx_events_dataset",
+                  "datasetName": "hpx_events_model_dataset",
                   "fields": [
                     {
                       "name": "App Version",
                       "expression": "`App Version`"
                     },
                     {
+                      "name": "Active Devices",
+                      "expression": "MEASURE(`Active Devices`)"
+                    },
+                    {
+                      "name": "Total Active Devices",
+                      "expression": "SUM(MEASURE(`Active Devices`)) OVER ()"
+                    },
+                    {
                       "name": "% Active Devices By Appversion",
-                      "expression": "MEASURE(`Active Devices`) / MEASURE(`Active Devices`, GROUP BY ())"
+                      "expression": "MEASURE(`Active Devices`) / SUM(MEASURE(`Active Devices`)) OVER ()"
                     }
                   ],
                   "disaggregated": false
@@ -1299,7 +1289,22 @@
         }
       ],
       "pageType": "PAGE_TYPE_CANVAS",
-      "filters": []
+      "filters": [
+        {
+          "fieldName": "Event Date Time",
+          "displayName": "Event Date Time",
+          "type": "FILTER",
+          "isMandatory": false,
+          "isSingleValue": false
+        },
+        {
+          "fieldName": "Os Version",
+          "displayName": "Os Version",
+          "type": "FILTER",
+          "isMandatory": false,
+          "isSingleValue": false
+        }
+      ]
     },
     {
       "name": "hpx_new_version_adoption_page",
@@ -1307,12 +1312,12 @@
       "layout": [
         {
           "widget": {
-            "name": "new_version_adoption_chart",
+            "name": "version_adoption_line_chart",
             "queries": [
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "hpx_events_dataset",
+                  "datasetName": "hpx_events_model_dataset",
                   "fields": [
                     {
                       "name": "Daily Event Date",
@@ -1328,7 +1333,7 @@
                     },
                     {
                       "name": "% Active Devices",
-                      "expression": "MEASURE(`Active Devices`) / SUM(MEASURE(`Active Devices`)) OVER (PARTITION BY `Daily Event Date`)"
+                      "expression": "MEASURE(`Active Devices`) / WINDOW_SUM(MEASURE(`Active Devices`), PARTITION BY [`Daily Event Date`])"
                     }
                   ],
                   "disaggregated": false
@@ -1379,17 +1384,17 @@
       "filters": []
     },
     {
-      "name": "new_devices_by_country",
+      "name": "new_devices_by_country_page",
       "displayName": "New Devices by Top 10 Countries",
       "layout": [
         {
           "widget": {
-            "name": "new_devices_by_country_pie",
+            "name": "new_devices_by_country_chart",
             "queries": [
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "hpx_events_dataset",
+                  "datasetName": "hpx_events_model_dataset",
                   "fields": [
                     {
                       "name": "Geo Country Code",
@@ -1398,16 +1403,6 @@
                     {
                       "name": "New Devices",
                       "expression": "MEASURE(`New Devices`)"
-                    },
-                    {
-                      "name": "rank",
-                      "expression": "RANK() OVER (ORDER BY MEASURE(`New Devices`) DESC)"
-                    }
-                  ],
-                  "filters": [
-                    {
-                      "name": "top_countries",
-                      "expression": "rank <= 10"
                     }
                   ],
                   "disaggregated": false
@@ -1418,18 +1413,18 @@
               "version": 3,
               "widgetType": "pie",
               "encodings": {
-                "color": {
-                  "fieldName": "Geo Country Code",
-                  "displayName": "Country",
-                  "scale": {
-                    "type": "categorical"
-                  }
-                },
                 "angle": {
                   "fieldName": "New Devices",
                   "displayName": "New Devices",
                   "scale": {
                     "type": "quantitative"
+                  }
+                },
+                "color": {
+                  "fieldName": "Geo Country Code",
+                  "displayName": "Country",
+                  "scale": {
+                    "type": "categorical"
                   }
                 }
               },
@@ -1461,7 +1456,7 @@
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "hpx_events_dataset",
+                  "datasetName": "hpx_events_model_dataset",
                   "fields": [
                     {
                       "name": "Control",
@@ -1476,37 +1471,28 @@
                       "expression": "MEASURE(`Total Clicks`)"
                     }
                   ],
-                  "disaggregated": false,
                   "filters": [
                     {
-                      "fieldName": "Ui Action",
-                      "operator": "EQUAL",
-                      "values": [
-                        "onpress"
-                      ]
+                      "expression": "`Event Date Time` >= DATE '2023-05-01'"
                     },
                     {
-                      "fieldName": "Control",
-                      "operator": "NOT_CONTAINS",
-                      "values": [
-                        "testid"
-                      ]
+                      "expression": "`Control` NOT LIKE '%testid%'"
                     },
                     {
-                      "fieldName": "Control",
-                      "operator": "NOT_EQUAL",
-                      "values": [
-                        "welcome core navigationviewitem id"
-                      ]
+                      "expression": "`Ui Action` = 'onpress'"
+                    },
+                    {
+                      "expression": "`Control` != 'welcome core navigationviewitem id'"
                     }
                   ],
                   "limit": 10,
                   "orderBy": [
                     {
-                      "fieldName": "Total Clicks",
+                      "expression": "MEASURE(`Total Clicks`)",
                       "direction": "DESC"
                     }
-                  ]
+                  ],
+                  "disaggregated": false
                 }
               }
             ],
@@ -1556,7 +1542,7 @@
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "hpx_events_dataset",
+                  "datasetName": "hpx_events_model_dataset",
                   "fields": [
                     {
                       "name": "Control",
@@ -1569,24 +1555,18 @@
                   ],
                   "filters": [
                     {
-                      "fieldName": "Control",
-                      "operator": "NOT_CONTAINS",
-                      "values": [
-                        "testid"
-                      ]
+                      "name": "ui_action_filter",
+                      "expression": "`Ui Action` = 'onpress'"
                     },
                     {
-                      "fieldName": "Ui Action",
-                      "operator": "EQUAL",
-                      "values": [
-                        "onpress"
-                      ]
+                      "name": "control_filter",
+                      "expression": "`Control` NOT LIKE '%testid%'"
                     }
                   ],
                   "limit": 10,
                   "orderBy": [
                     {
-                      "fieldName": "Total_Clicks",
+                      "name": "Total_Clicks",
                       "direction": "DESC"
                     }
                   ],
@@ -1641,11 +1621,11 @@
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "hpx_events_dataset",
+                  "datasetName": "hpx_events_model_dataset",
                   "fields": [
                     {
                       "name": "Monthly Event Date",
-                      "expression": "DATE_TRUNC('MONTH', `Event Date Time`)"
+                      "expression": "`Monthly Event Date`"
                     },
                     {
                       "name": "Screen",
@@ -1659,21 +1639,25 @@
                   "filters": [
                     {
                       "name": "screen_filter",
-                      "expression": "`Screen` != 'home' AND `Screen` != 'welcome' AND `Screen` != 'welcomecontainer' AND `Screen` != 'welcome-core' AND `Screen` != 'support' AND `Ui Action` = 'screendisplayed'"
+                      "expression": "`Screen` != 'home' AND `Screen` != 'welcome' AND `Screen` != 'welcomecontainer' AND `Screen` != 'welcome-core' AND `Screen` != 'support'"
+                    },
+                    {
+                      "name": "ui_action_filter",
+                      "expression": "`Ui Action` = 'screendisplayed'"
                     },
                     {
                       "name": "date_filter",
                       "expression": "`Event Date Time` >= '2023-05-01'"
                     }
                   ],
+                  "disaggregated": false,
                   "limit": 10,
                   "orderBy": [
                     {
-                      "name": "Unique Screen Views",
+                      "fieldName": "Unique Screen Views",
                       "direction": "DESC"
                     }
-                  ],
-                  "disaggregated": false
+                  ]
                 }
               }
             ],
@@ -1723,7 +1707,7 @@
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "hpx_events_dataset",
+                  "datasetName": "hpx_events_model_dataset",
                   "fields": [
                     {
                       "name": "Screen",
@@ -1736,12 +1720,15 @@
                   ],
                   "filters": [
                     {
-                      "expression": "`Ui Action` = 'screendisplayed'"
-                    },
-                    {
+                      "name": "screen_filter",
                       "expression": "`Screen` != 'home' AND `Screen` != 'support' AND `Screen` != 'welcome' AND `Screen` != 'welcome-core' AND `Screen` != 'welcomeContainer' AND `Screen` IS NOT NULL"
                     },
                     {
+                      "name": "ui_action_filter",
+                      "expression": "`Ui Action` = 'screendisplayed'"
+                    },
+                    {
+                      "name": "date_filter",
                       "expression": "`Event Date Time` >= '2023-05-01'"
                     }
                   ],
@@ -1794,7 +1781,7 @@
     },
     {
       "name": "launch_type_active_devices_page",
-      "displayName": "Launch type Active Devices",
+      "displayName": "Launch Type Active Devices",
       "layout": [
         {
           "widget": {
@@ -1803,7 +1790,7 @@
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "hpx_events_dataset",
+                  "datasetName": "hpx_events_model_dataset",
                   "fields": [
                     {
                       "name": "Daily Event Date",
@@ -1849,7 +1836,7 @@
                 }
               },
               "frame": {
-                "title": "Launch type Active Devices",
+                "title": "Launch Type Active Devices",
                 "showTitle": true
               },
               "options": {
@@ -1875,7 +1862,7 @@
       "layout": [
         {
           "widget": {
-            "name": "hpx_retention_pivot_table",
+            "name": "retention_pivot_table",
             "queries": [
               {
                 "name": "main_query",
@@ -1883,7 +1870,7 @@
                   "datasetName": "hpx_retention_dataset",
                   "fields": [
                     {
-                      "name": "monthly_first_device_event",
+                      "name": "monthly_first_device_event_date_time",
                       "expression": "`Monthly First Device Event Date Time`"
                     },
                     {
@@ -1904,7 +1891,7 @@
                     },
                     {
                       "name": "devices_returning_pct",
-                      "expression": "MEASURE(`Active Devices`) / WINDOW_AGGREGATE(MEASURE(`Active Devices`), PARTITION BY [`Monthly First Device Event Date Time`])"
+                      "expression": "MEASURE(`Active Devices`) / WINDOW_SUM(MEASURE(`Active Devices`), PARTITION BY [`Monthly First Device Event Date Time`])"
                     }
                   ],
                   "disaggregated": false
@@ -1913,16 +1900,18 @@
             ],
             "spec": {
               "version": 3,
-              "widgetType": "table",
+              "widgetType": "pivot-table",
               "encodings": {
-                "columns": [
+                "rows": [
                   {
-                    "fieldName": "monthly_first_device_event",
+                    "fieldName": "monthly_first_device_event_date_time",
                     "displayName": "Month(First Device Event Date Time)",
                     "scale": {
                       "type": "temporal"
                     }
-                  },
+                  }
+                ],
+                "columns": [
                   {
                     "fieldName": "months_since_first_use",
                     "displayName": "Months Since First Use",
@@ -1936,12 +1925,18 @@
                     "scale": {
                       "type": "categorical"
                     }
-                  },
+                  }
+                ],
+                "values": [
                   {
-                    "fieldName": "weeks_since_first_use",
-                    "displayName": "Weeks Since First Use",
+                    "fieldName": "devices_returning_pct",
+                    "displayName": "% Devices Returning",
+                    "format": {
+                      "type": "percent",
+                      "decimalPlaces": 1
+                    },
                     "scale": {
-                      "type": "categorical"
+                      "type": "quantitative"
                     }
                   },
                   {
@@ -1950,37 +1945,12 @@
                     "scale": {
                       "type": "quantitative"
                     }
-                  },
-                  {
-                    "fieldName": "devices_returning_pct",
-                    "displayName": "% Devices Returning",
-                    "scale": {
-                      "type": "quantitative"
-                    },
-                    "format": {
-                      "type": "percent",
-                      "decimalPlaces": 1
-                    }
                   }
                 ]
               },
               "frame": {
-                "title": "0.5 HPX Retention",
-                "showTitle": true,
-                "subtitle": "Cohort Graph"
-              },
-              "pivotConfig": {
-                "rows": [
-                  "monthly_first_device_event"
-                ],
-                "columns": [
-                  "months_since_first_use",
-                  "session_type"
-                ],
-                "values": [
-                  "devices_returning_pct"
-                ],
-                "showHeatmap": true
+                "title": "HPX Retention - Cohort Graph",
+                "showTitle": true
               }
             }
           },
