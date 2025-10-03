@@ -1,8 +1,8 @@
 {
   "datasets": [
     {
-      "name": "hpx_homepage_summary_dataset",
-      "displayName": "Home Tile Interactions Dataset",
+      "name": "homepage_summary_dataset",
+      "displayName": "Home Tile Interactions",
       "asset_name": "workspace.default.mv_hpx_homepage_summary"
     }
   ],
@@ -18,7 +18,7 @@
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "hpx_homepage_summary_dataset",
+                  "datasetName": "homepage_summary_dataset",
                   "fields": [
                     {
                       "name": "Home Tile",
@@ -47,7 +47,7 @@
             ],
             "spec": {
               "version": 3,
-              "widgetType": "table",
+              "widgetType": "bar",
               "encodings": {
                 "x": {
                   "fieldName": "Home Tile",
@@ -60,19 +60,19 @@
                   "fields": [
                     {
                       "fieldName": "Total Unique Tile Views",
-                      "displayName": "Unique Tile Views"
+                      "displayName": "Total Unique Tile Views"
                     },
                     {
                       "fieldName": "Total Unique Tile Clicks",
-                      "displayName": "Unique Tile Clicks"
+                      "displayName": "Total Unique Tile Clicks"
                     },
                     {
                       "fieldName": "Total Unique Interstitial Views",
-                      "displayName": "Unique Interstitial Views"
+                      "displayName": "Total Unique Interstitial Views"
                     },
                     {
                       "fieldName": "Total Unique Interstitial Primary Button Clicks",
-                      "displayName": "Unique Interstitial Primary Button Clicks"
+                      "displayName": "Total Unique Interstitial Primary Button Clicks"
                     }
                   ],
                   "scale": {
