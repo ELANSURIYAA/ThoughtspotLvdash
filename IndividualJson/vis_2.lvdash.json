@@ -2,7 +2,7 @@
   "datasets": [
     {
       "name": "hpx_events_model_dataset",
-      "displayName": "HPX Events Model Dataset",
+      "displayName": "HPX Events Model",
       "asset_name": "workspace.default.mv_hpx_events_model"
     }
   ],
@@ -13,7 +13,7 @@
       "layout": [
         {
           "widget": {
-            "name": "new_devices_line_chart",
+            "name": "new_devices_chart",
             "queries": [
               {
                 "name": "main_query",
@@ -65,7 +65,7 @@
                 }
               },
               "frame": {
-                "title": "New Devices",
+                "title": "New Devices and Cumulative New Devices Over Time",
                 "showTitle": true
               }
             }
