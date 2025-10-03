@@ -29,15 +29,15 @@
                       "expression": "MEASURE(`Curr`)"
                     },
                     {
-                      "name": "Last_Week_Users",
+                      "name": "Last Week Users T7t13",
                       "expression": "MEASURE(`Total Last Week Users T7t13`)"
                     },
                     {
-                      "name": "This_Week_Users",
+                      "name": "This Week Users T0t6",
                       "expression": "MEASURE(`Total This Week Users T0t6`)"
                     },
                     {
-                      "name": "Previous_Week_Users",
+                      "name": "Previous Week Users T14t20",
                       "expression": "MEASURE(`Total Previous Week Users T14t20`)"
                     }
                   ],
@@ -58,29 +58,29 @@
                     }
                   },
                   {
-                    "fieldName": "Previous_Week_Users",
-                    "displayName": "Previous Week Users T14t20",
+                    "fieldName": "CURR",
+                    "displayName": "CURR",
                     "scale": {
                       "type": "quantitative"
                     }
                   },
                   {
-                    "fieldName": "Last_Week_Users",
+                    "fieldName": "Last Week Users T7t13",
                     "displayName": "Last Week Users T7t13",
                     "scale": {
                       "type": "quantitative"
                     }
                   },
                   {
-                    "fieldName": "This_Week_Users",
+                    "fieldName": "This Week Users T0t6",
                     "displayName": "This Week Users T0t6",
                     "scale": {
                       "type": "quantitative"
                     }
                   },
                   {
-                    "fieldName": "CURR",
-                    "displayName": "CURR",
+                    "fieldName": "Previous Week Users T14t20",
+                    "displayName": "Previous Week Users T14t20",
                     "scale": {
                       "type": "quantitative"
                     }
