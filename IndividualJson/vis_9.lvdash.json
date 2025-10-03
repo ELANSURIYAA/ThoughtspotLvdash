@@ -53,51 +53,38 @@
                   {
                     "fieldName": "monthly_first_device_event_date_time",
                     "displayName": "Month(First Device Event Date Time)",
-                    "scale": {
-                      "type": "temporal"
-                    }
+                    "scale": { "type": "temporal" }
                   }
                 ],
                 "columns": [
                   {
                     "fieldName": "months_since_first_use",
                     "displayName": "Months Since First Use",
-                    "scale": {
-                      "type": "categorical"
-                    }
+                    "scale": { "type": "categorical" }
                   },
                   {
                     "fieldName": "session_type",
                     "displayName": "Session Type",
-                    "scale": {
-                      "type": "categorical"
-                    }
+                    "scale": { "type": "categorical" }
                   }
                 ],
                 "values": [
                   {
                     "fieldName": "devices_returning_percentage",
                     "displayName": "% Devices Returning",
-                    "scale": {
-                      "type": "quantitative"
-                    },
-                    "format": {
-                      "type": "percentage",
-                      "precision": 1
-                    }
+                    "scale": { "type": "quantitative" },
+                    "format": { "type": "percentage", "decimals": 1 }
+                  },
+                  {
+                    "fieldName": "active_devices",
+                    "displayName": "Active Devices",
+                    "scale": { "type": "quantitative" }
                   }
-                ],
-                "color": {
-                  "fieldName": "devices_returning_percentage",
-                  "displayName": "% Devices Returning",
-                  "scale": {
-                    "type": "quantitative"
-                  }
-                }
+                ]
               },
               "frame": {
-                "title": "0.5 HPX Retention - Cohort Graph",
-                "showTitle": true
+                "showTitle": true,
+                "title": "HPX Retention Cohort Analysis"
               }
             }
           },
