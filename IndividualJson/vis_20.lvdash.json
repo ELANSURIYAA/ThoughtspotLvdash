@@ -1,15 +1,15 @@
 {
   "datasets": [
     {
-      "name": "hpx_events_dataset",
-      "displayName": "HPX Events Dataset",
+      "name": "dataset_active_devices_by_country",
+      "displayName": "Active Devices by Country",
       "asset_name": "workspace.default.mv_hpx_events_model"
     }
   ],
   "pages": [
     {
-      "name": "country_analysis_page",
-      "displayName": "Country Analysis",
+      "name": "active_devices_by_country_page",
+      "displayName": "% Active Devices by Country (Top 10)",
       "layout": [
         {
           "widget": {
@@ -18,7 +18,7 @@
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "hpx_events_dataset",
+                  "datasetName": "dataset_active_devices_by_country",
                   "fields": [
                     {
                       "name": "Geo Country Code",
@@ -29,18 +29,33 @@
                       "expression": "MEASURE(`Active Devices`)"
                     },
                     {
-                      "name": "Percent Active Devices",
-                      "expression": "MEASURE(`Active Devices`) / SUM(MEASURE(`Active Devices`)) OVER ()"
-                    }
-                  ],
-                  "disaggregated": false,
-                  "orderBy": [
+                      "name": "Total Active Devices",
+                      "expression": "SUM(MEASURE(`Active Devices`)) OVER ()"
+                    },
                     {
-                      "fieldName": "Percent Active Devices",
-                      "direction": "DESC"
+                      "name": "% Active Devices by Country",
+                      "expression": "MEASURE(`Active Devices`) / SUM(MEASURE(`Active Devices`)) OVER ()"
+                    },
+                    {
+                      "name": "f_active_devices_rank",
+                      "expression": "RANK() OVER (ORDER BY MEASURE(`Active Devices`) DESC)"
                     }
                   ],
-                  "limit": 10
+                  "filters": [
+                    {
+                      "name": "rank_filter",
+                      "expression": "f_active_devices_rank <= 10"
+                    },
+                    {
+                      "name": "app_version_filter",
+                      "expression": "`App Version` != 'not a store release' AND `App Version` != 'other non-releases'"
+                    },
+                    {
+                      "name": "os_version_filter",
+                      "expression": "`Os Version` IS NOT NULL"
+                    }
+                  ],
+                  "disaggregated": false
                 }
               }
             ],
@@ -56,7 +71,7 @@
                   }
                 },
                 "y": {
-                  "fieldName": "Percent Active Devices",
+                  "fieldName": "% Active Devices by Country",
                   "displayName": "% Active Devices by Country",
                   "scale": {
                     "type": "quantitative"
@@ -68,8 +83,8 @@
                 }
               },
               "frame": {
-                "showTitle": true,
-                "title": "% Active Devices by Country (Top 10)"
+                "title": "% Active Devices by Country (Top 10)",
+                "showTitle": true
               }
             }
           },
