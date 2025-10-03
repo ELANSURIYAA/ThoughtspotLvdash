@@ -25,23 +25,7 @@
                       "expression": "`Home Tile`"
                     },
                     {
-                      "name": "Unique Tile Views",
-                      "expression": "MEASURE(`Total Unique Tile Views`)"
-                    },
-                    {
-                      "name": "Unique Tile Clicks",
-                      "expression": "MEASURE(`Total Unique Tile Clicks`)"
-                    },
-                    {
-                      "name": "Unique Interstitial Views",
-                      "expression": "MEASURE(`Total Unique Interstitial Views`)"
-                    },
-                    {
-                      "name": "Unique Interstitial Primary Button Clicks",
-                      "expression": "MEASURE(`Total Unique Interstitial Primary Button Clicks`)"
-                    },
-                    {
-                      "name": "Primary CTR",
+                      "name": "Primary Button CTR",
                       "expression": "MEASURE(`Total Unique Interstitial Primary Button Clicks`) / MEASURE(`Total Unique Interstitial Views`)"
                     }
                   ],
@@ -55,20 +39,12 @@
               "encodings": {
                 "values": [
                   {
-                    "fieldName": "Primary CTR",
-                    "displayName": "Primary Button CTR",
-                    "numberFormat": {
-                      "unit": "PERCENT",
-                      "precision": 1
+                    "fieldName": "Primary Button CTR",
+                    "displayName": "% Primary Button Clicked Vs Interstitial Displayed",
+                    "format": {
+                      "type": "percent",
+                      "decimalPlaces": 1
                     }
-                  },
-                  {
-                    "fieldName": "Unique Interstitial Primary Button Clicks",
-                    "displayName": "Primary Button Clicks"
-                  },
-                  {
-                    "fieldName": "Unique Interstitial Views",
-                    "displayName": "Interstitial Views"
                   }
                 ]
               },
