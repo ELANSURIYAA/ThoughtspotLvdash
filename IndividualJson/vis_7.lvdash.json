@@ -31,20 +31,18 @@
                   ],
                   "filters": [
                     {
-                      "fieldName": "Control",
-                      "operator": "NOT_CONTAINS",
-                      "values": ["testid"]
+                      "name": "ui_action_filter",
+                      "expression": "`Ui Action` = 'onpress'"
                     },
                     {
-                      "fieldName": "Ui Action",
-                      "operator": "EQUAL",
-                      "values": ["onpress"]
+                      "name": "control_filter",
+                      "expression": "`Control` NOT LIKE '%testid%'"
                     }
                   ],
                   "limit": 10,
                   "orderBy": [
                     {
-                      "fieldName": "Total_Clicks",
+                      "name": "Total_Clicks",
                       "direction": "DESC"
                     }
                   ],
