@@ -2,7 +2,7 @@
   "datasets": [
     {
       "name": "hpx_events_dataset",
-      "displayName": "HPX Events Dataset",
+      "displayName": "HPX Events Model",
       "asset_name": "workspace.default.mv_hpx_events_model"
     }
   ],
@@ -29,17 +29,12 @@
                       "expression": "MEASURE(`Total Clicks`)"
                     }
                   ],
-                  "disaggregated": false,
                   "filters": [
                     {
-                      "fieldName": "Ui Action",
-                      "operator": "EQUAL",
-                      "values": ["onpress"]
+                      "expression": "`Control` NOT LIKE '%testid%'"
                     },
                     {
-                      "fieldName": "Control",
-                      "operator": "NOT_CONTAINS",
-                      "values": ["testid"]
+                      "expression": "`Ui Action` = 'onpress'"
                     }
                   ],
                   "limit": 10,
@@ -48,7 +43,8 @@
                       "fieldName": "Total_Clicks",
                       "direction": "DESC"
                     }
-                  ]
+                  ],
+                  "disaggregated": false
                 }
               }
             ],
