@@ -2,18 +2,18 @@
   "datasets": [
     {
       "name": "hpx_events_model_dataset",
-      "displayName": "% Active Devices by Appversion",
+      "displayName": "HPX Events Model",
       "asset_name": "workspace.default.mv_hpx_events_model"
     }
   ],
   "pages": [
     {
-      "name": "active_devices_by_appversion_page",
-      "displayName": "% Active Devices by Appversion",
+      "name": "app_version_analysis",
+      "displayName": "App Version Analysis",
       "layout": [
         {
           "widget": {
-            "name": "active_devices_by_appversion_chart",
+            "name": "active_devices_by_appversion",
             "queries": [
               {
                 "name": "main_query",
@@ -25,8 +25,16 @@
                       "expression": "`App Version`"
                     },
                     {
+                      "name": "Active Devices",
+                      "expression": "MEASURE(`Active Devices`)"
+                    },
+                    {
+                      "name": "Total Active Devices",
+                      "expression": "SUM(MEASURE(`Active Devices`)) OVER ()"
+                    },
+                    {
                       "name": "% Active Devices By Appversion",
-                      "expression": "MEASURE(`Active Devices`) / MEASURE(`Active Devices`, GROUP BY ())"
+                      "expression": "MEASURE(`Active Devices`) / SUM(MEASURE(`Active Devices`)) OVER ()"
                     }
                   ],
                   "disaggregated": false
@@ -67,7 +75,22 @@
         }
       ],
       "pageType": "PAGE_TYPE_CANVAS",
-      "filters": []
+      "filters": [
+        {
+          "fieldName": "Event Date Time",
+          "displayName": "Event Date Time",
+          "type": "FILTER",
+          "isMandatory": false,
+          "isSingleValue": false
+        },
+        {
+          "fieldName": "Os Version",
+          "displayName": "Os Version",
+          "type": "FILTER",
+          "isMandatory": false,
+          "isSingleValue": false
+        }
+      ]
     }
   ],
   "uiSettings": {
