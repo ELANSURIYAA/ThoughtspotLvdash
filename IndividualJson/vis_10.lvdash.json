@@ -1,7 +1,7 @@
 {
   "datasets": [
     {
-      "name": "hpx_events_model_dataset",
+      "name": "hpx_events_dataset",
       "displayName": "HPX Events Model",
       "asset_name": "workspace.default.mv_hpx_events_model"
     }
@@ -18,10 +18,10 @@
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "hpx_events_model_dataset",
+                  "datasetName": "hpx_events_dataset",
                   "fields": [
                     {
-                      "name": "Active Devices",
+                      "name": "Active_Devices",
                       "expression": "MEASURE(`Active Devices`)"
                     }
                   ],
@@ -34,7 +34,7 @@
               "widgetType": "counter",
               "encodings": {
                 "value": {
-                  "fieldName": "Active Devices",
+                  "fieldName": "Active_Devices",
                   "displayName": "Active Devices",
                   "scale": { "type": "quantitative" }
                 }
@@ -45,11 +45,40 @@
               }
             }
           },
-          "position": { "x": 0, "y": 0, "width": 12, "height": 6 }
+          "position": { "x": 0, "y": 0, "width": 12, "height": 4 }
         }
       ],
       "pageType": "PAGE_TYPE_CANVAS",
-      "filters": []
+      "filters": [
+        {
+          "fieldName": "App Version",
+          "displayName": "App Version",
+          "type": "FILTER",
+          "isMandatory": false,
+          "isSingleValue": false
+        },
+        {
+          "fieldName": "Event Date Time",
+          "displayName": "Event Date Time",
+          "type": "FILTER",
+          "isMandatory": false,
+          "isSingleValue": false
+        },
+        {
+          "fieldName": "Pc Type",
+          "displayName": "PC Type",
+          "type": "FILTER",
+          "isMandatory": false,
+          "isSingleValue": false
+        },
+        {
+          "fieldName": "Geo Country Code",
+          "displayName": "Geo Country Code",
+          "type": "FILTER",
+          "isMandatory": false,
+          "isSingleValue": false
+        }
+      ]
     }
   ],
   "uiSettings": {
