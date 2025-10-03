@@ -2,13 +2,13 @@
   "datasets": [
     {
       "name": "hpx_events_dataset",
-      "displayName": "HPX Events Model",
+      "displayName": "HPX Events Dataset",
       "asset_name": "workspace.default.mv_hpx_events_model"
     }
   ],
   "pages": [
     {
-      "name": "country_active_devices_page",
+      "name": "active_devices_by_country_page",
       "displayName": "% Active Devices by Country (Top 10)",
       "layout": [
         {
@@ -26,14 +26,37 @@
                     },
                     {
                       "name": "% Active Devices by Country",
-                      "expression": "MEASURE(`Active Devices`) / MEASURE(`Active Devices`) OVER ()"
+                      "expression": "MEASURE(`Active Devices`) / MEASURE(`Active Devices`) OVER (PARTITION BY 1)"
                     },
                     {
                       "name": "MAU",
                       "expression": "MEASURE(`Active Devices`)"
                     }
                   ],
-                  "disaggregated": false
+                  "disaggregated": false,
+                  "filters": [
+                    {
+                      "fieldName": "App Version",
+                      "operator": "NOT_EQUAL",
+                      "values": ["not a store release", "other non-releases"]
+                    },
+                    {
+                      "fieldName": "Event Date Time",
+                      "operator": "GREATER_THAN_OR_EQUAL",
+                      "values": ["2023-05-01T00:00:00.000"]
+                    },
+                    {
+                      "fieldName": "Os Version",
+                      "operator": "NOT_NULL"
+                    }
+                  ],
+                  "limit": 10,
+                  "orderBy": [
+                    {
+                      "fieldName": "MAU",
+                      "direction": "DESC"
+                    }
+                  ]
                 }
               }
             ],
@@ -71,29 +94,7 @@
         }
       ],
       "pageType": "PAGE_TYPE_CANVAS",
-      "filters": [
-        {
-          "fieldName": "App Version",
-          "displayName": "App Version",
-          "type": "FILTER",
-          "isMandatory": false,
-          "isSingleValue": false
-        },
-        {
-          "fieldName": "Event Date Time",
-          "displayName": "Event Date Time",
-          "type": "FILTER",
-          "isMandatory": false,
-          "isSingleValue": false
-        },
-        {
-          "fieldName": "Os Version",
-          "displayName": "Os Version",
-          "type": "FILTER",
-          "isMandatory": false,
-          "isSingleValue": false
-        }
-      ]
+      "filters": []
     }
   ],
   "uiSettings": {
