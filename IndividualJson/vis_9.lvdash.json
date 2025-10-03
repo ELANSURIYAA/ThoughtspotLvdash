@@ -21,28 +21,24 @@
                   "datasetName": "hpx_retention_dataset",
                   "fields": [
                     {
-                      "name": "monthly_first_device_event_date_time",
+                      "name": "Monthly First Device Event Date Time",
                       "expression": "`Monthly First Device Event Date Time`"
                     },
                     {
-                      "name": "months_since_first_use",
+                      "name": "Months Since First Use",
                       "expression": "`Months Since First Use`"
                     },
                     {
-                      "name": "session_type",
+                      "name": "Session Type",
                       "expression": "`Session Type`"
                     },
                     {
-                      "name": "weeks_since_first_use",
-                      "expression": "`Weeks Since First Use`"
-                    },
-                    {
-                      "name": "active_devices",
+                      "name": "Active Devices",
                       "expression": "MEASURE(`Active Devices`)"
                     },
                     {
-                      "name": "devices_returning_pct",
-                      "expression": "MEASURE(`Active Devices`) / WINDOW_SUM(MEASURE(`Active Devices`), PARTITION BY [`Monthly First Device Event Date Time`])"
+                      "name": "% Devices Returning",
+                      "expression": "MEASURE(`Active Devices`) / WINDOW_AGGREGATE(MEASURE(`Active Devices`), PARTITION BY [`Monthly First Device Event Date Time`])"
                     }
                   ],
                   "disaggregated": false
@@ -55,62 +51,50 @@
               "encodings": {
                 "rows": [
                   {
-                    "fieldName": "monthly_first_device_event_date_time",
+                    "fieldName": "Monthly First Device Event Date Time",
                     "displayName": "Month(First Device Event Date Time)",
-                    "scale": {
-                      "type": "temporal"
-                    }
+                    "scale": { "type": "temporal" }
                   }
                 ],
                 "columns": [
                   {
-                    "fieldName": "months_since_first_use",
+                    "fieldName": "Months Since First Use",
                     "displayName": "Months Since First Use",
-                    "scale": {
-                      "type": "categorical"
-                    }
+                    "scale": { "type": "categorical" }
                   },
                   {
-                    "fieldName": "session_type",
+                    "fieldName": "Session Type",
                     "displayName": "Session Type",
-                    "scale": {
-                      "type": "categorical"
-                    }
+                    "scale": { "type": "categorical" }
                   }
                 ],
                 "values": [
                   {
-                    "fieldName": "devices_returning_pct",
+                    "fieldName": "% Devices Returning",
                     "displayName": "% Devices Returning",
-                    "format": {
-                      "type": "percent",
-                      "decimalPlaces": 1
-                    },
-                    "scale": {
-                      "type": "quantitative"
-                    }
+                    "scale": { "type": "quantitative" }
                   },
                   {
-                    "fieldName": "active_devices",
+                    "fieldName": "Active Devices",
                     "displayName": "Active Devices",
-                    "scale": {
-                      "type": "quantitative"
-                    }
+                    "scale": { "type": "quantitative" }
                   }
                 ]
               },
               "frame": {
-                "title": "HPX Retention - Cohort Graph",
+                "title": "HPX Retention Cohort Analysis",
                 "showTitle": true
+              },
+              "options": {
+                "showHeatmap": true,
+                "showRowTotals": false,
+                "showColumnTotals": false,
+                "showRowGrandTotals": false,
+                "showColumnGrandTotals": false
               }
             }
           },
-          "position": {
-            "x": 0,
-            "y": 0,
-            "width": 12,
-            "height": 8
-          }
+          "position": { "x": 0, "y": 0, "width": 12, "height": 8 }
         }
       ],
       "pageType": "PAGE_TYPE_CANVAS",
