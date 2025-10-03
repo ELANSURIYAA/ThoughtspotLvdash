@@ -13,7 +13,7 @@
       "layout": [
         {
           "widget": {
-            "name": "curr_trendline_widget",
+            "name": "hpx_curr_trendline_chart",
             "queries": [
               {
                 "name": "main_query",
@@ -21,11 +21,11 @@
                   "datasetName": "hpx_curr_dataset",
                   "fields": [
                     {
-                      "name": "Week Active",
+                      "name": "week_active",
                       "expression": "`Week Active`"
                     },
                     {
-                      "name": "Curr",
+                      "name": "curr_value",
                       "expression": "MEASURE(`Curr`)"
                     }
                   ],
@@ -38,12 +38,12 @@
               "widgetType": "line",
               "encodings": {
                 "x": {
-                  "fieldName": "Week Active",
+                  "fieldName": "week_active",
                   "displayName": "Week Active",
                   "scale": { "type": "temporal" }
                 },
                 "y": {
-                  "fieldName": "Curr",
+                  "fieldName": "curr_value",
                   "displayName": "CURR",
                   "scale": { "type": "quantitative" }
                 }
