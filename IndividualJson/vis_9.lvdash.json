@@ -21,7 +21,7 @@
                   "datasetName": "hpx_retention_dataset",
                   "fields": [
                     {
-                      "name": "monthly_first_device_event_date_time",
+                      "name": "monthly_first_device_event_date",
                       "expression": "`Monthly First Device Event Date Time`"
                     },
                     {
@@ -37,8 +37,8 @@
                       "expression": "MEASURE(`Active Devices`)"
                     },
                     {
-                      "name": "devices_returning_percentage",
-                      "expression": "MEASURE(`Active Devices`) / WINDOW_SUM(MEASURE(`Active Devices`)) OVER (PARTITION BY `Monthly First Device Event Date Time`)"
+                      "name": "percent_devices_returning",
+                      "expression": "MEASURE(`Active Devices`) / WINDOW_AGGREGATE(MEASURE(`Active Devices`), PARTITION BY `Monthly First Device Event Date Time`, ROWS UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING)"
                     }
                   ],
                   "disaggregated": false
@@ -51,40 +51,54 @@
               "encodings": {
                 "rows": [
                   {
-                    "fieldName": "monthly_first_device_event_date_time",
+                    "fieldName": "monthly_first_device_event_date",
                     "displayName": "Month(First Device Event Date Time)",
-                    "scale": { "type": "temporal" }
+                    "scale": {
+                      "type": "temporal"
+                    }
                   }
                 ],
                 "columns": [
                   {
                     "fieldName": "months_since_first_use",
                     "displayName": "Months Since First Use",
-                    "scale": { "type": "categorical" }
+                    "scale": {
+                      "type": "categorical"
+                    }
                   },
                   {
                     "fieldName": "session_type",
                     "displayName": "Session Type",
-                    "scale": { "type": "categorical" }
+                    "scale": {
+                      "type": "categorical"
+                    }
                   }
                 ],
                 "values": [
                   {
-                    "fieldName": "devices_returning_percentage",
+                    "fieldName": "percent_devices_returning",
                     "displayName": "% Devices Returning",
-                    "scale": { "type": "quantitative" },
-                    "format": { "type": "percentage", "decimals": 1 }
-                  },
-                  {
-                    "fieldName": "active_devices",
-                    "displayName": "Active Devices",
-                    "scale": { "type": "quantitative" }
+                    "scale": {
+                      "type": "quantitative"
+                    },
+                    "format": {
+                      "type": "percent",
+                      "precision": 1
+                    }
                   }
-                ]
+                ],
+                "color": {
+                  "fieldName": "percent_devices_returning",
+                  "displayName": "% Devices Returning",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                }
               },
               "frame": {
+                "title": "0.5 HPX Retention",
                 "showTitle": true,
-                "title": "HPX Retention Cohort Analysis"
+                "subtitle": "Cohort Graph"
               }
             }
           },
