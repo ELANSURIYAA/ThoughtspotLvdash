@@ -25,36 +25,36 @@
                       "expression": "`Control`"
                     },
                     {
-                      "name": "Daily Event Date",
+                      "name": "Daily_Event_Date",
                       "expression": "`Daily Event Date`"
                     },
                     {
-                      "name": "Total Clicks",
+                      "name": "Total_Clicks",
                       "expression": "MEASURE(`Total Clicks`)"
                     }
                   ],
+                  "disaggregated": false,
                   "filters": [
                     {
-                      "expression": "`Event Date Time` >= DATE '2023-05-01'"
-                    },
-                    {
-                      "expression": "`Control` NOT LIKE '%testid%'"
-                    },
-                    {
+                      "name": "ui_action_filter",
                       "expression": "`Ui Action` = 'onpress'"
                     },
                     {
-                      "expression": "`Control` != 'welcome core navigationviewitem id'"
+                      "name": "control_filter",
+                      "expression": "`Control` NOT LIKE '%testid%' AND `Control` != 'welcome core navigationviewitem id'"
+                    },
+                    {
+                      "name": "date_filter",
+                      "expression": "`Event Date Time` >= '2023-05-01'"
                     }
                   ],
                   "limit": 10,
                   "orderBy": [
                     {
-                      "expression": "MEASURE(`Total Clicks`)",
+                      "name": "Total_Clicks",
                       "direction": "DESC"
                     }
-                  ],
-                  "disaggregated": false
+                  ]
                 }
               }
             ],
@@ -63,19 +63,25 @@
               "widgetType": "bar",
               "encodings": {
                 "x": {
-                  "fieldName": "Daily Event Date",
+                  "fieldName": "Daily_Event_Date",
                   "displayName": "Daily Event Date",
-                  "scale": { "type": "temporal" }
+                  "scale": {
+                    "type": "temporal"
+                  }
                 },
                 "y": {
-                  "fieldName": "Total Clicks",
+                  "fieldName": "Total_Clicks",
                   "displayName": "Total Clicks",
-                  "scale": { "type": "quantitative" }
+                  "scale": {
+                    "type": "quantitative"
+                  }
                 },
                 "color": {
                   "fieldName": "Control",
                   "displayName": "Control",
-                  "scale": { "type": "categorical" }
+                  "scale": {
+                    "type": "categorical"
+                  }
                 }
               },
               "frame": {
@@ -84,7 +90,12 @@
               }
             }
           },
-          "position": { "x": 0, "y": 0, "width": 12, "height": 8 }
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 12,
+            "height": 8
+          }
         }
       ],
       "pageType": "PAGE_TYPE_CANVAS",
