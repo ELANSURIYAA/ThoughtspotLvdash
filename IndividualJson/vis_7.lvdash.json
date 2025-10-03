@@ -1,8 +1,8 @@
 {
   "datasets": [
     {
-      "name": "hpx_events_model_dataset",
-      "displayName": "HPX Events Model",
+      "name": "hpx_events_dataset",
+      "displayName": "HPX Events Dataset",
       "asset_name": "workspace.default.mv_hpx_events_model"
     }
   ],
@@ -18,7 +18,7 @@
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "hpx_events_model_dataset",
+                  "datasetName": "hpx_events_dataset",
                   "fields": [
                     {
                       "name": "Control",
@@ -29,14 +29,17 @@
                       "expression": "MEASURE(`Total Clicks`)"
                     }
                   ],
+                  "disaggregated": false,
                   "filters": [
                     {
-                      "name": "ui_action_filter",
-                      "expression": "`Ui Action` = 'onpress'"
+                      "fieldName": "Ui Action",
+                      "operator": "EQUAL",
+                      "values": ["onpress"]
                     },
                     {
-                      "name": "control_filter",
-                      "expression": "`Control` NOT LIKE '%testid%'"
+                      "fieldName": "Control",
+                      "operator": "NOT_CONTAINS",
+                      "values": ["testid"]
                     }
                   ],
                   "limit": 10,
@@ -45,8 +48,7 @@
                       "fieldName": "Total_Clicks",
                       "direction": "DESC"
                     }
-                  ],
-                  "disaggregated": false
+                  ]
                 }
               }
             ],
@@ -70,8 +72,8 @@
                 }
               },
               "frame": {
-                "showTitle": true,
-                "title": "Top On Press Events"
+                "title": "Top On Press Events",
+                "showTitle": true
               }
             }
           },
