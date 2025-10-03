@@ -21,11 +21,11 @@
                   "datasetName": "hpx_curr_dataset",
                   "fields": [
                     {
-                      "name": "Week Active",
+                      "name": "Week_Active",
                       "expression": "`Week Active`"
                     },
                     {
-                      "name": "Curr",
+                      "name": "Curr_Value",
                       "expression": "MEASURE(`Curr`)"
                     }
                   ],
@@ -38,18 +38,14 @@
               "widgetType": "line",
               "encodings": {
                 "x": {
-                  "fieldName": "Week Active",
+                  "fieldName": "Week_Active",
                   "displayName": "Week Active",
-                  "scale": {
-                    "type": "temporal"
-                  }
+                  "scale": { "type": "temporal" }
                 },
                 "y": {
-                  "fieldName": "Curr",
+                  "fieldName": "Curr_Value",
                   "displayName": "CURR",
-                  "scale": {
-                    "type": "quantitative"
-                  }
+                  "scale": { "type": "quantitative" }
                 }
               },
               "frame": {
@@ -58,12 +54,7 @@
               }
             }
           },
-          "position": {
-            "x": 0,
-            "y": 0,
-            "width": 12,
-            "height": 8
-          }
+          "position": { "x": 0, "y": 0, "width": 12, "height": 8 }
         }
       ],
       "pageType": "PAGE_TYPE_CANVAS",
