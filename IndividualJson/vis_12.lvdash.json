@@ -13,7 +13,7 @@
       "layout": [
         {
           "widget": {
-            "name": "hpx_curr_table_widget",
+            "name": "curr_line_chart",
             "queries": [
               {
                 "name": "main_query",
@@ -25,20 +25,20 @@
                       "expression": "`Weekly Week Active`"
                     },
                     {
-                      "name": "Last Week Users T7t13",
-                      "expression": "MEASURE(`Total Last Week Users T7t13`)"
-                    },
-                    {
-                      "name": "This Week Users T0t6",
-                      "expression": "MEASURE(`Total This Week Users T0t6`)"
+                      "name": "CURR",
+                      "expression": "MEASURE(`Curr`)"
                     },
                     {
                       "name": "Previous Week Users T14t20",
                       "expression": "MEASURE(`Total Previous Week Users T14t20`)"
                     },
                     {
-                      "name": "CURR",
-                      "expression": "MEASURE(`Curr`)"
+                      "name": "Last Week Users T7t13",
+                      "expression": "MEASURE(`Total Last Week Users T7t13`)"
+                    },
+                    {
+                      "name": "This Week Users T0t6",
+                      "expression": "MEASURE(`Total This Week Users T0t6`)"
                     }
                   ],
                   "disaggregated": false
@@ -47,48 +47,41 @@
             ],
             "spec": {
               "version": 3,
-              "widgetType": "table",
+              "widgetType": "line",
               "encodings": {
-                "columns": [
-                  {
-                    "fieldName": "Week",
-                    "displayName": "Week",
-                    "scale": {
-                      "type": "temporal"
-                    }
-                  },
-                  {
-                    "fieldName": "Last Week Users T7t13",
-                    "displayName": "Last Week Users T7t13",
-                    "scale": {
-                      "type": "quantitative"
-                    }
-                  },
-                  {
-                    "fieldName": "This Week Users T0t6",
-                    "displayName": "This Week Users T0t6",
-                    "scale": {
-                      "type": "quantitative"
-                    }
-                  },
-                  {
-                    "fieldName": "Previous Week Users T14t20",
-                    "displayName": "Previous Week Users T14t20",
-                    "scale": {
-                      "type": "quantitative"
-                    }
-                  },
-                  {
-                    "fieldName": "CURR",
-                    "displayName": "CURR",
-                    "scale": {
-                      "type": "quantitative"
-                    }
+                "x": {
+                  "fieldName": "Week",
+                  "displayName": "Week",
+                  "scale": {
+                    "type": "temporal"
                   }
-                ]
+                },
+                "y": {
+                  "fields": [
+                    {
+                      "fieldName": "CURR",
+                      "displayName": "CURR"
+                    },
+                    {
+                      "fieldName": "Previous Week Users T14t20",
+                      "displayName": "Previous Week Users T14t20"
+                    },
+                    {
+                      "fieldName": "Last Week Users T7t13",
+                      "displayName": "Last Week Users T7t13"
+                    },
+                    {
+                      "fieldName": "This Week Users T0t6",
+                      "displayName": "This Week Users T0t6"
+                    }
+                  ],
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                }
               },
               "frame": {
-                "title": "% Devices active in the previous week t14t20, last week t7t13 and this week t0t6",
+                "title": "HPX CURR - % Devices active in different time periods",
                 "showTitle": true
               }
             }
