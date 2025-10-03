@@ -25,6 +25,22 @@
                       "expression": "`Home Tile`"
                     },
                     {
+                      "name": "Unique Tile Views",
+                      "expression": "MEASURE(`Total Unique Tile Views`)"
+                    },
+                    {
+                      "name": "Unique Tile Clicks",
+                      "expression": "MEASURE(`Total Unique Tile Clicks`)"
+                    },
+                    {
+                      "name": "Unique Interstitial Views",
+                      "expression": "MEASURE(`Total Unique Interstitial Views`)"
+                    },
+                    {
+                      "name": "Unique Interstitial Secondary Button Clicks",
+                      "expression": "MEASURE(`Total Unique Interstitial Secondary Button Clicks`)"
+                    },
+                    {
                       "name": "Secondary Button CTR",
                       "expression": "MEASURE(`Total Unique Interstitial Secondary Button Clicks`) / MEASURE(`Total Unique Interstitial Views`)"
                     }
@@ -37,24 +53,16 @@
               "version": 3,
               "widgetType": "counter",
               "encodings": {
-                "value": {
-                  "fieldName": "Secondary Button CTR",
-                  "displayName": "% Secondary Button Clicked Vs Interstitial Displayed",
-                  "scale": {
-                    "type": "quantitative"
-                  },
-                  "format": {
-                    "type": "percent",
-                    "decimalPlaces": 1
+                "values": [
+                  {
+                    "fieldName": "Secondary Button CTR",
+                    "displayName": "Secondary Button CTR",
+                    "format": {
+                      "type": "percent",
+                      "decimalPlaces": 1
+                    }
                   }
-                },
-                "category": {
-                  "fieldName": "Home Tile",
-                  "displayName": "Home Tile",
-                  "scale": {
-                    "type": "categorical"
-                  }
-                }
+                ]
               },
               "frame": {
                 "showTitle": true,
