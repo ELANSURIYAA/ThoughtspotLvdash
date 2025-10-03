@@ -22,7 +22,7 @@
                   "fields": [
                     {
                       "name": "Monthly Event Date",
-                      "expression": "DATE_TRUNC('MONTH', `Event Date Time`)"
+                      "expression": "`Monthly Event Date`"
                     },
                     {
                       "name": "Screen",
@@ -36,21 +36,25 @@
                   "filters": [
                     {
                       "name": "screen_filter",
-                      "expression": "`Screen` != 'home' AND `Screen` != 'welcome' AND `Screen` != 'welcomecontainer' AND `Screen` != 'welcome-core' AND `Screen` != 'support' AND `Ui Action` = 'screendisplayed'"
+                      "expression": "`Screen` != 'home' AND `Screen` != 'welcome' AND `Screen` != 'welcomecontainer' AND `Screen` != 'welcome-core' AND `Screen` != 'support'"
+                    },
+                    {
+                      "name": "ui_action_filter",
+                      "expression": "`Ui Action` = 'screendisplayed'"
                     },
                     {
                       "name": "date_filter",
                       "expression": "`Event Date Time` >= '2023-05-01'"
                     }
                   ],
+                  "disaggregated": false,
                   "limit": 10,
                   "orderBy": [
                     {
-                      "name": "Unique Screen Views",
+                      "fieldName": "Unique Screen Views",
                       "direction": "DESC"
                     }
-                  ],
-                  "disaggregated": false
+                  ]
                 }
               }
             ],
