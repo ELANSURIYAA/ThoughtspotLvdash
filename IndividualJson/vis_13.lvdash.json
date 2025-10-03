@@ -21,27 +21,27 @@
                   "datasetName": "hpx_first_use_behavior_flow_dataset",
                   "fields": [
                     {
-                      "name": "Screen 1",
+                      "name": "Screen_1",
                       "expression": "`Screen 1`"
                     },
                     {
-                      "name": "Screen 2",
+                      "name": "Screen_2",
                       "expression": "`Screen 2`"
                     },
                     {
-                      "name": "Screen 3",
+                      "name": "Screen_3",
                       "expression": "`Screen 3`"
                     },
                     {
-                      "name": "Screen 4",
+                      "name": "Screen_4",
                       "expression": "`Screen 4`"
                     },
                     {
-                      "name": "Screen 5",
+                      "name": "Screen_5",
                       "expression": "`Screen 5`"
                     },
                     {
-                      "name": "Total Devices",
+                      "name": "Total_Devices",
                       "expression": "MEASURE(`Total Devices`)"
                     }
                   ],
@@ -54,28 +54,28 @@
               "widgetType": "sankey",
               "encodings": {
                 "value": {
-                  "fieldName": "Total Devices",
+                  "fieldName": "Total_Devices",
                   "displayName": "Total Devices"
                 },
                 "stages": [
                   {
-                    "fieldName": "Screen 1",
+                    "fieldName": "Screen_1",
                     "displayName": "Screen 1"
                   },
                   {
-                    "fieldName": "Screen 2",
+                    "fieldName": "Screen_2",
                     "displayName": "Screen 2"
                   },
                   {
-                    "fieldName": "Screen 3",
+                    "fieldName": "Screen_3",
                     "displayName": "Screen 3"
                   },
                   {
-                    "fieldName": "Screen 4",
+                    "fieldName": "Screen_4",
                     "displayName": "Screen 4"
                   },
                   {
-                    "fieldName": "Screen 5",
+                    "fieldName": "Screen_5",
                     "displayName": "Screen 5"
                   }
                 ]
@@ -95,15 +95,7 @@
         }
       ],
       "pageType": "PAGE_TYPE_CANVAS",
-      "filters": [
-        {
-          "fieldName": "Date",
-          "displayName": "Date",
-          "type": "FILTER",
-          "isMandatory": false,
-          "isSingleValue": false
-        }
-      ]
+      "filters": []
     }
   ],
   "uiSettings": {
