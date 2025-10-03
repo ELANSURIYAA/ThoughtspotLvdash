@@ -2,7 +2,7 @@
   "datasets": [
     {
       "name": "homepage_summary_dataset",
-      "displayName": "Home Tile Views Dataset",
+      "displayName": "Home Tile Views",
       "asset_name": "workspace.default.mv_hpx_homepage_summary"
     }
   ],
