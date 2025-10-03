@@ -2,7 +2,7 @@
   "datasets": [
     {
       "name": "homepage_summary_dataset",
-      "displayName": "Home Tile Secondary CTR",
+      "displayName": "Homepage Summary Dataset",
       "asset_name": "workspace.default.mv_hpx_homepage_summary"
     }
   ],
@@ -25,26 +25,6 @@
                       "expression": "`Home Tile`"
                     },
                     {
-                      "name": "Unique Tile Views",
-                      "expression": "MEASURE(`Total Unique Tile Views`)"
-                    },
-                    {
-                      "name": "Unique Tile Clicks",
-                      "expression": "MEASURE(`Total Unique Tile Clicks`)"
-                    },
-                    {
-                      "name": "Unique Interstitial Views",
-                      "expression": "MEASURE(`Total Unique Interstitial Views`)"
-                    },
-                    {
-                      "name": "Unique Interstitial Primary Button Clicks",
-                      "expression": "MEASURE(`Total Unique Interstitial Primary Button Clicks`)"
-                    },
-                    {
-                      "name": "Unique Interstitial Secondary Button Clicks",
-                      "expression": "MEASURE(`Total Unique Interstitial Secondary Button Clicks`)"
-                    },
-                    {
                       "name": "Secondary Button CTR",
                       "expression": "MEASURE(`Total Unique Interstitial Secondary Button Clicks`) / MEASURE(`Total Unique Interstitial Views`)"
                     }
@@ -59,13 +39,16 @@
               "encodings": {
                 "value": {
                   "fieldName": "Secondary Button CTR",
-                  "displayName": "Secondary Button CTR",
+                  "displayName": "% Secondary Button Clicked Vs Interstitial Displayed",
                   "format": {
                     "type": "percent",
                     "decimalPlaces": 1
+                  },
+                  "scale": {
+                    "type": "quantitative"
                   }
                 },
-                "color": {
+                "category": {
                   "fieldName": "Home Tile",
                   "displayName": "Home Tile",
                   "scale": {
