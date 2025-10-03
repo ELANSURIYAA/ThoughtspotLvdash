@@ -1,7 +1,7 @@
 {
   "datasets": [
     {
-      "name": "hpx_events_model_dataset",
+      "name": "hpx_events_dataset",
       "displayName": "HPX Events Model",
       "asset_name": "workspace.default.mv_hpx_events_model"
     }
@@ -13,12 +13,12 @@
       "layout": [
         {
           "widget": {
-            "name": "new_version_adoption_chart",
+            "name": "version_adoption_line_chart",
             "queries": [
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "hpx_events_model_dataset",
+                  "datasetName": "hpx_events_dataset",
                   "fields": [
                     {
                       "name": "Daily Event Date",
@@ -34,7 +34,7 @@
                     },
                     {
                       "name": "% Active Devices",
-                      "expression": "MEASURE(`Active Devices`) / SUM(MEASURE(`Active Devices`)) OVER (PARTITION BY `Daily Event Date`)"
+                      "expression": "MEASURE(`Active Devices`) / WINDOW_SUM(MEASURE(`Active Devices`), PARTITION BY [`Daily Event Date`])"
                     }
                   ],
                   "disaggregated": false
@@ -48,17 +48,23 @@
                 "x": {
                   "fieldName": "Daily Event Date",
                   "displayName": "Daily Event Date",
-                  "scale": { "type": "temporal" }
+                  "scale": {
+                    "type": "temporal"
+                  }
                 },
                 "y": {
                   "fieldName": "% Active Devices",
                   "displayName": "% Active Devices",
-                  "scale": { "type": "quantitative" }
+                  "scale": {
+                    "type": "quantitative"
+                  }
                 },
                 "color": {
                   "fieldName": "App Version",
                   "displayName": "App Version",
-                  "scale": { "type": "categorical" }
+                  "scale": {
+                    "type": "categorical"
+                  }
                 }
               },
               "frame": {
@@ -67,7 +73,12 @@
               }
             }
           },
-          "position": { "x": 0, "y": 0, "width": 12, "height": 8 }
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 12,
+            "height": 8
+          }
         }
       ],
       "pageType": "PAGE_TYPE_CANVAS",
