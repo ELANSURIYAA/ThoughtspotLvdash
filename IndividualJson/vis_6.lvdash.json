@@ -1,7 +1,7 @@
 {
   "datasets": [
     {
-      "name": "hpx_events_dataset",
+      "name": "hpx_events_model_dataset",
       "displayName": "HPX Events Model",
       "asset_name": "workspace.default.mv_hpx_events_model"
     }
@@ -13,12 +13,12 @@
       "layout": [
         {
           "widget": {
-            "name": "top_unique_screen_views_widget",
+            "name": "top_unique_screen_views_chart",
             "queries": [
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "hpx_events_dataset",
+                  "datasetName": "hpx_events_model_dataset",
                   "fields": [
                     {
                       "name": "Screen",
@@ -35,19 +35,18 @@
                       "expression": "`Ui Action` = 'screendisplayed'"
                     },
                     {
-                      "name": "screen_filter",
-                      "expression": "`Screen` != 'home' AND `Screen` != 'support' AND `Screen` != 'welcome' AND `Screen` != 'welcome-core' AND `Screen` != 'welcomeContainer' AND `Screen` IS NOT NULL"
+                      "name": "event_date_filter",
+                      "expression": "`Event Date Time` >= '2023-05-01'"
                     },
                     {
-                      "name": "date_filter",
-                      "expression": "`Event Date Time` >= '2023-05-01'"
+                      "name": "screen_exclusion_filter",
+                      "expression": "`Screen` != 'home' AND `Screen` != 'support' AND `Screen` != 'welcome' AND `Screen` != 'welcome-core' AND `Screen` != 'welcomeContainer' AND `Screen` IS NOT NULL"
                     }
                   ],
                   "limit": 10,
-                  "sorts": [
+                  "orderBy": [
                     {
-                      "name": "sort_by_views",
-                      "expression": "MEASURE(`Unique Screen Views`)",
+                      "fieldName": "Unique_Screen_Views",
                       "direction": "DESC"
                     }
                   ],
