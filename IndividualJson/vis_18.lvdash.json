@@ -1,8 +1,8 @@
 {
   "datasets": [
     {
-      "name": "hpx_homepage_summary_dataset",
-      "displayName": "HPX Homepage Summary",
+      "name": "homepage_summary_dataset",
+      "displayName": "Home Tile Primary CTR Dataset",
       "asset_name": "workspace.default.mv_hpx_homepage_summary"
     }
   ],
@@ -18,26 +18,26 @@
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "hpx_homepage_summary_dataset",
+                  "datasetName": "homepage_summary_dataset",
                   "fields": [
                     {
                       "name": "Home Tile",
                       "expression": "`Home Tile`"
                     },
                     {
-                      "name": "Unique Tile Views",
+                      "name": "Total Unique Tile Views",
                       "expression": "MEASURE(`Total Unique Tile Views`)"
                     },
                     {
-                      "name": "Unique Tile Clicks",
+                      "name": "Total Unique Tile Clicks",
                       "expression": "MEASURE(`Total Unique Tile Clicks`)"
                     },
                     {
-                      "name": "Unique Interstitial Views",
+                      "name": "Total Unique Interstitial Views",
                       "expression": "MEASURE(`Total Unique Interstitial Views`)"
                     },
                     {
-                      "name": "Unique Interstitial Primary Button Clicks",
+                      "name": "Total Unique Interstitial Primary Button Clicks",
                       "expression": "MEASURE(`Total Unique Interstitial Primary Button Clicks`)"
                     },
                     {
@@ -57,18 +57,10 @@
                   {
                     "fieldName": "Primary Button CTR",
                     "displayName": "Primary Button CTR",
-                    "numberFormat": {
-                      "unit": "PERCENT",
-                      "precision": 1
+                    "format": {
+                      "type": "percent",
+                      "decimalPlaces": 1
                     }
-                  },
-                  {
-                    "fieldName": "Unique Interstitial Primary Button Clicks",
-                    "displayName": "Primary Button Clicks"
-                  },
-                  {
-                    "fieldName": "Unique Interstitial Views",
-                    "displayName": "Interstitial Views"
                   }
                 ]
               },
