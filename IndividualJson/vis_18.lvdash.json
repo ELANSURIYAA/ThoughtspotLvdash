@@ -8,12 +8,12 @@
   ],
   "pages": [
     {
-      "name": "home_tile_ctr_page",
+      "name": "home_tile_primary_ctr_page",
       "displayName": "Home Tile Primary CTR",
       "layout": [
         {
           "widget": {
-            "name": "home_tile_ctr_widget",
+            "name": "home_tile_primary_ctr_widget",
             "queries": [
               {
                 "name": "main_query",
@@ -41,35 +41,7 @@
                       "expression": "MEASURE(`Total Unique Interstitial Primary Button Clicks`)"
                     },
                     {
-                      "name": "Unique Interstitial Secondary Button Clicks",
-                      "expression": "MEASURE(`Total Unique Interstitial Secondary Button Clicks`)"
-                    },
-                    {
-                      "name": "Home Tile Clicked Vs Homepage Displayed",
-                      "expression": "MEASURE(`Total Home Tile Clicked Vs Homepage Displayed`)"
-                    },
-                    {
-                      "name": "Primary Button Clicked Vs Tile Displayed",
-                      "expression": "MEASURE(`Total Primary Button Clicked Vs Tile Displayed`)"
-                    },
-                    {
-                      "name": "Secondary Button Clicked Vs Tile Displayed",
-                      "expression": "MEASURE(`Total Secondary Button Clicked Vs Tile Displayed`)"
-                    },
-                    {
-                      "name": "Primary Button Clicked Vs Interstitial Displayed",
-                      "expression": "MEASURE(`Total Primary Button Clicked Vs Interstitial Displayed`)"
-                    },
-                    {
-                      "name": "Secondary Button Clicked Vs Interstitial Displayed",
-                      "expression": "MEASURE(`Total Secondary Button Clicked Vs Interstitial Displayed`)"
-                    },
-                    {
-                      "name": "CTR",
-                      "expression": "MEASURE(`Total Unique Tile Clicks`) / MEASURE(`Total Unique Tile Views`)"
-                    },
-                    {
-                      "name": "CTR CTA1",
+                      "name": "Primary CTR",
                       "expression": "MEASURE(`Total Unique Interstitial Primary Button Clicks`) / MEASURE(`Total Unique Interstitial Views`)"
                     }
                   ],
@@ -83,12 +55,20 @@
               "encodings": {
                 "values": [
                   {
-                    "fieldName": "CTR CTA1",
+                    "fieldName": "Primary CTR",
                     "displayName": "Primary Button CTR",
                     "numberFormat": {
                       "unit": "PERCENT",
                       "precision": 1
                     }
+                  },
+                  {
+                    "fieldName": "Unique Interstitial Primary Button Clicks",
+                    "displayName": "Primary Button Clicks"
+                  },
+                  {
+                    "fieldName": "Unique Interstitial Views",
+                    "displayName": "Interstitial Views"
                   }
                 ]
               },
