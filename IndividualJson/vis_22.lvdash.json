@@ -8,7 +8,7 @@
   ],
   "pages": [
     {
-      "name": "hpx_new_version_adoption_page",
+      "name": "hpx_new_version_adoption",
       "displayName": "HPX New Version Adoption",
       "layout": [
         {
@@ -34,7 +34,7 @@
                     },
                     {
                       "name": "% Active Devices",
-                      "expression": "MEASURE(`Active Devices`) / WINDOW_SUM(MEASURE(`Active Devices`), PARTITION BY [`Daily Event Date`])"
+                      "expression": "MEASURE(`Active Devices`) / SUM(MEASURE(`Active Devices`)) OVER (PARTITION BY `Daily Event Date`)"
                     }
                   ],
                   "disaggregated": false
