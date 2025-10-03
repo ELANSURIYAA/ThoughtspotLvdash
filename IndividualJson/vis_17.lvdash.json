@@ -80,7 +80,7 @@
                 "values": [
                   {
                     "fieldName": "CTR",
-                    "displayName": "Click-Through Rate",
+                    "displayName": "Home Tile CTR",
                     "format": {
                       "type": "percent",
                       "decimalPlaces": 2
