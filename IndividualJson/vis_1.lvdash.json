@@ -1,7 +1,7 @@
 {
   "datasets": [
     {
-      "name": "hpx_events_model_dataset",
+      "name": "hpx_events_dataset",
       "displayName": "HPX Events Model",
       "asset_name": "workspace.default.mv_hpx_events_model"
     }
@@ -18,14 +18,14 @@
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "hpx_events_model_dataset",
+                  "datasetName": "hpx_events_dataset",
                   "fields": [
                     {
-                      "name": "daily_event_date",
-                      "expression": "DATE_TRUNC('DAY', `Event Date Time`)"
+                      "name": "Daily Event Date",
+                      "expression": "`Daily Event Date`"
                     },
                     {
-                      "name": "active_devices",
+                      "name": "Active Devices",
                       "expression": "MEASURE(`Active Devices`)"
                     }
                   ],
@@ -38,32 +38,23 @@
               "widgetType": "line",
               "encodings": {
                 "x": {
-                  "fieldName": "daily_event_date",
+                  "fieldName": "Daily Event Date",
                   "displayName": "Daily Event Date",
-                  "scale": {
-                    "type": "temporal"
-                  }
+                  "scale": { "type": "temporal" }
                 },
                 "y": {
-                  "fieldName": "active_devices",
+                  "fieldName": "Active Devices",
                   "displayName": "Active Devices",
-                  "scale": {
-                    "type": "quantitative"
-                  }
+                  "scale": { "type": "quantitative" }
                 }
               },
               "frame": {
-                "showTitle": true,
-                "title": "Active Devices"
+                "title": "Active Devices",
+                "showTitle": true
               }
             }
           },
-          "position": {
-            "x": 0,
-            "y": 0,
-            "width": 12,
-            "height": 8
-          }
+          "position": { "x": 0, "y": 0, "width": 12, "height": 8 }
         }
       ],
       "pageType": "PAGE_TYPE_CANVAS",
