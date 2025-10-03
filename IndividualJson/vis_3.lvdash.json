@@ -8,12 +8,12 @@
   ],
   "pages": [
     {
-      "name": "new_devices_by_country",
+      "name": "new_devices_by_country_page",
       "displayName": "New Devices by Top 10 Countries",
       "layout": [
         {
           "widget": {
-            "name": "new_devices_by_country_pie",
+            "name": "new_devices_by_country_chart",
             "queries": [
               {
                 "name": "main_query",
@@ -27,16 +27,6 @@
                     {
                       "name": "New Devices",
                       "expression": "MEASURE(`New Devices`)"
-                    },
-                    {
-                      "name": "rank",
-                      "expression": "RANK() OVER (ORDER BY MEASURE(`New Devices`) DESC)"
-                    }
-                  ],
-                  "filters": [
-                    {
-                      "name": "top_countries",
-                      "expression": "rank <= 10"
                     }
                   ],
                   "disaggregated": false
@@ -47,19 +37,15 @@
               "version": 3,
               "widgetType": "pie",
               "encodings": {
-                "color": {
-                  "fieldName": "Geo Country Code",
-                  "displayName": "Country",
-                  "scale": {
-                    "type": "categorical"
-                  }
-                },
                 "angle": {
                   "fieldName": "New Devices",
                   "displayName": "New Devices",
-                  "scale": {
-                    "type": "quantitative"
-                  }
+                  "scale": { "type": "quantitative" }
+                },
+                "color": {
+                  "fieldName": "Geo Country Code",
+                  "displayName": "Country",
+                  "scale": { "type": "categorical" }
                 }
               },
               "frame": {
@@ -68,12 +54,7 @@
               }
             }
           },
-          "position": {
-            "x": 0,
-            "y": 0,
-            "width": 12,
-            "height": 8
-          }
+          "position": { "x": 0, "y": 0, "width": 12, "height": 8 }
         }
       ],
       "pageType": "PAGE_TYPE_CANVAS",
