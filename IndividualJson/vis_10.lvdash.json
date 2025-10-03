@@ -13,7 +13,7 @@
       "layout": [
         {
           "widget": {
-            "name": "total_consented_devices_widget",
+            "name": "total_consented_devices_kpi",
             "queries": [
               {
                 "name": "main_query",
@@ -35,50 +35,25 @@
               "encodings": {
                 "value": {
                   "fieldName": "Active_Devices",
-                  "displayName": "Active Devices",
-                  "scale": { "type": "quantitative" }
+                  "displayName": "Active Devices"
                 }
               },
               "frame": {
-                "title": "Total Consented Devices",
-                "showTitle": true
+                "showTitle": true,
+                "title": "Total Consented Devices"
               }
             }
           },
-          "position": { "x": 0, "y": 0, "width": 12, "height": 4 }
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 6,
+            "height": 4
+          }
         }
       ],
       "pageType": "PAGE_TYPE_CANVAS",
-      "filters": [
-        {
-          "fieldName": "App Version",
-          "displayName": "App Version",
-          "type": "FILTER",
-          "isMandatory": false,
-          "isSingleValue": false
-        },
-        {
-          "fieldName": "Event Date Time",
-          "displayName": "Event Date Time",
-          "type": "FILTER",
-          "isMandatory": false,
-          "isSingleValue": false
-        },
-        {
-          "fieldName": "Pc Type",
-          "displayName": "PC Type",
-          "type": "FILTER",
-          "isMandatory": false,
-          "isSingleValue": false
-        },
-        {
-          "fieldName": "Geo Country Code",
-          "displayName": "Geo Country Code",
-          "type": "FILTER",
-          "isMandatory": false,
-          "isSingleValue": false
-        }
-      ]
+      "filters": []
     }
   ],
   "uiSettings": {
