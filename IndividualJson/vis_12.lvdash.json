@@ -53,27 +53,37 @@
                   {
                     "fieldName": "Week",
                     "displayName": "Week",
-                    "scale": { "type": "temporal" }
+                    "scale": {
+                      "type": "temporal"
+                    }
                   },
                   {
                     "fieldName": "Previous Week Users T14t20",
                     "displayName": "Previous Week Users T14t20",
-                    "scale": { "type": "quantitative" }
+                    "scale": {
+                      "type": "quantitative"
+                    }
                   },
                   {
                     "fieldName": "Last Week Users T7t13",
                     "displayName": "Last Week Users T7t13",
-                    "scale": { "type": "quantitative" }
+                    "scale": {
+                      "type": "quantitative"
+                    }
                   },
                   {
                     "fieldName": "This Week Users T0t6",
                     "displayName": "This Week Users T0t6",
-                    "scale": { "type": "quantitative" }
+                    "scale": {
+                      "type": "quantitative"
+                    }
                   },
                   {
                     "fieldName": "CURR",
                     "displayName": "CURR",
-                    "scale": { "type": "quantitative" }
+                    "scale": {
+                      "type": "quantitative"
+                    }
                   }
                 ]
               },
@@ -83,11 +93,15 @@
               }
             }
           },
-          "position": { "x": 0, "y": 0, "width": 12, "height": 8 }
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 12,
+            "height": 8
+          }
         }
       ],
-      "pageType": "PAGE_TYPE_CANVAS",
-      "filters": []
+      "pageType": "PAGE_TYPE_CANVAS"
     }
   ],
   "uiSettings": {

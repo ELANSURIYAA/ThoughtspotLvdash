@@ -80,8 +80,7 @@
           }
         }
       ],
-      "pageType": "PAGE_TYPE_CANVAS",
-      "filters": []
+      "pageType": "PAGE_TYPE_CANVAS"
     }
   ],
   "uiSettings": {

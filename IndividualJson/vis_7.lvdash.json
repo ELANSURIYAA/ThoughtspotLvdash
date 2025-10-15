@@ -37,13 +37,6 @@
                       "expression": "`Ui Action` = 'onpress'"
                     }
                   ],
-                  "limit": 10,
-                  "orderBy": [
-                    {
-                      "fieldName": "Total_Clicks",
-                      "direction": "DESC"
-                    }
-                  ],
                   "disaggregated": false
                 }
               }
@@ -81,8 +74,7 @@
           }
         }
       ],
-      "pageType": "PAGE_TYPE_CANVAS",
-      "filters": []
+      "pageType": "PAGE_TYPE_CANVAS"
     }
   ],
   "uiSettings": {

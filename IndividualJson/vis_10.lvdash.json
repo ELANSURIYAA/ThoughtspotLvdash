@@ -36,7 +36,9 @@
                 "value": {
                   "fieldName": "Active Devices",
                   "displayName": "Active Devices",
-                  "scale": { "type": "quantitative" }
+                  "scale": {
+                    "type": "quantitative"
+                  }
                 }
               },
               "frame": {
@@ -45,40 +47,15 @@
               }
             }
           },
-          "position": { "x": 0, "y": 0, "width": 12, "height": 6 }
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 12,
+            "height": 6
+          }
         }
       ],
-      "pageType": "PAGE_TYPE_CANVAS",
-      "filters": [
-        {
-          "fieldName": "App Version",
-          "displayName": "App Version",
-          "type": "FILTER",
-          "isMandatory": false,
-          "isSingleValue": false
-        },
-        {
-          "fieldName": "Event Date Time",
-          "displayName": "Event Date Time",
-          "type": "FILTER",
-          "isMandatory": false,
-          "isSingleValue": false
-        },
-        {
-          "fieldName": "Pc Type",
-          "displayName": "PC Type",
-          "type": "FILTER",
-          "isMandatory": false,
-          "isSingleValue": false
-        },
-        {
-          "fieldName": "Geo Country Code",
-          "displayName": "Geo Country Code",
-          "type": "FILTER",
-          "isMandatory": false,
-          "isSingleValue": false
-        }
-      ]
+      "pageType": "PAGE_TYPE_CANVAS"
     }
   ],
   "uiSettings": {

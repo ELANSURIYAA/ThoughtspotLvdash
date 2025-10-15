@@ -1,32 +1,33 @@
+# Databricks notebook source
 {
   "datasets": [
     {
-      "name": "hpx_curr_dataset",
-      "displayName": "HPX CURR Dataset",
-      "asset_name": "workspace.default.mv_hpx_curr"
+      "name": "hpx_metric_view",
+      "displayName": "HPX Metric View",
+      "asset_name": "workspace.default.hpx_metric_view"
     }
   ],
   "pages": [
     {
-      "name": "hpx_curr_trendline_page",
-      "displayName": "HPX CURR - Trendline",
+      "name": "executive_summary",
+      "displayName": "Executive Summary",
       "layout": [
         {
           "widget": {
-            "name": "curr_trendline_widget",
+            "name": "widget_11",
             "queries": [
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "hpx_curr_dataset",
+                  "datasetName": "hpx_metric_view",
                   "fields": [
                     {
-                      "name": "Week_Active",
-                      "expression": "`Week Active`"
+                      "name": "month",
+                      "expression": "DATE_TRUNC(\"MONTH\", `Date`)"
                     },
                     {
-                      "name": "CURR",
-                      "expression": "MEASURE(`Curr`)"
+                      "name": "total_active_devices",
+                      "expression": "MEASURE(`Active Devices`)"
                     }
                   ],
                   "disaggregated": false
@@ -38,23 +39,23 @@
               "widgetType": "line",
               "encodings": {
                 "x": {
-                  "fieldName": "Week_Active",
-                  "displayName": "Week Active",
+                  "fieldName": "month",
+                  "displayName": "Month",
                   "scale": {
                     "type": "temporal"
                   }
                 },
                 "y": {
-                  "fieldName": "CURR",
-                  "displayName": "CURR",
+                  "fieldName": "total_active_devices",
+                  "displayName": "Total Active Devices",
                   "scale": {
                     "type": "quantitative"
                   }
                 }
               },
               "frame": {
-                "title": "% Devices active in the previous week t14t20, last week t7t13 and this week t0t6",
-                "showTitle": true
+                "showTitle": true,
+                "title": "Monthly Active Devices"
               }
             }
           },
@@ -66,7 +67,16 @@
           }
         }
       ],
-      "pageType": "PAGE_TYPE_CANVAS"
+      "pageType": "PAGE_TYPE_CANVAS",
+      "filters": [
+        {
+          "fieldName": "Date",
+          "displayName": "Date",
+          "type": "FILTER",
+          "isMandatory": false,
+          "isSingleValue": false
+        }
+      ]
     }
   ],
   "uiSettings": {

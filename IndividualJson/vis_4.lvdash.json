@@ -33,7 +33,6 @@
                       "expression": "MEASURE(`Total Clicks`)"
                     }
                   ],
-                  "disaggregated": false,
                   "filters": [
                     {
                       "expression": "`Ui Action` = 'onpress'"
@@ -48,13 +47,7 @@
                       "expression": "`Event Date Time` >= '2023-05-01'"
                     }
                   ],
-                  "limit": 10,
-                  "orderBy": [
-                    {
-                      "fieldName": "Total Clicks",
-                      "direction": "DESC"
-                    }
-                  ]
+                  "disaggregated": false
                 }
               }
             ],
@@ -98,8 +91,7 @@
           }
         }
       ],
-      "pageType": "PAGE_TYPE_CANVAS",
-      "filters": []
+      "pageType": "PAGE_TYPE_CANVAS"
     }
   ],
   "uiSettings": {

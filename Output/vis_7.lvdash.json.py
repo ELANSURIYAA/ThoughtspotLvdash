@@ -1,32 +1,33 @@
+# Databricks notebook source
 {
   "datasets": [
     {
-      "name": "hpx_curr_dataset",
-      "displayName": "HPX CURR Dataset",
-      "asset_name": "workspace.default.mv_hpx_curr"
+      "name": "dataset_7",
+      "displayName": "HPX Metric Dataset 7",
+      "asset_name": "workspace.default.mv_hpx_metric_view"
     }
   ],
   "pages": [
     {
-      "name": "hpx_curr_trendline_page",
-      "displayName": "HPX CURR - Trendline",
+      "name": "page_7",
+      "displayName": "HPX Metrics Dashboard",
       "layout": [
         {
           "widget": {
-            "name": "curr_trendline_widget",
+            "name": "widget_7",
             "queries": [
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "hpx_curr_dataset",
+                  "datasetName": "dataset_7",
                   "fields": [
                     {
-                      "name": "Week_Active",
-                      "expression": "`Week Active`"
+                      "name": "date",
+                      "expression": "DATE_TRUNC(\"DAY\", `date`)"
                     },
                     {
-                      "name": "CURR",
-                      "expression": "MEASURE(`Curr`)"
+                      "name": "active_users",
+                      "expression": "MEASURE(`active_users`)"
                     }
                   ],
                   "disaggregated": false
@@ -38,23 +39,23 @@
               "widgetType": "line",
               "encodings": {
                 "x": {
-                  "fieldName": "Week_Active",
-                  "displayName": "Week Active",
+                  "fieldName": "date",
+                  "displayName": "Date",
                   "scale": {
                     "type": "temporal"
                   }
                 },
                 "y": {
-                  "fieldName": "CURR",
-                  "displayName": "CURR",
+                  "fieldName": "active_users",
+                  "displayName": "Active Users",
                   "scale": {
                     "type": "quantitative"
                   }
                 }
               },
               "frame": {
-                "title": "% Devices active in the previous week t14t20, last week t7t13 and this week t0t6",
-                "showTitle": true
+                "showTitle": true,
+                "title": "Active Users Over Time"
               }
             }
           },
@@ -66,7 +67,8 @@
           }
         }
       ],
-      "pageType": "PAGE_TYPE_CANVAS"
+      "pageType": "PAGE_TYPE_CANVAS",
+      "filters": []
     }
   ],
   "uiSettings": {

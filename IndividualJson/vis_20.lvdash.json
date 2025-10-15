@@ -33,14 +33,7 @@
                       "expression": "MEASURE(`Active Devices`) / SUM(MEASURE(`Active Devices`)) OVER ()"
                     }
                   ],
-                  "disaggregated": false,
-                  "limit": 10,
-                  "orderBy": [
-                    {
-                      "fieldName": "Percent Active Devices by Country",
-                      "direction": "DESC"
-                    }
-                  ]
+                  "disaggregated": false
                 }
               }
             ],
@@ -77,36 +70,7 @@
           }
         }
       ],
-      "pageType": "PAGE_TYPE_CANVAS",
-      "filters": [
-        {
-          "fieldName": "App Version",
-          "displayName": "App Version",
-          "type": "FILTER",
-          "isMandatory": false,
-          "isSingleValue": false,
-          "excludedValues": ["not a store release", "other non-releases"]
-        },
-        {
-          "fieldName": "Event Date Time",
-          "displayName": "Event Date Time",
-          "type": "FILTER",
-          "isMandatory": false,
-          "isSingleValue": false,
-          "defaultValues": {
-            "operator": "GREATER_THAN_OR_EQUAL_TO",
-            "values": ["2023-05-01"]
-          }
-        },
-        {
-          "fieldName": "Os Version",
-          "displayName": "Os Version",
-          "type": "FILTER",
-          "isMandatory": false,
-          "isSingleValue": false,
-          "excludedValues": [null]
-        }
-      ]
+      "pageType": "PAGE_TYPE_CANVAS"
     }
   ],
   "uiSettings": {

@@ -1,32 +1,33 @@
+# Databricks notebook source
 {
   "datasets": [
     {
-      "name": "hpx_curr_dataset",
-      "displayName": "HPX CURR Dataset",
-      "asset_name": "workspace.default.mv_hpx_curr"
+      "name": "hpx_metric_dataset",
+      "displayName": "HPX Metric Dataset",
+      "asset_name": "workspace.default.HPX_metric_view"
     }
   ],
   "pages": [
     {
-      "name": "hpx_curr_trendline_page",
-      "displayName": "HPX CURR - Trendline",
+      "name": "hpx_executive_summary",
+      "displayName": "HPX Executive Summary",
       "layout": [
         {
           "widget": {
-            "name": "curr_trendline_widget",
+            "name": "visualization_19",
             "queries": [
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "hpx_curr_dataset",
+                  "datasetName": "hpx_metric_dataset",
                   "fields": [
                     {
-                      "name": "Week_Active",
-                      "expression": "`Week Active`"
+                      "name": "date_dimension",
+                      "expression": "DATE_TRUNC(\"MONTH\", `Date`)"
                     },
                     {
-                      "name": "CURR",
-                      "expression": "MEASURE(`Curr`)"
+                      "name": "metric_value",
+                      "expression": "MEASURE(`Value`)"
                     }
                   ],
                   "disaggregated": false
@@ -38,23 +39,23 @@
               "widgetType": "line",
               "encodings": {
                 "x": {
-                  "fieldName": "Week_Active",
-                  "displayName": "Week Active",
+                  "fieldName": "date_dimension",
+                  "displayName": "Date",
                   "scale": {
                     "type": "temporal"
                   }
                 },
                 "y": {
-                  "fieldName": "CURR",
-                  "displayName": "CURR",
+                  "fieldName": "metric_value",
+                  "displayName": "Metric Value",
                   "scale": {
                     "type": "quantitative"
                   }
                 }
               },
               "frame": {
-                "title": "% Devices active in the previous week t14t20, last week t7t13 and this week t0t6",
-                "showTitle": true
+                "showTitle": true,
+                "title": "HPX Executive Summary Metric Trend"
               }
             }
           },
@@ -66,7 +67,16 @@
           }
         }
       ],
-      "pageType": "PAGE_TYPE_CANVAS"
+      "pageType": "PAGE_TYPE_CANVAS",
+      "filters": [
+        {
+          "fieldName": "date",
+          "displayName": "Date",
+          "type": "FILTER",
+          "isMandatory": false,
+          "isSingleValue": false
+        }
+      ]
     }
   ],
   "uiSettings": {

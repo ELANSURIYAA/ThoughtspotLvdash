@@ -1,0 +1,1488 @@
+{
+  "datasets": [
+    {
+      "name": "dataset_7",
+      "displayName": "HPX Metric Dataset 7",
+      "asset_name": "workspace.default.mv_hpx_metric_view"
+    },
+    {
+      "name": "hpx_metric_dataset",
+      "displayName": "HPX Metrics",
+      "asset_name": "workspace.default.mv_hpx_metrics"
+    },
+    {
+      "name": "hpx_metric_dataset",
+      "displayName": "HPX Metric Dataset",
+      "asset_name": "workspace.default.hpx_metric_view"
+    },
+    {
+      "name": "hpx_metric_dataset",
+      "displayName": "HPX Metric Dataset",
+      "asset_name": "workspace.default.HPX_metric_view"
+    }
+  ],
+  "pages": [
+    {
+      "name": "page_7",
+      "displayName": "HPX Metrics Dashboard",
+      "layout": [
+        {
+          "widget": {
+            "name": "widget_7",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "dataset_7",
+                  "fields": [
+                    {
+                      "name": "date",
+                      "expression": "DATE_TRUNC(\"DAY\", `date`)"
+                    },
+                    {
+                      "name": "active_users",
+                      "expression": "MEASURE(`active_users`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "line",
+              "encodings": {
+                "x": {
+                  "fieldName": "date",
+                  "displayName": "Date",
+                  "scale": {
+                    "type": "temporal"
+                  }
+                },
+                "y": {
+                  "fieldName": "active_users",
+                  "displayName": "Active Users",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Active Users Over Time"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 12,
+            "height": 8
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS",
+      "filters": []
+    },
+    {
+      "name": "hpx_executive_summary",
+      "displayName": "HPX Executive Summary",
+      "layout": [
+        {
+          "widget": {
+            "name": "performance_trend_chart",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "dataset_7",
+                  "fields": [
+                    {
+                      "name": "date",
+                      "expression": "DATE_TRUNC('MONTH', `Date`)"
+                    },
+                    {
+                      "name": "total_revenue",
+                      "expression": "MEASURE(`Total Revenue`)"
+                    },
+                    {
+                      "name": "total_cost",
+                      "expression": "MEASURE(`Total Cost`)"
+                    },
+                    {
+                      "name": "profit_margin",
+                      "expression": "MEASURE(`Profit Margin`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "line",
+              "encodings": {
+                "x": {
+                  "fieldName": "date",
+                  "displayName": "Month",
+                  "scale": {
+                    "type": "temporal"
+                  }
+                },
+                "y": {
+                  "fields": [
+                    {
+                      "fieldName": "total_revenue",
+                      "displayName": "Total Revenue"
+                    },
+                    {
+                      "fieldName": "total_cost",
+                      "displayName": "Total Cost"
+                    },
+                    {
+                      "fieldName": "profit_margin",
+                      "displayName": "Profit Margin"
+                    }
+                  ],
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Performance Metrics Over Time"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 12,
+            "height": 8
+          }
+        },
+        {
+          "widget": {
+            "name": "line_chart_widget",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "dataset_7",
+                  "fields": [
+                    {
+                      "name": "date",
+                      "expression": "DATE_TRUNC('MONTH', `date`)"
+                    },
+                    {
+                      "name": "active_users",
+                      "expression": "MEASURE(`active_users`)"
+                    },
+                    {
+                      "name": "new_users",
+                      "expression": "MEASURE(`new_users`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "line",
+              "encodings": {
+                "x": {
+                  "fieldName": "date",
+                  "displayName": "Date",
+                  "scale": {
+                    "type": "temporal"
+                  }
+                },
+                "y": {
+                  "fields": [
+                    {
+                      "fieldName": "active_users",
+                      "displayName": "Active Users"
+                    },
+                    {
+                      "fieldName": "new_users",
+                      "displayName": "New Users"
+                    }
+                  ],
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                }
+              },
+              "frame": {
+                "title": "User Activity Over Time",
+                "showTitle": true
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 12,
+            "height": 8
+          }
+        },
+        {
+          "widget": {
+            "name": "visualization_19",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "dataset_7",
+                  "fields": [
+                    {
+                      "name": "date_dimension",
+                      "expression": "DATE_TRUNC(\"MONTH\", `Date`)"
+                    },
+                    {
+                      "name": "metric_value",
+                      "expression": "MEASURE(`Value`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "line",
+              "encodings": {
+                "x": {
+                  "fieldName": "date_dimension",
+                  "displayName": "Date",
+                  "scale": {
+                    "type": "temporal"
+                  }
+                },
+                "y": {
+                  "fieldName": "metric_value",
+                  "displayName": "Metric Value",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "HPX Executive Summary Metric Trend"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 12,
+            "height": 8
+          }
+        },
+        {
+          "widget": {
+            "name": "performance_trend_widget",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "hpx_metric_dataset",
+                  "fields": [
+                    {
+                      "name": "Event Date",
+                      "expression": "DATE_TRUNC('MONTH', `Event Date`)"
+                    },
+                    {
+                      "name": "Active Users",
+                      "expression": "MEASURE(`Active Users`)"
+                    },
+                    {
+                      "name": "Transactions",
+                      "expression": "MEASURE(`Transactions`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "line",
+              "encodings": {
+                "x": {
+                  "fieldName": "Event Date",
+                  "displayName": "Event Date",
+                  "scale": {
+                    "type": "temporal"
+                  }
+                },
+                "y": {
+                  "fields": [
+                    {
+                      "fieldName": "Active Users",
+                      "displayName": "Active Users"
+                    },
+                    {
+                      "fieldName": "Transactions",
+                      "displayName": "Transactions"
+                    }
+                  ],
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Performance Trend Over Time"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 12,
+            "height": 8
+          }
+        },
+        {
+          "widget": {
+            "name": "active_users_trend_widget",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "hpx_metric_dataset",
+                  "fields": [
+                    {
+                      "name": "event_date",
+                      "expression": "DATE_TRUNC(\"MONTH\", `Event Date`)"
+                    },
+                    {
+                      "name": "active_users",
+                      "expression": "MEASURE(`Active Users`)"
+                    },
+                    {
+                      "name": "new_users",
+                      "expression": "MEASURE(`New Users`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "line",
+              "encodings": {
+                "x": {
+                  "fieldName": "event_date",
+                  "displayName": "Event Date",
+                  "scale": {
+                    "type": "temporal"
+                  }
+                },
+                "y": {
+                  "fields": [
+                    {
+                      "fieldName": "active_users",
+                      "displayName": "Active Users"
+                    },
+                    {
+                      "fieldName": "new_users",
+                      "displayName": "New Users"
+                    }
+                  ],
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "User Activity Trends"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 12,
+            "height": 8
+          }
+        },
+        {
+          "widget": {
+            "name": "widget_001",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "dataset_7",
+                  "fields": [
+                    {
+                      "name": "date_dimension",
+                      "expression": "DATE_TRUNC(\"MONTH\", `Date`)"
+                    },
+                    {
+                      "name": "active_users",
+                      "expression": "MEASURE(`Active Users`)"
+                    },
+                    {
+                      "name": "new_users",
+                      "expression": "MEASURE(`New Users`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "line",
+              "encodings": {
+                "x": {
+                  "fieldName": "date_dimension",
+                  "displayName": "Month",
+                  "scale": {
+                    "type": "temporal"
+                  }
+                },
+                "y": {
+                  "fields": [
+                    {
+                      "fieldName": "active_users",
+                      "displayName": "Active Users"
+                    },
+                    {
+                      "fieldName": "new_users",
+                      "displayName": "New Users"
+                    }
+                  ],
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "User Activity Trends"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 12,
+            "height": 8
+          }
+        },
+        {
+          "widget": {
+            "name": "widget_10",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "dataset_7",
+                  "fields": [
+                    {
+                      "name": "date",
+                      "expression": "DATE_TRUNC(\"MONTH\", `date`)"
+                    },
+                    {
+                      "name": "active_users",
+                      "expression": "MEASURE(`active_users`)"
+                    },
+                    {
+                      "name": "new_users",
+                      "expression": "MEASURE(`new_users`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "line",
+              "encodings": {
+                "x": {
+                  "fieldName": "date",
+                  "displayName": "Month",
+                  "scale": {
+                    "type": "temporal"
+                  }
+                },
+                "y": {
+                  "fields": [
+                    {
+                      "fieldName": "active_users",
+                      "displayName": "Active Users"
+                    },
+                    {
+                      "fieldName": "new_users",
+                      "displayName": "New Users"
+                    }
+                  ],
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Monthly User Activity"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 12,
+            "height": 8
+          }
+        },
+        {
+          "widget": {
+            "name": "hpx_trend_chart",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "dataset_7",
+                  "fields": [
+                    {
+                      "name": "date",
+                      "expression": "DATE_TRUNC('MONTH', `Date`)"
+                    },
+                    {
+                      "name": "active_users",
+                      "expression": "MEASURE(`Active Users`)"
+                    },
+                    {
+                      "name": "new_users",
+                      "expression": "MEASURE(`New Users`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "line",
+              "encodings": {
+                "x": {
+                  "fieldName": "date",
+                  "displayName": "Month",
+                  "scale": {
+                    "type": "temporal"
+                  }
+                },
+                "y": {
+                  "fields": [
+                    {
+                      "fieldName": "active_users",
+                      "displayName": "Active Users"
+                    },
+                    {
+                      "fieldName": "new_users",
+                      "displayName": "New Users"
+                    }
+                  ],
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "User Growth Trends"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 12,
+            "height": 8
+          }
+        },
+        {
+          "widget": {
+            "name": "hpx_widget_15",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "dataset_7",
+                  "fields": [
+                    {
+                      "name": "Event Date",
+                      "expression": "DATE_TRUNC('MONTH', `Event Date`)"
+                    },
+                    {
+                      "name": "Active Devices",
+                      "expression": "MEASURE(`Active Devices`)"
+                    },
+                    {
+                      "name": "Total Events",
+                      "expression": "MEASURE(`Total Events`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "line",
+              "encodings": {
+                "x": {
+                  "fieldName": "Event Date",
+                  "displayName": "Event Date",
+                  "scale": {
+                    "type": "temporal"
+                  }
+                },
+                "y": {
+                  "fields": [
+                    {
+                      "fieldName": "Active Devices",
+                      "displayName": "Active Devices"
+                    },
+                    {
+                      "fieldName": "Total Events",
+                      "displayName": "Total Events"
+                    }
+                  ],
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Active Devices and Total Events Over Time"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 12,
+            "height": 8
+          }
+        },
+        {
+          "widget": {
+            "name": "active_users_chart",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "dataset_7",
+                  "fields": [
+                    {
+                      "name": "date",
+                      "expression": "DATE_TRUNC('MONTH', `Date`)"
+                    },
+                    {
+                      "name": "active_users",
+                      "expression": "MEASURE(`Active Users`)"
+                    },
+                    {
+                      "name": "new_users",
+                      "expression": "MEASURE(`New Users`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "line",
+              "encodings": {
+                "x": {
+                  "fieldName": "date",
+                  "displayName": "Date",
+                  "scale": {
+                    "type": "temporal"
+                  }
+                },
+                "y": {
+                  "fields": [
+                    {
+                      "fieldName": "active_users",
+                      "displayName": "Active Users"
+                    },
+                    {
+                      "fieldName": "new_users",
+                      "displayName": "New Users"
+                    }
+                  ],
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "User Activity Trends"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 12,
+            "height": 8
+          }
+        },
+        {
+          "widget": {
+            "name": "active_devices_trend_widget",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "hpx_metric_dataset",
+                  "fields": [
+                    {
+                      "name": "event_date",
+                      "expression": "DATE_TRUNC(\"DAY\", `Event Date`)"
+                    },
+                    {
+                      "name": "active_devices",
+                      "expression": "MEASURE(`Active Devices`)"
+                    },
+                    {
+                      "name": "cumulative_devices",
+                      "expression": "SUM(MEASURE(`Active Devices`)) OVER (ORDER BY DATE_TRUNC(\"DAY\", `Event Date`) ROWS UNBOUNDED PRECEDING)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "line",
+              "encodings": {
+                "x": {
+                  "fieldName": "event_date",
+                  "displayName": "Event Date",
+                  "scale": {
+                    "type": "temporal"
+                  }
+                },
+                "y": {
+                  "fields": [
+                    {
+                      "fieldName": "active_devices",
+                      "displayName": "Active Devices"
+                    },
+                    {
+                      "fieldName": "cumulative_devices",
+                      "displayName": "Cumulative Devices"
+                    }
+                  ],
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                }
+              },
+              "frame": {
+                "title": "Active Devices Trend",
+                "showTitle": true
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 12,
+            "height": 8
+          }
+        },
+        {
+          "widget": {
+            "name": "performance_trend_chart",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "dataset_7",
+                  "fields": [
+                    {
+                      "name": "date",
+                      "expression": "DATE_TRUNC(\"MONTH\", `Date`)"
+                    },
+                    {
+                      "name": "total_revenue",
+                      "expression": "MEASURE(`Revenue`)"
+                    },
+                    {
+                      "name": "total_cost",
+                      "expression": "MEASURE(`Cost`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "line",
+              "encodings": {
+                "x": {
+                  "fieldName": "date",
+                  "displayName": "Month",
+                  "scale": {
+                    "type": "temporal"
+                  }
+                },
+                "y": {
+                  "fields": [
+                    {
+                      "fieldName": "total_revenue",
+                      "displayName": "Revenue"
+                    },
+                    {
+                      "fieldName": "total_cost",
+                      "displayName": "Cost"
+                    }
+                  ],
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Revenue and Cost Trends"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 12,
+            "height": 8
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS",
+      "filters": [
+        {
+          "fieldName": "date",
+          "displayName": "Date",
+          "type": "FILTER",
+          "isMandatory": false,
+          "isSingleValue": false
+        },
+        {
+          "fieldName": "region",
+          "displayName": "Region",
+          "type": "FILTER",
+          "isMandatory": false,
+          "isSingleValue": true
+        },
+        {
+          "fieldName": "Event Date",
+          "displayName": "Event Date",
+          "type": "FILTER",
+          "isMandatory": false,
+          "isSingleValue": false
+        },
+        {
+          "fieldName": "Region",
+          "displayName": "Region",
+          "type": "FILTER",
+          "isMandatory": false,
+          "isSingleValue": true
+        },
+        {
+          "fieldName": "Date",
+          "displayName": "Date",
+          "type": "FILTER",
+          "isMandatory": false,
+          "isSingleValue": false
+        }
+      ]
+    },
+    {
+      "name": "executive_summary_page",
+      "displayName": "Executive Summary",
+      "layout": [
+        {
+          "widget": {
+            "name": "hpx_visualization_widget",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "dataset_7",
+                  "fields": [
+                    {
+                      "name": "date",
+                      "expression": "DATE_TRUNC('MONTH', `date`)"
+                    },
+                    {
+                      "name": "total_users",
+                      "expression": "MEASURE(`total_users`)"
+                    },
+                    {
+                      "name": "active_users",
+                      "expression": "MEASURE(`active_users`)"
+                    },
+                    {
+                      "name": "new_users",
+                      "expression": "MEASURE(`new_users`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "line",
+              "encodings": {
+                "x": {
+                  "fieldName": "date",
+                  "displayName": "Date",
+                  "scale": {
+                    "type": "temporal"
+                  }
+                },
+                "y": {
+                  "fields": [
+                    {
+                      "fieldName": "total_users",
+                      "displayName": "Total Users"
+                    },
+                    {
+                      "fieldName": "active_users",
+                      "displayName": "Active Users"
+                    },
+                    {
+                      "fieldName": "new_users",
+                      "displayName": "New Users"
+                    }
+                  ],
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                }
+              },
+              "frame": {
+                "title": "User Metrics Over Time",
+                "showTitle": true
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 12,
+            "height": 8
+          }
+        },
+        {
+          "widget": {
+            "name": "hpx_visualization_17",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "dataset_7",
+                  "fields": [
+                    {
+                      "name": "date",
+                      "expression": "DATE_TRUNC('MONTH', `date`)"
+                    },
+                    {
+                      "name": "total_users",
+                      "expression": "MEASURE(`total_users`)"
+                    },
+                    {
+                      "name": "active_users",
+                      "expression": "MEASURE(`active_users`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "line",
+              "encodings": {
+                "x": {
+                  "fieldName": "date",
+                  "displayName": "Date",
+                  "scale": {
+                    "type": "temporal"
+                  }
+                },
+                "y": {
+                  "fields": [
+                    {
+                      "fieldName": "total_users",
+                      "displayName": "Total Users"
+                    },
+                    {
+                      "fieldName": "active_users",
+                      "displayName": "Active Users"
+                    }
+                  ],
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                }
+              },
+              "frame": {
+                "title": "User Metrics Over Time",
+                "showTitle": true
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 12,
+            "height": 8
+          }
+        },
+        {
+          "widget": {
+            "name": "performance_chart",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "dataset_7",
+                  "fields": [
+                    {
+                      "name": "date",
+                      "expression": "`date`"
+                    },
+                    {
+                      "name": "total_users",
+                      "expression": "MEASURE(`total_users`)"
+                    },
+                    {
+                      "name": "active_users",
+                      "expression": "MEASURE(`active_users`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "line",
+              "encodings": {
+                "x": {
+                  "fieldName": "date",
+                  "displayName": "Date",
+                  "scale": {
+                    "type": "temporal"
+                  }
+                },
+                "y": {
+                  "fields": [
+                    {
+                      "fieldName": "total_users",
+                      "displayName": "Total Users"
+                    },
+                    {
+                      "fieldName": "active_users",
+                      "displayName": "Active Users"
+                    }
+                  ],
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                }
+              },
+              "frame": {
+                "title": "User Activity Metrics",
+                "showTitle": true
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 12,
+            "height": 8
+          }
+        },
+        {
+          "widget": {
+            "name": "widget_11",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "hpx_metric_dataset",
+                  "fields": [
+                    {
+                      "name": "month",
+                      "expression": "DATE_TRUNC(\"MONTH\", `Date`)"
+                    },
+                    {
+                      "name": "total_active_devices",
+                      "expression": "MEASURE(`Active Devices`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "line",
+              "encodings": {
+                "x": {
+                  "fieldName": "month",
+                  "displayName": "Month",
+                  "scale": {
+                    "type": "temporal"
+                  }
+                },
+                "y": {
+                  "fieldName": "total_active_devices",
+                  "displayName": "Total Active Devices",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Monthly Active Devices"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 12,
+            "height": 8
+          }
+        },
+        {
+          "widget": {
+            "name": "performance_metrics_chart",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "dataset_7",
+                  "fields": [
+                    {
+                      "name": "date",
+                      "expression": "DATE_TRUNC(\"MONTH\", `date`)"
+                    },
+                    {
+                      "name": "total_revenue",
+                      "expression": "MEASURE(`Total Revenue`)"
+                    },
+                    {
+                      "name": "total_cost",
+                      "expression": "MEASURE(`Total Cost`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "line",
+              "encodings": {
+                "x": {
+                  "fieldName": "date",
+                  "displayName": "Month",
+                  "scale": {
+                    "type": "temporal"
+                  }
+                },
+                "y": {
+                  "fields": [
+                    {
+                      "fieldName": "total_revenue",
+                      "displayName": "Total Revenue"
+                    },
+                    {
+                      "fieldName": "total_cost",
+                      "displayName": "Total Cost"
+                    }
+                  ],
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                }
+              },
+              "frame": {
+                "title": "Revenue vs Cost Trend",
+                "showTitle": true
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 12,
+            "height": 8
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS",
+      "filters": [
+        {
+          "fieldName": "date",
+          "displayName": "Date",
+          "type": "FILTER",
+          "isMandatory": false,
+          "isSingleValue": false
+        },
+        {
+          "fieldName": "region",
+          "displayName": "Region",
+          "type": "FILTER",
+          "isMandatory": false,
+          "isSingleValue": true
+        },
+        {
+          "fieldName": "Date",
+          "displayName": "Date",
+          "type": "FILTER",
+          "isMandatory": false,
+          "isSingleValue": false
+        }
+      ]
+    },
+    {
+      "name": "hpx_overview_page",
+      "displayName": "HPX Overview",
+      "layout": [
+        {
+          "widget": {
+            "name": "hpx_performance_chart",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "dataset_7",
+                  "fields": [
+                    {
+                      "name": "date",
+                      "expression": "DATE_TRUNC(\"MONTH\", `date`)"
+                    },
+                    {
+                      "name": "total_users",
+                      "expression": "MEASURE(`total_users`)"
+                    },
+                    {
+                      "name": "active_users",
+                      "expression": "MEASURE(`active_users`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "line",
+              "encodings": {
+                "x": {
+                  "fieldName": "date",
+                  "displayName": "Month",
+                  "scale": {
+                    "type": "temporal"
+                  }
+                },
+                "y": {
+                  "fields": [
+                    {
+                      "fieldName": "total_users",
+                      "displayName": "Total Users"
+                    },
+                    {
+                      "fieldName": "active_users",
+                      "displayName": "Active Users"
+                    }
+                  ],
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                }
+              },
+              "frame": {
+                "title": "User Metrics Over Time",
+                "showTitle": true
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 12,
+            "height": 8
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS",
+      "filters": [
+        {
+          "fieldName": "date",
+          "displayName": "Date",
+          "type": "FILTER",
+          "isMandatory": false,
+          "isSingleValue": false
+        },
+        {
+          "fieldName": "region",
+          "displayName": "Region",
+          "type": "FILTER",
+          "isMandatory": false,
+          "isSingleValue": true
+        }
+      ]
+    },
+    {
+      "name": "global_filter_001",
+      "displayName": "Global Filters",
+      "layout": [
+        {
+          "widget": {
+            "name": "widget_date_filter",
+            "queries": [
+              {
+                "name": "dashboards/example_dashboard_id/datasets/example_dataset_example_date",
+                "query": {
+                  "datasetName": "example_dataset",
+                  "fields": [
+                    {
+                      "name": "Example Date",
+                      "expression": "`Example Date`"
+                    },
+                    {
+                      "name": "Example Date_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "filter-date-picker",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "Example Date",
+                    "displayName": "Example Date",
+                    "queryName": "dashboards/example_dashboard_id/datasets/example_dataset_example_date"
+                  }
+                ]
+              },
+              "selection": {
+                "defaultSelection": {
+                  "values": {
+                    "dataType": "DATETIME",
+                    "values": [
+                      {
+                        "value": "2025-01-01T00:00:00.000"
+                      }
+                    ]
+                  }
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "DateFilter"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 1,
+            "height": 2
+          }
+        },
+        {
+          "widget": {
+            "name": "widget_region_filter",
+            "queries": [
+              {
+                "name": "dashboards/example_dashboard_id/datasets/example_dataset_region",
+                "query": {
+                  "datasetName": "example_dataset",
+                  "fields": [
+                    {
+                      "name": "Region",
+                      "expression": "`Region`"
+                    },
+                    {
+                      "name": "Region_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "filter-single-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "Region",
+                    "displayName": "Region",
+                    "queryName": "dashboards/example_dashboard_id/datasets/example_dataset_region"
+                  }
+                ]
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "RegionFilter"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 2,
+            "width": 1,
+            "height": 2
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_GLOBAL_FILTERS",
+      "uiSettings": {
+        "theme": {
+          "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+        }
+      }
+    }
+  ],
+  "uiSettings": {
+    "theme": {
+      "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+    }
+  }
+}
